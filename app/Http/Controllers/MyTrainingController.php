@@ -51,7 +51,7 @@ class MyTrainingController extends Controller {
         $tosend = array();
         $userId = $dl->getUserID($_SESSION['loggedName']);
         $tpexecution = $dl->getUserTrainingProgramExecutionByUserId($userId);
-        //echo $tpexecution;
+        
         $date = null;
         $tpid = null;
         foreach ($tpexecution as $ex) {
@@ -63,7 +63,7 @@ class MyTrainingController extends Controller {
                 $tosend['exercises'][]= $dl->getUserTrainingProgramExecutionByUserIdDateAndTrainingProgram($userId, $date, $tpid);
             }
         }
-        //dd($tosend->sortBy('date'));
+        
         return view('mytraining.historystatistic')->with('logged', true)->with('loggedName', $_SESSION["loggedName"])
                         ->with('result', $tosend);
     }
