@@ -10,11 +10,11 @@ use Illuminate\Support\Facades\Redirect;
 class TrainingProgramController extends Controller {
 
     public function index() {//DONE
-        session_start();
-
-        if (!isset($_SESSION['logged'])) {
-            return Redirect::to(route('user.login'));
-        }
+//        session_start();
+//
+//        if (!isset($_SESSION['logged'])) {
+//            return Redirect::to(route('user.login'));
+//        }
 
         $dl = new DataLayer();
 
@@ -26,11 +26,11 @@ class TrainingProgramController extends Controller {
     }
 
     public function create() {//DONE
-        session_start();
-
-        if (!isset($_SESSION['logged'])) {
-            return Redirect::to(route('user.login'));
-        }
+//        session_start();
+//
+//        if (!isset($_SESSION['logged'])) {
+//            return Redirect::to(route('user.login'));
+//        }
 
         $dl = new DataLayer();
 
@@ -41,11 +41,11 @@ class TrainingProgramController extends Controller {
     }
 
     public function store(Request $request) {//DONE     
-        session_start();
-
-        if (!isset($_SESSION['logged'])) {
-            return Redirect::to(route('user.login'));
-        }
+//        session_start();
+//
+//        if (!isset($_SESSION['logged'])) {
+//            return Redirect::to(route('user.login'));
+//        }
 
         $dl = new DataLayer();
         $dl->createTrainingProgram($request->input('trainingProgramTitle'), $request->input('trainingProgramDescription'), $request->input('trainingProgramTimeMin'), $request->input('trainingProgramTimeMax'));
@@ -63,10 +63,10 @@ class TrainingProgramController extends Controller {
     }
 
     public function show($id) {//TODO
-        session_start();
-        if(!isset($_SESSION['logged'])) {
-            return Redirect::to(route('user.login'));
-        }
+//        session_start();
+//        if(!isset($_SESSION['logged'])) {
+//            return Redirect::to(route('user.login'));
+//        }
         
         $dl = new DataLayer();
         $trainingprogram = $dl->findCompleteTrainingProgramById($id);
@@ -76,11 +76,11 @@ class TrainingProgramController extends Controller {
     }
 
     public function edit($id) {//DONE     
-        session_start();
-
-        if (!isset($_SESSION['logged'])) {
-            return Redirect::to(route('user.login'));
-        }
+//        session_start();
+//
+//        if (!isset($_SESSION['logged'])) {
+//            return Redirect::to(route('user.login'));
+//        }
 
         $dl = new DataLayer();
         $trainingprogram = $dl->findCompleteTrainingProgramById($id);
@@ -91,11 +91,11 @@ class TrainingProgramController extends Controller {
     }
 
     public function update(Request $request, $id) {//DONE
-        session_start();
-
-        if (!isset($_SESSION['logged'])) {
-            return Redirect::to(route('user.login'));
-        }
+//        session_start();
+//
+//        if (!isset($_SESSION['logged'])) {
+//            return Redirect::to(route('user.login'));
+//        }
 
         $dl = new DataLayer();
         $dl->editTrainingProgram($id,$request->input('trainingProgramTitle'), $request->input('trainingProgramDescription'), $request->input('trainingProgramTimeMin'), $request->input('trainingProgramTimeMax'));
@@ -116,11 +116,11 @@ class TrainingProgramController extends Controller {
     }
 
     public function destroy($id) {//DONE
-        session_start();
-    
-        if(!isset($_SESSION['logged'])) {
-            return Redirect::to(route('user.login'));
-        }
+//        session_start();
+//    
+//        if(!isset($_SESSION['logged'])) {
+//            return Redirect::to(route('user.login'));
+//        }
         $dl = new DataLayer();
          
         $tp = $dl->findCompleteTrainingProgramById($id);
@@ -135,11 +135,11 @@ class TrainingProgramController extends Controller {
     }
 
     public function confirmDestroy($id) {//DONE
-        session_start();
-    
-        if(!isset($_SESSION['logged'])) {
-            return Redirect::to(route('user.login'));
-        }
+//        session_start();
+//    
+//        if(!isset($_SESSION['logged'])) {
+//            return Redirect::to(route('user.login'));
+//        }
         
         $dl = new DataLayer();
         
@@ -150,11 +150,11 @@ class TrainingProgramController extends Controller {
     }
 
     public function addmytraining($id) {//DONE
-        session_start();
-
-        if (!isset($_SESSION['logged'])) {
-            return Redirect::to(route('user.login'));
-        }
+//        session_start();
+//
+//        if (!isset($_SESSION['logged'])) {
+//            return Redirect::to(route('user.login'));
+//        }
 
         $dl = new DataLayer();
 

@@ -10,11 +10,11 @@ use Illuminate\Support\Facades\Redirect;
 class ExerciseController extends Controller
 {
     public function index() {//DONE
-        session_start();
-    
-        if(!isset($_SESSION['logged'])) {
-            return Redirect::to(route('user.login'));
-        }
+//        session_start();
+//    
+//        if(!isset($_SESSION['logged'])) {
+//            return Redirect::to(route('user.login'));
+//        }
         
         $dl = new DataLayer();
         
@@ -26,11 +26,11 @@ class ExerciseController extends Controller
     }
     
     public function create() {//DONE
-        session_start();
-    
-        if(!isset($_SESSION['logged'])) {
-            return Redirect::to(route('user.login'));
-        }
+//        session_start();
+//    
+//        if(!isset($_SESSION['logged'])) {
+//            return Redirect::to(route('user.login'));
+//        }
         
         $dl = new DataLayer();
 
@@ -41,11 +41,11 @@ class ExerciseController extends Controller
     }
     
     public function store(Request $request) {//DONE     
-       session_start();
-    
-        if(!isset($_SESSION['logged'])) {
-            return Redirect::to(route('user.login'));
-        }
+//       session_start();
+//    
+//        if(!isset($_SESSION['logged'])) {
+//            return Redirect::to(route('user.login'));
+//        }
         
         $dl = new DataLayer();
         $dl->createExercise($request->input('exerciseName'), $request->input('exerciseDescription'),$request->input('exerciseImportantNotes'),
@@ -72,10 +72,10 @@ class ExerciseController extends Controller
     }
     
     public function show($id) {//DONE
-        session_start();
-        if(!isset($_SESSION['logged'])) {
-            return Redirect::to(route('user.login'));
-        }
+//        session_start();
+//        if(!isset($_SESSION['logged'])) {
+//            return Redirect::to(route('user.login'));
+//        }
         
         $dl = new DataLayer();
         
@@ -87,11 +87,11 @@ class ExerciseController extends Controller
     }
     
     public function edit($id) {//DONE     
-        session_start();
-    
-        if(!isset($_SESSION['logged'])) {
-            return Redirect::to(route('user.login'));
-        }
+//        session_start();
+//    
+//        if(!isset($_SESSION['logged'])) {
+//            return Redirect::to(route('user.login'));
+//        }
         
         $dl = new DataLayer();
         
@@ -104,11 +104,11 @@ class ExerciseController extends Controller
     }
     
     public function postupdate(Request $request, $id){//DONE
-        session_start();
-    
-        if(!isset($_SESSION['logged'])) {
-            return Redirect::to(route('user.login'));
-        }
+//        session_start();
+//    
+//        if(!isset($_SESSION['logged'])) {
+//            return Redirect::to(route('user.login'));
+//        }
         
         $dl = new DataLayer();
         $dl->editExercise($id, $request->input('exerciseName'), $request->input('exerciseDescription'),$request->input('exerciseImportantNotes'),
@@ -154,11 +154,11 @@ class ExerciseController extends Controller
     }
     
     public function destroy ($id) {//DONE
-        session_start();
-    
-        if(!isset($_SESSION['logged'])) {
-            return Redirect::to(route('user.login'));
-        }
+//        session_start();
+//    
+//        if(!isset($_SESSION['logged'])) {
+//            return Redirect::to(route('user.login'));
+//        }
         $dl = new DataLayer();
         //prmi elimino le foto legate all'esercizio e le righe dell atabella di legame con tools
         
@@ -175,11 +175,11 @@ class ExerciseController extends Controller
     }
     
     public function confirmDestroy($id) {//DONE
-        session_start();
-    
-        if(!isset($_SESSION['logged'])) {
-            return Redirect::to(route('user.login'));
-        }
+//        session_start();
+//    
+//        if(!isset($_SESSION['logged'])) {
+//            return Redirect::to(route('user.login'));
+//        }
         
         $dl = new DataLayer();
         
