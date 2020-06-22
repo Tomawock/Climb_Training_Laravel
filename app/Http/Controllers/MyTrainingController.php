@@ -63,7 +63,7 @@ class MyTrainingController extends Controller {
                 $tosend['exercises'][]= $dl->getUserTrainingProgramExecutionByUserIdDateAndTrainingProgram($userId, $date, $tpid);
             }
         }
-        
+        //nel caso in cui non ho match mi va in null pointer exception, è da gestire TODO
         return view('mytraining.historystatistic')->with('logged', true)->with('loggedName', $_SESSION["loggedName"])
                         ->with('result', $tosend);
     }
