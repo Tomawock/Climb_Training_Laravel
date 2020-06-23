@@ -1,13 +1,15 @@
 @extends('layout.master')
 
-@section('titolo', 'Exercise Show')
+@section('titolo')
+@lang('label.showExerciseTitle')
+@endsection
 
 @section('stile', 'style.css')
 
 @section('breadcrumb')
-<li><a href="{{ route('home') }}">Home</a></li>
-<li><a href="{{ route('exercise.index') }}">Exercises List</a></li>
-<li><a class="active">Show Exercise</a></li>
+<li><a href="{{ route('home') }}">@lang('label.homePageNavbar')</a></li>
+<li><a href="{{ route('exercise.index') }}">@lang('label.exerciseListNavbar')</a></li>
+<li><a class="active">@lang('label.showExerciseTitle')</a></li>
 @endsection
 
 @section('corpo')
@@ -16,19 +18,19 @@
         <div class="col-md-12">
             <div class="panel panel-default ">
                 <!-- Default panel contents -->
-                <div class="panel-heading text-center panel-relative"><h2 class="panel-title"><strong>Exercise Details</strong></h2></div>
+                <div class="panel-heading text-center panel-relative"><h2 class="panel-title"><strong>@lang('label.showExerciseTableTitle')</strong></h2></div>
                 <!-- Table -->
                 <div class="col-md-12 col-xs-12">
                     <div  class="table-responsive">
                         <table class="table table-responsive text-center">
                             <thead>
                                 <tr>
-                                    <th class="col-md-2 text-center">Reps</th>
-                                    <th class="col-md-2 text-center">Sets</th>
-                                    <th class="col-md-2 text-center">Rest</th>                                       
-                                    <th class="col-md-2 text-center">Overweight</th>
-                                    <th class="col-md-1 text-center">Unit</th>
-                                    <th class="col-md-3 text-center">Tools</th>
+                                    <th class="col-md-2 text-center">@lang('label.exerciseReps')</th>
+                                    <th class="col-md-2 text-center">@lang('label.exerciseSets')</th>
+                                    <th class="col-md-2 text-center">@lang('label.exerciseRest')</th>                                       
+                                    <th class="col-md-2 text-center">@lang('label.exerciseOverweight')</th>
+                                    <th class="col-md-1 text-center">@lang('label.exerciseUnit')</th>
+                                    <th class="col-md-3 text-center">@lang('label.exerciseTools')</th>
                                 </tr>
                             </thead>
 
@@ -55,12 +57,12 @@
         <div class="col-md-8">
             <div class="panel panel-default">
                 <div class='panel-heading text-center panel-relative'>
-                    <h2 class="panel-title"><strong>Description and Important Notes</strong></h2>
+                    <h2 class="panel-title"><strong>@lang('label.showExerciseDesciptionTitle')</strong></h2>
                 </div>
                 <div class='panel-body'>
                     <p><h3>{{$exercise->description}}<br></h3></p>
                     <div class="notice notice-warning">
-                        <h4><strong>Important Notes</strong></h4>
+                        <h4><strong>@lang('label.showExerciseDesciptionTitle')</strong></h4>
                         <p>
                         <h4>{{$exercise->importantNotes}}</h4>
                         </p>
@@ -72,7 +74,7 @@
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class='panel-heading text-center panel-relative'>
-                    <h2 class="panel-title"><strong>Photo</strong></h2>
+                    <h2 class="panel-title"><strong>@lang('label.showExercisePhotoTitle')</strong></h2>
                 </div>
                 <div class='panel-body'>
                     @foreach ($exercise->photos as $ph) 

@@ -18,11 +18,15 @@ return [
     'revert' => 'Revert',
     'confirm' => 'Confirm',
     'delete' => 'Delete',
+    'show'=>'Show',
+    'edit'=>'Edit',
     'min' => 'Min',
     'max' => 'Max',
     'save'=>'Save',
     'create'=>'Create',
     'cancel'=>'Cancel',
+    'search'=>'Search',
+    'exeute'=>'Execute',
     
     'destroyExerciseTitle' => 'Delete Exercise',
     'destroyExerciseHeader' => 'Delete exercise ":name" from the list ?',
@@ -41,8 +45,7 @@ return [
     'editExerciseNamePH' => 'Exercise Name',
     'editExerciseDescriptionPH' => 'Insert Exercise Description',
     'editExerciseImportantNotesPH' => 'Important Notes for correct execution of the exercise',
-    'editExerciseAddPhotoPH' => 'insert the exercise Photo Description',
-    
+    'editExerciseAddPhotoPH' => 'Insert the exercise Photo Description',
     
     'exerciseReps' => 'Reps',
     'exerciseSets' => 'Sets',
@@ -50,13 +53,16 @@ return [
     'exerciseUnit' => 'Unit',
     'exerciseRest' => 'Rest',
     'exerciseTools' => 'Tecnical Tools',
+    'exercises' => 'Exercises',
     
+    'showExerciseTitle' => 'Exercise Show',
+    'showExerciseTableTitle' => 'Exercise Details',
+    'showExerciseDesciptionTitle' => 'Description and Important Notes', 
+    'showExerciseImportantNotesTitle' => 'Important Notes',    
+    'showExercisePhotoTitle' => 'Photos',
     
-    
-    
-    
-    
-    
+    'mytrainingExecuteTitle' => 'Execute Training Program',
+    'mytrainingExecuteDate' => 'Date of Execution',
     
     
 ];

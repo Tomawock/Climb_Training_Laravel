@@ -1,13 +1,15 @@
 @extends('layout.master')
 
-@section('titolo', 'Execute Training Program')
+@section('titolo')
+@lang('label.mytrainingExecuteTitle')
+@endsection
 
 @section('stile', 'style.css')
 
 @section('breadcrumb')
-<li><a href="{{ route('home') }}">Home</a></li>
-<li><a href="{{ route('mytraining.programlist') }}">Personal Training Program</a></li>
-<li><a class="active">Execute</a></li>      
+<li><a href="{{ route('home') }}">@lang('label.homePageNavbar')</a></li>
+<li><a href="{{ route('mytraining.programlist') }}">@lang('label.personalTrainingNavbar')</a></li>
+<li><a class="active">@lang('label.execute')</a></li>      
 @endsection
 
 @section('corpo')
@@ -17,7 +19,7 @@
             <form class="form-horizontal" name="trainingProgram" method="post" action="{{ route('mytraining.postexecute',['id' => $trainingprogram->id]) }}">
                 @csrf
                 <div class="form-group">
-                    <label for="executionDate" class="col-md-2">Date of execution</label>
+                    <label for="executionDate" class="col-md-2">@lang('label.personalTrainingNavbar')</label>
                     <div class="col-md-10">
                         <input type="date" class="form-control" id="executionDate" name="executionDate" value="{{date("d/m/Y")}}">
                     </div>
@@ -28,7 +30,7 @@
                     <!-- Default panel contents -->
                     <div class="panel-heading text-center panel-relative">
                         <h2 class="panel-title">
-                            <strong>Exercises</strong>
+                            <strong>@lang('label.exercises')</strong>
                         </h2>
                     </div>
                     <div class="panel-body">

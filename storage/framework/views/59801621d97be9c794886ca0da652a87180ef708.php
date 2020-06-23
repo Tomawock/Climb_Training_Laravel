@@ -34,7 +34,7 @@
                     <label for="exerciseName" class="col-md-2"><?php echo app('translator')->get('label.editExerciseName'); ?></label>
                     <div class="col-md-10">
                         <?php if(isset($exercise->id)): ?>
-                            <input class="form-control" type="text" id="exerciseName" name="exerciseName" placeholder="" value="<?php echo e($exercise->name); ?>">
+                            <input class="form-control" type="text" id="exerciseName" name="exerciseName" placeholder="<?php echo app('translator')->get('label.editExerciseNamePH'); ?>" value="<?php echo e($exercise->name); ?>">
                         <?php else: ?>
                             <input class="form-control" type="text" id="exerciseName" name="exerciseName" placeholder="<?php echo app('translator')->get('label.editExerciseNamePH'); ?>">
                         <?php endif; ?>
@@ -45,9 +45,9 @@
                     <label for="exerciseDescription" class="col-md-2"><?php echo app('translator')->get('label.editExerciseDescription'); ?></label>
                     <div class="col-md-10">
                          <?php if(isset($exercise->id)): ?>
-                            <textarea class="form-control" rows="4" id="exerciseDescription" name="exerciseDescription" placeholder="Complete Exercise Description" ><?php echo e($exercise->description); ?></textarea>
+                            <textarea class="form-control" rows="4" id="exerciseDescription" name="exerciseDescription" placeholder="<?php echo app('translator')->get('label.editExerciseDescriptionPH'); ?>" ><?php echo e($exercise->description); ?></textarea>
                         <?php else: ?>
-                            <textarea class="form-control" rows="4" id="exerciseDescription" name="exerciseDescription" placeholder="Complete Exercise Description"></textarea>
+                            <textarea class="form-control" rows="4" id="exerciseDescription" name="exerciseDescription" placeholder="<?php echo app('translator')->get('label.editExerciseDescriptionPH'); ?>"></textarea>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -56,9 +56,9 @@
                     <label for="exerciseImportantNotes" class="col-md-2"><?php echo app('translator')->get('label.editExerciseImportantNotes'); ?></label>
                     <div class="col-md-10">
                         <?php if(isset($exercise->id)): ?>
-                            <textarea class="form-control" rows="2" id="exerciseImportantNotes" name="exerciseImportantNotes" placeholder="Important Notes for correct execution of the exercise"><?php echo e($exercise->importantNotes); ?></textarea>
+                            <textarea class="form-control" rows="2" id="exerciseImportantNotes" name="exerciseImportantNotes" placeholder="<?php echo app('translator')->get('label.editExerciseImportantNotesPH'); ?>"><?php echo e($exercise->importantNotes); ?></textarea>
                         <?php else: ?>
-                            <textarea class="form-control" rows="2" id="exerciseImportantNotes" name="exerciseImportantNotes" placeholder="Important Notes for correct execution of the exercise"></textarea>
+                            <textarea class="form-control" rows="2" id="exerciseImportantNotes" name="exerciseImportantNotes" placeholder="<?php echo app('translator')->get('label.editExerciseImportantNotesPH'); ?>"></textarea>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                 <div class="form-group">
                     <label for="exercisePhoto" class="col-md-2"><?php echo app('translator')->get('label.editExerciseAddPhoto'); ?></label>
                     <div class="col-md-5">
-                        <input class="form-control" type="text" id="exercisePhotoDescription" name="exercisePhotoDescription" placeholder="Exercise Photo Description">
+                        <input class="form-control" type="text" id="exercisePhotoDescription" name="exercisePhotoDescription" placeholder="<?php echo app('translator')->get('label.editExerciseAddPhotoPH'); ?>">
                     </div>
                     <div class="col-md-5">
                         <input class="form-control-file" type="file" id="exercisePhoto" name="exercisePhoto">
