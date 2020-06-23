@@ -2,21 +2,21 @@
 
 @section('titolo')
 @if(isset($exercise->id))
-Edit exercise
+@lang('label.editExerciseTitle')
 @else
-New exercise
+@lang('label.editExerciseTitleCreate')
 @endif
 @endsection
 
 @section('stile', 'style.css')
 
 @section('breadcrumb')
-<li><a href="{{ route('home') }}">Home</a></li>
-<li><a href="{{ route('exercise.index') }}">Exercises List</a></li>
+<li><a href="{{ route('home') }}">@lang('label.homePageNavbar')</a></li>
+<li><a href="{{ route('exercise.index') }}">@lang('label.exerciseListNavbar')</a></li>
 @if(isset($exercise->id))
-<li><a class="active">Edit Exercise</a></li>
+<li><a class="active">@lang('label.editExerciseTitle')</a></li>
 @else
-<li><a class="active">New Exercise</a></li>
+<li><a class="active">@lang('label.editExerciseTitleCreate')</a></li>
 @endif
 @endsection
 
@@ -32,42 +32,42 @@ New exercise
                 {{csrf_field()}}
                 <!-- Name of the Exercise-->
                 <div class="form-group">
-                    <label for="exerciseName" class="col-md-2">Name</label>
+                    <label for="exerciseName" class="col-md-2">@lang('label.editExerciseName')</label>
                     <div class="col-md-10">
                         @if(isset($exercise->id))
-                            <input class="form-control" type="text" id="exerciseName" name="exerciseName" placeholder="Exercise Name" value="{{ $exercise->name }}">
+                            <input class="form-control" type="text" id="exerciseName" name="exerciseName" placeholder="@lang('label.editExerciseNamePH')" value="{{ $exercise->name }}">
                         @else
-                            <input class="form-control" type="text" id="exerciseName" name="exerciseName" placeholder="Exercise Name">
+                            <input class="form-control" type="text" id="exerciseName" name="exerciseName" placeholder="@lang('label.editExerciseNamePH')">
                         @endif
                     </div>
                 </div>
                 <!-- Description-->
                 <div class="form-group">
-                    <label for="exerciseDescription" class="col-md-2">Description</label>
+                    <label for="exerciseDescription" class="col-md-2">@lang('label.editExerciseDescription')</label>
                     <div class="col-md-10">
                          @if(isset($exercise->id))
-                            <textarea class="form-control" rows="4" id="exerciseDescription" name="exerciseDescription" placeholder="Complete Exercise Description" >{{ $exercise->description }}</textarea>
+                            <textarea class="form-control" rows="4" id="exerciseDescription" name="exerciseDescription" placeholder="@lang('label.editExerciseDescriptionPH')" >{{ $exercise->description }}</textarea>
                         @else
-                            <textarea class="form-control" rows="4" id="exerciseDescription" name="exerciseDescription" placeholder="Complete Exercise Description"></textarea>
+                            <textarea class="form-control" rows="4" id="exerciseDescription" name="exerciseDescription" placeholder="@lang('label.editExerciseDescriptionPH')"></textarea>
                         @endif
                     </div>
                 </div>
                 <!-- Important Notes -->
                 <div class="form-group">
-                    <label for="exerciseImportantNotes" class="col-md-2">Important Notes</label>
+                    <label for="exerciseImportantNotes" class="col-md-2">@lang('label.editExerciseImportantNotes')</label>
                     <div class="col-md-10">
                         @if(isset($exercise->id))
-                            <textarea class="form-control" rows="2" id="exerciseImportantNotes" name="exerciseImportantNotes" placeholder="Important Notes for correct execution of the exercise">{{ $exercise->importantNotes }}</textarea>
+                            <textarea class="form-control" rows="2" id="exerciseImportantNotes" name="exerciseImportantNotes" placeholder="@lang('label.editExerciseImportantNotesPH')">{{ $exercise->importantNotes }}</textarea>
                         @else
-                            <textarea class="form-control" rows="2" id="exerciseImportantNotes" name="exerciseImportantNotes" placeholder="Important Notes for correct execution of the exercise"></textarea>
+                            <textarea class="form-control" rows="2" id="exerciseImportantNotes" name="exerciseImportantNotes" placeholder="@lang('label.editExerciseImportantNotesPH')"></textarea>
                         @endif
                     </div>
                 </div>
                 <!-- Photo Insertion-->
                 <div class="form-group">
-                    <label for="exercisePhoto" class="col-md-2"> Add Photo</label>
+                    <label for="exercisePhoto" class="col-md-2">@lang('label.editExerciseAddPhoto')</label>
                     <div class="col-md-5">
-                        <input class="form-control" type="text" id="exercisePhotoDescription" name="exercisePhotoDescription" placeholder="Exercise Photo Description">
+                        <input class="form-control" type="text" id="exercisePhotoDescription" name="exercisePhotoDescription" placeholder="@lang('label.editExerciseAddPhotoPH')">
                     </div>
                     <div class="col-md-5">
                         <input class="form-control-file" type="file" id="exercisePhoto" name="exercisePhoto">
@@ -76,7 +76,7 @@ New exercise
                 @if(isset($exercise->id))
                     @if($exercise->photos->count() > 0) 
                     <div class="form-group">
-                        <label class="col-md-2"> Keep Photo</label>
+                        <label class="col-md-2">@lang('label.editExerciseKeepPhoto')</label>
                         <div class="col-md-10">
                             @foreach ($exercise->photos as $actualPhoto) 
                             <label class="checkbox-inline">
@@ -89,8 +89,8 @@ New exercise
                 @endif
                 <!-- Reps -->
                 <div class="form-group">
-                    <label for="exerciseRepsMin" class=" col-md-2">Reps</label>
-                    <label for="exerciseRepsMin" class=" col-md-1">Min</label>
+                    <label for="exerciseRepsMin" class=" col-md-2">@lang('label.exerciseReps')</label>
+                    <label for="exerciseRepsMin" class=" col-md-1">@lang('label.min')</label>
                     <div class="col-md-1">
                         <select class="form-control" id="exerciseRepsMin" name="exerciseRepsMin">
                             @for ($i = 0; $i < 50; $i++)
@@ -103,7 +103,7 @@ New exercise
                         </select>
                     </div>
 
-                    <label for="exerciseRepsMax" class="col-md-1">Max</label>
+                    <label for="exerciseRepsMax" class="col-md-1">@lang('label.max')</label>
                     <div class="col-md-1">
                         <select class="form-control" id="exerciseRepsMax" name="exerciseRepsMax">
                             @for ($i = 0; $i < 50; $i++)
@@ -119,8 +119,8 @@ New exercise
                 </div>
                 <!-- Sets-->
                 <div class="form-group">
-                    <label for="exerciseSet" class="col-md-2">Sets</label>
-                    <label for="exerciseSetMin" class="col-md-1">Min</label>
+                    <label for="exerciseSet" class="col-md-2">@lang('label.exerciseSets')</label>
+                    <label for="exerciseSetMin" class="col-md-1">@lang('label.min')</label>
                     <div class="col-md-1">
                         <select class="form-control" id="exerciseSetMin" name="exerciseSetMin">
                             @for ($i = 0; $i < 50; $i++)
@@ -133,7 +133,7 @@ New exercise
                         </select>
                     </div>
 
-                    <label for="exerciseSetMax" class="col-md-1">Max</label>
+                    <label for="exerciseSetMax" class="col-md-1">@lang('label.max')</label>
                     <div class="col-md-1">
                         <select class="form-control" id="exerciseSetMax" name="exerciseSetMax">
                            @for ($i = 0; $i < 50; $i++)
@@ -148,8 +148,8 @@ New exercise
                 </div>   
                 <!-- Overweight-->
                 <div class="form-group">
-                    <label for="exerciseOverweight" class="col-md-2">Overweight</label>
-                    <label for="exerciseOverweightMin" class="col-md-1">Min</label>
+                    <label for="exerciseOverweight" class="col-md-2">@lang('label.exerciseOverweight')</label>
+                    <label for="exerciseOverweightMin" class="col-md-1">@lang('label.min')</label>
                     <div class="col-md-1">
                         <select class="form-control" id="exerciseOverweightMin" name="exerciseOverweightMin">
                             @for ($i = 0; $i < 50; $i++)
@@ -162,7 +162,7 @@ New exercise
                         </select>
                     </div>
 
-                    <label for="exerciseOverweightMax" class="col-md-1">Max</label>
+                    <label for="exerciseOverweightMax" class="col-md-1">@lang('label.max')</label>
                     <div class="col-md-1">
                         <select class="form-control" id="exerciseOverweightMax" name="exerciseOverweightMax">
                             @for ($i = 0; $i < 50; $i++)
@@ -174,7 +174,7 @@ New exercise
                             @endfor
                         </select>
                     </div>
-                    <label for="exerciseOverweightType" class="col-md-1">Unit</label>
+                    <label for="exerciseOverweightType" class="col-md-1">@lang('label.exerciseUnit')</label>
                     <div class="col-md-1">
                         <select class="form-control" id="exerciseOverweightUnit" name="exerciseOverweightUnit">
                             @foreach ($units as $unit)
@@ -189,8 +189,8 @@ New exercise
                 </div>
                 <!-- Rest-->
                 <div class="form-group">
-                    <label for="exerciseRest" class="col-md-2">Rest</label>
-                    <label for="exerciseRestMin" class="col-md-1">Min</label>
+                    <label for="exerciseRest" class="col-md-2">@lang('label.exerciseRest')</label>
+                    <label for="exerciseRestMin" class="col-md-1">@lang('label.min')</label>
                     <div class="col-md-2">
                         @if(isset($exercise->id))
                             <input type="time" id="exerciseRestMin" name="exerciseRestMin" class="form-control" min="00:00:00" max="24:59:59" value="{{ $exercise->restMin }}" required>
@@ -199,7 +199,7 @@ New exercise
                         @endif
                     </div>
 
-                    <label for="exerciseRestMax" class="col-md-1">Max</label>
+                    <label for="exerciseRestMax" class="col-md-1">@lang('label.max')</label>
                     <div class="col-md-2">
                         @if(isset($exercise->id))
                             <input type="time" id="exerciseRestMax" name="exerciseRestMax" class="form-control" min="00:00:00" max="24:59:59" value="{{ $exercise->restMax }}" required>
@@ -211,7 +211,7 @@ New exercise
                 <!-- Tecnical Tools-->
                 
                 <div class="form-group">
-                    <label for="exerciseTecnicalTools" class="col-md-2">Tecnical Tools</label>
+                    <label for="exerciseTecnicalTools" class="col-md-2">@lang('label.exerciseTools')</label>
                     <div class="col-md-10" class="form-control">
                         @foreach($tools as $actualTool)
                             @if(isset($exercise->id)&& $exercise->tools->contains($actualTool->id)==1)
@@ -231,10 +231,10 @@ New exercise
                     <div class="col-md-10 col-md-offset-2">
                         @if(isset($exercise->id))
                             <input type="hidden" name="id" value="{{$exercise->id}}"/>
-                            <label for="mySubmit" class="btn btn-primary btn-large btn-block"><span class="glyphicon glyphicon-floppy-save"></span> Save</label>
+                            <label for="mySubmit" class="btn btn-primary btn-large btn-block"><span class="glyphicon glyphicon-floppy-save"></span> @lang('label.save')</label>
                             <input id="mySubmit" type="submit" value=\'Save\' class="hidden"/>
                         @else
-                            <label for="mySubmit" class="btn btn-primary btn-large btn-block"><span class="glyphicon glyphicon-floppy-save"></span> Create</label>
+                            <label for="mySubmit" class="btn btn-primary btn-large btn-block"><span class="glyphicon glyphicon-floppy-save"></span> @lang('label.create')</label>
                             <input id="mySubmit" type="submit" value=\'Create\' class="hidden"/>
                         @endif                
                     </div>
@@ -242,7 +242,7 @@ New exercise
                 <!-- Buttons cancel-->
                 <div class="form-group">
                     <div class="col-md-10 col-md-offset-2">
-                        <a href="{{ route('exercise.index') }}" class="btn btn-danger btn-large btn-block"><span class="glyphicon glyphicon-log-out"></span> Cancel</a>                         
+                        <a href="{{ route('exercise.index') }}" class="btn btn-danger btn-large btn-block"><span class="glyphicon glyphicon-log-out"></span> @lang('label.cancel')</a>                         
                     </div>
                 </div>                   
             </form>

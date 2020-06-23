@@ -1,20 +1,20 @@
 <?php $__env->startSection('titolo'); ?>
 <?php if(isset($exercise->id)): ?>
-Edit exercise
+<?php echo app('translator')->get('label.editExerciseTitle'); ?>
 <?php else: ?>
-New exercise
+<?php echo app('translator')->get('label.editExerciseTitleCreate'); ?>
 <?php endif; ?>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('stile', 'style.css'); ?>
 
 <?php $__env->startSection('breadcrumb'); ?>
-<li><a href="<?php echo e(route('home')); ?>">Home</a></li>
-<li><a href="<?php echo e(route('exercise.index')); ?>">Exercises List</a></li>
+<li><a href="<?php echo e(route('home')); ?>"><?php echo app('translator')->get('label.homePageNavbar'); ?></a></li>
+<li><a href="<?php echo e(route('exercise.index')); ?>"><?php echo app('translator')->get('label.exerciseListNavbar'); ?></a></li>
 <?php if(isset($exercise->id)): ?>
-<li><a class="active">Edit Exercise</a></li>
+<li><a class="active"><?php echo app('translator')->get('label.editExerciseTitle'); ?></a></li>
 <?php else: ?>
-<li><a class="active">New Exercise</a></li>
+<li><a class="active"><?php echo app('translator')->get('label.editExerciseTitleCreate'); ?></a></li>
 <?php endif; ?>
 <?php $__env->stopSection(); ?>
 
@@ -31,18 +31,18 @@ New exercise
 
                 <!-- Name of the Exercise-->
                 <div class="form-group">
-                    <label for="exerciseName" class="col-md-2">Name</label>
+                    <label for="exerciseName" class="col-md-2"><?php echo app('translator')->get('label.editExerciseName'); ?></label>
                     <div class="col-md-10">
                         <?php if(isset($exercise->id)): ?>
-                            <input class="form-control" type="text" id="exerciseName" name="exerciseName" placeholder="Exercise Name" value="<?php echo e($exercise->name); ?>">
+                            <input class="form-control" type="text" id="exerciseName" name="exerciseName" placeholder="" value="<?php echo e($exercise->name); ?>">
                         <?php else: ?>
-                            <input class="form-control" type="text" id="exerciseName" name="exerciseName" placeholder="Exercise Name">
+                            <input class="form-control" type="text" id="exerciseName" name="exerciseName" placeholder="<?php echo app('translator')->get('label.editExerciseNamePH'); ?>">
                         <?php endif; ?>
                     </div>
                 </div>
                 <!-- Description-->
                 <div class="form-group">
-                    <label for="exerciseDescription" class="col-md-2">Description</label>
+                    <label for="exerciseDescription" class="col-md-2"><?php echo app('translator')->get('label.editExerciseDescription'); ?></label>
                     <div class="col-md-10">
                          <?php if(isset($exercise->id)): ?>
                             <textarea class="form-control" rows="4" id="exerciseDescription" name="exerciseDescription" placeholder="Complete Exercise Description" ><?php echo e($exercise->description); ?></textarea>
@@ -53,7 +53,7 @@ New exercise
                 </div>
                 <!-- Important Notes -->
                 <div class="form-group">
-                    <label for="exerciseImportantNotes" class="col-md-2">Important Notes</label>
+                    <label for="exerciseImportantNotes" class="col-md-2"><?php echo app('translator')->get('label.editExerciseImportantNotes'); ?></label>
                     <div class="col-md-10">
                         <?php if(isset($exercise->id)): ?>
                             <textarea class="form-control" rows="2" id="exerciseImportantNotes" name="exerciseImportantNotes" placeholder="Important Notes for correct execution of the exercise"><?php echo e($exercise->importantNotes); ?></textarea>
@@ -64,7 +64,7 @@ New exercise
                 </div>
                 <!-- Photo Insertion-->
                 <div class="form-group">
-                    <label for="exercisePhoto" class="col-md-2"> Add Photo</label>
+                    <label for="exercisePhoto" class="col-md-2"><?php echo app('translator')->get('label.editExerciseAddPhoto'); ?></label>
                     <div class="col-md-5">
                         <input class="form-control" type="text" id="exercisePhotoDescription" name="exercisePhotoDescription" placeholder="Exercise Photo Description">
                     </div>
@@ -75,7 +75,7 @@ New exercise
                 <?php if(isset($exercise->id)): ?>
                     <?php if($exercise->photos->count() > 0): ?> 
                     <div class="form-group">
-                        <label class="col-md-2"> Keep Photo</label>
+                        <label class="col-md-2"><?php echo app('translator')->get('label.editExerciseKeepPhoto'); ?></label>
                         <div class="col-md-10">
                             <?php $__currentLoopData = $exercise->photos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $actualPhoto): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
                             <label class="checkbox-inline">
@@ -89,8 +89,8 @@ New exercise
                 <?php endif; ?>
                 <!-- Reps -->
                 <div class="form-group">
-                    <label for="exerciseRepsMin" class=" col-md-2">Reps</label>
-                    <label for="exerciseRepsMin" class=" col-md-1">Min</label>
+                    <label for="exerciseRepsMin" class=" col-md-2"><?php echo app('translator')->get('label.exerciseReps'); ?></label>
+                    <label for="exerciseRepsMin" class=" col-md-1"><?php echo app('translator')->get('label.min'); ?></label>
                     <div class="col-md-1">
                         <select class="form-control" id="exerciseRepsMin" name="exerciseRepsMin">
                             <?php for($i = 0; $i < 50; $i++): ?>
@@ -103,7 +103,7 @@ New exercise
                         </select>
                     </div>
 
-                    <label for="exerciseRepsMax" class="col-md-1">Max</label>
+                    <label for="exerciseRepsMax" class="col-md-1"><?php echo app('translator')->get('label.max'); ?></label>
                     <div class="col-md-1">
                         <select class="form-control" id="exerciseRepsMax" name="exerciseRepsMax">
                             <?php for($i = 0; $i < 50; $i++): ?>
@@ -119,8 +119,8 @@ New exercise
                 </div>
                 <!-- Sets-->
                 <div class="form-group">
-                    <label for="exerciseSet" class="col-md-2">Sets</label>
-                    <label for="exerciseSetMin" class="col-md-1">Min</label>
+                    <label for="exerciseSet" class="col-md-2"><?php echo app('translator')->get('label.exerciseSets'); ?></label>
+                    <label for="exerciseSetMin" class="col-md-1"><?php echo app('translator')->get('label.min'); ?></label>
                     <div class="col-md-1">
                         <select class="form-control" id="exerciseSetMin" name="exerciseSetMin">
                             <?php for($i = 0; $i < 50; $i++): ?>
@@ -133,7 +133,7 @@ New exercise
                         </select>
                     </div>
 
-                    <label for="exerciseSetMax" class="col-md-1">Max</label>
+                    <label for="exerciseSetMax" class="col-md-1"><?php echo app('translator')->get('label.max'); ?></label>
                     <div class="col-md-1">
                         <select class="form-control" id="exerciseSetMax" name="exerciseSetMax">
                            <?php for($i = 0; $i < 50; $i++): ?>
@@ -148,8 +148,8 @@ New exercise
                 </div>   
                 <!-- Overweight-->
                 <div class="form-group">
-                    <label for="exerciseOverweight" class="col-md-2">Overweight</label>
-                    <label for="exerciseOverweightMin" class="col-md-1">Min</label>
+                    <label for="exerciseOverweight" class="col-md-2"><?php echo app('translator')->get('label.exerciseOverweight'); ?></label>
+                    <label for="exerciseOverweightMin" class="col-md-1"><?php echo app('translator')->get('label.min'); ?></label>
                     <div class="col-md-1">
                         <select class="form-control" id="exerciseOverweightMin" name="exerciseOverweightMin">
                             <?php for($i = 0; $i < 50; $i++): ?>
@@ -162,7 +162,7 @@ New exercise
                         </select>
                     </div>
 
-                    <label for="exerciseOverweightMax" class="col-md-1">Max</label>
+                    <label for="exerciseOverweightMax" class="col-md-1"><?php echo app('translator')->get('label.max'); ?></label>
                     <div class="col-md-1">
                         <select class="form-control" id="exerciseOverweightMax" name="exerciseOverweightMax">
                             <?php for($i = 0; $i < 50; $i++): ?>
@@ -174,7 +174,7 @@ New exercise
                             <?php endfor; ?>
                         </select>
                     </div>
-                    <label for="exerciseOverweightType" class="col-md-1">Unit</label>
+                    <label for="exerciseOverweightType" class="col-md-1"><?php echo app('translator')->get('label.exerciseUnit'); ?></label>
                     <div class="col-md-1">
                         <select class="form-control" id="exerciseOverweightUnit" name="exerciseOverweightUnit">
                             <?php $__currentLoopData = $units; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $unit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -189,8 +189,8 @@ New exercise
                 </div>
                 <!-- Rest-->
                 <div class="form-group">
-                    <label for="exerciseRest" class="col-md-2">Rest</label>
-                    <label for="exerciseRestMin" class="col-md-1">Min</label>
+                    <label for="exerciseRest" class="col-md-2"><?php echo app('translator')->get('label.exerciseRest'); ?></label>
+                    <label for="exerciseRestMin" class="col-md-1"><?php echo app('translator')->get('label.min'); ?></label>
                     <div class="col-md-2">
                         <?php if(isset($exercise->id)): ?>
                             <input type="time" id="exerciseRestMin" name="exerciseRestMin" class="form-control" min="00:00:00" max="24:59:59" value="<?php echo e($exercise->restMin); ?>" required>
@@ -199,7 +199,7 @@ New exercise
                         <?php endif; ?>
                     </div>
 
-                    <label for="exerciseRestMax" class="col-md-1">Max</label>
+                    <label for="exerciseRestMax" class="col-md-1"><?php echo app('translator')->get('label.max'); ?></label>
                     <div class="col-md-2">
                         <?php if(isset($exercise->id)): ?>
                             <input type="time" id="exerciseRestMax" name="exerciseRestMax" class="form-control" min="00:00:00" max="24:59:59" value="<?php echo e($exercise->restMax); ?>" required>
@@ -211,7 +211,7 @@ New exercise
                 <!-- Tecnical Tools-->
                 
                 <div class="form-group">
-                    <label for="exerciseTecnicalTools" class="col-md-2">Tecnical Tools</label>
+                    <label for="exerciseTecnicalTools" class="col-md-2"><?php echo app('translator')->get('label.exerciseTools'); ?></label>
                     <div class="col-md-10" class="form-control">
                         <?php $__currentLoopData = $tools; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $actualTool): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if(isset($exercise->id)&& $exercise->tools->contains($actualTool->id)==1): ?>
@@ -233,10 +233,10 @@ New exercise
                     <div class="col-md-10 col-md-offset-2">
                         <?php if(isset($exercise->id)): ?>
                             <input type="hidden" name="id" value="<?php echo e($exercise->id); ?>"/>
-                            <label for="mySubmit" class="btn btn-primary btn-large btn-block"><span class="glyphicon glyphicon-floppy-save"></span> Save</label>
+                            <label for="mySubmit" class="btn btn-primary btn-large btn-block"><span class="glyphicon glyphicon-floppy-save"></span> <?php echo app('translator')->get('label.save'); ?></label>
                             <input id="mySubmit" type="submit" value=\'Save\' class="hidden"/>
                         <?php else: ?>
-                            <label for="mySubmit" class="btn btn-primary btn-large btn-block"><span class="glyphicon glyphicon-floppy-save"></span> Create</label>
+                            <label for="mySubmit" class="btn btn-primary btn-large btn-block"><span class="glyphicon glyphicon-floppy-save"></span> <?php echo app('translator')->get('label.create'); ?></label>
                             <input id="mySubmit" type="submit" value=\'Create\' class="hidden"/>
                         <?php endif; ?>                
                     </div>
@@ -244,7 +244,7 @@ New exercise
                 <!-- Buttons cancel-->
                 <div class="form-group">
                     <div class="col-md-10 col-md-offset-2">
-                        <a href="<?php echo e(route('exercise.index')); ?>" class="btn btn-danger btn-large btn-block"><span class="glyphicon glyphicon-log-out"></span> Cancel</a>                         
+                        <a href="<?php echo e(route('exercise.index')); ?>" class="btn btn-danger btn-large btn-block"><span class="glyphicon glyphicon-log-out"></span> <?php echo app('translator')->get('label.cancel'); ?></a>                         
                     </div>
                 </div>                   
             </form>

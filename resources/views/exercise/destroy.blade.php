@@ -1,13 +1,15 @@
 @extends('layout.master')
 
-@section('titolo', 'Delete Exercise')
+@section('titolo')
+@lang('label.destroyExerciseTitle')
+@endsection
 
 @section('stile', 'style.css')
 
 @section('breadcrumb')
-<li><a href="{{ route('home') }}">Home</a></li>
-<li><a href="{{ route('exercise.index') }}">Exercises List</a></li>
-<li><a class="active">Delete Exercise</a></li>
+<li><a href="{{ route('home') }}">@lang('label.homePageNavbar')</a></li>
+<li><a href="{{ route('exercise.index') }}">@lang('label.exerciseListNavbar')</a></li>
+<li><a class="active">@lang('label.destroyExerciseTitle')</a></li>
 @endsection
 
 @section('corpo')
@@ -16,11 +18,11 @@
         <div class="col-md-12">
             <header>
                 <h1>
-                    Delete exercise "{{ $exercise->name }}" from the list
+                    {!! trans('label.destroyExerciseHeader', [ 'name' => $exercise->name ]) !!}
                 </h1>
             </header>
             <p class='lead'>
-                Deleting exercise. Confirm?
+                @lang('label.destroyExerciseConfirm')
             </p>
         </div>
     </div>
@@ -31,11 +33,11 @@
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class='panel-heading'>
-                    Revert
+                    @lang('label.revert')
                 </div>
                 <div class='panel-body'>
-                    <p>The exercise <strong>will not be removed</strong> from the data base</p>
-                    <p><a class="btn btn-default" href="{{ route('exercise.index') }}"><span class='glyphicon glyphicon-log-out'></span> Back to Exercise list</a></p>
+                    <p>@lang('label.destroyExerciseRevertMessage')</p>
+                    <p><a class="btn btn-default" href="{{ route('exercise.index') }}"><span class='glyphicon glyphicon-log-out'></span> @lang('label.destroyExerciseBackMessage')</a></p>
                 </div>
             </div>
         </div>
@@ -43,15 +45,14 @@
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class='panel-heading'>
-                    Confirm
+                    @lang('label.confirm')
                 </div>
                 <div class='panel-body'>
-                    <p>The exercise <strong>will be permanently removed</strong> from the data base</p>
-                    <p><a class="btn btn-danger" href="{{ route('exercise.destroy', ['id' => $exercise->id]) }}"><span class='glyphicon glyphicon-trash'></span> Delete</a></p>
+                    <p>@lang('label.destroyExerciseConfirmMessage')</p>
+                    <p><a class="btn btn-danger" href="{{ route('exercise.destroy', ['id' => $exercise->id]) }}"><span class='glyphicon glyphicon-trash'></span> @lang('label.delete')</a></p>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 @endsection
