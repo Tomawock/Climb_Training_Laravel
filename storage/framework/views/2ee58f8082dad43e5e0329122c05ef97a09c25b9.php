@@ -80,68 +80,52 @@
                             </h2>
                         </div>
                         <div class="panel-body">
-                            <div class="col-md-2">
-                                <input type="text" class="form-control" placeholder="<?php echo app('translator')->get('label.search'); ?>">
-                            </div>
-                            <div class="col-md-1">
-                                <span class="input-group-btn">   
-                                    <button class="btn btn-link" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                                </span>
-                            </div>
-                            <div class="col-md-1">
-                                <label for="orderTrainingProgramReps" class="btn btn-default"><span class="glyphicon glyphicon-arrow-up"></span> <?php echo app('translator')->get('label.exerciseReps'); ?></label>
-                                <input id="orderTrainingProgramReps" type="submit" value='orderReps' class="hidden"/>      
-                            </div>
-                            <div class="col-md-1">
-                                <label for="orderTrainingProgramSetss" class="btn btn-default"><span class="glyphicon glyphicon-arrow-up"></span> <?php echo app('translator')->get('label.exerciseSets'); ?></label>
-                                <input id="orderTrainingProgramSets" type="submit" value='orderSets' class="hidden"/>      
-                            </div>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-hover text-center">
-                                <thead>
-                                    <tr>
-                                        <th class="col-md-2 text-center"><?php echo app('translator')->get('label.editExerciseName'); ?></th>
-                                        <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseReps'); ?></th>
-                                        <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseSets'); ?></th>
-                                        <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseRest'); ?></th>
-                                        <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseOverweight'); ?></th> 
-                                        <th class="col-md-1 text-center"><?php echo app('translator')->get('label.exerciseTools'); ?></th>
-                                        <th class="col-md-1 text-center"><?php echo app('translator')->get('label.selected'); ?></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php if(isset($trainingprogram->id)): ?>
-                                    <?php $__currentLoopData = $allExercises; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $exercise): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <tr>
-                                        <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->name); ?></div></td>
-                                        <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->repsMin); ?> - <?php echo e($exercise->repsMax); ?></div></td>
-                                        <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->setMin); ?>  - <?php echo e($exercise->setMax); ?></div></td>
-                                        <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->restMin); ?> - <?php echo e($exercise->restMax); ?> </div></td>
-                                        <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->overweightMin); ?> - <?php echo e($exercise->overweightMax); ?> <?php echo e($exercise->overweightUnit); ?></div></td>     
-                                        <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->myToolsToString()); ?></div></td>
-                                        <?php if($trainingprogram->exercises->contains($exercise->id) == 1): ?> 
-                                        <td><div style="height:50px; overflow:hidden"><input type="checkbox" name="exercise<?php echo e($exercise->id); ?>" checked></div></td>
+                            <div class="table-responsive">
+                                <table class="table table-hover text-center">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-2 text-center"><?php echo app('translator')->get('label.editExerciseName'); ?></th>
+                                            <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseReps'); ?></th>
+                                            <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseSets'); ?></th>
+                                            <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseRest'); ?></th>
+                                            <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseOverweight'); ?></th> 
+                                            <th class="col-md-1 text-center"><?php echo app('translator')->get('label.exerciseTools'); ?></th>
+                                            <th class="col-md-1 text-center"><?php echo app('translator')->get('label.selected'); ?></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if(isset($trainingprogram->id)): ?>
+                                        <?php $__currentLoopData = $allExercises; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $exercise): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <tr>
+                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->name); ?></div></td>
+                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->repsMin); ?> - <?php echo e($exercise->repsMax); ?></div></td>
+                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->setMin); ?>  - <?php echo e($exercise->setMax); ?></div></td>
+                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->restMin); ?> - <?php echo e($exercise->restMax); ?> </div></td>
+                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->overweightMin); ?> - <?php echo e($exercise->overweightMax); ?> <?php echo e($exercise->overweightUnit); ?></div></td>     
+                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->myToolsToString()); ?></div></td>
+                                            <?php if($trainingprogram->exercises->contains($exercise->id) == 1): ?> 
+                                            <td><div style="height:50px; overflow:hidden"><input type="checkbox" name="exercise<?php echo e($exercise->id); ?>" checked></div></td>
+                                            <?php else: ?>
+                                            <td><div style="height:50px; overflow:hidden"><input type="checkbox" name="exercise<?php echo e($exercise->id); ?>"></div></td>
+                                            <?php endif; ?>
+                                        </tr>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         <?php else: ?>
-                                        <td><div style="height:50px; overflow:hidden"><input type="checkbox" name="exercise<?php echo e($exercise->id); ?>"></div></td>
-                                        <?php endif; ?>
-                                    </tr>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    <?php else: ?>
-                                    <?php $__currentLoopData = $allExercises; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $exercise): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
-                                    <tr>                                           
-                                        <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->name); ?></div></td>
-                                        <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->repsMin); ?> - <?php echo e($exercise->repsMax); ?></div></td>
-                                        <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->setMin); ?>  - <?php echo e($exercise->setMax); ?></div></td>
-                                        <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->restMin); ?> - <?php echo e($exercise->restMax); ?> </div></td>
-                                        <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->overweightMin); ?> - <?php echo e($exercise->overweightMax); ?> <?php echo e($exercise->overweightUnit); ?></div></td>     
-                                        <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->myToolsToString()); ?></div></td>
-                                        <td><div style="height:50px; overflow:hidden"><input type="checkbox" name="exercise<?php echo e($exercise->id); ?>"></div></td>  
-                                    </tr>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    <?php endif; ?>    
-                                </tbody>
-                            </table>
+                                        <?php $__currentLoopData = $allExercises; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $exercise): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+                                        <tr>                                           
+                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->name); ?></div></td>
+                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->repsMin); ?> - <?php echo e($exercise->repsMax); ?></div></td>
+                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->setMin); ?>  - <?php echo e($exercise->setMax); ?></div></td>
+                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->restMin); ?> - <?php echo e($exercise->restMax); ?> </div></td>
+                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->overweightMin); ?> - <?php echo e($exercise->overweightMax); ?> <?php echo e($exercise->overweightUnit); ?></div></td>     
+                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->myToolsToString()); ?></div></td>
+                                            <td><div style="height:50px; overflow:hidden"><input type="checkbox" name="exercise<?php echo e($exercise->id); ?>"></div></td>  
+                                        </tr>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        <?php endif; ?>    
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                     <!-- Buttons confirm-->
@@ -152,7 +136,8 @@
                     <?php else: ?>
                     <label for="mySubmit" class="btn btn-primary btn-large btn-block"><span class="glyphicon glyphicon-floppy-save"></span> <?php echo app('translator')->get('label.create'); ?></label>
                     <input id="mySubmit" type="submit" value=\'Create\' class="hidden"/>
-                    <?php endif; ?>                
+                    <?php endif; ?>   
+                    <br>
                     <a href="<?php echo e(route('trainingprogram.index')); ?>" class="btn btn-danger btn-large btn-block"><span class="glyphicon glyphicon-log-out"></span> <?php echo app('translator')->get('label.cancel'); ?></a>                         
                 </form>
         </div>   

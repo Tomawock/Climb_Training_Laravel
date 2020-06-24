@@ -14,6 +14,16 @@
 <!-- General Information -->
 <div class="container text-center">
     <div class="row">
+        <div class="col-md-12"> 
+            <h2>
+                <stong>
+                   <?php echo e($trainingprogram->title); ?>
+
+                </stong>
+            </h2>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-offset-4 col-md-4"> 
             <h3>
                 <stong>

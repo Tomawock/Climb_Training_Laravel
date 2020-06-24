@@ -109,7 +109,7 @@ return [
     'editTpDescriptionPH' => 'Complete Training Program Description',
     'editTpTime' => 'Time',
     
-    'showTpTitle'=>'Show Training Program',
+    'showTpTitle'=>'Training Program',
     'showTpDownloadPDF'=>'Download PDF',
    
 ];

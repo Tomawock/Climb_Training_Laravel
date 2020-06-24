@@ -25,9 +25,9 @@
                         <?php echo $__env->yieldContent('left_navbar'); ?>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <a href="<?php echo e(route('setLang', ['lang' => 'en'])); ?>" class="nav-link"><img src="<?php echo e(url('/')); ?>/img/flags/en.png" width="30" class="img-rounded"/></a>
-                        <a href="<?php echo e(route('setLang', ['lang' => 'it'])); ?>" class="nav-link"><img src="<?php echo e(url('/')); ?>/img/flags/it.png" width="24" class="img-rounded"/></a>
                         <?php echo $__env->yieldContent('right_navbar'); ?>
+                        <li><a href="<?php echo e(route('setLang', ['lang' => 'en'])); ?>" class="nav-link"><img src="<?php echo e(url('/')); ?>/img/flags/en.png" width="30" class="img-rounded"/></a></li>
+                        <li><a href="<?php echo e(route('setLang', ['lang' => 'it'])); ?>" class="nav-link"><img src="<?php echo e(url('/')); ?>/img/flags/it.png" width="24" class="img-rounded"/></a></li>
                     </ul>
                 </div>
             </div>

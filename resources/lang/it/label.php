@@ -109,7 +109,7 @@ return [
     'editTpDescriptionPH' => 'Descrizione completa della Scheda di Allenamtno',
     'editTpTime' => 'Tempo',
     
-    'showTpTitle'=>'Mostra Scheda di Allenamtno',
+    'showTpTitle'=>'Scheda di Allenamento',
     'showTpDownloadPDF'=>'Scarica PDF',
    
 ];

@@ -12,17 +12,7 @@
 <?php $__env->startSection('corpo'); ?>
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
-            <form  class="form-horizontal" name="searchForm" method="post" action="#"> 
-                <div class="input-group">
-                    <span class="input-group-btn">   
-                        <button class="btn btn-link" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                    </span>
-                    <input type="text" class="form-control" placeholder="<?php echo app('translator')->get('label.search'); ?>" name="search" id="search">     
-                </div>
-            </form>
-        </div>
-        <div class="col-md-offset-7 col-md-2">
+        <div class="col-md-offset-10 col-md-2">
             <a class="btn btn-success btn-block" href="<?php echo e(route('trainingprogram.create')); ?>"><span class="glyphicon glyphicon-new-window"></span> <?php echo app('translator')->get('label.editTpCreate'); ?></a>
         </div>
     </div>

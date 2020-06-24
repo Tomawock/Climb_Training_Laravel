@@ -82,68 +82,52 @@
                             </h2>
                         </div>
                         <div class="panel-body">
-                            <div class="col-md-2">
-                                <input type="text" class="form-control" placeholder="@lang('label.search')">
-                            </div>
-                            <div class="col-md-1">
-                                <span class="input-group-btn">   
-                                    <button class="btn btn-link" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                                </span>
-                            </div>
-                            <div class="col-md-1">
-                                <label for="orderTrainingProgramReps" class="btn btn-default"><span class="glyphicon glyphicon-arrow-up"></span> @lang('label.exerciseReps')</label>
-                                <input id="orderTrainingProgramReps" type="submit" value='orderReps' class="hidden"/>      
-                            </div>
-                            <div class="col-md-1">
-                                <label for="orderTrainingProgramSetss" class="btn btn-default"><span class="glyphicon glyphicon-arrow-up"></span> @lang('label.exerciseSets')</label>
-                                <input id="orderTrainingProgramSets" type="submit" value='orderSets' class="hidden"/>      
-                            </div>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-hover text-center">
-                                <thead>
-                                    <tr>
-                                        <th class="col-md-2 text-center">@lang('label.editExerciseName')</th>
-                                        <th class="col-md-2 text-center">@lang('label.exerciseReps')</th>
-                                        <th class="col-md-2 text-center">@lang('label.exerciseSets')</th>
-                                        <th class="col-md-2 text-center">@lang('label.exerciseRest')</th>
-                                        <th class="col-md-2 text-center">@lang('label.exerciseOverweight')</th> 
-                                        <th class="col-md-1 text-center">@lang('label.exerciseTools')</th>
-                                        <th class="col-md-1 text-center">@lang('label.selected')</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if(isset($trainingprogram->id))
-                                    @foreach ($allExercises as $exercise)
-                                    <tr>
-                                        <td><div style="height:50px; overflow:hidden">{{$exercise->name}}</div></td>
-                                        <td><div style="height:50px; overflow:hidden">{{$exercise->repsMin}} - {{$exercise->repsMax}}</div></td>
-                                        <td><div style="height:50px; overflow:hidden">{{$exercise->setMin}}  - {{$exercise->setMax }}</div></td>
-                                        <td><div style="height:50px; overflow:hidden">{{$exercise->restMin}} - {{ $exercise->restMax}} </div></td>
-                                        <td><div style="height:50px; overflow:hidden">{{$exercise->overweightMin}} - {{$exercise->overweightMax}} {{$exercise->overweightUnit}}</div></td>     
-                                        <td><div style="height:50px; overflow:hidden">{{$exercise->myToolsToString()}}</div></td>
-                                        @if ($trainingprogram->exercises->contains($exercise->id) == 1) 
-                                        <td><div style="height:50px; overflow:hidden"><input type="checkbox" name="exercise{{$exercise->id}}" checked></div></td>
+                            <div class="table-responsive">
+                                <table class="table table-hover text-center">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-2 text-center">@lang('label.editExerciseName')</th>
+                                            <th class="col-md-2 text-center">@lang('label.exerciseReps')</th>
+                                            <th class="col-md-2 text-center">@lang('label.exerciseSets')</th>
+                                            <th class="col-md-2 text-center">@lang('label.exerciseRest')</th>
+                                            <th class="col-md-2 text-center">@lang('label.exerciseOverweight')</th> 
+                                            <th class="col-md-1 text-center">@lang('label.exerciseTools')</th>
+                                            <th class="col-md-1 text-center">@lang('label.selected')</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if(isset($trainingprogram->id))
+                                        @foreach ($allExercises as $exercise)
+                                        <tr>
+                                            <td><div style="height:50px; overflow:hidden">{{$exercise->name}}</div></td>
+                                            <td><div style="height:50px; overflow:hidden">{{$exercise->repsMin}} - {{$exercise->repsMax}}</div></td>
+                                            <td><div style="height:50px; overflow:hidden">{{$exercise->setMin}}  - {{$exercise->setMax }}</div></td>
+                                            <td><div style="height:50px; overflow:hidden">{{$exercise->restMin}} - {{ $exercise->restMax}} </div></td>
+                                            <td><div style="height:50px; overflow:hidden">{{$exercise->overweightMin}} - {{$exercise->overweightMax}} {{$exercise->overweightUnit}}</div></td>     
+                                            <td><div style="height:50px; overflow:hidden">{{$exercise->myToolsToString()}}</div></td>
+                                            @if ($trainingprogram->exercises->contains($exercise->id) == 1) 
+                                            <td><div style="height:50px; overflow:hidden"><input type="checkbox" name="exercise{{$exercise->id}}" checked></div></td>
+                                            @else
+                                            <td><div style="height:50px; overflow:hidden"><input type="checkbox" name="exercise{{$exercise->id}}"></div></td>
+                                            @endif
+                                        </tr>
+                                        @endforeach
                                         @else
-                                        <td><div style="height:50px; overflow:hidden"><input type="checkbox" name="exercise{{$exercise->id}}"></div></td>
-                                        @endif
-                                    </tr>
-                                    @endforeach
-                                    @else
-                                    @foreach ($allExercises as $exercise) 
-                                    <tr>                                           
-                                        <td><div style="height:50px; overflow:hidden">{{$exercise->name}}</div></td>
-                                        <td><div style="height:50px; overflow:hidden">{{$exercise->repsMin}} - {{$exercise->repsMax}}</div></td>
-                                        <td><div style="height:50px; overflow:hidden">{{$exercise->setMin}}  - {{$exercise->setMax }}</div></td>
-                                        <td><div style="height:50px; overflow:hidden">{{$exercise->restMin}} - {{ $exercise->restMax}} </div></td>
-                                        <td><div style="height:50px; overflow:hidden">{{$exercise->overweightMin}} - {{$exercise->overweightMax}} {{$exercise->overweightUnit}}</div></td>     
-                                        <td><div style="height:50px; overflow:hidden">{{$exercise->myToolsToString()}}</div></td>
-                                        <td><div style="height:50px; overflow:hidden"><input type="checkbox" name="exercise{{$exercise->id}}"></div></td>  
-                                    </tr>
-                                    @endforeach
-                                    @endif    
-                                </tbody>
-                            </table>
+                                        @foreach ($allExercises as $exercise) 
+                                        <tr>                                           
+                                            <td><div style="height:50px; overflow:hidden">{{$exercise->name}}</div></td>
+                                            <td><div style="height:50px; overflow:hidden">{{$exercise->repsMin}} - {{$exercise->repsMax}}</div></td>
+                                            <td><div style="height:50px; overflow:hidden">{{$exercise->setMin}}  - {{$exercise->setMax }}</div></td>
+                                            <td><div style="height:50px; overflow:hidden">{{$exercise->restMin}} - {{ $exercise->restMax}} </div></td>
+                                            <td><div style="height:50px; overflow:hidden">{{$exercise->overweightMin}} - {{$exercise->overweightMax}} {{$exercise->overweightUnit}}</div></td>     
+                                            <td><div style="height:50px; overflow:hidden">{{$exercise->myToolsToString()}}</div></td>
+                                            <td><div style="height:50px; overflow:hidden"><input type="checkbox" name="exercise{{$exercise->id}}"></div></td>  
+                                        </tr>
+                                        @endforeach
+                                        @endif    
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                     <!-- Buttons confirm-->
@@ -154,7 +138,8 @@
                     @else
                     <label for="mySubmit" class="btn btn-primary btn-large btn-block"><span class="glyphicon glyphicon-floppy-save"></span> @lang('label.create')</label>
                     <input id="mySubmit" type="submit" value=\'Create\' class="hidden"/>
-                    @endif                
+                    @endif   
+                    <br>
                     <a href="{{ route('trainingprogram.index') }}" class="btn btn-danger btn-large btn-block"><span class="glyphicon glyphicon-log-out"></span> @lang('label.cancel')</a>                         
                 </form>
         </div>   
