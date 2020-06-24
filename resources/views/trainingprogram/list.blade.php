@@ -1,12 +1,14 @@
 @extends('layout.master')
 
-@section('titolo', 'Training Program List')
+@section('titolo')
+@lang('label.trainingListNavbar')
+@endsection
 
 @section('stile', 'style.css')
 
 @section('breadcrumb')
-<li><a href="{{ route('home') }}">Home</a></li>
-<li><a class="active">Training Program List</a></li>
+<li><a href="{{ route('home') }}">@lang('label.homePageNavbar')</a></li>
+<li><a href="{{ route('trainingprogram.index') }}">@lang('label.trainingListNavbar')</a></li>
 @endsection
 
 @section('corpo')
@@ -18,12 +20,12 @@
                     <span class="input-group-btn">   
                         <button class="btn btn-link" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                     </span>
-                    <input type="text" class="form-control" placeholder="Search by Title" name="search" id="search">     
+                    <input type="text" class="form-control" placeholder="@lang('label.search')" name="search" id="search">     
                 </div>
             </form>
         </div>
         <div class="col-md-offset-7 col-md-2">
-            <a class="btn btn-success btn-block" href="{{ route('trainingprogram.create') }}"><span class="glyphicon glyphicon-new-window"></span> New Training Program</a>
+            <a class="btn btn-success btn-block" href="{{ route('trainingprogram.create') }}"><span class="glyphicon glyphicon-new-window"></span> @lang('label.editTpCreate')</a>
         </div>
     </div>
     <div class="row">
@@ -32,8 +34,8 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th class="col-md-3">Title</th>
-                            <th class="col-md-5">Description</th>
+                            <th class="col-md-3">@lang('label.trainingprogramTitle')</th>
+                            <th class="col-md-5">@lang('label.editTpDescription')</th>
                             <th class="col-md-1"></th>
                             <th class="col-md-1"></th>
                             <th class="col-md-1"></th>
@@ -47,21 +49,21 @@
                             <td>{{ $tp->title}}</td>
                             <td>{{ $tp->description}}</td>
                             <td>
-                                <a class="btn btn-info btn-block" href="{{ route('trainingprogram.show', ['trainingprogram' => $tp->id]) }}"><span class="glyphicon glyphicon-eye-open"></span> Show</a>
+                                <a class="btn btn-info btn-block" href="{{ route('trainingprogram.show', ['trainingprogram' => $tp->id]) }}"><span class="glyphicon glyphicon-eye-open"></span> @lang('label.show')</a>
                             </td>
                             <td>
-                                <a class="btn btn-primary btn-block" href="{{ route('trainingprogram.edit', ['trainingprogram' => $tp->id]) }}"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                                <a class="btn btn-primary btn-block" href="{{ route('trainingprogram.edit', ['trainingprogram' => $tp->id]) }}"><span class="glyphicon glyphicon-pencil"></span> @lang('label.edit')</a>
                             </td>
                             <td>
-                                <a class="btn btn-danger btn-block" href="{{ route('trainingprogram.destroy.confirm', ['id' => $tp->id]) }}"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+                                <a class="btn btn-danger btn-block" href="{{ route('trainingprogram.destroy.confirm', ['id' => $tp->id]) }}"><span class="glyphicon glyphicon-trash"></span> @lang('label.delete')</a>
                             </td>
                             @if ($tp->users->contains($userId))
                             <td>
-                                <a class="btn btn-success btn-block" href="#"  disabled><span class="glyphicon glyphicon-plus"></span> Add</a>
+                                <a class="btn btn-success btn-block" href="#"  disabled><span class="glyphicon glyphicon-plus"></span> @lang('label.add')</a>
                             </td>
                             @else
                             <td>
-                                <a class="btn btn-success btn-block" href="{{  route('trainingprogram.addmytraining', ['id' => $tp->id]) }}"><span class="glyphicon glyphicon-plus"></span> Add</a>
+                                <a class="btn btn-success btn-block" href="{{  route('trainingprogram.addmytraining', ['id' => $tp->id]) }}"><span class="glyphicon glyphicon-plus"></span> @lang('label.add')</a>
                             </td>
                             @endif
                         </tr>

@@ -1,13 +1,15 @@
 @extends('layout.master')
 
-@section('titolo', 'Show Training Program')
+@section('titolo')
+@lang('label.showTpTitle')
+@endsection
 
 @section('stile', 'style.css')
 
 @section('breadcrumb')
-<li><a href="{{ route('home') }}">Home</a></li>
-<li><a href="{{ route('trainingprogram.index') }}">Training Program List</a></li>
-<li><a class="active">Show Training Program </a></li>
+<li><a href="{{ route('home') }}">@lang('label.homePageNavbar')</a></li>
+<li><a href="{{ route('trainingprogram.index') }}">@lang('label.trainingListNavbar')</a></li>
+<li><a class="active">@lang('label.showTpTitle')</a></li>
 @endsection
 
 @section('corpo')
@@ -21,20 +23,12 @@
                 </stong>
             </h3>
         </div>
-        <div class="col-md-2"> 
+        <div class="col-md-offset-2 col-md-2"> 
             <h3>
                 <label for="downloadPdfTrainingProgram" class="btn btn-success">
-                    <span class="glyphicon glyphicon-download-alt"></span> Dowload PDF
+                    <span class="glyphicon glyphicon-download-alt"></span> @lang('label.showTpDownloadPDF')
                 </label>
                 <input id="downloadPdfTrainingProgram" type="submit" value='downloadPDF' class="hidden"/> 
-            </h3>
-        </div>
-        <div class="col-md-2"> 
-            <h3>
-                <label for="downloadJsonTrainingProgram" class="btn btn-success">
-                    <span class="glyphicon glyphicon-download-alt"></span> Dowload JSON
-                </label>
-                <input id="downloadJsonTrainingProgram" type="submit" value='downloadJson' class="hidden"/> 
             </h3>
         </div>
     </div>
@@ -54,12 +48,12 @@
                         <table class="table table-hover table-condensed text-center">
                             <thead>
                                 <tr>
-                                    <th class="col-md-2 text-center">Name</th>
-                                    <th class="col-md-2 text-center">Reps</th>
-                                    <th class="col-md-2 text-center">Sets</th>
-                                    <th class="col-md-2 text-center">Rest</th>
-                                    <th class="col-md-2 text-center">Overweight</th>
-                                    <th class="col-md-2 text-center">Tools</th>         
+                                    <th class="col-md-2 text-center">@lang('label.editExerciseName')</th>
+                                    <th class="col-md-2 text-center">@lang('label.exerciseReps')</th>
+                                    <th class="col-md-2 text-center">@lang('label.exerciseSets')</th>
+                                    <th class="col-md-2 text-center">@lang('label.exerciseRest')</th>
+                                    <th class="col-md-2 text-center">@lang('label.exerciseOverweight')</th> 
+                                    <th class="col-md-2 text-center">@lang('label.exerciseTools')</th>     
                                 </tr>
                             </thead>
                             <tbody>

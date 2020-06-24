@@ -30,6 +30,9 @@ return [
     'search'=>'Search',
     'remove'=>'Remove',
     'execute'=>'Execute',
+    'selected'=>'Selected',
+    'add'=>'Add',
+    
     
     'destroyExerciseTitle' => 'Delete Exercise',
     'destroyExerciseHeader' => 'Delete exercise ":name" from the list ?',
@@ -91,9 +94,22 @@ return [
     'authErrortitle'=>'Authentication Error',
     'authBackToHome'=>'Back to home',
     'authWrongcredential'=>'Wrong credentials while accessing this page',
-       
+     
+    'destroyTpTitle' => 'Delete Training Program',
+    'destroyTpHeader' => 'Delete Training Program ":title" from the list ?',
+    'destroyTpConfirm' => 'Deleting Training Program. Confirm?',
+    'destroyTpRevertMessage' => 'The Training Program <strong>will not be removed</strong> from the data base',
+    'destroyTpBackMessage' => 'Back to Training Program list',
+    'destroyTpConfirmMessage' => 'The Training Program <strong>will be permanently removed</strong> from the data base',
     
+    'editTpTitle' => 'Edit Training Program',
+    'editTpCreate' => 'New Training Program',
+    'editTpTitlePH' => 'Training Program Title',
+    'editTpDescription' => 'Description',
+    'editTpDescriptionPH' => 'Complete Training Program Description',
+    'editTpTime' => 'Time',
     
-    
-    
+    'showTpTitle'=>'Show Training Program',
+    'showTpDownloadPDF'=>'Download PDF',
+   
 ];

@@ -1,11 +1,13 @@
-<?php $__env->startSection('titolo', 'Show Training Program'); ?>
+<?php $__env->startSection('titolo'); ?>
+<?php echo app('translator')->get('label.showTpTitle'); ?>
+<?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('stile', 'style.css'); ?>
 
 <?php $__env->startSection('breadcrumb'); ?>
-<li><a href="<?php echo e(route('home')); ?>">Home</a></li>
-<li><a href="<?php echo e(route('trainingprogram.index')); ?>">Training Program List</a></li>
-<li><a class="active">Show Training Program </a></li>
+<li><a href="<?php echo e(route('home')); ?>"><?php echo app('translator')->get('label.homePageNavbar'); ?></a></li>
+<li><a href="<?php echo e(route('trainingprogram.index')); ?>"><?php echo app('translator')->get('label.trainingListNavbar'); ?></a></li>
+<li><a class="active"><?php echo app('translator')->get('label.showTpTitle'); ?></a></li>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('corpo'); ?>
@@ -20,20 +22,12 @@
                 </stong>
             </h3>
         </div>
-        <div class="col-md-2"> 
+        <div class="col-md-offset-2 col-md-2"> 
             <h3>
                 <label for="downloadPdfTrainingProgram" class="btn btn-success">
-                    <span class="glyphicon glyphicon-download-alt"></span> Dowload PDF
+                    <span class="glyphicon glyphicon-download-alt"></span> <?php echo app('translator')->get('label.showTpDownloadPDF'); ?>
                 </label>
                 <input id="downloadPdfTrainingProgram" type="submit" value='downloadPDF' class="hidden"/> 
-            </h3>
-        </div>
-        <div class="col-md-2"> 
-            <h3>
-                <label for="downloadJsonTrainingProgram" class="btn btn-success">
-                    <span class="glyphicon glyphicon-download-alt"></span> Dowload JSON
-                </label>
-                <input id="downloadJsonTrainingProgram" type="submit" value='downloadJson' class="hidden"/> 
             </h3>
         </div>
     </div>
@@ -53,12 +47,12 @@
                         <table class="table table-hover table-condensed text-center">
                             <thead>
                                 <tr>
-                                    <th class="col-md-2 text-center">Name</th>
-                                    <th class="col-md-2 text-center">Reps</th>
-                                    <th class="col-md-2 text-center">Sets</th>
-                                    <th class="col-md-2 text-center">Rest</th>
-                                    <th class="col-md-2 text-center">Overweight</th>
-                                    <th class="col-md-2 text-center">Tools</th>         
+                                    <th class="col-md-2 text-center"><?php echo app('translator')->get('label.editExerciseName'); ?></th>
+                                    <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseReps'); ?></th>
+                                    <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseSets'); ?></th>
+                                    <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseRest'); ?></th>
+                                    <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseOverweight'); ?></th> 
+                                    <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseTools'); ?></th>     
                                 </tr>
                             </thead>
                             <tbody>
