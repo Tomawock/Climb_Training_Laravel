@@ -7,9 +7,20 @@
         <!-- Fogli di stile -->
         <link rel="stylesheet" href="{{ url('/') }}/css/bootstrap.css">
         <link rel="stylesheet" href="{{ url('/') }}/css/@yield('stile')">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
         <!-- jQuery e plugin JavaScript -->
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="{{ url('/') }}/js/bootstrap.min.js"></script>
+        <script src="{{ url('/') }}/js/myScript.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+        <script type="text/javascript" class="init">
+
+            $(document).ready(function () {
+                $('#searchandorder').DataTable();
+            });
+
+        </script>
     </head>
 
     <body>

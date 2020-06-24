@@ -83,7 +83,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table table-hover text-center">
+                                <table class="table table-hover text-center" id='searchandorder'>
                                     <thead>
                                         <tr>
                                             <th class="col-md-2 text-center">@lang('label.editExerciseName')</th>

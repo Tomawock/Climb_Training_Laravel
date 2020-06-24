@@ -54,7 +54,7 @@
                 <!-- Table -->
                 <div class="col-md-12">
                     <div class="table-responsive">
-                        <table class="table table-hover table-condensed text-center">
+                        <table class="table table-hover table-condensed text-center" id='searchandorder'>
                             <thead>
                                 <tr>
                                     <th class="col-md-2 text-center">@lang('label.editExerciseName')</th>

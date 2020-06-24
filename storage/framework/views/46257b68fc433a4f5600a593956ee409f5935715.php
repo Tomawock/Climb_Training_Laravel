@@ -12,21 +12,9 @@
 <?php $__env->startSection('corpo'); ?>
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
-            <form  class="form-horizontal" name="searchForm" method="post" action="#"> 
-                <div class="input-group">
-                    <span class="input-group-btn">   
-                        <button class="btn btn-link" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                    </span>
-                    <input type="text" class="form-control" placeholder="<?php echo app('translator')->get('label.search'); ?>" name="search" id="search">     
-                </div>
-            </form>
-        </div>
-    </div>
-    <div class="row">
         <div class="col-md-12">
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table class="table table-hover" id='searchandorder'>
                     <thead>
                         <tr>
                             <th class="col-md-3"><?php echo app('translator')->get('label.trainingprogramTitle'); ?></th>

@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table class="table table-hover" id='searchandorder'>
                     <thead>
                         <tr>
                             <th class="col-md-3"><?php echo app('translator')->get('label.trainingprogramTitle'); ?></th>
