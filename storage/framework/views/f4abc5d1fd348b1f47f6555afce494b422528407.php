@@ -90,14 +90,11 @@
                     </div>
                 </div>
                 <!-- Buttons confirm-->
-
                 <input type = "hidden" name = "id" value = "<?php echo e($trainingprogram->id); ?>"/>
                 <label for = "mySubmit" class = "btn btn-primary btn-large btn-block"><span class = "glyphicon glyphicon-floppy-save"></span> <?php echo app('translator')->get('label.save'); ?></label>
                 <input id = "mySubmit" type = "submit" value = \'Save\' class="hidden"/>
-
                 <!-- Buttons cancel-->
                 <a href="<?php echo e(route('mytraining.programlist')); ?>" class="btn btn-danger btn-large btn-block"><span class="glyphicon glyphicon-log-out"></span> <?php echo app('translator')->get('label.cancel'); ?></a>   
-
             </form>
         </div>   
     </div>

@@ -2,7 +2,7 @@
 <htm>
     <head>
         <meta charset="UTF-8">
-        <title>User authentication</title>
+        <title><?php echo app('translator')->get('label.userAuthNavbar'); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <!-- Fogli di stile -->
         <link rel="stylesheet" href="<?php echo e(url('/')); ?>/css/bootstrap.css">
@@ -17,8 +17,8 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div>
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#login-form" data-toggle="tab">Login</a></li>
-                            <li><a href="#register-form" data-toggle="tab">Register</a></li>
+                            <li class="active"><a href="#login-form" data-toggle="tab"><?php echo app('translator')->get('label.login'); ?></a></li>
+                            <li><a href="#register-form" data-toggle="tab"><?php echo app('translator')->get('label.register'); ?></a></li>
                         </ul>
                         <div class="tab-content">
 
@@ -26,28 +26,17 @@
                                 <form id="login-form" action="<?php echo e(route('user.login')); ?>" method="post" style="margin-top: 2em;">
                                     <?php echo csrf_field(); ?>
                                     <div class="form-group">
-                                        <input type="text" name="username" class="form-control" placeholder="Username" >
+                                        <input type="text" name="username" class="form-control" placeholder="<?php echo app('translator')->get('label.mytrainingInfoUsername'); ?>" >
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" class="form-control" placeholder="Password">
-                                    </div>
-                                    <div class="form-group text-center">
-                                        <input type="checkbox" name="remember" >
-                                        <label for="remember"> Remember Me</label>
+                                        <input type="password" name="password" class="form-control" placeholder="<?php echo app('translator')->get('label.authPassword'); ?>">
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
-                                                <input type="submit" name="login-submit" class="form-control btn btn-primary" value="Log In">
+                                                <input type="submit" name="login-submit" class="form-control btn btn-primary" value="<?php echo app('translator')->get('label.login'); ?>">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-
-                                        <div class="text-center">
-                                            <a href="#" class="forgot-password">Forgot Password?</a>
-                                        </div>
-
                                     </div>
                                 </form>
                             </div>
@@ -56,27 +45,27 @@
                                 <form id="register-form" action="<?php echo e(route('user.register')); ?>" method="post" style="margin-top: 2em;">
                                     <?php echo csrf_field(); ?>
                                     <div class="form-group">
-                                        <input type="text" name="username" class="form-control" placeholder="Username" value="">
+                                        <input type="text" name="username" class="form-control" placeholder="<?php echo app('translator')->get('label.mytrainingInfoUsername'); ?>">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="name" class="form-control" placeholder="Name" value="">
+                                        <input type="text" name="name" class="form-control" placeholder="<?php echo app('translator')->get('label.mytrainingInfoName'); ?>" value="">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="surname" class="form-control" placeholder="Surname" value="">
+                                        <input type="text" name="surname" class="form-control" placeholder="<?php echo app('translator')->get('label.mytrainingInfoSurname'); ?>" value="">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="email" class="form-control" placeholder="Email Address" value="">
+                                        <input type="text" name="email" class="form-control" placeholder="<?php echo app('translator')->get('label.mytrainingInfoEmail'); ?>" value="">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" class="form-control" placeholder="Password">
+                                        <input type="password" name="password" class="form-control" placeholder="<?php echo app('translator')->get('label.authPassword'); ?>">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="confirm-password" class="form-control" placeholder="Confirm Password">
+                                        <input type="password" name="confirm-password" class="form-control" placeholder="<?php echo app('translator')->get('label.authPasswordConfirm'); ?>">
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
-                                                <input type="submit" name="register-submit" class="form-control btn btn-primary" value="Register Now">
+                                                <input type="submit" name="register-submit" class="form-control btn btn-primary" value="<?php echo app('translator')->get('label.register'); ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -88,4 +77,4 @@
             </div>
         </div>
     </body> 
-</htm><?php /**PATH /home/tomawock/code/Climb_Training_Laravel/resources/views/auth/auth.blade.php ENDPATH**/ ?>
+</html><?php /**PATH /home/tomawock/code/Climb_Training_Laravel/resources/views/auth/auth.blade.php ENDPATH**/ ?>

@@ -1,12 +1,14 @@
 @extends('layout.master')
 
-@section('titolo', 'Personal Training Program')
+@section('titolo')
+@lang('label.personalTrainingNavbar')
+@endsection
 
 @section('stile', 'style.css')
 
 @section('breadcrumb')
-<li><a href="{{ route('home') }}">Home</a></li>
-<li><a class="active">Personal Training Program</a></li>
+<li><a href="{{ route('home') }}">@lang('label.homePageNavbar')</a></li>
+<li><a class="active">@lang('label.personalTrainingNavbar')</a></li>
 @endsection
 
 @section('corpo')
@@ -18,7 +20,7 @@
                     <span class="input-group-btn">   
                         <button class="btn btn-link" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                     </span>
-                    <input type="text" class="form-control" placeholder="Search by Title" name="search" id="search">     
+                    <input type="text" class="form-control" placeholder="@lang('label.search')" name="search" id="search">     
                 </div>
             </form>
         </div>
@@ -29,8 +31,8 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th class="col-md-3">Title</th>
-                            <th class="col-md-5">Description</th>
+                            <th class="col-md-3">@lang('label.trainingprogramTitle')</th>
+                            <th class="col-md-5">@lang('label.editExerciseDescription')</th>
                             <th class="col-md-1"></th>
                             <th class="col-md-1"></th> 
                         </tr>
@@ -41,10 +43,10 @@
                             <td>{{$tp->title}}</td>
                             <td>{{$tp->description}}</td>
                             <td>
-                                <a class="btn btn-danger btn-block" href="{{ route('mytraining.removemytraining', ['id' => $tp->id]) }}"><span class="glyphicon glyphicon-trash"></span> Remove</a>
+                                <a class="btn btn-danger btn-block" href="{{ route('mytraining.removemytraining', ['id' => $tp->id]) }}"><span class="glyphicon glyphicon-trash"></span> @lang('label.remove')</a>
                             </td>
                             <td>
-                                <a class="btn btn-success btn-block" href="{{ route('mytraining.executetraining', ['id' => $tp->id]) }}"><span class="glyphicon glyphicon-play"></span> Execute</a>
+                                <a class="btn btn-success btn-block" href="{{ route('mytraining.executetraining', ['id' => $tp->id]) }}"><span class="glyphicon glyphicon-play"></span> @lang('label.execute')</a>
                             </td>
                         </tr>
                         @endforeach    

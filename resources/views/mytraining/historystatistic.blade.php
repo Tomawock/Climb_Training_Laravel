@@ -1,12 +1,14 @@
 @extends('layout.master')
 
-@section('titolo', 'History and Statistics')
+@section('titolo')
+@lang('label.historyStatisticNavbar')
+@endsection
 
 @section('stile', 'style.css')
 
 @section('breadcrumb')
-<li><a href="{{ route('home') }}">Home</a></li>         
-<li><a class="active">History and Statistics</a></li>  
+<li><a href="{{ route('home') }}">@lang('label.homePageNavbar')</a></li>         
+<li><a class="active">@lang('label.historyStatisticNavbar')</a></li>  
 @endsection
 
 @section('corpo')
@@ -16,7 +18,7 @@
         <div class="panel panel-default ">
             <div class="panel-heading text-center panel-relative">
                 <h2 class="panel-title">
-                    <strong> Training: {{$result['title'][$i]}} executed on Date: {{ date("d/m/Y", strtotime($result['date'][$i])) }}</strong>
+                    <strong>{!! trans('label.mytrainingHsPanelTitle', [ 'title' => $result['title'][$i], 'date' => date("d/m/Y", strtotime($result['date'][$i])) ]) !!}</strong>
                 </h2>
             </div>
             <div class="panel-body">
@@ -24,12 +26,12 @@
                     <table class="table table-responsive table-hover text-center">
                         <thead>
                             <tr>
-                                <th class="col-md-2 text-center">Name</th>
-                                <th class="col-md-2 text-center">Reps Suggested</th>
-                                <th class="col-md-2 text-center">Sets Suggested</th>
-                                <th class="col-md-2 text-center">Reps Executed</th>
-                                <th class="col-md-2 text-center">Sets executed</th>
-                                <th class="col-md-2 text-center">Notes</th>
+                                <th class="col-md-2 text-center">@lang('label.editExerciseName')</th>
+                                <th class="col-md-2 text-center">@lang('label.exerciseRepsSuggested')</th>
+                                <th class="col-md-2 text-center">@lang('label.exerciseSetsSuggested')</th>
+                                <th class="col-md-2 text-center">@lang('label.exerciseRepsExecuted')</th>
+                                <th class="col-md-2 text-center">@lang('label.exerciseSetsExecuted')</th>
+                                <th class="col-md-2 text-center">@lang('label.exerciseNotes')</th>
                             </tr>
                         </thead>
                         <tbody>

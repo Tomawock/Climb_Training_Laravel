@@ -1,10 +1,12 @@
-<?php $__env->startSection('titolo', 'Personal Training Program'); ?>
+<?php $__env->startSection('titolo'); ?>
+<?php echo app('translator')->get('label.personalTrainingNavbar'); ?>
+<?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('stile', 'style.css'); ?>
 
 <?php $__env->startSection('breadcrumb'); ?>
-<li><a href="<?php echo e(route('home')); ?>">Home</a></li>
-<li><a class="active">Personal Training Program</a></li>
+<li><a href="<?php echo e(route('home')); ?>"><?php echo app('translator')->get('label.homePageNavbar'); ?></a></li>
+<li><a class="active"><?php echo app('translator')->get('label.personalTrainingNavbar'); ?></a></li>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('corpo'); ?>
@@ -16,7 +18,7 @@
                     <span class="input-group-btn">   
                         <button class="btn btn-link" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                     </span>
-                    <input type="text" class="form-control" placeholder="Search by Title" name="search" id="search">     
+                    <input type="text" class="form-control" placeholder="<?php echo app('translator')->get('label.search'); ?>" name="search" id="search">     
                 </div>
             </form>
         </div>
@@ -27,8 +29,8 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th class="col-md-3">Title</th>
-                            <th class="col-md-5">Description</th>
+                            <th class="col-md-3"><?php echo app('translator')->get('label.trainingprogramTitle'); ?></th>
+                            <th class="col-md-5"><?php echo app('translator')->get('label.editExerciseDescription'); ?></th>
                             <th class="col-md-1"></th>
                             <th class="col-md-1"></th> 
                         </tr>
@@ -39,10 +41,10 @@
                             <td><?php echo e($tp->title); ?></td>
                             <td><?php echo e($tp->description); ?></td>
                             <td>
-                                <a class="btn btn-danger btn-block" href="<?php echo e(route('mytraining.removemytraining', ['id' => $tp->id])); ?>"><span class="glyphicon glyphicon-trash"></span> Remove</a>
+                                <a class="btn btn-danger btn-block" href="<?php echo e(route('mytraining.removemytraining', ['id' => $tp->id])); ?>"><span class="glyphicon glyphicon-trash"></span> <?php echo app('translator')->get('label.remove'); ?></a>
                             </td>
                             <td>
-                                <a class="btn btn-success btn-block" href="<?php echo e(route('mytraining.executetraining', ['id' => $tp->id])); ?>"><span class="glyphicon glyphicon-play"></span> Execute</a>
+                                <a class="btn btn-success btn-block" href="<?php echo e(route('mytraining.executetraining', ['id' => $tp->id])); ?>"><span class="glyphicon glyphicon-play"></span> <?php echo app('translator')->get('label.execute'); ?></a>
                             </td>
                         </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>    

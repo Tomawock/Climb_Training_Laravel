@@ -1,10 +1,12 @@
-<?php $__env->startSection('titolo', 'History and Statistics'); ?>
+<?php $__env->startSection('titolo'); ?>
+<?php echo app('translator')->get('label.historyStatisticNavbar'); ?>
+<?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('stile', 'style.css'); ?>
 
 <?php $__env->startSection('breadcrumb'); ?>
-<li><a href="<?php echo e(route('home')); ?>">Home</a></li>         
-<li><a class="active">History and Statistics</a></li>  
+<li><a href="<?php echo e(route('home')); ?>"><?php echo app('translator')->get('label.homePageNavbar'); ?></a></li>         
+<li><a class="active"><?php echo app('translator')->get('label.historyStatisticNavbar'); ?></a></li>  
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('corpo'); ?>
@@ -14,7 +16,7 @@
         <div class="panel panel-default ">
             <div class="panel-heading text-center panel-relative">
                 <h2 class="panel-title">
-                    <strong> Training: <?php echo e($result['title'][$i]); ?> executed on Date: <?php echo e(date("d/m/Y", strtotime($result['date'][$i]))); ?></strong>
+                    <strong><?php echo trans('label.mytrainingHsPanelTitle', [ 'title' => $result['title'][$i], 'date' => date("d/m/Y", strtotime($result['date'][$i])) ]); ?></strong>
                 </h2>
             </div>
             <div class="panel-body">
@@ -22,12 +24,12 @@
                     <table class="table table-responsive table-hover text-center">
                         <thead>
                             <tr>
-                                <th class="col-md-2 text-center">Name</th>
-                                <th class="col-md-2 text-center">Reps Suggested</th>
-                                <th class="col-md-2 text-center">Sets Suggested</th>
-                                <th class="col-md-2 text-center">Reps Executed</th>
-                                <th class="col-md-2 text-center">Sets executed</th>
-                                <th class="col-md-2 text-center">Notes</th>
+                                <th class="col-md-2 text-center"><?php echo app('translator')->get('label.editExerciseName'); ?></th>
+                                <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseRepsSuggested'); ?></th>
+                                <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseSetsSuggested'); ?></th>
+                                <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseRepsExecuted'); ?></th>
+                                <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseSetsExecuted'); ?></th>
+                                <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseNotes'); ?></th>
                             </tr>
                         </thead>
                         <tbody>

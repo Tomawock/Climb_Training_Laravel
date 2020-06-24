@@ -11,9 +11,11 @@ return [
     'trainingNavbar' => 'Training',
     'exerciseListNavbar' => 'Exercise List',
     'trainingListNavbar' => 'Training Program List',
+    'userAuthNavbar' => 'User authentication',
     
     'welcome' => 'Welcome',
     'login' => 'Login',
+    'register' => 'Register',
     'logout' => 'Logout',
     'revert' => 'Revert',
     'confirm' => 'Confirm',
@@ -26,6 +28,7 @@ return [
     'create'=>'Create',
     'cancel'=>'Cancel',
     'search'=>'Search',
+    'remove'=>'Remove',
     'execute'=>'Execute',
     
     'destroyExerciseTitle' => 'Delete Exercise',
@@ -56,6 +59,11 @@ return [
     'exercises' => 'Exercises',
     'exerciseRepsDone' =>'Reps Done',
     'exerciseSetsDone' =>'Sets Done',
+    'exerciseRepsSuggested' =>'Reps Suggested',
+    'exerciseSetsSuggested' =>'Sets Suggested',
+    'exerciseRepsExecuted' =>'Reps Executed',
+    'exerciseSetsExecuted' =>'Sets Executed',
+    'exerciseNotes' =>'Notes',
     
     'showExerciseTitle' => 'Exercise Show',
     'showExerciseTableTitle' => 'Exercise Details',
@@ -66,6 +74,24 @@ return [
     'mytrainingExecuteTitle' => 'Execute Training Program',
     'mytrainingExecuteDate' => 'Date of Execution',
     'mytrainingExecuteNote' => 'Notes regardings :name',
+    'mytrainingHsPanelTitle'=>'Training :title executed on Date :date',
+    
+    'mytrainingInfoTitle'=>'Account Information',
+    'mytrainingInfoDetails'=>'Details',
+    'mytrainingInfoUsername'=>'Username',
+    'mytrainingInfoName'=>'Name',
+    'mytrainingInfoSurname'=>'Surname',
+    'mytrainingInfoEmail'=>'E-mail',
+    
+    'trainingprogramTitle'=>'Title',
+    
+    'authPassword'=>'Password',
+    'authPasswordConfirm'=>'Confirm Password',
+    'authRemeberMe'=>'Remember Me',
+    'authErrortitle'=>'Authentication Error',
+    'authBackToHome'=>'Back to home',
+    'authWrongcredential'=>'Wrong credentials while accessing this page',
+       
     
     
     
