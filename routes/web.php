@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
   |
  */
 Route::group(['middleware' => ['lang']], function () {
+
+    Auth::routes();
+
+    Route::get('/home', 'FrontController@getHome');
+
     Route::get('/', ['as' => 'home', 'uses' => 'FrontController@getHome']);
     Route::get('/lang/{lang}', ['as' => 'setLang',
         'uses' => 'LangController@changeLanguage']);
@@ -42,4 +47,3 @@ Route::group(['middleware' => ['myauth', 'lang']], function() {
     Route::get('/mytraining/{id}/executetraining', ['as' => 'mytraining.executetraining', 'uses' => 'MyTrainingController@executetraining']);
     Route::post('/mytraining/{id}/executetraining', ['as' => 'mytraining.postexecute', 'uses' => 'MyTrainingController@postexecute']);
 });
-
