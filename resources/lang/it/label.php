@@ -14,7 +14,7 @@ return [
     'userAuthNavbar' => 'Autenticazione Utente',
     
     'welcome' => 'Benvenuto',
-    'login' => 'Accedi',
+    'login' => 'Accesso',
     'register' => 'Registrati',
     'logout' => 'Esci',
     'revert' => 'Indietro',

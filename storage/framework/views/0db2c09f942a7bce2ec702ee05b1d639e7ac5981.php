@@ -46,6 +46,8 @@
                         <?php else: ?>
                         <li><a href="<?php echo e(route('user.login')); ?>"><span class="glyphicon glyphicon-user"></span> <?php echo app('translator')->get('label.login'); ?></a></li>
                         <?php endif; ?>
+                        <li><a href="<?php echo e(route('setLang', ['lang' => 'en'])); ?>" class="nav-link"><img src="<?php echo e(url('/')); ?>/img/flags/en.png" width="30" class="img-rounded"/></a></li>
+                        <li><a href="<?php echo e(route('setLang', ['lang' => 'it'])); ?>" class="nav-link"><img src="<?php echo e(url('/')); ?>/img/flags/it.png" width="24" class="img-rounded"/></a></li>
                     </ul>
                 </div>
             </div>
