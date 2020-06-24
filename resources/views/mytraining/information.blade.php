@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('titolo')
-@lang('label.historyStatisticNavbar')
+@lang('label.accountNavbar')
 @endsection
 
 @section('stile', 'style.css')

@@ -1,5 +1,5 @@
 <?php $__env->startSection('titolo'); ?>
-<?php echo app('translator')->get('label.historyStatisticNavbar'); ?>
+<?php echo app('translator')->get('label.accountNavbar'); ?>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('stile', 'style.css'); ?>
