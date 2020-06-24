@@ -1,11 +1,13 @@
-<?php $__env->startSection('titolo', 'Execute Training Program'); ?>
+<?php $__env->startSection('titolo'); ?>
+<?php echo app('translator')->get('label.mytrainingExecuteTitle'); ?>
+<?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('stile', 'style.css'); ?>
 
 <?php $__env->startSection('breadcrumb'); ?>
-<li><a href="<?php echo e(route('home')); ?>">Home</a></li>
-<li><a href="<?php echo e(route('mytraining.programlist')); ?>">Personal Training Program</a></li>
-<li><a class="active">Execute</a></li>      
+<li><a href="<?php echo e(route('home')); ?>"><?php echo app('translator')->get('label.homePageNavbar'); ?></a></li>
+<li><a href="<?php echo e(route('mytraining.programlist')); ?>"><?php echo app('translator')->get('label.personalTrainingNavbar'); ?></a></li>
+<li><a class="active"><?php echo app('translator')->get('label.execute'); ?></a></li>      
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('corpo'); ?>
@@ -15,7 +17,7 @@
             <form class="form-horizontal" name="trainingProgram" method="post" action="<?php echo e(route('mytraining.postexecute',['id' => $trainingprogram->id])); ?>">
                 <?php echo csrf_field(); ?>
                 <div class="form-group">
-                    <label for="executionDate" class="col-md-2">Date of execution</label>
+                    <label for="executionDate" class="col-md-2"><?php echo app('translator')->get('label.mytrainingExecuteDate'); ?></label>
                     <div class="col-md-10">
                         <input type="date" class="form-control" id="executionDate" name="executionDate" value="<?php echo e(date("d/m/Y")); ?>">
                     </div>
@@ -26,7 +28,7 @@
                     <!-- Default panel contents -->
                     <div class="panel-heading text-center panel-relative">
                         <h2 class="panel-title">
-                            <strong>Exercises</strong>
+                            <strong><?php echo app('translator')->get('label.exercises'); ?></strong>
                         </h2>
                     </div>
                     <div class="panel-body">
@@ -34,14 +36,14 @@
                             <table class="table table-responsive table-hover text-center">
                                 <thead>
                                     <tr>
-                                        <th class="col-md-2 text-center">Name</th>
-                                        <th class="col-md-2 text-center">Reps</th>
-                                        <th class="col-md-2 text-center">Sets</th>
-                                        <th class="col-md-2 text-center">Rest</th>
-                                        <th class="col-md-1 text-center">Overweight</th>
-                                        <th class="col-md-1 text-center">Tools</th>
-                                        <th class="col-md-1 text-center">Reps Done</th>
-                                        <th class="col-md-1 text-center">Sets Done</th>
+                                        <th class="col-md-2 text-center"><?php echo app('translator')->get('label.editExerciseName'); ?></th>
+                                        <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseReps'); ?></th>
+                                        <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseSets'); ?></th>
+                                        <th class="col-md-2 text-center"><?php echo app('translator')->get('label.exerciseRest'); ?></th>
+                                        <th class="col-md-1 text-center"><?php echo app('translator')->get('label.exerciseOverweight'); ?></th>
+                                        <th class="col-md-1 text-center"><?php echo app('translator')->get('label.exerciseTools'); ?></th>
+                                        <th class="col-md-1 text-center"><?php echo app('translator')->get('label.exerciseRepsDone'); ?></th>
+                                        <th class="col-md-1 text-center"><?php echo app('translator')->get('label.exerciseSetsDone'); ?></th>
                                     </tr>
                                 </thead>
 
@@ -77,7 +79,7 @@
 
                                     <tr>
                                         <td colspan="9">
-                                            <textarea class="form-control" rows="1" id="executedNotes<?php echo e($exercise->id); ?>" name="executedNotes<?php echo e($exercise->id); ?>" placeholder="Notes regardings exercise: <?php echo e($exercise->name); ?>"></textarea>
+                                            <textarea class="form-control" rows="1" id="executedNotes<?php echo e($exercise->id); ?>" name="executedNotes<?php echo e($exercise->id); ?>" placeholder="<?php echo trans('label.mytrainingExecuteNote', [ 'name' => $exercise->name ]); ?>"></textarea>
                                         </td>
 
                                     </tr>
@@ -90,11 +92,11 @@
                 <!-- Buttons confirm-->
 
                 <input type = "hidden" name = "id" value = "<?php echo e($trainingprogram->id); ?>"/>
-                <label for = "mySubmit" class = "btn btn-primary btn-large btn-block"><span class = "glyphicon glyphicon-floppy-save"></span> Save</label>
+                <label for = "mySubmit" class = "btn btn-primary btn-large btn-block"><span class = "glyphicon glyphicon-floppy-save"></span> <?php echo app('translator')->get('label.save'); ?></label>
                 <input id = "mySubmit" type = "submit" value = \'Save\' class="hidden"/>
 
                 <!-- Buttons cancel-->
-                <a href="<?php echo e(route('mytraining.programlist')); ?>" class="btn btn-danger btn-large btn-block"><span class="glyphicon glyphicon-log-out"></span> Cancel</a>   
+                <a href="<?php echo e(route('mytraining.programlist')); ?>" class="btn btn-danger btn-large btn-block"><span class="glyphicon glyphicon-log-out"></span> <?php echo app('translator')->get('label.cancel'); ?></a>   
 
             </form>
         </div>   

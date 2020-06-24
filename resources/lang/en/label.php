@@ -26,7 +26,7 @@ return [
     'create'=>'Create',
     'cancel'=>'Cancel',
     'search'=>'Search',
-    'exeute'=>'Execute',
+    'execute'=>'Execute',
     
     'destroyExerciseTitle' => 'Delete Exercise',
     'destroyExerciseHeader' => 'Delete exercise ":name" from the list ?',
@@ -54,6 +54,8 @@ return [
     'exerciseRest' => 'Rest',
     'exerciseTools' => 'Tecnical Tools',
     'exercises' => 'Exercises',
+    'exerciseRepsDone' =>'Reps Done',
+    'exerciseSetsDone' =>'Sets Done',
     
     'showExerciseTitle' => 'Exercise Show',
     'showExerciseTableTitle' => 'Exercise Details',
@@ -63,6 +65,9 @@ return [
     
     'mytrainingExecuteTitle' => 'Execute Training Program',
     'mytrainingExecuteDate' => 'Date of Execution',
+    'mytrainingExecuteNote' => 'Notes regardings :name',
+    
+    
     
     
 ];

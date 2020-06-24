@@ -19,7 +19,7 @@
             <form class="form-horizontal" name="trainingProgram" method="post" action="{{ route('mytraining.postexecute',['id' => $trainingprogram->id]) }}">
                 @csrf
                 <div class="form-group">
-                    <label for="executionDate" class="col-md-2">@lang('label.personalTrainingNavbar')</label>
+                    <label for="executionDate" class="col-md-2">@lang('label.mytrainingExecuteDate')</label>
                     <div class="col-md-10">
                         <input type="date" class="form-control" id="executionDate" name="executionDate" value="{{date("d/m/Y")}}">
                     </div>
@@ -38,14 +38,14 @@
                             <table class="table table-responsive table-hover text-center">
                                 <thead>
                                     <tr>
-                                        <th class="col-md-2 text-center">Name</th>
-                                        <th class="col-md-2 text-center">Reps</th>
-                                        <th class="col-md-2 text-center">Sets</th>
-                                        <th class="col-md-2 text-center">Rest</th>
-                                        <th class="col-md-1 text-center">Overweight</th>
-                                        <th class="col-md-1 text-center">Tools</th>
-                                        <th class="col-md-1 text-center">Reps Done</th>
-                                        <th class="col-md-1 text-center">Sets Done</th>
+                                        <th class="col-md-2 text-center">@lang('label.editExerciseName')</th>
+                                        <th class="col-md-2 text-center">@lang('label.exerciseReps')</th>
+                                        <th class="col-md-2 text-center">@lang('label.exerciseSets')</th>
+                                        <th class="col-md-2 text-center">@lang('label.exerciseRest')</th>
+                                        <th class="col-md-1 text-center">@lang('label.exerciseOverweight')</th>
+                                        <th class="col-md-1 text-center">@lang('label.exerciseTools')</th>
+                                        <th class="col-md-1 text-center">@lang('label.exerciseRepsDone')</th>
+                                        <th class="col-md-1 text-center">@lang('label.exerciseSetsDone')</th>
                                     </tr>
                                 </thead>
 
@@ -81,7 +81,7 @@
 
                                     <tr>
                                         <td colspan="9">
-                                            <textarea class="form-control" rows="1" id="executedNotes{{$exercise->id}}" name="executedNotes{{$exercise->id}}" placeholder="Notes regardings exercise: {{$exercise->name}}"></textarea>
+                                            <textarea class="form-control" rows="1" id="executedNotes{{$exercise->id}}" name="executedNotes{{$exercise->id}}" placeholder="{!! trans('label.mytrainingExecuteNote', [ 'name' => $exercise->name ]) !!}"></textarea>
                                         </td>
 
                                     </tr>
@@ -92,14 +92,11 @@
                     </div>
                 </div>
                 <!-- Buttons confirm-->
-
                 <input type = "hidden" name = "id" value = "{{$trainingprogram->id}}"/>
-                <label for = "mySubmit" class = "btn btn-primary btn-large btn-block"><span class = "glyphicon glyphicon-floppy-save"></span> Save</label>
+                <label for = "mySubmit" class = "btn btn-primary btn-large btn-block"><span class = "glyphicon glyphicon-floppy-save"></span> @lang('label.save')</label>
                 <input id = "mySubmit" type = "submit" value = \'Save\' class="hidden"/>
-
                 <!-- Buttons cancel-->
-                <a href="{{ route('mytraining.programlist') }}" class="btn btn-danger btn-large btn-block"><span class="glyphicon glyphicon-log-out"></span> Cancel</a>   
-
+                <a href="{{ route('mytraining.programlist') }}" class="btn btn-danger btn-large btn-block"><span class="glyphicon glyphicon-log-out"></span> @lang('label.cancel')</a>   
             </form>
         </div>   
     </div>
