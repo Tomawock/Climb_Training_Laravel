@@ -10,6 +10,9 @@ class Exercise extends Model
     protected $table="exercise";
     public $timestamps = false;
     //
+    public static $rules =[
+        'exerciseName'=>'required|alpha_num',
+    ];
     
     public function photos(){
          return $this->hasMany('App\Photo', 'id_exercise');

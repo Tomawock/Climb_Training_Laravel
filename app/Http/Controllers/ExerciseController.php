@@ -47,6 +47,8 @@ class ExerciseController extends Controller
 //            return Redirect::to(route('user.login'));
 //        }
         
+        $this->validate($request, Exercise::$rules);
+        
         $dl = new DataLayer();
         $dl->createExercise($request->input('exerciseName'), $request->input('exerciseDescription'),$request->input('exerciseImportantNotes'),
                 $request->input('exerciseRepsMin'),$request->input('exerciseRepsMax'),$request->input('exerciseSetMin'),

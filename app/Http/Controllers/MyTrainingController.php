@@ -97,15 +97,16 @@ class MyTrainingController extends Controller {
         $user = $dl->getUserbyUsername($_SESSION['loggedName']);
         foreach ($exerciseList as $ex) {
             if ($request->input('executedReps' . $ex->id) != null && $request->input('executedSets' . $ex->id) != null) {
-                if ($request->input('executionDate') == '')
+                if ($request->input('executionDate') == ''){
                     $date = date("Y-m-d");
-                else
+                }else{
                     $date = $_POST['executionDate'];
-                
-                if ($request->input('executedNotes' . $ex->id)== null )
+                }
+                if ($request->input('executedNotes' . $ex->id)== null ){
                     $note = '';
-                else
+                }else{
                     $note =$request->input('executedNotes' . $ex->id);
+                }
                 
                 $dl->createUserTrainingProgramExecution($ex->id, $id, $user->id, $request->input('executedReps' . $ex->id),
                         $request->input('executedSets' . $ex->id), $date, $note);
