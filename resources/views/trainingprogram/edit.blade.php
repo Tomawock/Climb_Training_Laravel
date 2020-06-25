@@ -66,17 +66,17 @@
                         <label for="trainingProgramTimeMin" class="col-md-1">@lang('label.min')</label>
                         <div class="col-md-2">
                             @if(isset($trainingprogram->id))
-                            <input type="time" id="trainingProgramTimeMin" name="trainingProgramTimeMin" class="form-control" min="00:00:00" max="24:59:59" value="{{ $trainingprogram->timeMin }}" required>
+                            <input type="time" id="trainingProgramTimeMin" name="trainingProgramTimeMin" class="form-control" min="00:00:00" max="24:59:59" step="1" value="{{ $trainingprogram->timeMin }}" required>
                             @else 
-                            <input type="time" id="trainingProgramTimeMin" name="trainingProgramTimeMin" class="form-control" min="00:00:00" max="24:59:59" value="00:00:00" required>
+                            <input type="time" id="trainingProgramTimeMin" name="trainingProgramTimeMin" class="form-control" min="00:00:00" max="24:59:59" step="1" value="00:00:00" required>
                             @endif
                         </div>
                         <label for="trainingProgramTimeMax" class="col-md-1">@lang('label.max')</label>
                         <div class="col-md-2">
                             @if(isset($trainingprogram->id))
-                            <input type="time" id="trainingProgramTimeMax" name="trainingProgramTimeMax" class="form-control" min="00:00:00" max="24:59:59" value="{{ $trainingprogram->timeMax }}" required>
+                            <input type="time" id="trainingProgramTimeMax" name="trainingProgramTimeMax" class="form-control" min="00:00:00" max="24:59:59" step="1" value="{{ $trainingprogram->timeMax }}" required>
                             @else
-                            <input type="time" id="trainingProgramTimeMax" name="trainingProgramTimeMax" class="form-control" min="00:00:00" max="24:59:59" value="00:00:00" required>
+                            <input type="time" id="trainingProgramTimeMax" name="trainingProgramTimeMax" class="form-control" min="00:00:00" max="24:59:59" step="1" value="00:00:00" required>
                             @endif
                         </div>
                     </div>                       

@@ -92,17 +92,17 @@ unset($__errorArgs, $__bag); ?>
                         <label for="trainingProgramTimeMin" class="col-md-1"><?php echo app('translator')->get('label.min'); ?></label>
                         <div class="col-md-2">
                             <?php if(isset($trainingprogram->id)): ?>
-                            <input type="time" id="trainingProgramTimeMin" name="trainingProgramTimeMin" class="form-control" min="00:00:00" max="24:59:59" value="<?php echo e($trainingprogram->timeMin); ?>" required>
+                            <input type="time" id="trainingProgramTimeMin" name="trainingProgramTimeMin" class="form-control" min="00:00:00" max="24:59:59" step="1" value="<?php echo e($trainingprogram->timeMin); ?>" required>
                             <?php else: ?> 
-                            <input type="time" id="trainingProgramTimeMin" name="trainingProgramTimeMin" class="form-control" min="00:00:00" max="24:59:59" value="00:00:00" required>
+                            <input type="time" id="trainingProgramTimeMin" name="trainingProgramTimeMin" class="form-control" min="00:00:00" max="24:59:59" step="1" value="00:00:00" required>
                             <?php endif; ?>
                         </div>
                         <label for="trainingProgramTimeMax" class="col-md-1"><?php echo app('translator')->get('label.max'); ?></label>
                         <div class="col-md-2">
                             <?php if(isset($trainingprogram->id)): ?>
-                            <input type="time" id="trainingProgramTimeMax" name="trainingProgramTimeMax" class="form-control" min="00:00:00" max="24:59:59" value="<?php echo e($trainingprogram->timeMax); ?>" required>
+                            <input type="time" id="trainingProgramTimeMax" name="trainingProgramTimeMax" class="form-control" min="00:00:00" max="24:59:59" step="1" value="<?php echo e($trainingprogram->timeMax); ?>" required>
                             <?php else: ?>
-                            <input type="time" id="trainingProgramTimeMax" name="trainingProgramTimeMax" class="form-control" min="00:00:00" max="24:59:59" value="00:00:00" required>
+                            <input type="time" id="trainingProgramTimeMax" name="trainingProgramTimeMax" class="form-control" min="00:00:00" max="24:59:59" step="1" value="00:00:00" required>
                             <?php endif; ?>
                         </div>
                     </div>                       

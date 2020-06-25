@@ -209,18 +209,18 @@
                         <label for="exerciseRestMin" class="col-md-1">@lang('label.min')</label>
                         <div class="col-md-2">
                             @if(isset($exercise->id))
-                            <input type="time" id="exerciseRestMin" name="exerciseRestMin" class="form-control" min="00:00:00" max="24:59:59" value="{{ $exercise->restMin }}" required>
+                            <input type="time" id="exerciseRestMin" name="exerciseRestMin" class="form-control" min="00:00:00" max="24:59:59" step="1" value="{{ $exercise->restMin }}" required>
                             @else
-                            <input type="time" id="exerciseRestMin" name="exerciseRestMin" class="form-control" min="00:00:00" max="24:59:59" value="00:00:00" required>
+                            <input type="time" id="exerciseRestMin" name="exerciseRestMin" class="form-control" min="00:00:00" max="24:59:59" step="1" value="00:00:00" required>
                             @endif
                         </div>
 
                         <label for="exerciseRestMax" class="col-md-1">@lang('label.max')</label>
                         <div class="col-md-2">
                             @if(isset($exercise->id))
-                            <input type="time" id="exerciseRestMax" name="exerciseRestMax" class="form-control" min="00:00:00" max="24:59:59" value="{{ $exercise->restMax }}" required>
+                            <input type="time" id="exerciseRestMax" name="exerciseRestMax" class="form-control" min="00:00:00" max="24:59:59" step="1" value="{{ $exercise->restMax }}" required>
                             @else
-                            <input type="time" id="exerciseRestMax" name="exerciseRestMax" class="form-control" min="00:00:00" max="24:59:59" value="00:00:00" required>
+                            <input type="time" id="exerciseRestMax" name="exerciseRestMax" class="form-control" min="00:00:00" max="24:59:59" step="1" value="00:00:00" required>
                             @endif
                         </div>  
                     </div>

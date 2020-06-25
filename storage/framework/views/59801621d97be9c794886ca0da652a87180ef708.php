@@ -265,18 +265,18 @@ unset($__errorArgs, $__bag); ?>
                         <label for="exerciseRestMin" class="col-md-1"><?php echo app('translator')->get('label.min'); ?></label>
                         <div class="col-md-2">
                             <?php if(isset($exercise->id)): ?>
-                            <input type="time" id="exerciseRestMin" name="exerciseRestMin" class="form-control" min="00:00:00" max="24:59:59" value="<?php echo e($exercise->restMin); ?>" required>
+                            <input type="time" id="exerciseRestMin" name="exerciseRestMin" class="form-control" min="00:00:00" max="24:59:59" step="1" value="<?php echo e($exercise->restMin); ?>" required>
                             <?php else: ?>
-                            <input type="time" id="exerciseRestMin" name="exerciseRestMin" class="form-control" min="00:00:00" max="24:59:59" value="00:00:00" required>
+                            <input type="time" id="exerciseRestMin" name="exerciseRestMin" class="form-control" min="00:00:00" max="24:59:59" step="1" value="00:00:00" required>
                             <?php endif; ?>
                         </div>
 
                         <label for="exerciseRestMax" class="col-md-1"><?php echo app('translator')->get('label.max'); ?></label>
                         <div class="col-md-2">
                             <?php if(isset($exercise->id)): ?>
-                            <input type="time" id="exerciseRestMax" name="exerciseRestMax" class="form-control" min="00:00:00" max="24:59:59" value="<?php echo e($exercise->restMax); ?>" required>
+                            <input type="time" id="exerciseRestMax" name="exerciseRestMax" class="form-control" min="00:00:00" max="24:59:59" step="1" value="<?php echo e($exercise->restMax); ?>" required>
                             <?php else: ?>
-                            <input type="time" id="exerciseRestMax" name="exerciseRestMax" class="form-control" min="00:00:00" max="24:59:59" value="00:00:00" required>
+                            <input type="time" id="exerciseRestMax" name="exerciseRestMax" class="form-control" min="00:00:00" max="24:59:59" step="1" value="00:00:00" required>
                             <?php endif; ?>
                         </div>  
                     </div>
