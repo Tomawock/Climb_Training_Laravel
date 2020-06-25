@@ -9,6 +9,11 @@ class TrainingProgram extends Model
     protected $table="trainingprogram";
     public $timestamps = false;
     
+     public static $rules =[
+        'trainingProgramTitle'=>'required|regex:/[a-zA-Z0-9\s]+/',
+        'trainingProgramDescription'=>'required|regex:/[a-zA-Z0-9\s]+/'
+    ];
+    
     public function users(){
          return $this->belongsToMany('App\Myuser', 'user_trainingprogram','trainingprogram_id','user_id');
     }

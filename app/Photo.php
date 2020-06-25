@@ -11,6 +11,10 @@ class Photo extends Model
     public $timestamps = false;
     //
     
+    public static $rules =[
+        'exercisePhotoDescription'=>'required|regex:/[a-zA-Z0-9\s]+/'        
+    ];
+    
     public function exercise(){
         return $this->belongsTo('App\Exercisie','id_exercise');
     }

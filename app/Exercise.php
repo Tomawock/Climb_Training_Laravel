@@ -10,8 +10,13 @@ class Exercise extends Model
     protected $table="exercise";
     public $timestamps = false;
     //
+    //regex:/^[a-zA-Z0-9\s]+$/ va bene per lettere con spazi e non caratteris peciali
+    //regex:/[a-zA-Z0-9\s]+/ come sopra ma con caratteris peciali
+    
     public static $rules =[
-        'exerciseName'=>'required|alpha_num',
+        'exerciseName'=>'required|regex:/[a-zA-Z0-9\s]+/',
+        'exerciseDescription'=>'required|regex:/[a-zA-Z0-9\s]+/',
+        'exerciseImportantNotes'=>'required|regex:/[a-zA-Z0-9\s]+/',
     ];
     
     public function photos(){

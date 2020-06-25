@@ -29,7 +29,14 @@
                     <?php endif; ?>
                     <?php echo e(csrf_field()); ?> 
                     <!-- Title of the Training Program-->
-                    <div class="form-group">
+                    <div class="form-group <?php $__errorArgs = ['trainingProgramTitle'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> has-error <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>">
                         <label for="trainingProgramTitle" class="col-md-2"><?php echo app('translator')->get('label.trainingprogramTitle'); ?></label>
                         <div class="col-md-10">
                             <?php if(isset($trainingprogram->id)): ?>
@@ -37,17 +44,46 @@
                             <?php else: ?> 
                             <input class="form-control" type="text" id="trainingProgramTitle" name="trainingProgramTitle" placeholder="<?php echo app('translator')->get('label.trainingprogramTitle'); ?>">
                             <?php endif; ?>
+                            
+                            <?php $__errorArgs = ['trainingProgramTitle'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="alert alert-danger"><?php echo e($message); ?></div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                     <!-- Description-->
-                    <div class="form-group">
+                    <div class="form-group <?php $__errorArgs = ['trainingProgramDescription'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> has-error <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>">
                         <label for="trainingProgramDescription" class="col-md-2"><?php echo app('translator')->get('label.editTpDescription'); ?></label>
                         <div class="col-md-10">
                             <?php if(isset($trainingprogram->id)): ?>
                             <textarea class="form-control" rows="4" id="trainingProgramDescription" name="trainingProgramDescription"><?php echo e($trainingprogram->description); ?></textarea>
                             <?php else: ?>
                             <textarea class="form-control" rows="4" id="trainingProgramDescription" name="trainingProgramDescription" placeholder="<?php echo app('translator')->get('label.editTpDescriptionPH'); ?>"></textarea>
-                            <?php endif; ?>     
+                            <?php endif; ?> 
+                            
+                            <?php $__errorArgs = ['trainingProgramDescription'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="alert alert-danger"><?php echo e($message); ?></div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                     <!-- Time Averange fo the completment of the Training program -->

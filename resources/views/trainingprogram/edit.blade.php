@@ -31,7 +31,7 @@
                     @endif
                     {{csrf_field()}} 
                     <!-- Title of the Training Program-->
-                    <div class="form-group">
+                    <div class="form-group @error('trainingProgramTitle') has-error @enderror">
                         <label for="trainingProgramTitle" class="col-md-2">@lang('label.trainingprogramTitle')</label>
                         <div class="col-md-10">
                             @if(isset($trainingprogram->id))
@@ -39,17 +39,25 @@
                             @else 
                             <input class="form-control" type="text" id="trainingProgramTitle" name="trainingProgramTitle" placeholder="@lang('label.trainingprogramTitle')">
                             @endif
+                            
+                            @error('trainingProgramTitle')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <!-- Description-->
-                    <div class="form-group">
+                    <div class="form-group @error('trainingProgramDescription') has-error @enderror">
                         <label for="trainingProgramDescription" class="col-md-2">@lang('label.editTpDescription')</label>
                         <div class="col-md-10">
                             @if(isset($trainingprogram->id))
                             <textarea class="form-control" rows="4" id="trainingProgramDescription" name="trainingProgramDescription">{{ $trainingprogram->description }}</textarea>
                             @else
                             <textarea class="form-control" rows="4" id="trainingProgramDescription" name="trainingProgramDescription" placeholder="@lang('label.editTpDescriptionPH')"></textarea>
-                            @endif     
+                            @endif 
+                            
+                            @error('trainingProgramDescription')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <!-- Time Averange fo the completment of the Training program -->

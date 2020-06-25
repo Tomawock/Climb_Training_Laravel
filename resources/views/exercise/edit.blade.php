@@ -31,22 +31,22 @@
                     @endif
                     {{csrf_field()}}
                     <!-- Name of the Exercise-->
-                    <div class="form-group">
+                    <div class="form-group @error('exerciseName') has-error @enderror">
                         <label for="exerciseName" class="col-md-2">@lang('label.editExerciseName')</label>
                         <div class="col-md-10">
                             @if(isset($exercise->id))
-                            <input class="form-control @error('exerciseName') has-error @enderror" type="text" id="exerciseName" name="exerciseName" placeholder="@lang('label.editExerciseNamePH')" value="{{ $exercise->name }}">
+                            <input class="form-control" type="text" id="exerciseName" name="exerciseName" placeholder="@lang('label.editExerciseNamePH')" value="{{ $exercise->name }}">
                             @else
-                            <input class="form-control @error('exerciseName') has-error @enderror" type="text" id="exerciseName" name="exerciseName" placeholder="@lang('label.editExerciseNamePH')">
+                            <input class="form-control" type="text" id="exerciseName" name="exerciseName" placeholder="@lang('label.editExerciseNamePH')">
                             @endif
-                            
+
                             @error('exerciseName')
-                                <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                            <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
                     <!-- Description-->
-                    <div class="form-group">
+                    <div class="form-group @error('exerciseDescription') has-error @enderror">
                         <label for="exerciseDescription" class="col-md-2">@lang('label.editExerciseDescription')</label>
                         <div class="col-md-10">
                             @if(isset($exercise->id))
@@ -54,10 +54,14 @@
                             @else
                             <textarea class="form-control" rows="4" id="exerciseDescription" name="exerciseDescription" placeholder="@lang('label.editExerciseDescriptionPH')"></textarea>
                             @endif
+
+                            @error('exerciseDescription')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <!-- Important Notes -->
-                    <div class="form-group">
+                    <div class="form-group @error('exerciseImportantNotes') has-error @enderror">
                         <label for="exerciseImportantNotes" class="col-md-2">@lang('label.editExerciseImportantNotes')</label>
                         <div class="col-md-10">
                             @if(isset($exercise->id))
@@ -65,17 +69,25 @@
                             @else
                             <textarea class="form-control" rows="2" id="exerciseImportantNotes" name="exerciseImportantNotes" placeholder="@lang('label.editExerciseImportantNotesPH')"></textarea>
                             @endif
+
+                            @error('exerciseImportantNotes')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
-                    </div>
+                    </div>               
                     <!-- Photo Insertion-->
-                    <div class="form-group">
+                    <div class="form-group @error('exercisePhotoDescription') has-error @enderror">  
                         <label for="exercisePhoto" class="col-md-2">@lang('label.editExerciseAddPhoto')</label>
                         <div class="col-md-5">
                             <input class="form-control" type="text" id="exercisePhotoDescription" name="exercisePhotoDescription" placeholder="@lang('label.editExerciseAddPhotoPH')">
+                        @error('exercisePhotoDescription')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                         </div>
                         <div class="col-md-5">
                             <input class="form-control-file" type="file" id="exercisePhoto" name="exercisePhoto">
                         </div>
+                        
                     </div>
                     @if(isset($exercise->id))
                     @if($exercise->photos->count() > 0) 
@@ -213,7 +225,6 @@
                         </div>  
                     </div>
                     <!-- Tecnical Tools-->
-
                     <div class="form-group">
                         <label for="exerciseTecnicalTools" class="col-md-2">@lang('label.exerciseTools')</label>
                         <div class="col-md-10" class="form-control">
@@ -248,9 +259,8 @@
                         <div class="col-md-10 col-md-offset-2">
                             <a href="{{ route('exercise.index') }}" class="btn btn-danger btn-large btn-block"><span class="glyphicon glyphicon-log-out"></span> @lang('label.cancel')</a>                         
                         </div>
-                    </div>                   
-                </form>
-        </div>
+                    </div>  
     </div>
+</div>
 </div>
 @endsection

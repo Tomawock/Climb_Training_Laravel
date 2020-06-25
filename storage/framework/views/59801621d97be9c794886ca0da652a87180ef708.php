@@ -30,34 +30,28 @@
                     <?php echo e(csrf_field()); ?>
 
                     <!-- Name of the Exercise-->
-                    <div class="form-group">
+                    <div class="form-group <?php $__errorArgs = ['exerciseName'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> has-error <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>">
                         <label for="exerciseName" class="col-md-2"><?php echo app('translator')->get('label.editExerciseName'); ?></label>
                         <div class="col-md-10">
                             <?php if(isset($exercise->id)): ?>
-                            <input class="form-control <?php $__errorArgs = ['exerciseName'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> has-error <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" type="text" id="exerciseName" name="exerciseName" placeholder="<?php echo app('translator')->get('label.editExerciseNamePH'); ?>" value="<?php echo e($exercise->name); ?>">
+                            <input class="form-control" type="text" id="exerciseName" name="exerciseName" placeholder="<?php echo app('translator')->get('label.editExerciseNamePH'); ?>" value="<?php echo e($exercise->name); ?>">
                             <?php else: ?>
-                            <input class="form-control <?php $__errorArgs = ['exerciseName'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> has-error <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" type="text" id="exerciseName" name="exerciseName" placeholder="<?php echo app('translator')->get('label.editExerciseNamePH'); ?>">
+                            <input class="form-control" type="text" id="exerciseName" name="exerciseName" placeholder="<?php echo app('translator')->get('label.editExerciseNamePH'); ?>">
                             <?php endif; ?>
+
                             <?php $__errorArgs = ['exerciseName'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <span class="invalid-feedback" role="alert"><?php echo e($message); ?></span>
+                            <div class="alert alert-danger"><?php echo e($message); ?></div>
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
@@ -65,7 +59,14 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                     <!-- Description-->
-                    <div class="form-group">
+                    <div class="form-group <?php $__errorArgs = ['exerciseDescription'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> has-error <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>">
                         <label for="exerciseDescription" class="col-md-2"><?php echo app('translator')->get('label.editExerciseDescription'); ?></label>
                         <div class="col-md-10">
                             <?php if(isset($exercise->id)): ?>
@@ -73,10 +74,28 @@ unset($__errorArgs, $__bag); ?>
                             <?php else: ?>
                             <textarea class="form-control" rows="4" id="exerciseDescription" name="exerciseDescription" placeholder="<?php echo app('translator')->get('label.editExerciseDescriptionPH'); ?>"></textarea>
                             <?php endif; ?>
+
+                            <?php $__errorArgs = ['exerciseDescription'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <div class="alert alert-danger"><?php echo e($message); ?></div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                     <!-- Important Notes -->
-                    <div class="form-group">
+                    <div class="form-group <?php $__errorArgs = ['exerciseImportantNotes'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> has-error <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>">
                         <label for="exerciseImportantNotes" class="col-md-2"><?php echo app('translator')->get('label.editExerciseImportantNotes'); ?></label>
                         <div class="col-md-10">
                             <?php if(isset($exercise->id)): ?>
@@ -84,17 +103,46 @@ unset($__errorArgs, $__bag); ?>
                             <?php else: ?>
                             <textarea class="form-control" rows="2" id="exerciseImportantNotes" name="exerciseImportantNotes" placeholder="<?php echo app('translator')->get('label.editExerciseImportantNotesPH'); ?>"></textarea>
                             <?php endif; ?>
+
+                            <?php $__errorArgs = ['exerciseImportantNotes'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <div class="alert alert-danger"><?php echo e($message); ?></div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
-                    </div>
+                    </div>               
                     <!-- Photo Insertion-->
-                    <div class="form-group">
+                    <div class="form-group <?php $__errorArgs = ['exercisePhotoDescription'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> has-error <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>">  
                         <label for="exercisePhoto" class="col-md-2"><?php echo app('translator')->get('label.editExerciseAddPhoto'); ?></label>
                         <div class="col-md-5">
                             <input class="form-control" type="text" id="exercisePhotoDescription" name="exercisePhotoDescription" placeholder="<?php echo app('translator')->get('label.editExerciseAddPhotoPH'); ?>">
+                        <?php $__errorArgs = ['exercisePhotoDescription'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <div class="alert alert-danger"><?php echo e($message); ?></div>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                         <div class="col-md-5">
                             <input class="form-control-file" type="file" id="exercisePhoto" name="exercisePhoto">
                         </div>
+                        
                     </div>
                     <?php if(isset($exercise->id)): ?>
                     <?php if($exercise->photos->count() > 0): ?> 
@@ -233,7 +281,6 @@ unset($__errorArgs, $__bag); ?>
                         </div>  
                     </div>
                     <!-- Tecnical Tools-->
-
                     <div class="form-group">
                         <label for="exerciseTecnicalTools" class="col-md-2"><?php echo app('translator')->get('label.exerciseTools'); ?></label>
                         <div class="col-md-10" class="form-control">
@@ -270,10 +317,9 @@ unset($__errorArgs, $__bag); ?>
                         <div class="col-md-10 col-md-offset-2">
                             <a href="<?php echo e(route('exercise.index')); ?>" class="btn btn-danger btn-large btn-block"><span class="glyphicon glyphicon-log-out"></span> <?php echo app('translator')->get('label.cancel'); ?></a>                         
                         </div>
-                    </div>                   
-                </form>
-        </div>
+                    </div>  
     </div>
+</div>
 </div>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layout.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/tomawock/code/Climb_Training_Laravel/resources/views/exercise/edit.blade.php ENDPATH**/ ?>

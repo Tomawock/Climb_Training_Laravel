@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\DataLayer;
 use App\Exercise;
+use App\Photo;
 use Illuminate\Support\Facades\Redirect;
 
 class ExerciseController extends Controller
@@ -46,8 +47,13 @@ class ExerciseController extends Controller
 //        if(!isset($_SESSION['logged'])) {
 //            return Redirect::to(route('user.login'));
 //        }
+        //validation ceck
+        if ($request->hasFile('exercisePhoto')) {    
+            $this->validate($request, array_merge(Photo::$rules,Exercise::$rules));
         
-        $this->validate($request, Exercise::$rules);
+        }else {
+            $this->validate($request, Exercise::$rules);
+        }
         
         $dl = new DataLayer();
         $dl->createExercise($request->input('exerciseName'), $request->input('exerciseDescription'),$request->input('exerciseImportantNotes'),
@@ -65,7 +71,7 @@ class ExerciseController extends Controller
             }
         }
         
-        if ($request->hasFile('exercisePhoto')) {       
+        if ($request->hasFile('exercisePhoto')) {                
             $fileurl = $request->file('exercisePhoto')->storeAs('exercisePhotos',$request->file('exercisePhoto')->getClientOriginalName() );
             $dl->createPhoto($fileurl,$request->input('exercisePhotoDescription'),$id);
         }
@@ -111,6 +117,13 @@ class ExerciseController extends Controller
 //        if(!isset($_SESSION['logged'])) {
 //            return Redirect::to(route('user.login'));
 //        }
+        
+        if ($request->hasFile('exercisePhoto')) {    
+            $this->validate($request, array_merge(Photo::$rules,Exercise::$rules));
+        
+        }else {
+            $this->validate($request, Exercise::$rules);
+        }
         
         $dl = new DataLayer();
         $dl->editExercise($id, $request->input('exerciseName'), $request->input('exerciseDescription'),$request->input('exerciseImportantNotes'),

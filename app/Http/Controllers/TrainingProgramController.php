@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\DataLayer;
-use App\Exercise;
+use App\TrainingProgram;
 use Illuminate\Support\Facades\Redirect;
 
 class TrainingProgramController extends Controller {
@@ -47,6 +47,8 @@ class TrainingProgramController extends Controller {
 //            return Redirect::to(route('user.login'));
 //        }
 
+        $this->validate($request, TrainingProgram::$rules);
+        
         $dl = new DataLayer();
         $dl->createTrainingProgram($request->input('trainingProgramTitle'), $request->input('trainingProgramDescription'), $request->input('trainingProgramTimeMin'), $request->input('trainingProgramTimeMax'));
         $idTp = $dl->getLastIdTrainingprogram();
@@ -97,6 +99,8 @@ class TrainingProgramController extends Controller {
 //            return Redirect::to(route('user.login'));
 //        }
 
+        $this->validate($request, TrainingProgram::$rules);
+        
         $dl = new DataLayer();
         $dl->editTrainingProgram($id,$request->input('trainingProgramTitle'), $request->input('trainingProgramDescription'), $request->input('trainingProgramTimeMin'), $request->input('trainingProgramTimeMax'));
         $tp = $dl->findCompleteTrainingProgramById($id);
