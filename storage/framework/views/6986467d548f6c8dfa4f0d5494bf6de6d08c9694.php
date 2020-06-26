@@ -16,8 +16,8 @@
     <div class="row">
         <div class="col-md-12"> 
             <h2>
-                <stong>
-                   <?php echo e($trainingprogram->title); ?>
+                <stong id="title">
+                    <?php echo e($trainingprogram->title); ?>
 
                 </stong>
             </h2>
@@ -26,18 +26,15 @@
     <div class="row">
         <div class="col-md-offset-4 col-md-4"> 
             <h3>
-                <stong>
-                    <span class="glyphicon glyphicon-time"></span> <?php echo e($trainingprogram->timeMin); ?> - <?php echo e($trainingprogram->timeMax); ?>
-
-                </stong>
+                <span class="glyphicon glyphicon-time"></span> 
+                <stong id="time"><?php echo e($trainingprogram->timeMin); ?> - <?php echo e($trainingprogram->timeMax); ?> </stong>
             </h3>
         </div>
         <div class="col-md-offset-2 col-md-2"> 
             <h3>
-                <label for="downloadPdfTrainingProgram" class="btn btn-success">
+                <label for="downloadPdfTrainingProgram" class="btn btn-success" onclick="download()">
                     <span class="glyphicon glyphicon-download-alt"></span> <?php echo app('translator')->get('label.showTpDownloadPDF'); ?>
                 </label>
-                <input id="downloadPdfTrainingProgram" type="submit" value='downloadPDF' class="hidden"/> 
             </h3>
         </div>
     </div>
@@ -54,7 +51,7 @@
                 <!-- Table -->
                 <div class="col-md-12">
                     <div class="table-responsive">
-                        <table class="table table-hover table-condensed text-center" id='searchandorder'>
+                        <table class="table table-hover table-condensed text-center" id="toDowload">
                             <thead>
                                 <tr>
                                     <th class="col-md-2 text-center"><?php echo app('translator')->get('label.editExerciseName'); ?></th>

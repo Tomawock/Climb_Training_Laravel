@@ -18,8 +18,8 @@
     <div class="row">
         <div class="col-md-12"> 
             <h2>
-                <stong>
-                   {{ $trainingprogram->title }}
+                <stong id="title">
+                    {{ $trainingprogram->title }}
                 </stong>
             </h2>
         </div>
@@ -27,17 +27,15 @@
     <div class="row">
         <div class="col-md-offset-4 col-md-4"> 
             <h3>
-                <stong>
-                    <span class="glyphicon glyphicon-time"></span> {{ $trainingprogram->timeMin }} - {{ $trainingprogram->timeMax }}
-                </stong>
+                <span class="glyphicon glyphicon-time"></span> 
+                <stong id="time">{{ $trainingprogram->timeMin }} - {{ $trainingprogram->timeMax }} </stong>
             </h3>
         </div>
         <div class="col-md-offset-2 col-md-2"> 
             <h3>
-                <label for="downloadPdfTrainingProgram" class="btn btn-success">
+                <label for="downloadPdfTrainingProgram" class="btn btn-success" onclick="download()">
                     <span class="glyphicon glyphicon-download-alt"></span> @lang('label.showTpDownloadPDF')
                 </label>
-                <input id="downloadPdfTrainingProgram" type="submit" value='downloadPDF' class="hidden"/> 
             </h3>
         </div>
     </div>
@@ -54,7 +52,7 @@
                 <!-- Table -->
                 <div class="col-md-12">
                     <div class="table-responsive">
-                        <table class="table table-hover table-condensed text-center" id='searchandorder'>
+                        <table class="table table-hover table-condensed text-center" id="toDowload">
                             <thead>
                                 <tr>
                                     <th class="col-md-2 text-center">@lang('label.editExerciseName')</th>
