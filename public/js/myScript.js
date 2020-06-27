@@ -112,13 +112,34 @@ function checkBook(button)
 
 function download() {
 
-    var pdf = new jsPDF('l', 'pt', 'a4');
+//    var pdf = new jsPDF('l', 'pt', 'a4');
+//
+//
+//    var title = document.getElementById("title").innerHTML.trim();
+//
+//    pdf.autoTable({html: '#toDowload'})
+//    pdf.save('table.pdf')
 
+    var doc = new jsPDF('l', 'pt', 'a4');
 
-    var title = document.getElementById("title").innerHTML.trim();
+    var pageHeight = doc.internal.pageSize.height || doc.internal.pageSize.getHeight();
+    var pageWidth = doc.internal.pageSize.width || doc.internal.pageSize.getWidth();
+    
+    doc.setFontSize(20);
+    doc.text(document.getElementById("title").innerHTML.trim(), pageWidth/2, 20,'center');
+    doc.setFontSize(10);
+    doc.text(document.getElementById("description").innerHTML.trim(), pageWidth/2, 40,'left');
+    doc.text(document.getElementById("time").innerHTML.trim(), pageWidth/2, 40,'center');
 
-    console.log();
+    jsPDF.autoTableSetDefaults({
+        headStyles: {fillColor: 0},
+        columnStyles: { halign: 'center'  }
+    });
+    
+    doc.autoTable({
+        html: '#toDowload',
+        startY: 50
+    });
 
-    pdf.autoTable({html: '#toDowload'})
-    pdf.save('table.pdf')
+    doc.save('test_D.pdf');
 }

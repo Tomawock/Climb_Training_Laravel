@@ -47,7 +47,7 @@
             <div class="panel panel-default ">
                 <!-- Default panel contents -->
                 <div class="panel-body text-center panel-relative">
-                    <h4>{{$trainingprogram->description}}</h4>
+                    <h4 id="description">{{$trainingprogram->description}}</h4>
                 </div>
                 <!-- Table -->
                 <div class="col-md-12">

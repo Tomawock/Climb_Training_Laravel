@@ -13,6 +13,7 @@
         <script src="<?php echo e(url('/')); ?>/js/bootstrap.min.js"></script>
         <script src="<?php echo e(url('/')); ?>/js/myScript.js"></script>
         <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+         <script src="https://unpkg.com/jspdf-autotable@3.5.6/dist/jspdf.plugin.autotable.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
         <script type="text/javascript" class="init">
