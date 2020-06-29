@@ -48,5 +48,5 @@ function download() {
         startY: yPos
     });
 
-    doc.save('test_D.pdf');
+    doc.save('Training_'+title+'.pdf');
 }
