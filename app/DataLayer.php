@@ -2,6 +2,7 @@
 
 namespace App;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 
 class DataLayer {
@@ -243,6 +244,24 @@ class DataLayer {
             }
         }
         return $result;
+    }
+    
+    public function isIdExerciseBlocked($idEx){
+        $temp = DB::select("SELECT * FROM `user_trainingprogram_execution` WHERE `id_exercise` = :id", ['id' => $idEx   ]);
+        if (count($temp)>0){
+            return true;
+        }else {
+            return false;
+        }
+    }
+    
+    public function isIdTrainingprogramBlocked($idTp){
+        $temp = DB::select("SELECT * FROM `user_trainingprogram_execution` WHERE `id_trainingProgram` = :id", ['id' => $idTp   ]);
+        if (count($temp)>0){
+            return true;
+        }else {
+            return false;
+        }
     }
 }
 ?>

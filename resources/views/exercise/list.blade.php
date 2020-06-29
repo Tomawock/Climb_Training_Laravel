@@ -42,9 +42,15 @@
                             <td>
                                 <a class="btn btn-primary btn-block" href="{{ route('exercise.edit', ['exercise' => $exercise->id]) }}"><span class="glyphicon glyphicon-pencil"></span> @lang('label.edit')</a>
                             </td>
+                            @if(in_array($exercise->id,$bloked))
+                            <td>
+                                <a class="btn btn-danger btn-block" href="{{ route('exercise.destroy.confirm', ['id' => $exercise->id]) }}" disabled><span class="glyphicon glyphicon-trash"></span> @lang('label.delete')</a>
+                            </td>
+                            @else
                             <td>
                                 <a class="btn btn-danger btn-block" href="{{ route('exercise.destroy.confirm', ['id' => $exercise->id]) }}"><span class="glyphicon glyphicon-trash"></span> @lang('label.delete')</a>
                             </td>
+                            @endif
                         </tr>
                         @endforeach
                     </tbody>

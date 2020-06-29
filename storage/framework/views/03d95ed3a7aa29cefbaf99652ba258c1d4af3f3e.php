@@ -40,9 +40,16 @@
                             <td>
                                 <a class="btn btn-primary btn-block" href="<?php echo e(route('exercise.edit', ['exercise' => $exercise->id])); ?>"><span class="glyphicon glyphicon-pencil"></span> <?php echo app('translator')->get('label.edit'); ?></a>
                             </td>
+                           
+                            <?php if(in_array($exercise->id,$bloked)): ?>
+                            <td>
+                                <a class="btn btn-danger btn-block" href="<?php echo e(route('exercise.destroy.confirm', ['id' => $exercise->id])); ?>" disabled><span class="glyphicon glyphicon-trash"></span> <?php echo app('translator')->get('label.delete'); ?></a>
+                            </td>
+                            <?php else: ?>
                             <td>
                                 <a class="btn btn-danger btn-block" href="<?php echo e(route('exercise.destroy.confirm', ['id' => $exercise->id])); ?>"><span class="glyphicon glyphicon-trash"></span> <?php echo app('translator')->get('label.delete'); ?></a>
                             </td>
+                            <?php endif; ?>
                         </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>

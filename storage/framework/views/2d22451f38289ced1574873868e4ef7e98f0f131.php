@@ -42,9 +42,15 @@
                             <td>
                                 <a class="btn btn-primary btn-block" href="<?php echo e(route('trainingprogram.edit', ['trainingprogram' => $tp->id])); ?>"><span class="glyphicon glyphicon-pencil"></span> <?php echo app('translator')->get('label.edit'); ?></a>
                             </td>
+                            <?php if(in_array($tp->id,$bloked)): ?>
+                            <td>
+                                <a class="btn btn-danger btn-block" href="<?php echo e(route('trainingprogram.destroy.confirm', ['id' => $tp->id])); ?>"disabled><span class="glyphicon glyphicon-trash"></span> <?php echo app('translator')->get('label.delete'); ?></a>
+                            </td>
+                            <?php else: ?>
                             <td>
                                 <a class="btn btn-danger btn-block" href="<?php echo e(route('trainingprogram.destroy.confirm', ['id' => $tp->id])); ?>"><span class="glyphicon glyphicon-trash"></span> <?php echo app('translator')->get('label.delete'); ?></a>
                             </td>
+                            <?php endif; ?>
                             <?php if($tp->users->contains($userId)): ?>
                             <td>
                                 <a class="btn btn-success btn-block" href="#"  disabled><span class="glyphicon glyphicon-plus"></span> <?php echo app('translator')->get('label.add'); ?></a>

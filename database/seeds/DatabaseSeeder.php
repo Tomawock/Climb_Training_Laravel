@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder {
         
         $exes = Exercise::all();
 
-        factory(Photo::class, 10)->create(['id_exercise' => rand($exes)]);
+        //factory(Photo::class, 10)->create(['id_exercise' => rand($exes)]);
 //        
 //        factory(Author::class, 10)->create(['user_id' => $user2])->each(function($author) {
 //            factory(Book::class, 10)->create(['author_id' => $author->id, 'user_id' => $author->user_id]);

@@ -21,8 +21,18 @@ class ExerciseController extends Controller
         
         $exerciseList = $dl->listExercises();
         
+        //disabilita la cancellazione
+        $bloked=array();
+        foreach ($exerciseList as $es){
+            if ($dl->isIdExerciseBlocked($es->id)){
+                $bloked[]=$es->id;
+            }
+        }
+        
+        //dd($bloked);
+        
         return view('exercise.list')->with('logged',true)->with('loggedName', $_SESSION["loggedName"])
-                ->with('exerciseList',$exerciseList);
+                ->with('exerciseList',$exerciseList)->with('bloked',$bloked);
         
     }
     
