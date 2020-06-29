@@ -51,17 +51,21 @@ class MyTrainingController extends Controller {
         $tosend = array();
         $userId = $dl->getUserID($_SESSION['loggedName']);
         $tpexecution = $dl->getUserTrainingProgramExecutionByUserId($userId);
-        
+
         $date = null;
         $tpid = null;
         foreach ($tpexecution as $ex) {
-            if ($ex->pivot->date != $date || $ex->id != $tpid){
+            if ($ex->pivot->date != $date || $ex->id != $tpid) {
                 $date = $ex->pivot->date;
                 $tpid = $ex->id;
-                $tosend['title'][]=$ex->title;
-                $tosend['date'][]=$ex->pivot->date;
-                $tosend['exercises'][]= $dl->getUserTrainingProgramExecutionByUserIdDateAndTrainingProgram($userId, $date, $tpid);
+                $tosend['title'][] = $ex->title;
+                $tosend['date'][] = $ex->pivot->date;
+                $tosend['exercises'][] = $dl->getUserTrainingProgramExecutionByUserIdDateAndTrainingProgram($userId, $date, $tpid);
             }
+        }
+        //dd($tosend==null);
+        if ($tosend == null) {
+            return view('mytraining.historystatisticerror')->with('logged', true)->with('loggedName', $_SESSION["loggedName"]);
         }
         //nel caso in cui non ho match mi va in null pointer exception, è da gestire 
         return view('mytraining.historystatistic')->with('logged', true)->with('loggedName', $_SESSION["loggedName"])
@@ -97,19 +101,18 @@ class MyTrainingController extends Controller {
         $user = $dl->getUserbyUsername($_SESSION['loggedName']);
         foreach ($exerciseList as $ex) {
             if ($request->input('executedReps' . $ex->id) != null && $request->input('executedSets' . $ex->id) != null) {
-                if ($request->input('executionDate') == ''){
+                if ($request->input('executionDate') == '') {
                     $date = date("Y-m-d");
-                }else{
+                } else {
                     $date = $_POST['executionDate'];
                 }
-                if ($request->input('executedNotes' . $ex->id)== null ){
+                if ($request->input('executedNotes' . $ex->id) == null) {
                     $note = '';
-                }else{
-                    $note =$request->input('executedNotes' . $ex->id);
+                } else {
+                    $note = $request->input('executedNotes' . $ex->id);
                 }
-                
-                $dl->createUserTrainingProgramExecution($ex->id, $id, $user->id, $request->input('executedReps' . $ex->id),
-                        $request->input('executedSets' . $ex->id), $date, $note);
+
+                $dl->createUserTrainingProgramExecution($ex->id, $id, $user->id, $request->input('executedReps' . $ex->id), $request->input('executedSets' . $ex->id), $date, $note);
             }
         }
 

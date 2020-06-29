@@ -86,6 +86,8 @@ return [
     'mytrainingInfoSurname'=>'Cognome',
     'mytrainingInfoEmail'=>'E-mail',
     
+    'historyStatisticErrorTitle'=>'Nessua Scheda di Allenamento é stata eseguita',
+    
     'trainingprogramTitle'=>'Titolo',
     
     'authPassword'=>'Password',

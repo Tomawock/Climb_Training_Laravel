@@ -86,6 +86,8 @@ return [
     'mytrainingInfoSurname'=>'Surname',
     'mytrainingInfoEmail'=>'E-mail',
     
+    'historyStatisticErrorTitle'=>'No Training Program Executed',
+    
     'trainingprogramTitle'=>'Title',
     
     'authPassword'=>'Password',
