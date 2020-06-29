@@ -26,10 +26,18 @@
 @endsection
 
 @section('right_navbar')
-@if($logged)
-<li><a><i>@lang('label.welcome') {{ $loggedName }}</i></a></li>
-<li><a href="{{ route('user.logout') }}">@lang('label.logout') <span class="glyphicon glyphicon-log-out"></span></a></li>
+@auth
+<li><a><i>@lang('label.welcome') {{ Auth::user()->name }}</i></a></li>
+<li>
+    <a href="{{ route('logout') }}" 
+       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        @lang('label.logout')
+    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+</li>
 @else
-<li><a href="{{ route('user.login') }}"><span class="glyphicon glyphicon-user"></span> @lang('label.login')</a></li>
-@endif
+<li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-user"></span> @lang('label.login')</a></li>
+@endauth
 @endsection

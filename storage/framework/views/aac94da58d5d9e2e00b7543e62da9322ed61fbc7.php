@@ -24,11 +24,19 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('right_navbar'); ?>
-<?php if($logged): ?>
-<li><a><i><?php echo app('translator')->get('label.welcome'); ?> <?php echo e($loggedName); ?></i></a></li>
-<li><a href="<?php echo e(route('user.logout')); ?>"><?php echo app('translator')->get('label.logout'); ?> <span class="glyphicon glyphicon-log-out"></span></a></li>
+<?php if(auth()->guard()->check()): ?>
+<li><a><i><?php echo app('translator')->get('label.welcome'); ?> <?php echo e(Auth::user()->name); ?></i></a></li>
+<li>
+    <a href="<?php echo e(route('logout')); ?>" 
+       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        <?php echo app('translator')->get('label.logout'); ?>
+    </a>
+    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+        <?php echo csrf_field(); ?>
+    </form>
+</li>
 <?php else: ?>
-<li><a href="<?php echo e(route('user.login')); ?>"><span class="glyphicon glyphicon-user"></span> <?php echo app('translator')->get('label.login'); ?></a></li>
+<li><a href="<?php echo e(route('login')); ?>"><span class="glyphicon glyphicon-user"></span> <?php echo app('translator')->get('label.login'); ?></a></li>
 <?php endif; ?>
 <?php $__env->stopSection(); ?>
 

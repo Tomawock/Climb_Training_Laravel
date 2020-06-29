@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <title><?php echo $__env->yieldContent('titolo'); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        
-         <!-- Fogli di stile -->
+
+        <!-- Fogli di stile -->
         <link rel="stylesheet" href="<?php echo e(url('/')); ?>/css/bootstrap.css">
         <link rel="stylesheet" href="<?php echo e(url('/')); ?>/css/<?php echo $__env->yieldContent('stile'); ?>">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
@@ -16,20 +16,20 @@
         <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
         <script src="https://unpkg.com/jspdf-autotable@3.5.6/dist/jspdf.plugin.autotable.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-        
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+
         <script type="text/javascript" class="init">
-            var options = {
-                    "info":     false,
-                    "lengthChange": false,
-                    "pageLength": 10
-                };               
-            $(document).ready(function () {
-                $('#searchandorder').DataTable(options);
-            });
+var options = {
+    "info": false,
+    "lengthChange": false,
+    "pageLength": 10
+};
+$(document).ready(function () {
+    $('#searchandorder').DataTable(options);
+});
 
         </script>
-        
+
     </head>
 
     <body>
@@ -60,11 +60,18 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <?php if($logged): ?>
-                        <li><a><i><?php echo app('translator')->get('label.welcome'); ?> <?php echo e($loggedName); ?></i></a></li>
-                        <li><a href="<?php echo e(route('user.logout')); ?>"><?php echo app('translator')->get('label.logout'); ?> <span class="glyphicon glyphicon-log-out"></span></a></li>
+                        <?php if(auth()->guard()->check()): ?>
+                        <li><a><i><?php echo app('translator')->get('label.welcome'); ?> <?php echo e(Auth::user()->name); ?></i></a></li>
+                        <li><a href="<?php echo e(route('logout')); ?>" 
+                               onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">
+                                <?php echo app('translator')->get('label.logout'); ?>
+                            </a>
+                            <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                                <?php echo csrf_field(); ?>
+                            </form></li>
                         <?php else: ?>
-                        <li><a href="<?php echo e(route('user.login')); ?>"><span class="glyphicon glyphicon-user"></span> <?php echo app('translator')->get('label.login'); ?></a></li>
+                        <li><a href="<?php echo e(route('login')); ?>"><span class="glyphicon glyphicon-user"></span> <?php echo app('translator')->get('label.login'); ?></a></li>
                         <?php endif; ?>
                         <li><a href="<?php echo e(route('setLang', ['lang' => 'en'])); ?>" class="nav-link"><img src="<?php echo e(url('/')); ?>/img/flags/en.png" width="30" class="img-rounded"/></a></li>
                         <li><a href="<?php echo e(route('setLang', ['lang' => 'it'])); ?>" class="nav-link"><img src="<?php echo e(url('/')); ?>/img/flags/it.png" width="24" class="img-rounded"/></a></li>

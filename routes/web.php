@@ -21,13 +21,13 @@ Route::group(['middleware' => ['lang']], function () {
     Route::get('/', ['as' => 'home', 'uses' => 'FrontController@getHome']);
     Route::get('/lang/{lang}', ['as' => 'setLang',
         'uses' => 'LangController@changeLanguage']);
-    Route::get('/user/login', ['as' => 'user.login', 'uses' => 'AuthController@authentication']);
-    Route::post('/user/login', ['as' => 'user.login', 'uses' => 'AuthController@login']);
-    Route::get('/user/logout', ['as' => 'user.logout', 'uses' => 'AuthController@logout']);
-    Route::post('/user/register', ['as' => 'user.register', 'uses' => 'AuthController@registration']);
+//    Route::get('/user/login', ['as' => 'user.login', 'uses' => 'AuthController@authentication']);
+//    Route::post('/user/login', ['as' => 'user.login', 'uses' => 'AuthController@login']);
+//    Route::get('/user/logout', ['as' => 'user.logout', 'uses' => 'AuthController@logout']);
+//    Route::post('/user/register', ['as' => 'user.register', 'uses' => 'AuthController@registration']);
 });
 
-Route::group(['middleware' => ['myauth', 'lang']], function() {
+Route::group(['middleware' => ['auth', 'lang']], function() {
     Route::resource('exercise', 'ExerciseController');
     Route::post('/exercise/{id}/postupdate', ['as' => 'exercise.postupdate', 'uses' => 'ExerciseController@postupdate']);
     Route::get('/exercise/{id}/destroy', ['as' => 'exercise.destroy', 'uses' => 'ExerciseController@destroy']);

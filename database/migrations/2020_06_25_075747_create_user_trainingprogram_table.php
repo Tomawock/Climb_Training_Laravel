@@ -18,7 +18,7 @@ class CreateUserTrainingprogramTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('trainingprogram_id')->unsigned();
             
-            $table->foreign('user_id')->references('id')->on('user');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('trainingprogram_id')->references('id')->on('trainingprogram');
         });
     }

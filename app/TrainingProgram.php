@@ -15,7 +15,7 @@ class TrainingProgram extends Model
     ];
     
     public function users(){
-         return $this->belongsToMany('App\Myuser', 'user_trainingprogram','trainingprogram_id','user_id');
+         return $this->belongsToMany('App\User', 'user_trainingprogram','trainingprogram_id','user_id');
     }
     
     public function exercises(){
@@ -23,7 +23,7 @@ class TrainingProgram extends Model
     }
     
     public function executedOnUser(){
-         return $this->belongsToMany('App\Myuser', 'user_trainingprogram_execution','id_trainingProgram','id_user');
+         return $this->belongsToMany('App\User', 'user_trainingprogram_execution','id_trainingProgram','id_user');
     }
     
     public function executedOnExercise(){

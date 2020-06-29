@@ -7,34 +7,13 @@ use Illuminate\Support\Facades\DB;
 
 class DataLayer {
 
-    public function validUser($username, $password) {
-        $users = Myuser::where('username', $username)->get(['password']);
-
-        if (count($users) == 0) {
-            return false;
-        }
-
-        return (md5($password) == ($users[0]->password));
-    }
-
-    public function addUser($name, $surname, $username, $password, $email) {
-        $user = new Myuser;
-
-        $user->name = $name;
-        $user->surname = $surname;
-        $user->username = $username;
-        $user->password = md5($password);
-        $user->email = $email;
-        $user->save();
-    }
-
     public function getUserID($username) {
-        $users = Myuser::where('username', $username)->get(['id']);
+        $users = User::where('name', $username)->get(['id']);
         return $users[0]->id;
     }
 
     public function getUserbyUsername($username) {
-        $user = Myuser::where('username', $username)->first();
+        $user = User::where('name', $username)->first();
         return $user;
         
     }
@@ -150,9 +129,9 @@ class DataLayer {
     public function listTrainingProgram() {
         return TrainingProgram::all()->sortBy('title');
     }
-
+    //modded
     public function addTrainingprogramToUser($trainingprogramID, $usernameId) {
-        Myuser::find($usernameId)->trainingprograms()->attach($trainingprogramID);
+        User::where('id',$usernameId)->first()->trainingprograms()->attach($trainingprogramID);
     }
 
     public function findCompleteTrainingProgramById($tpId) {
@@ -217,26 +196,27 @@ class DataLayer {
     public function deleteTrainingProgramToUser($userId, $tpId) {
         
         $toSync=array();
-        foreach (Myuser::find($userId)->trainingprograms as $tp){
-            if ($tp->id != $tpId)
+        foreach (User::where('id',$userId)->first()->trainingprograms as $tp){
+            if ($tp->id != $tpId){
                 $toSync[]=$tp->id;
+            }
         }
-        Myuser::find($userId)->trainingprograms()->sync($toSync);
+        MUser::where('id',$userId)->first()->trainingprograms()->sync($toSync);
     }
 
     public function createUserTrainingProgramExecution($idEx, $idTp, $idUsr, $reps, $sets, $date, $note) {
         //per le tabell di legame con dati multipli fai come:: $user->roles()->attach($roleId, ['expires' => $expires]);
-        Myuser::find($idUsr)->executedtrainingprograms()->attach($idTp,['id_exercise' =>$idEx,'reps' =>$reps,'sets'=>$sets,'date'=>$date,'note'=>$note]); 
+        User::where('id',$idUsr)->first()->executedtrainingprograms()->attach($idTp,['id_exercise' =>$idEx,'reps' =>$reps,'sets'=>$sets,'date'=>$date,'note'=>$note]); 
     }
 
     public function getUserTrainingProgramExecutionByUserId($idUsr) {
         
-        return Myuser::find($idUsr)->executedtrainingprograms;
+        return User::where('id',$idUsr)->first()->executedtrainingprograms;
     }
 
     public function getUserTrainingProgramExecutionByUserIdDateAndTrainingProgram($idUsr, $date, $trainingProgram) {
         $result=array();
-        $temp = Myuser::find($idUsr)->executedtrainingprograms;
+        $temp = User::where('id',$idUsr)->first()->executedtrainingprograms;
         foreach($temp as $t){
             if($t->pivot->date==$date && $t->id==$trainingProgram){
                 $result['exercise'][]=$this->findCompleteExerciseById($t->pivot->id_exercise);

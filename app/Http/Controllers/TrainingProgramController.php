@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\DataLayer;
 use App\TrainingProgram;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 
 class TrainingProgramController extends Controller {
 
@@ -19,7 +20,7 @@ class TrainingProgramController extends Controller {
         $dl = new DataLayer();
 
         $trainingprogram = $dl->listTrainingProgram();
-        $userId = $dl->getUserID($_SESSION['loggedName']);
+        $userId = $dl->getUserID(Auth::user()->name);
         
         $bloked=array();
         foreach ($trainingprogram as $tp){
@@ -28,8 +29,8 @@ class TrainingProgramController extends Controller {
             }
         }
 
-        return view('trainingprogram.list')->with('logged', true)->with('loggedName', $_SESSION["loggedName"])
-                        ->with('trainingprogram', $trainingprogram)->with('userId', $userId)->with('bloked',$bloked);
+        return view('trainingprogram.list')->with('trainingprogram', $trainingprogram)
+                ->with('userId', $userId)->with('bloked',$bloked);
     }
 
     public function create() {//DONE
@@ -43,8 +44,7 @@ class TrainingProgramController extends Controller {
 
         $allExercises = $dl->listExercises();
 
-        return view('trainingprogram.edit')->with('logged', true)->with('loggedName', $_SESSION["loggedName"])
-                        ->with('allExercises', $allExercises);
+        return view('trainingprogram.edit')->with('allExercises', $allExercises);
     }
 
     public function store(Request $request) {//DONE     
@@ -80,8 +80,7 @@ class TrainingProgramController extends Controller {
         $dl = new DataLayer();
         $trainingprogram = $dl->findCompleteTrainingProgramById($id);
         
-        return view('trainingprogram.show')->with('logged',true)->with('loggedName', $_SESSION["loggedName"])
-                ->with('trainingprogram',$trainingprogram);
+        return view('trainingprogram.show')->with('trainingprogram',$trainingprogram);
     }
 
     public function edit($id) {//DONE     
@@ -95,8 +94,7 @@ class TrainingProgramController extends Controller {
         $trainingprogram = $dl->findCompleteTrainingProgramById($id);
         $allExercises = $dl->listExercises();
 
-        return view('trainingprogram.edit')->with('logged', true)->with('loggedName', $_SESSION["loggedName"])
-                        ->with('trainingprogram', $trainingprogram)->with('allExercises', $allExercises);
+        return view('trainingprogram.edit')->with('trainingprogram', $trainingprogram)->with('allExercises', $allExercises);
     }
 
     public function update(Request $request, $id) {//DONE
@@ -156,8 +154,7 @@ class TrainingProgramController extends Controller {
         
         $tp=$dl->findCompleteTrainingProgramById($id);
         
-        return view('trainingprogram.destroy')->with('logged',true)->with('loggedName', $_SESSION["loggedName"])
-                ->with('trainingprogram', $tp); 
+        return view('trainingprogram.destroy')->with('trainingprogram', $tp); 
     }
 
     public function addmytraining($id) {//DONE
@@ -170,7 +167,7 @@ class TrainingProgramController extends Controller {
         $dl = new DataLayer();
 
         $trainingprogram = $dl->listTrainingProgram();
-        $userId = $dl->getUserID($_SESSION['loggedName']);
+        $userId = $dl->getUserID(Auth::user()->name);
 
         $dl->addTrainingprogramToUser($id, $userId);
         
@@ -181,8 +178,7 @@ class TrainingProgramController extends Controller {
             }
         }
 
-        return view('trainingprogram.list')->with('logged', true)->with('loggedName', $_SESSION["loggedName"])
-                        ->with('trainingprogram', $trainingprogram)->with('userId', $userId)->with('bloked',$bloked);
+        return view('trainingprogram.list')->with('trainingprogram', $trainingprogram)->with('userId', $userId)->with('bloked',$bloked);
         
     }
 

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\DataLayer;
 use App\Myuser;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 
 class MyTrainingController extends Controller {
 
@@ -18,10 +18,9 @@ class MyTrainingController extends Controller {
 
         $dl = new DataLayer();
 
-        $user = $dl->getUserbyUsername($_SESSION['loggedName']);
+        $user = $dl->getUserbyUsername(Auth::user()->name);
 
-        return view('mytraining.information')->with('logged', true)->with('loggedName', $_SESSION["loggedName"])
-                        ->with('user', $user);
+        return view('mytraining.information')->with('user', $user);
     }
 
     public function programlist() {
@@ -33,11 +32,10 @@ class MyTrainingController extends Controller {
 
         $dl = new DataLayer();
 
-        $user = $dl->getUserbyUsername($_SESSION['loggedName']);
+        $user = $dl->getUserbyUsername(Auth::user()->name);
 
 
-        return view('mytraining.programlist')->with('logged', true)->with('loggedName', $_SESSION["loggedName"])
-                        ->with('user', $user);
+        return view('mytraining.programlist')->with('user', $user);
     }
 
     public function historystatistic() {
@@ -49,7 +47,7 @@ class MyTrainingController extends Controller {
 
         $dl = new DataLayer();
         $tosend = array();
-        $userId = $dl->getUserID($_SESSION['loggedName']);
+        $userId = $dl->getUserID(Auth::user()->name);
         $tpexecution = $dl->getUserTrainingProgramExecutionByUserId($userId);
 
         $date = null;
@@ -65,11 +63,11 @@ class MyTrainingController extends Controller {
         }
         //dd($tosend==null);
         if ($tosend == null) {
-            return view('mytraining.historystatisticerror')->with('logged', true)->with('loggedName', $_SESSION["loggedName"]);
+            return view('mytraining.historystatisticerror');    
+            
         }
         //nel caso in cui non ho match mi va in null pointer exception, è da gestire 
-        return view('mytraining.historystatistic')->with('logged', true)->with('loggedName', $_SESSION["loggedName"])
-                        ->with('result', $tosend);
+        return view('mytraining.historystatistic')->with('result', $tosend);
     }
 
     public function executetraining($id) {
@@ -82,8 +80,7 @@ class MyTrainingController extends Controller {
         $dl = new DataLayer();
         $tp = $dl->findCompleteTrainingProgramById($id);
 
-        return view('mytraining.execute')->with('logged', true)->with('loggedName', $_SESSION["loggedName"])
-                        ->with('trainingprogram', $tp);
+        return view('mytraining.execute')->with('trainingprogram', $tp);
     }
 
     public function postexecute(Request $request, $id) {
@@ -98,7 +95,7 @@ class MyTrainingController extends Controller {
 
         $tp = $dl->findCompleteTrainingProgramById($id);
         $exerciseList = $tp->exercises;
-        $user = $dl->getUserbyUsername($_SESSION['loggedName']);
+        $user = $dl->getUserbyUsername(Auth::user()->name);
         foreach ($exerciseList as $ex) {
             if ($request->input('executedReps' . $ex->id) != null && $request->input('executedSets' . $ex->id) != null) {
                 if ($request->input('executionDate') == '') {
@@ -116,8 +113,7 @@ class MyTrainingController extends Controller {
             }
         }
 
-        return view('mytraining.programlist')->with('logged', true)->with('loggedName', $_SESSION["loggedName"])
-                        ->with('user', $user);
+        return view('mytraining.programlist')->with('user', $user);
     }
 
     public function removemytraining($id) {
@@ -129,14 +125,13 @@ class MyTrainingController extends Controller {
 
         $dl = new DataLayer();
 
-        $user = $dl->getUserbyUsername($_SESSION['loggedName']);
-        $userId = $dl->getUserID($_SESSION['loggedName']);
+        $user = $dl->getUserbyUsername(Auth::user()->name);
+        $userId = $dl->getUserID(Auth::user()->name);
 
         $dl->deleteTrainingProgramToUser($userId, $id);
 
 
-        return view('mytraining.programlist')->with('logged', true)->with('loggedName', $_SESSION["loggedName"])
-                        ->with('user', $user);
+        return view('mytraining.programlist')->with('user', $user);
     }
 
 }

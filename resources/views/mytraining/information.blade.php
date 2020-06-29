@@ -21,16 +21,8 @@
                 <div class="panel-body">
                     <div class="container">
                         <div class="row">
-                            <label class="col-md-6">@lang('label.mytrainingInfoUsername')</label>
-                            <label class="col-md-6">{{$user->username}}</label>
-                        </div>
-                        <div class="row">
                             <label class="col-md-6">@lang('label.mytrainingInfoName')</label>
                             <label class="col-md-6">{{$user->name}}</label>
-                        </div>
-                        <div class="row">
-                            <label class="col-md-6">@lang('label.mytrainingInfoSurname')</label>
-                            <label class="col-md-6">{{$user->surname}}</label>
                         </div>
                         <div class="row">
                             <label class="col-md-6">@lang('label.mytrainingInfoEmail')</label>

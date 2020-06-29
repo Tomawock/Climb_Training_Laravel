@@ -32,7 +32,7 @@ class Exercise extends Model
     }
     
     public function executedOnUser(){
-         return $this->belongsToMany('App\Myuser', 'user_trainingprogram_execution','id_exercise','id_user');
+         return $this->belongsToMany('App\User', 'user_trainingprogram_execution','id_exercise','id_user');
     }
     
     public function executedOnTrainingprogram(){

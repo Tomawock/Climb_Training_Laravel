@@ -17,26 +17,26 @@ class DatabaseSeeder extends Seeder {
      */
     public function run() {
         
-        Myuser::create([
-            'name' => 'pippo',
-            'surname' => 'pippo',
-            'username' => 'pippo',
-            'password' => md5('pippo'),
-            'email' => 'hey@pippo.it'
-        ]);
-
-        Myuser::create([
-            'name' => 'pluto',
-            'surname' => 'pluto',
-            'username' => 'pluto',
-            'password' => md5('pluto'),
-            'email' => 'pluto@pluto.it'
-        ]);
-
-        $dl = new DataLayer();
-        $user1 = $dl->getUserID('pippo');
-        $user2 = $dl->getUserID('pluto');
-        
+//        Myuser::create([
+//            'name' => 'pippo',
+//            'surname' => 'pippo',
+//            'username' => 'pippo',
+//            'password' => md5('pippo'),
+//            'email' => 'hey@pippo.it'
+//        ]);
+//
+//        Myuser::create([
+//            'name' => 'pluto',
+//            'surname' => 'pluto',
+//            'username' => 'pluto',
+//            'password' => md5('pluto'),
+//            'email' => 'pluto@pluto.it'
+//        ]);
+//
+//        $dl = new DataLayer();
+//        $user1 = $dl->getUserID('pippo');
+//        $user2 = $dl->getUserID('pluto');
+//        
         factory(Exercise::class,20)->create();
         
         factory(TrainingProgram::class,20)->create();

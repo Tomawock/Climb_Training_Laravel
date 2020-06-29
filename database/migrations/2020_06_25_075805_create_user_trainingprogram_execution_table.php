@@ -24,7 +24,7 @@ class CreateUserTrainingprogramExecutionTable extends Migration
             $table->date('date');
             $table->text('note');
             
-            $table->foreign('id_user')->references('id')->on('user');
+            $table->foreign('id_user')->references('id')->on('users');
             $table->foreign('id_trainingProgram')->references('id')->on('trainingprogram');
             $table->foreign('id_exercise')->references('id')->on('exercise');
         });

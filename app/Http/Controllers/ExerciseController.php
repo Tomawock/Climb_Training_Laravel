@@ -31,8 +31,10 @@ class ExerciseController extends Controller
         
         //dd($bloked);
         
-        return view('exercise.list')->with('logged',true)->with('loggedName', $_SESSION["loggedName"])
-                ->with('exerciseList',$exerciseList)->with('bloked',$bloked);
+//        return view('exercise.list')->with('logged',true)->with('loggedName', $_SESSION["loggedName"])
+//                ->with('exerciseList',$exerciseList)->with('bloked',$bloked);
+        
+        return view('exercise.list')->with('exerciseList',$exerciseList)->with('bloked',$bloked);
         
     }
     
@@ -47,8 +49,9 @@ class ExerciseController extends Controller
 
         $allTools=$dl->getAllTools();
         
-        return view('exercise.edit')->with('logged',true)->with('loggedName', $_SESSION["loggedName"])
-                ->with('units',['Kg','%'])->with('tools',$allTools);
+//        return view('exercise.edit')->with('logged',true)->with('loggedName', $_SESSION["loggedName"])
+//                ->with('units',['Kg','%'])->with('tools',$allTools);
+        return view('exercise.edit')->with('units',['Kg','%'])->with('tools',$allTools);
     }
     
     public function store(Request $request) {//DONE     
@@ -100,8 +103,8 @@ class ExerciseController extends Controller
         $exercise = $dl->findCompleteExerciseById($id);
         $toolsString='';
         $toolsString.=$exercise->myToolsToString();
-        return view('exercise.show')->with('logged',true)->with('loggedName', $_SESSION["loggedName"])
-                ->with('exercise', $exercise)->with('toolsString',$toolsString);
+        
+        return view('exercise.show')->with('exercise', $exercise)->with('toolsString',$toolsString);
     }
     
     public function edit($id) {//DONE     
@@ -117,8 +120,7 @@ class ExerciseController extends Controller
         $allTools=$dl->getAllTools();
         
         
-        return view('exercise.edit')->with('logged',true)->with('loggedName', $_SESSION["loggedName"])
-                ->with('exercise', $exercise)->with('units',['Kg','%'])->with('tools',$allTools);   
+        return view('exercise.edit')->with('exercise', $exercise)->with('units',['Kg','%'])->with('tools',$allTools);   
     }
     
     public function postupdate(Request $request, $id){//DONE
@@ -210,7 +212,6 @@ class ExerciseController extends Controller
         
         $exercise=$dl->findCompleteExerciseById($id);
         
-        return view('exercise.destroy')->with('logged',true)->with('loggedName', $_SESSION["loggedName"])
-                ->with('exercise', $exercise); 
+        return view('exercise.destroy')->with('exercise', $exercise); 
     }
 }

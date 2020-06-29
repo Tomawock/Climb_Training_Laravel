@@ -19,16 +19,8 @@
                 <div class="panel-body">
                     <div class="container">
                         <div class="row">
-                            <label class="col-md-6"><?php echo app('translator')->get('label.mytrainingInfoUsername'); ?></label>
-                            <label class="col-md-6"><?php echo e($user->username); ?></label>
-                        </div>
-                        <div class="row">
                             <label class="col-md-6"><?php echo app('translator')->get('label.mytrainingInfoName'); ?></label>
                             <label class="col-md-6"><?php echo e($user->name); ?></label>
-                        </div>
-                        <div class="row">
-                            <label class="col-md-6"><?php echo app('translator')->get('label.mytrainingInfoSurname'); ?></label>
-                            <label class="col-md-6"><?php echo e($user->surname); ?></label>
                         </div>
                         <div class="row">
                             <label class="col-md-6"><?php echo app('translator')->get('label.mytrainingInfoEmail'); ?></label>
