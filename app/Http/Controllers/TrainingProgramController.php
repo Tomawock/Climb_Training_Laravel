@@ -174,9 +174,15 @@ class TrainingProgramController extends Controller {
 
         $dl->addTrainingprogramToUser($id, $userId);
         
+         $bloked=array();
+        foreach ($trainingprogram as $tp){
+            if ($dl->isIdTrainingprogramBlocked($tp->id)){
+                $bloked[]=$tp->id;
+            }
+        }
 
         return view('trainingprogram.list')->with('logged', true)->with('loggedName', $_SESSION["loggedName"])
-                        ->with('trainingprogram', $trainingprogram)->with('userId', $userId);
+                        ->with('trainingprogram', $trainingprogram)->with('userId', $userId)->with('bloked',$bloked);
         
     }
 

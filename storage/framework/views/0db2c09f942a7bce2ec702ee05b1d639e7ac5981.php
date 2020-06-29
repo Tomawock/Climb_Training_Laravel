@@ -17,13 +17,19 @@
         <script src="https://unpkg.com/jspdf-autotable@3.5.6/dist/jspdf.plugin.autotable.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+        
         <script type="text/javascript" class="init">
-
+            var options = {
+                    "info":     false,
+                    "lengthChange": false,
+                    "pageLength": 10
+                };               
             $(document).ready(function () {
-                $('#searchandorder').DataTable();
+                $('#searchandorder').DataTable(options);
             });
 
         </script>
+        
     </head>
 
     <body>
