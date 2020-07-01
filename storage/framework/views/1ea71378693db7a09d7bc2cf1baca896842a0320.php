@@ -11,10 +11,8 @@
 
 <?php $__env->startSection('corpo'); ?>
 <div class="container">
-    <div class="row">
-        <div class="col-md-offset-2">
-            <h1><?php echo app('translator')->get('label.historyStatisticErrorTitle'); ?></h1>
-        </div>
+    <div class="row errorehistory">       
+        <h1 style="text-align: center;"><?php echo app('translator')->get('label.historyStatisticErrorTitle'); ?></h1>
     </div>
 </div>
 <?php $__env->stopSection(); ?>

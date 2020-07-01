@@ -112,9 +112,9 @@ class TrainingProgramController extends Controller {
 
         foreach ($dl->listExercises() as $ex) {
             //presente nell selezione della pagina e non preente sul db allora lo aggiungo
-            if ($request->input('exercise' . $ex->id) !== null && !$tp->exercises->contains($ex->id) == 1) {
+            if ($request->input('exercise' . $ex->id) != null && !$tp->exercises->contains($ex->id) == 1) {
                 $dl->createExerciseToTrainingprogram($ex->id, $id);
-            } else if (!$request->input('exercise' . $ex->id) !== null && $tp->exercises->contains($ex->id) == 1) {
+            } else if (!$request->input('exercise' . $ex->id) != null && $tp->exercises->contains($ex->id) == 1) {
                 //non preente nella selezione della pagina ma è preente nel db
                 $dl->deleteExerciseToTrainingprogram($ex->id, $id);
             }

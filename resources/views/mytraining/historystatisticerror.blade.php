@@ -13,10 +13,8 @@
 
 @section('corpo')
 <div class="container">
-    <div class="row">
-        <div class="col-md-offset-2">
-            <h1>@lang('label.historyStatisticErrorTitle')</h1>
-        </div>
+    <div class="row errorehistory">       
+        <h1 style="text-align: center;">@lang('label.historyStatisticErrorTitle')</h1>
     </div>
 </div>
 @endsection
