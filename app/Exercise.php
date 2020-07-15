@@ -42,7 +42,7 @@ class Exercise extends Model
     public function myToolsToString(){  
         $toolsString='';
         foreach ($this->tools as $tool){
-            $toolsString.= $tool->name;
+            $toolsString.= '#'. $tool->name . ' ';
         }
         return $toolsString;
     }

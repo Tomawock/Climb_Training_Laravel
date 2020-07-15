@@ -62,7 +62,7 @@
                 <div class='panel-body'>
                     <p><h3>{{$exercise->description}}<br></h3></p>
                     <div class="notice notice-warning">
-                        <h4><strong>@lang('label.showExerciseDesciptionTitle')</strong></h4>
+                        <h4><strong>@lang('label.editExerciseImportantNotes')</strong></h4>
                         <p>
                         <h4>{{$exercise->importantNotes}}</h4>
                         </p>

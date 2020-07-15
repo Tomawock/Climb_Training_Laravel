@@ -15,6 +15,7 @@ body {
   height: 100%;
 
   /* Center and scale the image nicely */
+  background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;

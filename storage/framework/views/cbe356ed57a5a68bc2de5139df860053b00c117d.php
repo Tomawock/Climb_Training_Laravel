@@ -60,7 +60,7 @@
                 <div class='panel-body'>
                     <p><h3><?php echo e($exercise->description); ?><br></h3></p>
                     <div class="notice notice-warning">
-                        <h4><strong><?php echo app('translator')->get('label.showExerciseDesciptionTitle'); ?></strong></h4>
+                        <h4><strong><?php echo app('translator')->get('label.editExerciseImportantNotes'); ?></strong></h4>
                         <p>
                         <h4><?php echo e($exercise->importantNotes); ?></h4>
                         </p>

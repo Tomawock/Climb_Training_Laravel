@@ -120,6 +120,11 @@ class DataLayer {
         
         $ph->save();
     }
+    public function createTool($name){
+        $tool=new Tool();
+        $tool->name=$name;
+        $tool->save();
+    }
 
     public function findPhotoByExerciseId($id) {
         
@@ -201,7 +206,7 @@ class DataLayer {
                 $toSync[]=$tp->id;
             }
         }
-        MUser::where('id',$userId)->first()->trainingprograms()->sync($toSync);
+        User::where('id',$userId)->first()->trainingprograms()->sync($toSync);
     }
 
     public function createUserTrainingProgramExecution($idEx, $idTp, $idUsr, $reps, $sets, $date, $note) {
@@ -228,7 +233,8 @@ class DataLayer {
     
     public function isIdExerciseBlocked($idEx){
         $temp = DB::select("SELECT * FROM `user_trainingprogram_execution` WHERE `id_exercise` = :id", ['id' => $idEx   ]);
-        if (count($temp)>0){
+        $temp2 = DB::select("SELECT * FROM `trainingprogram_to_exercise` WHERE `id_exercise` = :id", ['id' => $idEx   ]);
+        if (count($temp)>0 || count($temp2)>0){
             return true;
         }else {
             return false;
