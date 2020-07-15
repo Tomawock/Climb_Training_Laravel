@@ -60,7 +60,7 @@ class TrainingProgramController extends Controller {
         $dl->createTrainingProgram($request->input('trainingProgramTitle'), $request->input('trainingProgramDescription'), $request->input('trainingProgramTimeMin'), $request->input('trainingProgramTimeMax'));
         $idTp = $dl->getLastIdTrainingprogram();
         $tp = $dl->findCompleteTrainingProgramById($idTp);
-
+        
         foreach ($dl->listExercises() as $ex) {
             //presente nell selezione della pagina e non preente sul db allora lo aggiungo
             if ($request->input('exercise' . $ex->id)) {
@@ -109,7 +109,7 @@ class TrainingProgramController extends Controller {
         $dl = new DataLayer();
         $dl->editTrainingProgram($id,$request->input('trainingProgramTitle'), $request->input('trainingProgramDescription'), $request->input('trainingProgramTimeMin'), $request->input('trainingProgramTimeMax'));
         $tp = $dl->findCompleteTrainingProgramById($id);
-
+        //dd($request->input());
         foreach ($dl->listExercises() as $ex) {
             //presente nell selezione della pagina e non preente sul db allora lo aggiungo
             if ($request->input('exercise' . $ex->id) != null && !$tp->exercises->contains($ex->id) == 1) {

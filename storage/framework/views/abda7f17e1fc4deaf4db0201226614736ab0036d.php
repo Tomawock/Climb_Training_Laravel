@@ -35,12 +35,12 @@
                         <tbody>
                             <?php for($j=0;$j< count($result['exercises'][$i]['exercise']);$j++): ?>
                             <tr>     
-                                <td><div style="height:50px; overflow:hidden"><?php echo e($result['exercises'][$i]['exercise'][$j]->name); ?></div></td>
-                                <td><div style="height:50px; overflow:hidden"><?php echo e($result['exercises'][$i]['exercise'][$j]->repsMin); ?> - <?php echo e($result['exercises'][$i]['exercise'][$j]->repsMax); ?></div></td>
-                                <td><div style="height:50px; overflow:hidden"><?php echo e($result['exercises'][$i]['exercise'][$j]->setMin); ?> - <?php echo e($result['exercises'][$i]['exercise'][$j]->setMax); ?></div></td>
-                                <td><div style="height:50px; overflow:hidden"><?php echo e($result['exercises'][$i]['execution'][$j]->reps); ?></div></td>
-                                <td><div style="height:50px; overflow:hidden"><?php echo e($result['exercises'][$i]['execution'][$j]->sets); ?></div></td>
-                                <td><div style="height:50px; overflow:hidden"><?php echo e($result['exercises'][$i]['execution'][$j]->note); ?></div></td>
+                                <td><div style="height:auto; overflow:hidden"><?php echo e($result['exercises'][$i]['exercise'][$j]->name); ?></div></td>
+                                <td><div style="height:auto; overflow:hidden"><?php echo e($result['exercises'][$i]['exercise'][$j]->repsMin); ?> - <?php echo e($result['exercises'][$i]['exercise'][$j]->repsMax); ?></div></td>
+                                <td><div style="height:auto; overflow:hidden"><?php echo e($result['exercises'][$i]['exercise'][$j]->setMin); ?> - <?php echo e($result['exercises'][$i]['exercise'][$j]->setMax); ?></div></td>
+                                <td><div style="height:auto; overflow:hidden"><?php echo e($result['exercises'][$i]['execution'][$j]->reps); ?></div></td>
+                                <td><div style="height:auto; overflow:hidden"><?php echo e($result['exercises'][$i]['execution'][$j]->sets); ?></div></td>
+                                <td><div style="height:auto; overflow:hidden"><?php echo e($result['exercises'][$i]['execution'][$j]->note); ?></div></td>
                             </tr>
                             <?php endfor; ?>
                         </tbody>

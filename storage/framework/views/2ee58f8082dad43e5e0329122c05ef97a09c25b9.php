@@ -133,29 +133,29 @@ unset($__errorArgs, $__bag); ?>
                                         <?php if(isset($trainingprogram->id)): ?>
                                         <?php $__currentLoopData = $allExercises; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $exercise): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
-                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->name); ?></div></td>
-                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->repsMin); ?> - <?php echo e($exercise->repsMax); ?></div></td>
-                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->setMin); ?>  - <?php echo e($exercise->setMax); ?></div></td>
-                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->restMin); ?> - <?php echo e($exercise->restMax); ?> </div></td>
-                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->overweightMin); ?> - <?php echo e($exercise->overweightMax); ?> <?php echo e($exercise->overweightUnit); ?></div></td>     
-                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->myToolsToString()); ?></div></td>
+                                            <td><div style="height:auto; overflow:hidden"><?php echo e($exercise->name); ?></div></td>
+                                            <td><div style="height:auto; overflow:hidden"><?php echo e($exercise->repsMin); ?> - <?php echo e($exercise->repsMax); ?></div></td>
+                                            <td><div style="height:auto; overflow:hidden"><?php echo e($exercise->setMin); ?>  - <?php echo e($exercise->setMax); ?></div></td>
+                                            <td><div style="height:auto; overflow:hidden"><?php echo e($exercise->restMin); ?> - <?php echo e($exercise->restMax); ?> </div></td>
+                                            <td><div style="height:auto; overflow:hidden"><?php echo e($exercise->overweightMin); ?> - <?php echo e($exercise->overweightMax); ?> <?php echo e($exercise->overweightUnit); ?></div></td>     
+                                            <td><div style="height:auto; overflow:hidden"><?php echo e($exercise->myToolsToString()); ?></div></td>
                                             <?php if($trainingprogram->exercises->contains($exercise->id) == 1): ?> 
-                                            <td><div style="height:50px; overflow:hidden"><input type="checkbox" name="exercise<?php echo e($exercise->id); ?>" checked></div></td>
+                                            <td><div style="height:auto; overflow:hidden"><input type="checkbox" name="exercise<?php echo e($exercise->id); ?>" checked></div></td>
                                             <?php else: ?>
-                                            <td><div style="height:50px; overflow:hidden"><input type="checkbox" name="exercise<?php echo e($exercise->id); ?>"></div></td>
+                                            <td><div style="height:auto; overflow:hidden"><input type="checkbox" name="exercise<?php echo e($exercise->id); ?>"></div></td>
                                             <?php endif; ?>
                                         </tr>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         <?php else: ?>
                                         <?php $__currentLoopData = $allExercises; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $exercise): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
                                         <tr>                                           
-                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->name); ?></div></td>
-                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->repsMin); ?> - <?php echo e($exercise->repsMax); ?></div></td>
-                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->setMin); ?>  - <?php echo e($exercise->setMax); ?></div></td>
-                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->restMin); ?> - <?php echo e($exercise->restMax); ?> </div></td>
-                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->overweightMin); ?> - <?php echo e($exercise->overweightMax); ?> <?php echo e($exercise->overweightUnit); ?></div></td>     
-                                            <td><div style="height:50px; overflow:hidden"><?php echo e($exercise->myToolsToString()); ?></div></td>
-                                            <td><div style="height:50px; overflow:hidden"><input type="checkbox" name="exercise<?php echo e($exercise->id); ?>"></div></td>  
+                                            <td><div style="height:auto; overflow:hidden"><?php echo e($exercise->name); ?></div></td>
+                                            <td><div style="height:auto; overflow:hidden"><?php echo e($exercise->repsMin); ?> - <?php echo e($exercise->repsMax); ?></div></td>
+                                            <td><div style="height:auto; overflow:hidden"><?php echo e($exercise->setMin); ?>  - <?php echo e($exercise->setMax); ?></div></td>
+                                            <td><div style="height:auto; overflow:hidden"><?php echo e($exercise->restMin); ?> - <?php echo e($exercise->restMax); ?> </div></td>
+                                            <td><div style="height:auto; overflow:hidden"><?php echo e($exercise->overweightMin); ?> - <?php echo e($exercise->overweightMax); ?> <?php echo e($exercise->overweightUnit); ?></div></td>     
+                                            <td><div style="height:auto; overflow:hidden"><?php echo e($exercise->myToolsToString()); ?></div></td>
+                                            <td><div style="height:auto; overflow:hidden"><input type="checkbox" name="exercise<?php echo e($exercise->id); ?>"></div></td>  
                                         </tr>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         <?php endif; ?>    

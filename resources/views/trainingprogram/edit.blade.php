@@ -107,29 +107,29 @@
                                         @if(isset($trainingprogram->id))
                                         @foreach ($allExercises as $exercise)
                                         <tr>
-                                            <td><div style="height:50px; overflow:hidden">{{$exercise->name}}</div></td>
-                                            <td><div style="height:50px; overflow:hidden">{{$exercise->repsMin}} - {{$exercise->repsMax}}</div></td>
-                                            <td><div style="height:50px; overflow:hidden">{{$exercise->setMin}}  - {{$exercise->setMax }}</div></td>
-                                            <td><div style="height:50px; overflow:hidden">{{$exercise->restMin}} - {{ $exercise->restMax}} </div></td>
-                                            <td><div style="height:50px; overflow:hidden">{{$exercise->overweightMin}} - {{$exercise->overweightMax}} {{$exercise->overweightUnit}}</div></td>     
-                                            <td><div style="height:50px; overflow:hidden">{{$exercise->myToolsToString()}}</div></td>
+                                            <td><div style="height:auto; overflow:hidden">{{$exercise->name}}</div></td>
+                                            <td><div style="height:auto; overflow:hidden">{{$exercise->repsMin}} - {{$exercise->repsMax}}</div></td>
+                                            <td><div style="height:auto; overflow:hidden">{{$exercise->setMin}}  - {{$exercise->setMax }}</div></td>
+                                            <td><div style="height:auto; overflow:hidden">{{$exercise->restMin}} - {{ $exercise->restMax}} </div></td>
+                                            <td><div style="height:auto; overflow:hidden">{{$exercise->overweightMin}} - {{$exercise->overweightMax}} {{$exercise->overweightUnit}}</div></td>     
+                                            <td><div style="height:auto; overflow:hidden">{{$exercise->myToolsToString()}}</div></td>
                                             @if ($trainingprogram->exercises->contains($exercise->id) == 1) 
-                                            <td><div style="height:50px; overflow:hidden"><input type="checkbox" name="exercise{{$exercise->id}}" checked></div></td>
+                                            <td><div style="height:auto; overflow:hidden"><input type="checkbox" name="exercise{{$exercise->id}}" checked></div></td>
                                             @else
-                                            <td><div style="height:50px; overflow:hidden"><input type="checkbox" name="exercise{{$exercise->id}}"></div></td>
+                                            <td><div style="height:auto; overflow:hidden"><input type="checkbox" name="exercise{{$exercise->id}}"></div></td>
                                             @endif
                                         </tr>
                                         @endforeach
                                         @else
                                         @foreach ($allExercises as $exercise) 
                                         <tr>                                           
-                                            <td><div style="height:50px; overflow:hidden">{{$exercise->name}}</div></td>
-                                            <td><div style="height:50px; overflow:hidden">{{$exercise->repsMin}} - {{$exercise->repsMax}}</div></td>
-                                            <td><div style="height:50px; overflow:hidden">{{$exercise->setMin}}  - {{$exercise->setMax }}</div></td>
-                                            <td><div style="height:50px; overflow:hidden">{{$exercise->restMin}} - {{ $exercise->restMax}} </div></td>
-                                            <td><div style="height:50px; overflow:hidden">{{$exercise->overweightMin}} - {{$exercise->overweightMax}} {{$exercise->overweightUnit}}</div></td>     
-                                            <td><div style="height:50px; overflow:hidden">{{$exercise->myToolsToString()}}</div></td>
-                                            <td><div style="height:50px; overflow:hidden"><input type="checkbox" name="exercise{{$exercise->id}}"></div></td>  
+                                            <td><div style="height:auto; overflow:hidden">{{$exercise->name}}</div></td>
+                                            <td><div style="height:auto; overflow:hidden">{{$exercise->repsMin}} - {{$exercise->repsMax}}</div></td>
+                                            <td><div style="height:auto; overflow:hidden">{{$exercise->setMin}}  - {{$exercise->setMax }}</div></td>
+                                            <td><div style="height:auto; overflow:hidden">{{$exercise->restMin}} - {{ $exercise->restMax}} </div></td>
+                                            <td><div style="height:auto; overflow:hidden">{{$exercise->overweightMin}} - {{$exercise->overweightMax}} {{$exercise->overweightUnit}}</div></td>     
+                                            <td><div style="height:auto; overflow:hidden">{{$exercise->myToolsToString()}}</div></td>
+                                            <td><div style="height:auto; overflow:hidden"><input type="checkbox" name="exercise{{$exercise->id}}"></div></td>  
                                         </tr>
                                         @endforeach
                                         @endif    

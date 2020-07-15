@@ -22,7 +22,8 @@
 var options = {
     "info": false,
     "lengthChange": false,
-    "pageLength": 10
+    "pageLength": 10,
+    "stateSave": true
 };
 $(document).ready(function () {
     $('#searchandorder').DataTable(options);
