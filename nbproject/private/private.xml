@@ -3,14 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/tomawock/code/Climb_Training_Laravel/app/Exercise.php</file>
-            <file>file:/home/tomawock/code/Climb_Training_Laravel/resources/views/exercise/edit.blade.php</file>
-            <file>file:/home/tomawock/code/Climb_Training_Laravel/public/css/style.css</file>
-            <file>file:/home/tomawock/code/Climb_Training_Laravel/database/seeds/DatabaseSeeder.php</file>
-            <file>file:/home/tomawock/code/Climb_Training_Laravel/app/Http/Controllers/ExerciseController.php</file>
-            <file>file:/home/tomawock/code/Climb_Training_Laravel/app/DataLayer.php</file>
-            <file>file:/home/tomawock/code/Climb_Training_Laravel/app/Tool.php</file>
-            <file>file:/home/tomawock/code/Climb_Training_Laravel/.env</file>
+            <file>file:/home/tomawock/code/Climb_Training_Laravel/database/factories/ExerciseFactory.php</file>
+            <file>file:/home/tomawock/code/Climb_Training_Laravel/database/factories/TrainingProgramFactory.php</file>
+            <file>file:/home/tomawock/code/Climb_Training_Laravel/database/factories/Photosfactory.php</file>
         </group>
     </open-files>
 </project-private>

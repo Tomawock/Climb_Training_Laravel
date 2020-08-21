@@ -22,13 +22,12 @@
 var options = {
     "info": false,
     "lengthChange": false,
-    "pageLength": 10,
-    "stateSave": true
+    "pageLength": 10
 };
+var mytable;
 $(document).ready(function () {
-    $('#searchandorder').DataTable(options);
+    mytable=$('#searchandorder').DataTable(options);
 });
-
         </script>
 
     </head>
