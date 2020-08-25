@@ -7,8 +7,8 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## Climb_Training_Laravel
-Project created for the develop of easy to use Training Programs.
+## Become a Better Climber
+Project created for easy to use Training Programs for climbing
 
 # Miglioramenti da effettuare
 Risolvere bug relativo alla selezione di elemnti d piu pagine causato dal tool in JS<br>
@@ -21,6 +21,10 @@ Inserire tutti gli esercizi presenti nel libro Training For CLimbing di Erick Ho
 
 
 ### SET up per Altervista 
+
+Per il db Modificare il file .env e caricarlo tramite FTP<br>
+
+Usare InnoDB come engine<br>
 
 Errore is_dir(): open_basedir restriction in effect.[Soluzione](http://forum.it.altervista.org/php-mysql-e-apache-htaccess/288179-laravel-problemi-relativi-path.html)<br>
 Remove bootstrap/cache/config.php. because it generates errors since inside the file there is the absolute path of your developing envorment<br>

@@ -13646,3 +13646,12 @@ Did you mean one of these?
 #48 /home/tomawock/code/Climb_Training_Laravel/server.php(21): require_once('/home/tomawock/...')
 #49 {main}
 "} 
+[2020-08-21 13:59:51] local.ERROR: Command "server.php" is not defined. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"server.php\" is not defined. at /home/tomawock/code/Climb_Training_Laravel/vendor/symfony/console/Application.php:644)
+[stacktrace]
+#0 /home/tomawock/code/Climb_Training_Laravel/vendor/symfony/console/Application.php(228): Symfony\\Component\\Console\\Application->find()
+#1 /home/tomawock/code/Climb_Training_Laravel/vendor/symfony/console/Application.php(140): Symfony\\Component\\Console\\Application->doRun()
+#2 /home/tomawock/code/Climb_Training_Laravel/vendor/laravel/framework/src/Illuminate/Console/Application.php(93): Symfony\\Component\\Console\\Application->run()
+#3 /home/tomawock/code/Climb_Training_Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(129): Illuminate\\Console\\Application->run()
+#4 /home/tomawock/code/Climb_Training_Laravel/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
