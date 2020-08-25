@@ -10,7 +10,7 @@
 ## Become a Better Climber
 Project created for easy to use Training Programs for climbing
 
-# Miglioramenti da effettuare
+## Miglioramenti da effettuare
 Risolvere bug relativo alla selezione di elemnti d piu pagine causato dal tool in JS<br>
 
 Inserire controlli sulle ore e sui min max<br>
@@ -27,8 +27,6 @@ Per il db Modificare il file .env e caricarlo tramite FTP<br>
 Usare InnoDB come engine<br>
 
 Errore is_dir(): open_basedir restriction in effect.[Soluzione](http://forum.it.altervista.org/php-mysql-e-apache-htaccess/288179-laravel-problemi-relativi-path.html)<br>
-Remove bootstrap/cache/config.php. because it generates errors since inside the file there is the absolute path of your developing envorment<br>
-
 
 Errore 500  [Soluzione](http://forum.it.altervista.org/php-mysql-e-apache-htaccess/282797-errore-500-installazione-laravel.html)<br>
 
