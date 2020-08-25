@@ -22,12 +22,10 @@ Inserire tutti gli esercizi presenti nel libro Training For CLimbing di Erick Ho
 
 ### SET up per Altervista 
 
-Errore is_dir(): open_basedir restriction in effect.<br>
+Errore is_dir(): open_basedir restriction in effect.[Soluzione](http://forum.it.altervista.org/php-mysql-e-apache-htaccess/288179-laravel-problemi-relativi-path.html)<br>
 Remove bootstrap/cache/config.php. because it generates errors since inside the file there is the absolute path of your developing envorment<br>
-[Soluzione](http://forum.it.altervista.org/php-mysql-e-apache-htaccess/288179-laravel-problemi-relativi-path.html)<br>
 
-Errore 500<br>
-[Soluzione](http://forum.it.altervista.org/php-mysql-e-apache-htaccess/282797-errore-500-installazione-laravel.html)
 
-Errore file .Zip<br>
-[Soluzione](http://forum.it.altervista.org/php-mysql-e-apache-htaccess/288176-laravel-caricamento-sito-impossibile.html)<br>
+Errore 500  [Soluzione](http://forum.it.altervista.org/php-mysql-e-apache-htaccess/282797-errore-500-installazione-laravel.html)<br>
+
+Errore file .Zip    [Soluzione](http://forum.it.altervista.org/php-mysql-e-apache-htaccess/288176-laravel-caricamento-sito-impossibile.html)<br>
