@@ -20,3 +20,6 @@ Aumentare il dettaglio delle statistiche utente<br>
 Inserire tutti gli esercizi presenti nel libro Training For CLimbing di Erick Horst<br>
 
 
+### SET up per Altervista 
+
+Remove bootstrap/cache/config.php. because it generates errors since inside the file there is the absolute path of your developing envorment
