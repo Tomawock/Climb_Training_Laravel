@@ -13655,3 +13655,11 @@ Did you mean one of these?
 #4 /home/tomawock/code/Climb_Training_Laravel/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
 #5 {main}
 "} 
+[2020-08-26 15:00:19] local.ERROR: Cannot redeclare App\Providers\AppServiceProvider::boot() {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare App\\Providers\\AppServiceProvider::boot() at /home/tomawock/code/Climb_Training_Laravel/app/Providers/AppServiceProvider.php:32)
+[stacktrace]
+#0 {main}
+"} 
+[2020-08-26 15:00:55] local.ERROR: Cannot redeclare App\Providers\AppServiceProvider::boot() {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare App\\Providers\\AppServiceProvider::boot() at /home/tomawock/code/Climb_Training_Laravel/app/Providers/AppServiceProvider.php:32)
+[stacktrace]
+#0 {main}
+"} 

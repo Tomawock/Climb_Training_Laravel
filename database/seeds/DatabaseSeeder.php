@@ -53,9 +53,16 @@ class DatabaseSeeder extends Seeder {
         $dl->createTool('Fingerboard');
         $dl->createTool('Campusboard');
         
-        factory(Exercise::class,20)->create();
+        $dl->createExercise("Name", "Description", "important NOtes", $repsMin, $repsMax, $setMin, $setMax, $restMin, $restMax, $overweightMin, $overweightMax, $overweightUnit);
         
-        factory(TrainingProgram::class,20)->create();
+        $dl->createExercise("Name", "Description", "important NOtes", $repsMin, $repsMax, $setMin, $setMax, $restMin, $restMax, $overweightMin, $overweightMax, $overweightUnit);
+        $dl->createExercise("Name", "Description", "important NOtes", $repsMin, $repsMax, $setMin, $setMax, $restMin, $restMax, $overweightMin, $overweightMax, $overweightUnit);
+        $dl->createExercise("Name", "Description", "important NOtes", $repsMin, $repsMax, $setMin, $setMax, $restMin, $restMax, $overweightMin, $overweightMax, $overweightUnit);
+
+
+        //factory(Exercise::class,20)->create();
+        
+        //factory(TrainingProgram::class,20)->create();
     }
 
 }
