@@ -24,7 +24,7 @@ Inserire tutti gli esercizi presenti nel libro Training For CLimbing di Erick Ho
 
 Per il db Modificare il file .env e caricarlo tramite FTP<br>
 
-Usare InnoDB come engine<br>
+Usare InnoDB come engine e settare la dimensione delle stringhe ad unmassimo di 191 per retrocompatibilita mysql5.6<br>
 
 Errore is_dir(): open_basedir restriction in effect.[Soluzione](http://forum.it.altervista.org/php-mysql-e-apache-htaccess/288179-laravel-problemi-relativi-path.html)<br>
 
