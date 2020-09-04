@@ -17,7 +17,9 @@ Inserire controlli sulle ore e sui min max<br>
 
 Aumentare il dettaglio delle statistiche utente<br>
 
-Inserire tutti gli esercizi presenti nel libro Training For CLimbing di Erick Horst<br>
+Inserire esercizi di default tratti da Libri<br>
+
+Inserire tools di default tratti da Libri<br>
 
 
 ### SET up per Altervista 
