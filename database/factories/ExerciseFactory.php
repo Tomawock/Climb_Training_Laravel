@@ -22,6 +22,7 @@ $factory->define(Exercise::class, function (Faker $faker) {
         'restMax' => $faker->time($format = 'H:i:s', $max = 'now'),
         'overweightMin' => $faker->numberBetween(0,50),
         'overweightMax' => $faker->numberBetween(0,50),
-        'overweightUnit' => $faker->randomElement($array = array ('Kg','%'))
+        'overweightUnit' => $faker->randomElement($array = array ('Kg','%')),
+        'id_user' => 5,
     ];
 });

@@ -37,6 +37,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
+    public function exercises(){
+         return $this->hasMany('App\Exercise', 'id_exercise');
+    }
+    
     public function trainingprograms(){
          return $this->belongsToMany('App\TrainingProgram', 'user_trainingprogram','user_id','trainingprogram_id');
     }

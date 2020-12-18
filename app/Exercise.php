@@ -19,6 +19,10 @@ class Exercise extends Model
         'exerciseImportantNotes'=>'required|regex:/[a-zA-Z0-9\s]+/',
     ];
     
+    public function user(){
+        return $this->belongsTo('App\User','id_user');
+    }
+    
     public function photos(){
          return $this->hasMany('App\Photo', 'id_exercise');
     }

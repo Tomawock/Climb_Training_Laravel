@@ -19,12 +19,12 @@ class DataLayer {
     }
 
     public function listExercises() {
+        //modificare
         $exerciseList = Exercise::all()->sortBy('name');
         return $exerciseList;
     }
 
     public function findCompleteExerciseById($id) {
-
         return Exercise::find($id);
     }
 
@@ -32,6 +32,7 @@ class DataLayer {
         return Tool::all();
     }
 
+    //modificare
     public function editExercise($id, $name, $description, $importantNotes, $repsMin, $repsMax, $setMin, $setMax, $restMin, $restMax, $overweightMin, $overweightMax, $overweightUnit) {
         $exercise = Exercise::find($id); 
         
@@ -50,7 +51,7 @@ class DataLayer {
         
         $exercise->save();
     }
-
+    //modificare
     public function createExercise($name, $description, $importantNotes, $repsMin, $repsMax, $setMin, $setMax, $restMin, $restMax, $overweightMin, $overweightMax, $overweightUnit) {
         
         $exercise=new Exercise;
@@ -76,7 +77,7 @@ class DataLayer {
     }
 
     public function getLastIdExercise() {
-        
+        //modificare
         $exe=Exercise::orderBy('id','desc')->take(1)->get('id');
         return $exe[0]->id;
     }

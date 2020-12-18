@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\DataLayer;
-use App\Myuser;
 use Illuminate\Support\Facades\Auth;
 
 class MyTrainingController extends Controller {
