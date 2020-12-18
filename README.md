@@ -1,7 +1,3 @@
-<p align="center">
-[![Latest Stable Version](https://poser.pugx.org/phpunit/phpunit/v)](//packagist.org/packages/phpunit/phpunit)
-</p>
-
 ## Become a Better Climber
 Project created for easy to use Training Programs for climbing
 
