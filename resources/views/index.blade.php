@@ -1,4 +1,4 @@
-@extends('layout.home')
+@extends('layouts.home')
 
 @section('titolo_home')
 @lang('label.homePageTitle')

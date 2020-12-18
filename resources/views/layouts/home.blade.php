@@ -38,7 +38,7 @@
                     <span class="icon-bar"></span> 
                 </button>
                 <div class="collapse navbar-collapse" id="myNavbar">
-                    <-- Left Navbar -->
+                    <!-- Left Navbar -->
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('home') }}">@lang('label.homePageNavbar')</a></li>
                         <li class="dropdown">
@@ -57,7 +57,7 @@
                             </ul>
                         </li>
                     </ul>
-                    <-- Right Navbar -->
+                    <!-- Right Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         @auth
                         <li><a><i>@lang('label.welcome') {{ Auth::user()->name }}</i></a></li>

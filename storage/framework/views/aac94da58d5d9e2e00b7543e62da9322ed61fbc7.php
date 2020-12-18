@@ -4,4 +4,4 @@
 
 <?php $__env->startSection('stile', 'style.css'); ?>
 
-<?php echo $__env->make('layout.home', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/tomawock/code/Climb_Training_Laravel/resources/views/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.home', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/tomawock/code/Climb_Training_Laravel/resources/views/index.blade.php ENDPATH**/ ?>
