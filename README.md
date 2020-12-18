@@ -1,5 +1,3 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
-
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
@@ -22,7 +20,9 @@ Aumentare il dettaglio delle statistiche utente<br>
 Inserire esercizi di default tratti da Libri<br>
 
 Inserire tools di default tratti da Libri<br>
+### SET up from GIT
 
+https://gist.github.com/JSilversun/5d9661b03192d7dcf2946d78b5ed9fbc
 
 ### SET up per Altervista 
 
