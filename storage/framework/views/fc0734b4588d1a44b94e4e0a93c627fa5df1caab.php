@@ -38,7 +38,7 @@
                     <span class="icon-bar"></span> 
                 </button>
                 <div class="collapse navbar-collapse" id="myNavbar">
-                    <-- Left Navbar -->
+                    <!-- Left Navbar -->
                     <ul class="nav navbar-nav">
                         <li><a href="<?php echo e(route('home')); ?>"><?php echo app('translator')->get('label.homePageNavbar'); ?></a></li>
                         <li class="dropdown">
@@ -57,7 +57,7 @@
                             </ul>
                         </li>
                     </ul>
-                    <-- Right Navbar -->
+                    <!-- Right Navbar  -->
                     <ul class="nav navbar-nav navbar-right">
                         <?php if(auth()->guard()->check()): ?>
                         <li><a><i><?php echo app('translator')->get('label.welcome'); ?> <?php echo e(Auth::user()->name); ?></i></a></li>

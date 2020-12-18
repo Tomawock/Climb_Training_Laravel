@@ -57,7 +57,7 @@
                             </ul>
                         </li>
                     </ul>
-                    <!-- Right Navbar -->
+                    <!-- Right Navbar  -->
                     <ul class="nav navbar-nav navbar-right">
                         @auth
                         <li><a><i>@lang('label.welcome') {{ Auth::user()->name }}</i></a></li>

@@ -3,7 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/tomawock/code/Climb_Training_Laravel/database/seeds/DatabaseSeeder.php</file>
+            <file>file:/home/tomawock/code/Climb_Training_Laravel/resources/views/index.blade.php</file>
+            <file>file:/home/tomawock/code/Climb_Training_Laravel/resources/views/layouts/home.blade.php</file>
         </group>
     </open-files>
 </project-private>
