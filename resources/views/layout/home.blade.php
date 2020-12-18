@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>@yield('titolo')</title>
+        <title>@yield('titolo_home')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <!-- Fogli di stile -->
         <link rel="stylesheet" href="{{ url('/') }}/css/bootstrap.css">
@@ -13,15 +13,19 @@
         <script src="{{ url('/') }}/js/bootstrap.min.js"></script>
         <script src="{{ url('/') }}/js/myScript.js"></script>
         <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
-         <script src="https://unpkg.com/jspdf-autotable@3.5.6/dist/jspdf.plugin.autotable.js"></script>
+        <script src="https://unpkg.com/jspdf-autotable@3.5.6/dist/jspdf.plugin.autotable.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
         <script type="text/javascript" class="init">
-
+            var options = {
+                "info": false,
+                "lengthChange": false,
+                "pageLength": 10
+            };
+            var mytable;
             $(document).ready(function () {
-                $('#searchandorder').DataTable();
+                mytable=$('#searchandorder').DataTable(options);
             });
-
         </script>
     </head>
     
@@ -34,16 +38,47 @@
                     <span class="icon-bar"></span> 
                 </button>
                 <div class="collapse navbar-collapse" id="myNavbar">
+                    <-- Left Navbar -->
                     <ul class="nav navbar-nav">
-                        @yield('left_navbar')
+                        <li><a href="{{ route('home') }}">@lang('label.homePageNavbar')</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">@lang('label.myTrainingNavbar')<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('mytraining.information') }}">@lang('label.accountNavbar')</a></li>
+                                <li><a href="{{ route('mytraining.programlist') }}">@lang('label.personalTrainingNavbar')</a></li>
+                                <li><a href="{{ route('mytraining.historystatistic') }}">@lang('label.historyStatisticNavbar')</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">@lang('label.trainingNavbar')<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('exercise.index') }}">@lang('label.exerciseListNavbar')</a></li>
+                                <li><a href="{{ route('trainingprogram.index') }}">@lang('label.trainingListNavbar')</a></li>
+                            </ul>
+                        </li>
                     </ul>
+                    <-- Right Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                        @yield('right_navbar')
+                        @auth
+                        <li><a><i>@lang('label.welcome') {{ Auth::user()->name }}</i></a></li>
+                        <li>
+                            <a href="{{ route('logout') }}" 
+                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                @lang('label.logout')
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                        @else
+                        <li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-user"></span> @lang('label.login')</a></li>
+                        @endauth
                         <li><a href="{{ route('setLang', ['lang' => 'en']) }}" class="nav-link"><img src="{{ url('/') }}/img/flags/en.png" width="30" class="img-rounded"/></a></li>
                         <li><a href="{{ route('setLang', ['lang' => 'it']) }}" class="nav-link"><img src="{{ url('/') }}/img/flags/it.png" width="24" class="img-rounded"/></a></li>
                     </ul>
                 </div>
             </div>
         </nav>
+        @yield('inner_body')
     </body>
 </html>
