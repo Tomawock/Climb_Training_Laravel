@@ -20,6 +20,7 @@ class CreateUserTrainingprogramTable extends Migration
             
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('trainingprogram_id')->references('id')->on('trainingprogram');
+            
         });
     }
 
