@@ -22,10 +22,9 @@ composer install
 cp .env.example .env
 ```
 
-Create a new DB inside your PhpMyAdmin.
-Create a new User for the connection.
-
-Change the following fields in the .env file: ``DB_DATABASE=dbname`` ``DB_USERNAME=dbuser`` ``DB_PASSWORD=dbpassword``. 
+Create a new DB inside your PhpMyAdmin.<br>
+Create a new User for the connection.<br>
+Change the following fields in the .env file: ``DB_DATABASE=dbname`` ``DB_USERNAME=dbuser`` ``DB_PASSWORD=dbpassword``. <br>
 
 ```bash
 php artisan key:generate
