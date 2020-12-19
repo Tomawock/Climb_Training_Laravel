@@ -19,8 +19,9 @@ class DatabaseSeeder extends Seeder {
 //            'email' => 'l.tomasetti@studenti.unibs.it',
 //            'password' => bcrypt('12345678'),
 //        ]);
-        
+//        
         $dl = new DataLayer();
+        $id_user= $dl->getUserID('Lorenzo');
         $dl->createTool('Climbing Wall');
         $dl->createTool('Rubber Band');
         $dl->createTool('Weights');
@@ -31,7 +32,7 @@ class DatabaseSeeder extends Seeder {
         $dl->createTool('Fingerboard');
         $dl->createTool('Campusboard');
 
-        factory(Exercise::class,20)->create();
+        factory(Exercise::class,20)->create(['id_user'=>$id_user]);
         
         factory(TrainingProgram::class,20)->create();
     }
