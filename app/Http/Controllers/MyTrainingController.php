@@ -18,8 +18,9 @@ class MyTrainingController extends Controller {
         $dl = new DataLayer();
 
         $user = $dl->getUserbyUsername(Auth::user()->name);
+        $admins = $dl->getAllAdmins();
 
-        return view('mytraining.information')->with('user', $user);
+        return view('mytraining.information')->with('user', $user)->with('admins',$admins);
     }
 
     public function programlist() {

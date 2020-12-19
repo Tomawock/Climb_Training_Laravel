@@ -20,11 +20,11 @@ class DataLayer {
     /**
      * Get all user defined as ADMINS
      *
-     * @return list of all id of the usere defined as Admin
+     * @return list of id who are defined as Admins
      */
     public function getAllAdmins(){
-        $users = User::where('is_admin', TRUE)->get(['id']);
-        return $users;
+        $admins = User::where('is_admin', TRUE)->get(['id']);
+        return $admins;
         
     }
     /**
