@@ -28,6 +28,14 @@
                             <label class="col-md-6">@lang('label.mytrainingInfoEmail')</label>
                             <label class="col-md-6">{{$user->email}}</label>
                         </div>
+                        <div class="row">
+                            <label class="col-md-6">@lang('label.mytrainingInfoAdmin')</label>
+                            <label class="col-md-6">{{$user->is_admin}}</label>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-6">@lang('label.mytrainingInfoAdmin')</label>
+                            <label class="col-md-6">{{$admins}}</label>
+                        </div>
                     </div>
                 </div>
             </div>

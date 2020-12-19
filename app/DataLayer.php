@@ -17,7 +17,22 @@ class DataLayer {
         return $user;
         
     }
-
+    /**
+     * Get all user defined as ADMINS
+     *
+     * @return list of all id of the usere defined as Admin
+     */
+    public function getAllAdmins(){
+        $users = User::where('is_admin', TRUE)->get(['id']);
+        return $users;
+        
+    }
+    /**
+    * Get all the exercise from actual user or admin user
+    * TODO
+    *
+    * @return list of all Exercises
+    */
     public function listExercises() {
         //modificare
         $exerciseList = Exercise::all()->sortBy('name');

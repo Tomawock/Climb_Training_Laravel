@@ -113,5 +113,7 @@ return [
     
     'showTpTitle'=>'Training Program',
     'showTpDownloadPDF'=>'Download PDF',
+    
+    'mytrainingInfoAdmin' => 'Admin',
    
 ];

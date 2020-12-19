@@ -113,5 +113,7 @@ return [
     
     'showTpTitle'=>'Scheda di Allenamento',
     'showTpDownloadPDF'=>'Scarica PDF',
+    
+    'mytrainingInfoAdmin' => 'Amministratore',
    
 ];
