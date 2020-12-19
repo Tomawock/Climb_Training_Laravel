@@ -2,7 +2,9 @@
 /public/hot
 /public/storage
 /storage/*.key
-/storage/app/exercisePhotos/
+/storage/app/exercisePhotos/*.png
+/storage/app/exercisePhotos/*.jpg
+/storage/app/exercisePhotos/*.jpeg
 /vendor
 /nbproject/
 /storage/framework/views/*.php
