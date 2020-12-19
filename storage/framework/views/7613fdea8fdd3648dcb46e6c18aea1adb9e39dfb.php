@@ -80,4 +80,4 @@
     </div>
 </body>
 </html>
-<?php /**PATH /home/tomawock/code/Climb_Training_Laravel/resources/views/layouts/app.blade.php ENDPATH**/ ?>
+<?php /**PATH /opt/lampp/htdocs/Climb_Training_Laravel/resources/views/layouts/app.blade.php ENDPATH**/ ?>

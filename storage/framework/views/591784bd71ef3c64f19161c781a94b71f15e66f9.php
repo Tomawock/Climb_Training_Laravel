@@ -82,4 +82,4 @@
         <?php echo $__env->yieldContent('inner_body'); ?>
     </body>
 </html>
-<?php /**PATH /home/tomawock/code/Climb_Training_Laravel/resources/views/layouts/home.blade.php ENDPATH**/ ?>
+<?php /**PATH /opt/lampp/htdocs/Climb_Training_Laravel/resources/views/layouts/home.blade.php ENDPATH**/ ?>
