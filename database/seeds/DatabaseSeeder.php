@@ -14,12 +14,12 @@ class DatabaseSeeder extends Seeder {
      * @return void
      */
     public function run() {     
-//        DB::table('users')->insert([
-//            'name' => 'Lorenzo',
-//            'email' => 'l.tomasetti@studenti.unibs.it',
-//            'password' => bcrypt('12345678'),
-//        ]);
-//        
+        DB::table('users')->insert([
+            'name' => 'Lorenzo',
+            'email' => 'l.tomasetti@studenti.unibs.it',
+            'password' => bcrypt('12345678'),
+        ]);
+        
         $dl = new DataLayer();
         $id_user= $dl->getUserID('Lorenzo');
         $dl->createTool('Climbing Wall');
