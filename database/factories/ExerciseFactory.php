@@ -23,6 +23,5 @@ $factory->define(Exercise::class, function (Faker $faker) {
         'overweightMin' => $faker->numberBetween(0,50),
         'overweightMax' => $faker->numberBetween(0,50),
         'overweightUnit' => $faker->randomElement($array = array ('Kg','%')),
-        'id_user' => 5,
     ];
 });
