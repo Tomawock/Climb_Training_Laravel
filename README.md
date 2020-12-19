@@ -28,6 +28,12 @@ Change the following fields in the .env file: ``DB_DATABASE=dbname`` ``DB_USERNA
 php artisan key:generate
 php artisan config:clear
 ```
+Initialize DB in local and create instaces inside with faker
+
+```bash
+ php artisan migrate
+ php artisan db:seed
+```
 
 ### SET up per Altervista 
 
