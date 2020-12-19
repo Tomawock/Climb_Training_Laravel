@@ -15,7 +15,28 @@ Inserire esercizi di default tratti da Libri<br>
 Inserire tools di default tratti da Libri<br>
 ### SET up from GIT
 
-https://gist.github.com/JSilversun/5d9661b03192d7dcf2946d78b5ed9fbc
+```bash
+git clone git@github.com:User/repo.git 
+cd repo
+composer install
+cp .env.example .env
+```
+
+Create a new DB inside your PhpMyAdmin.<br>
+Create a new User for the connection.<br>
+Change the following fields in the .env file: ``DB_DATABASE=dbname`` ``DB_USERNAME=dbuser`` ``DB_PASSWORD=dbpassword``. <br>
+
+```bash
+php artisan key:generate
+php artisan config:clear
+```
+
+Initialize DB in local and create instances inside with faker
+
+```bash
+ php artisan migrate
+ php artisan db:seed
+```
 
 ### SET up per Altervista 
 
