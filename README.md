@@ -22,13 +22,17 @@ composer install
 cp .env.example .env
 ```
 
+Create a new DB inside your PhpMyAdmin.
+Create a new User for the connection.
+
 Change the following fields in the .env file: ``DB_DATABASE=dbname`` ``DB_USERNAME=dbuser`` ``DB_PASSWORD=dbpassword``. 
 
 ```bash
 php artisan key:generate
 php artisan config:clear
 ```
-Initialize DB in local and create instaces inside with faker
+
+Initialize DB in local and create instances inside with faker
 
 ```bash
  php artisan migrate
