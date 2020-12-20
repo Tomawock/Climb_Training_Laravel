@@ -26,9 +26,20 @@ class DatabaseSeeder extends Seeder {
             'password' => bcrypt('12345678'),
             'is_admin' => TRUE,
         ]);
+        DB::table('users')->insert([
+            'name' => 'Admin2',
+            'email' => 'admin2@google.it',
+            'password' => bcrypt('12345678'),
+            'is_admin' => TRUE,
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Mario',
+            'email' => 'm.rossi@studenti.unibs.it',
+            'password' => bcrypt('12345678'),
+            'is_admin' => FALSE,
+        ]);
         
         $dl = new DataLayer();
-        $id_user= $dl->getUserID('Admin');
         $dl->createTool('Climbing Wall');
         $dl->createTool('Rubber Band');
         $dl->createTool('Weights');
@@ -39,7 +50,9 @@ class DatabaseSeeder extends Seeder {
         $dl->createTool('Fingerboard');
         $dl->createTool('Campusboard');
 
-        factory(Exercise::class,20)->create(['id_user'=>$id_user]);
+        factory(Exercise::class,20)->create(['id_user'=>$dl->getUserID('Admin')]);
+        factory(Exercise::class,10)->create(['id_user'=>$dl->getUserID('Mario')]);
+        factory(Exercise::class,10)->create(['id_user'=>$dl->getUserID('Lorenzo')]);
         
         factory(TrainingProgram::class,20)->create();
     }

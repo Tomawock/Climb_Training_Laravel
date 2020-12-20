@@ -18,14 +18,19 @@ class DataLayer {
         
     }
     /**
-     * Get all user defined as ADMINS
-     *
-     * @return list of id who are defined as Admins
+     * Get all the id of users defined as Admin
+     * 
+     * @return array
      */
     public function getAllAdmins(){
-        $admins = User::where('is_admin', TRUE)->get(['id']);
-        return $admins;
+        $admins = User::where('is_admin', TRUE)->get('id');
         
+        $toSync=array();
+        foreach ($admins as $ad){
+            $toSync[]=$ad->id;
+        }
+        
+        return $toSync;   
     }
     /**
     * Get all the exercise from actual user or admin user
