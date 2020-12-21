@@ -32,6 +32,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Esercizi degli admin-->
                         @foreach($exerciseList as $exercise)
                         <tr>
                             <td>{{ $exercise->name }}</td>
@@ -42,6 +43,7 @@
                             <td>
                                 <a class="btn btn-primary btn-block" href="{{ route('exercise.edit', ['exercise' => $exercise->id]) }}"><span class="glyphicon glyphicon-pencil"></span> @lang('label.edit')</a>
                             </td>
+                            <!-- Cancellare e sostituire con copia e modifica su soli gli esercizi dell'utente-->
                             @if(in_array($exercise->id,$bloked))
                             <td>
                                 <a class="btn btn-danger btn-block" href="{{ route('exercise.destroy.confirm', ['id' => $exercise->id]) }}" disabled><span class="glyphicon glyphicon-trash"></span> @lang('label.delete')</a>
@@ -51,6 +53,23 @@
                                 <a class="btn btn-danger btn-block" href="{{ route('exercise.destroy.confirm', ['id' => $exercise->id]) }}"><span class="glyphicon glyphicon-trash"></span> @lang('label.delete')</a>
                             </td>
                             @endif
+                        </tr>
+                        @endforeach
+                        <!-- Esercizi dell'utente ovvero quelli non cancellabili-->
+                        @foreach($userExercise as $exercise)
+                        <tr>
+                            <td>{{ $exercise->name }}</td>
+                            <td>{{ $exercise->description }}</td>
+                            <td>
+                                <a class="btn btn-info btn-block" href="{{ route('exercise.show', ['exercise' => $exercise->id]) }}"><span class="glyphicon glyphicon-eye-open"></span> @lang('label.show')</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-primary btn-block" href="{{ route('exercise.edit', ['exercise' => $exercise->id]) }}"><span class="glyphicon glyphicon-pencil"></span> @lang('label.edit')</a>
+                            </td>
+                            <!-- Cancellare e sostituire con copia e modifica su soli gli esercizi dell'utente--> 
+                            <td>
+                                <a class="btn btn-danger btn-block" href="{{ route('exercise.destroy.confirm', ['id' => $exercise->id]) }}" disabled><span class="glyphicon glyphicon-trash"></span> @lang('label.delete')</a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

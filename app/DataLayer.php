@@ -6,12 +6,22 @@ use Illuminate\Support\Facades\DB;
 
 
 class DataLayer {
-
+    /**
+     * Search a user by his id
+     * 
+     * @param int $username hat need to be search inside the DB
+     * @return int id 
+     */
     public function getUserID($username) {
         $users = User::where('name', $username)->get(['id']);
         return $users[0]->id;
     }
-
+    /**
+     * Search a user by his username
+     * 
+     * @param string $username that need to be search inside the DB
+     * @return User
+     */
     public function getUserbyUsername($username) {
         $user = User::where('name', $username)->first();
         return $user;
@@ -23,24 +33,32 @@ class DataLayer {
      * @return array
      */
     public function getAllAdmins(){
-        $admins = User::where('is_admin', TRUE)->get('id');
-        
+        $admins = User::where('is_admin', TRUE)->get('id');       
         $toSync=array();
         foreach ($admins as $ad){
             $toSync[]=$ad->id;
-        }
-        
+        }  
         return $toSync;   
     }
     /**
-    * Get all the exercise from actual user or admin user
-    * TODO
+    * Get all the exercise from the admin user
     *
     * @return list of all Exercises
     */
-    public function listExercises() {
-        //modificare
-        $exerciseList = Exercise::all()->sortBy('name');
+    public function listExercisesAdmins() {
+        $admins= $this->getAllAdmins(); 
+        $exerciseList = Exercise::whereIn('id_user',$admins)->get();
+        return $exerciseList;
+    }
+    /**
+     * Get all the exercise from the input userid
+     * 
+     * @param int $user id of the user
+     * @return list of all Exercises that matches constraints
+     */
+    public function listExercisesUserById($user) {
+        //TODO
+        $exerciseList = Exercise::where('id_user',$user)->get();
         return $exerciseList;
     }
 

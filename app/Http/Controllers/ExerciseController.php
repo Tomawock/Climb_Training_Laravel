@@ -7,35 +7,25 @@ use App\DataLayer;
 use App\Exercise;
 use App\Photo;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 
 class ExerciseController extends Controller
 {
-    public function index() {//DONE
-//        session_start();
-//    
-//        if(!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
-        
+    public function index() {
+        //object that has all the function to managhe the db and the access of his information
         $dl = new DataLayer();
-        
-        $exerciseList = $dl->listExercises();
+        $actualuserId= Auth::user()->id;
+        $exerciseListAdmins = $dl->listExercisesAdmins();
+        $exerciseListUser = $dl->listExercisesUserById($actualuserId);
         
         //disabilita la cancellazione
-        $bloked=array();
-        foreach ($exerciseList as $es){
+        $bloked=array();    
+        foreach ($exerciseListAdmins as $es){
             if ($dl->isIdExerciseBlocked($es->id)){
                 $bloked[]=$es->id;
             }
         }
-        
-        //dd($bloked);
-        
-//        return view('exercise.list')->with('logged',true)->with('loggedName', $_SESSION["loggedName"])
-//                ->with('exerciseList',$exerciseList)->with('bloked',$bloked);
-        
-        return view('exercise.list')->with('exerciseList',$exerciseList)->with('bloked',$bloked);
-        
+        return view('exercise.list')->with('exerciseList',$exerciseListAdmins)->with('bloked',$bloked)->with('userExercise',$exerciseListUser);
     }
     
     public function create() {//DONE
