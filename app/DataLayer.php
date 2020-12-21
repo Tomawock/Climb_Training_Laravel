@@ -152,7 +152,7 @@ class DataLayer {
         $exercise->save();
     }
     /**
-     * Copy an exercise to a specif user
+     * Copy an exercise to a specific user
      * 
      * @param type $exerciseid id of the exercise to copy
      * @param type $actualuserId id of the user to be assigned the new copied exercise

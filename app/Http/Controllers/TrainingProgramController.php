@@ -37,6 +37,7 @@ class TrainingProgramController extends Controller {
         $dl = new DataLayer();
         // When we create a new TP we want only the user copied or created exercise
         $actualuserId= Auth::user()->id;
+        //load only the user exercise and not the general ones
         $allExercises = $dl->listExercisesUserById($actualuserId);
 
         return view('trainingprogram.edit')->with('allExercises', $allExercises);
@@ -48,6 +49,7 @@ class TrainingProgramController extends Controller {
         
         $dl = new DataLayer();
         $actualuserId= Auth::user()->id;
+        //load only the user exercise and not the general ones
         $allExercises = $dl->listExercisesUserById($actualuserId);
         $dl->createTrainingProgram($request->input('trainingProgramTitle'), $request->input('trainingProgramDescription'), $request->input('trainingProgramTimeMin'), $request->input('trainingProgramTimeMax'));
         $idTp = $dl->getLastIdTrainingprogram();
@@ -78,7 +80,8 @@ class TrainingProgramController extends Controller {
     public function edit($id) {
 
         $dl = new DataLayer();
-                $actualuserId= Auth::user()->id;
+        $actualuserId= Auth::user()->id;
+        //load only the user exercise and not the general ones
         $allExercises = $dl->listExercisesUserById($actualuserId);
         $trainingprogram = $dl->findCompleteTrainingProgramById($id);
 
@@ -92,6 +95,7 @@ class TrainingProgramController extends Controller {
         $dl->editTrainingProgram($id,$request->input('trainingProgramTitle'), $request->input('trainingProgramDescription'), $request->input('trainingProgramTimeMin'), $request->input('trainingProgramTimeMax'));
         $tp = $dl->findCompleteTrainingProgramById($id);
         $actualuserId= Auth::user()->id;
+        //load only the user exercise and not the general ones
         $allExercises = $dl->listExercisesUserById($actualuserId);
         
         foreach ($allExercises as $ex) {

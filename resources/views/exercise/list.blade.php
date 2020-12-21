@@ -47,7 +47,7 @@
                             <td></td>
                         </tr>
                         @endforeach
-                        <!-- Esercizi dell'utente ovvero quelli non cancellabili-->
+                        <!-- Esercizi dell'utente ovvero quelli cancellabili-->
                         @foreach($userExercise as $exercise)
                         <tr>
                             <td>{{ $exercise->name }}</td>
