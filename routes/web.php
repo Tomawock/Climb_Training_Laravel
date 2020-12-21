@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth', 'lang']], function() {
     Route::get('/exercise/{id}/copy', ['as' => 'exercise.copy', 'uses' => 'ExerciseController@copyExercise']);
 
     Route::resource('trainingprogram', 'TrainingProgramController');
+    Route::get('/trainingprogram/{id}/copy', ['as' => 'trainingprogram.copy', 'uses' => 'TrainingProgramController@copyTrainingProgram']);
     Route::get('/trainingprogram/{id}/addmytraining', ['as' => 'trainingprogram.addmytraining', 'uses' => 'TrainingProgramController@addmytraining']);
     Route::get('/trainingprogram/{id}/destroy', ['as' => 'trainingprogram.destroy', 'uses' => 'TrainingProgramController@destroy']);
     Route::get('/trainingprogram/{id}/destroy/confirm', ['as' => 'trainingprogram.destroy.confirm', 'uses' => 'TrainingProgramController@confirmDestroy']);

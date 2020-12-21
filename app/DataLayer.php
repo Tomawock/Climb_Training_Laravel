@@ -197,7 +197,7 @@ class DataLayer {
         $exe=Exercise::where('id_user',$actualuserId)->orderBy('id','desc')->take(1)->get('id');
         return $exe[0]->id;
     }
-
+    
     public function createExerciseToToll($idExercise, $idTool) {
         
         Exercise::find($idExercise)->tools()->attach($idTool); 
@@ -211,13 +211,21 @@ class DataLayer {
         }
         Exercise::find($idExercise)->tools()->sync($toSync);
     }
-
+    /**
+     * Delete a specific Photo
+     * 
+     * @param int $idPhoto Photo id
+     */
     public function deletePhoto($idPhoto) {
         Storage::delete( Photo::find($idPhoto)->path);
 
         Photo::find($idPhoto)->delete();
     }
-
+    /**
+     * Delete all Photo related to a specific exercise
+     * 
+     * @param int $idExercise Exercise id
+     */
     public function deleteExerciseToPhotoRecursive($idExercise) {
         
         $exercisePhotos= Exercise::find($idExercise)->photos;
@@ -227,7 +235,13 @@ class DataLayer {
             $photo->delete();
         }
     }
-
+    /**
+     * Create a Photo to an exercise with a description
+     * 
+     * @param string $path to the photo
+     * @param string $description of the photo to add
+     * @param int $idExercise 
+     */
     public function createPhoto($path, $description,$idExercise) {
         $ph=new Photo();
 
@@ -237,56 +251,144 @@ class DataLayer {
         
         $ph->save();
     }
+    
     public function createTool($name){
         $tool=new Tool();
         $tool->name=$name;
         $tool->save();
     }
-
+    /**
+     * Find a Photo from a specific Id
+     * 
+     * @param int $id of the Photo
+     * @return EloquentObject Photo
+     */
     public function findPhotoByExerciseId($id) {
         
         return Exercise::find($id)->photos;
     }
-
-    public function listTrainingProgram() {
-        return TrainingProgram::all()->sortBy('title');
+    /**
+     * Copy a Training Program to a specific user
+     * 
+     * @param int $trainingProgramId id of the Training Program to copy
+     * @param int $actualuserId id of the user to be assigned the new copied Training Program
+     * 
+     */
+    public function copyTrainingProgramToUser($trainingProgramId, $actualuserId) {
+        
+        $tp_old = TrainingProgram::find($trainingProgramId); 
+        
+        $tp = new TrainingProgram;
+        $tp->title=$tp_old->title;
+        $tp->description=$tp_old->description;
+        $tp->timeMin=$tp_old->timeMin;
+        $tp->timeMax=$tp_old->timeMax;
+        $tp->id_user = $actualuserId;
+        
+        $tp->save();
+        $exercise=$tp_old->exercises()->get();
+        //Creazione copia esercizio e creazione legame con Training program
+        foreach ($exercise as $exe){
+            $this->copyExerciseToUser($exe->id, $actualuserId);
+            $exeNewId =  $this->getLastIdExercise($actualuserId);
+            $this->createExerciseToTrainingprogram($exeNewId, $tp->id);
+        }        
     }
-    //modded
+    /**
+     * Get all the Training Program with user admin
+     * 
+     * @return array of Training Program
+     */
+    public function listTrainingProgramAdmins() {
+        
+        $admins= $this->getAllAdmins(); 
+        $trainingProgramList = TrainingProgram::whereIn('id_user',$admins)->get();
+        return $trainingProgramList;
+    }
+    /**
+     * Get all the Training Program with user passed to the function
+     * 
+     * @param int $userid id of the User
+     * @return array of Training Program
+     */
+    public function listTrainingProgramUserById($userid) {
+        $tpList = TrainingProgram::where('id_user',$userid)->get();
+        return $tpList;
+    }
+    /**
+     * @deprecated since version 1.0.2
+     * 
+     * @param type $trainingprogramID
+     * @param type $usernameId
+     */
     public function addTrainingprogramToUser($trainingprogramID, $usernameId) {
         User::where('id',$usernameId)->first()->trainingprograms()->attach($trainingprogramID);
     }
-
+    /**
+     * Find the Training Program with passed id
+     * 
+     * @param int $tpId Id of the Teraining Program thats need to be search
+     * @return EloquentObject TrainingProgram
+     */
     public function findCompleteTrainingProgramById($tpId) {
-
         return TrainingProgram::find($tpId);
     }
-
-    public function editTrainingProgram($id, $title, $description, $timeMin, $timeMax) {
+    /**
+     * Edit a specific TP given his attributes
+     * 
+     * @param type $id
+     * @param type $title
+     * @param type $description
+     * @param type $timeMin
+     * @param type $timeMax
+     * @param type $actualuserId
+     */
+    public function editTrainingProgram($id, $title, $description, $timeMin, $timeMax,$actualuserId) {
         $tp = TrainingProgram::find($id); 
         
         $tp->title=$title;
         $tp->description=$description;
         $tp->timeMin=$timeMin;
         $tp->timeMax=$timeMax;
+        $tp->id_user=$actualuserId;
         
         $tp->save();
     }
-
-    public function createTrainingProgram($title, $description, $timeMin, $timeMax) {
+    /**
+     * Create a new TP given his attributes
+     * 
+     * @param type $title
+     * @param type $description
+     * @param type $timeMin
+     * @param type $timeMax
+     * @param type $actualuserId
+     */
+    public function createTrainingProgram($title, $description, $timeMin, $timeMax,$actualuserId) {
         $tp = new TrainingProgram();
         
         $tp->title=$title;
         $tp->description=$description;
         $tp->timeMin=$timeMin;
         $tp->timeMax=$timeMax;
+        $tp->id_user=$actualuserId;
         
         $tp->save();
     }
-
+    /**
+     * Create the relation between Training Program and Exercise
+     * 
+     * @param int $idExercise Id of the Exercise
+     * @param int $idTp Id of the Training Program
+     */
     public function createExerciseToTrainingprogram($idExercise, $idTp) {
        Exercise::find($idExercise)->trainingprograms()->attach($idTp); 
     }
-
+    /**
+     * Delete the relation between Training Program and Exercise
+     * 
+     * @param int $idExercise Id of the Exercise
+     * @param int $idTp Id of the Training Program
+     */
     public function deleteExerciseToTrainingprogram($idExercise, $idTp) {
         $toSync=array();
         
@@ -299,18 +401,27 @@ class DataLayer {
         
         Exercise::find($idExercise)->trainingprograms()->sync($toSync);
     }
-
-    public function getLastIdTrainingprogram() {
-        $tp= TrainingProgram::orderBy('id','desc')->take(1)->get('id');
+    /**
+     * Get the last Training Program added by the user
+     * 
+     * @param int $actualuserId of the user 
+     * @return int the id of the last added Training Program 
+     */
+    public function getLastIdTrainingprogram($actualuserId) {
+        $tp= TrainingProgram::where('id_user',$actualuserId)->orderBy('id','desc')->take(1)->get('id');
         return $tp[0]->id;
     }
-
+    /**
+     * @deprecated since version 1.0.2
+     * 
+     * @param type $tpId
+     */
     public function deleteTrainingProgramToAllUser($tpId) {
         
         TrainingProgram::find($tpId)->users()->sync([]);
          
     }
-
+    
     public function deleteTrainingProgram($tpId) {
         TrainingProgram::find($tpId)->delete();
     }

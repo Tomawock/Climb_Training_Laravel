@@ -41,7 +41,7 @@
                                 <a class="btn btn-info btn-block" href="{{ route('exercise.show', ['exercise' => $exercise->id]) }}"><span class="glyphicon glyphicon-eye-open"></span> @lang('label.show')</a>
                             </td>
                             <td>
-                                <a class="btn btn-primary btn-block" href="{{ route('exercise.copy', ['id' => $exercise->id]) }}"><span class="glyphicon glyphicon-plus"></span> @lang('label.copy')</a>
+                                <a class="btn btn-success btn-block" href="{{ route('exercise.copy', ['id' => $exercise->id]) }}"><span class="glyphicon glyphicon-plus"></span> @lang('label.copy')</a>
                             </td>
                              <!-- Gestire i bottoni in un modo piu bello, quelli dell'admin ne dovrebbero avere solo2 invece quelli dell'utente ne devono avere 3-->
                             <td></td>

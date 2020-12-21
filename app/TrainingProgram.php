@@ -14,8 +14,13 @@ class TrainingProgram extends Model
         'trainingProgramDescription'=>'required|regex:/[a-zA-Z0-9\s]+/'
     ];
     
-    public function users(){
-         return $this->belongsToMany('App\User', 'user_trainingprogram','trainingprogram_id','user_id');
+//    public function users(){
+//    will be deprecated soon, see trainingprograms inside User
+//         return $this->belongsToMany('App\User', 'user_trainingprogram','trainingprogram_id','user_id');
+//    }
+     
+    public function user(){
+        return $this->belongsTo('App\User','id_user');
     }
     
     public function exercises(){

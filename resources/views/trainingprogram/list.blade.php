@@ -34,7 +34,23 @@
                     </thead>
 
                     <tbody>
+                        <!-- Allenamenti degli Admin-->
                         @foreach($trainingprogram as $tp)
+                        <tr>
+                            <td>{{ $tp->title}}</td>
+                            <td>{{ $tp->description}}</td>
+                            <td>
+                                <a class="btn btn-info btn-block" href="{{ route('trainingprogram.show', ['trainingprogram' => $tp->id]) }}"><span class="glyphicon glyphicon-eye-open"></span> @lang('label.show')</a>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <a class="btn btn-success btn-block" href="{{ route('trainingprogram.copy', ['id' => $tp->id]) }}"><span class="glyphicon glyphicon-plus"></span> @lang('label.copy')</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                        <!-- Allenamenti dell'utente ovvero quelli cancellabili-->
+                        @foreach($usertrainingprogram as $tp)
                         <tr>
                             <td>{{ $tp->title}}</td>
                             <td>{{ $tp->description}}</td>
@@ -53,15 +69,7 @@
                                 <a class="btn btn-danger btn-block" href="{{ route('trainingprogram.destroy.confirm', ['id' => $tp->id]) }}"><span class="glyphicon glyphicon-trash"></span> @lang('label.delete')</a>
                             </td>
                             @endif
-                            @if ($tp->users->contains($userId))
-                            <td>
-                                <a class="btn btn-success btn-block" href="#"  disabled><span class="glyphicon glyphicon-plus"></span> @lang('label.add')</a>
-                            </td>
-                            @else
-                            <td>
-                                <a class="btn btn-success btn-block" href="{{  route('trainingprogram.addmytraining', ['id' => $tp->id]) }}"><span class="glyphicon glyphicon-plus"></span> @lang('label.add')</a>
-                            </td>
-                            @endif
+                            <td></td>
                         </tr>
                         @endforeach
                 </table>

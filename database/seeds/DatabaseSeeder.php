@@ -54,7 +54,9 @@ class DatabaseSeeder extends Seeder {
         factory(Exercise::class,10)->create(['id_user'=>$dl->getUserID('Mario')]);
         factory(Exercise::class,10)->create(['id_user'=>$dl->getUserID('Lorenzo')]);
         
-        factory(TrainingProgram::class,20)->create();
+        factory(TrainingProgram::class,10)->create(['id_user'=>$dl->getUserID('Admin')]);
+        factory(TrainingProgram::class,10)->create(['id_user'=>$dl->getUserID('Mario')]);
+        factory(TrainingProgram::class,10)->create(['id_user'=>$dl->getUserID('Lorenzo')]);
     }
 
 }

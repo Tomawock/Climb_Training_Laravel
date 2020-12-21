@@ -16,10 +16,12 @@ class CreateTpTable extends Migration
         Schema::create('trainingprogram', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->text('description');
-            
+            $table->text('description');      
             $table->time('timeMin');
             $table->time('timeMax');
+            
+            $table->integer('id_user')->unsigned();
+            $table->foreign('id_user')->references('id')->on('users');
 
         });
     }
