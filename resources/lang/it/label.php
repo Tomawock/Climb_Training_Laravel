@@ -26,6 +26,7 @@ return [
     'max' => 'Max',
     'save'=>'Salva',
     'create'=>'Crea',
+    'copy'=>'Copia',
     'cancel'=>'Cancella',
     'search'=>'Ricerca',
     'remove'=>'Rimuovi',

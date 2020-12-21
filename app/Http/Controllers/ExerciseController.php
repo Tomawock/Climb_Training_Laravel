@@ -28,28 +28,15 @@ class ExerciseController extends Controller
         return view('exercise.list')->with('exerciseList',$exerciseListAdmins)->with('bloked',$bloked)->with('userExercise',$exerciseListUser);
     }
     
-    public function create() {//DONE
-//        session_start();
-//    
-//        if(!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
-        
+    public function create() {        
         $dl = new DataLayer();
 
         $allTools=$dl->getAllTools();
         
-//        return view('exercise.edit')->with('logged',true)->with('loggedName', $_SESSION["loggedName"])
-//                ->with('units',['Kg','%'])->with('tools',$allTools);
         return view('exercise.edit')->with('units',['Kg','%'])->with('tools',$allTools);
     }
     
-    public function store(Request $request) {//DONE     
-//       session_start();
-//    
-//        if(!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
+    public function store(Request $request) {
         //validation ceck
         if ($request->hasFile('exercisePhoto')) {    
             $this->validate($request, array_merge(Photo::$rules,Exercise::$rules));
@@ -59,12 +46,15 @@ class ExerciseController extends Controller
         }
         
         $dl = new DataLayer();
+        $actualuserId= Auth::user()->id;
+        
         $dl->createExercise($request->input('exerciseName'), $request->input('exerciseDescription'),$request->input('exerciseImportantNotes'),
                 $request->input('exerciseRepsMin'),$request->input('exerciseRepsMax'),$request->input('exerciseSetMin'),
                 $request->input('exerciseSetMax'),$request->input('exerciseRestMin'),$request->input('exerciseRestMax'),
-                $request->input('exerciseOverweightMin'),$request->input('exerciseOverweightMax'),$request->input('exerciseOverweightUnit'));
+                $request->input('exerciseOverweightMin'),$request->input('exerciseOverweightMax'),$request->input('exerciseOverweightUnit'),
+                $actualuserId);
         
-        $id=$dl->getLastIdExercise();
+        $id=$dl->getLastIdExercise($actualuserId);
        
         //set up dependecies of exercise and tools
         foreach ($dl->getAllTools() as $actualTool) {
@@ -113,12 +103,7 @@ class ExerciseController extends Controller
         return view('exercise.edit')->with('exercise', $exercise)->with('units',['Kg','%'])->with('tools',$allTools);   
     }
     
-    public function postupdate(Request $request, $id){//DONE
-//        session_start();
-//    
-//        if(!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
+    public function postupdate(Request $request, $id){
         
         if ($request->hasFile('exercisePhoto')) {    
             $this->validate($request, array_merge(Photo::$rules,Exercise::$rules));
@@ -128,10 +113,12 @@ class ExerciseController extends Controller
         }
         
         $dl = new DataLayer();
+        $actualuserId= Auth::user()->id;
         $dl->editExercise($id, $request->input('exerciseName'), $request->input('exerciseDescription'),$request->input('exerciseImportantNotes'),
                 $request->input('exerciseRepsMin'),$request->input('exerciseRepsMax'),$request->input('exerciseSetMin'),
                 $request->input('exerciseSetMax'),$request->input('exerciseRestMin'),$request->input('exerciseRestMax'),
-                $request->input('exerciseOverweightMin'),$request->input('exerciseOverweightMax'),$request->input('exerciseOverweightUnit'));
+                $request->input('exerciseOverweightMin'),$request->input('exerciseOverweightMax'),$request->input('exerciseOverweightUnit'),
+                $actualuserId);
         
         $exercise=$dl->findCompleteExerciseById($id);
                 
@@ -203,5 +190,18 @@ class ExerciseController extends Controller
         $exercise=$dl->findCompleteExerciseById($id);
         
         return view('exercise.destroy')->with('exercise', $exercise); 
+    }
+    /**
+     * Allows to copy one exercise to a user
+     * 
+     * @param int $id of the exercise to copy 
+     * @return rote Exercise indexs
+     */
+    public function copyExercise($id) {
+
+        $dl = new DataLayer();
+        $actualuserId= Auth::user()->id;
+        $dl->copyExerciseToUser($id, $actualuserId);
+        return Redirect::to(route('exercise.index'));
     }
 }

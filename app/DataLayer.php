@@ -57,21 +57,45 @@ class DataLayer {
      * @return list of all Exercises that matches constraints
      */
     public function listExercisesUserById($user) {
-        //TODO
         $exerciseList = Exercise::where('id_user',$user)->get();
         return $exerciseList;
     }
-
+    /**
+     * Find the exercise based on his Id
+     * 
+     * @param int $id related to the exercise
+     * @return Eloquent exercise object
+     */
     public function findCompleteExerciseById($id) {
         return Exercise::find($id);
     }
-
+    /**
+     * Get all the tools defined inside the DB
+     * 
+     * @return array of Eloquent Tool
+     */
     public function getAllTools() {       
         return Tool::all();
     }
-
-    //modificare
-    public function editExercise($id, $name, $description, $importantNotes, $repsMin, $repsMax, $setMin, $setMax, $restMin, $restMax, $overweightMin, $overweightMax, $overweightUnit) {
+    /**
+     * Edit all the attributes based on the id of the exercise
+     * 
+     * @param type $id
+     * @param type $name
+     * @param type $description
+     * @param type $importantNotes
+     * @param type $repsMin
+     * @param type $repsMax
+     * @param type $setMin
+     * @param type $setMax
+     * @param type $restMin
+     * @param type $restMax
+     * @param type $overweightMin
+     * @param type $overweightMax
+     * @param type $overweightUnit
+     * @param type $actualuserId
+     */
+    public function editExercise($id, $name, $description, $importantNotes, $repsMin, $repsMax, $setMin, $setMax, $restMin, $restMax, $overweightMin, $overweightMax, $overweightUnit,$actualuserId) {
         $exercise = Exercise::find($id); 
         
         $exercise->name = $name;
@@ -86,11 +110,28 @@ class DataLayer {
         $exercise->overweightMin = $overweightMin;
         $exercise->overweightMax = $overweightMax;
         $exercise->overweightUnit = $overweightUnit;
+        $exercise->id_user=$actualuserId;
         
         $exercise->save();
     }
-    //modificare
-    public function createExercise($name, $description, $importantNotes, $repsMin, $repsMax, $setMin, $setMax, $restMin, $restMax, $overweightMin, $overweightMax, $overweightUnit) {
+    /**
+     * Create a new exercise passing all the attributes
+     * 
+     * @param type $name
+     * @param type $description
+     * @param type $importantNotes
+     * @param type $repsMin
+     * @param type $repsMax
+     * @param type $setMin
+     * @param type $setMax
+     * @param type $restMin
+     * @param type $restMax
+     * @param type $overweightMin
+     * @param type $overweightMax
+     * @param type $overweightUnit
+     * @param type $actualuserId
+     */
+    public function createExercise($name, $description, $importantNotes, $repsMin, $repsMax, $setMin, $setMax, $restMin, $restMax, $overweightMin, $overweightMax, $overweightUnit,$actualuserId) {
         
         $exercise=new Exercise;
         
@@ -106,17 +147,54 @@ class DataLayer {
         $exercise->overweightMin = $overweightMin;
         $exercise->overweightMax = $overweightMax;
         $exercise->overweightUnit = $overweightUnit;
+        $exercise->id_user=$actualuserId;
         
         $exercise->save();
     }
-
+    /**
+     * Copy an exercise to a specif user
+     * 
+     * @param type $exerciseid id of the exercise to copy
+     * @param type $actualuserId id of the user to be assigned the new copied exercise
+     * 
+     */
+    public function copyExerciseToUser($exerciseid,$actualuserId) {
+        
+        $exercise_old = Exercise::find($exerciseid);
+        $exercise=new Exercise;
+        
+        $exercise->name = $exercise_old->name;
+        $exercise->description = $exercise_old->description;
+        $exercise->importantNotes = $exercise_old->importantNotes;
+        $exercise->repsMin = $exercise_old->repsMin;
+        $exercise->repsMax = $exercise_old->repsMax;
+        $exercise->setMin = $exercise_old->setMin;
+        $exercise->setMax = $exercise_old->setMax;
+        $exercise->restMin = $exercise_old->restMin;
+        $exercise->restMax = $exercise_old->restMax;
+        $exercise->overweightMin = $exercise_old->overweightMin;
+        $exercise->overweightMax = $exercise_old->overweightMax;
+        $exercise->overweightUnit = $exercise_old->overweightUnit;
+        $exercise->id_user = $actualuserId;
+        
+        $exercise->save();
+    }
+    /**
+     * Delete exercise based on his Id
+     * 
+     * @param int $id of the exercise
+     */
     public function deleteExercise($id) {
         Exercise::find($id)->delete();
     }
-
-    public function getLastIdExercise() {
-        //modificare
-        $exe=Exercise::orderBy('id','desc')->take(1)->get('id');
+    /**
+     * Get the last exercise added by the user
+     * 
+     * @param int $actualuserId of the user 
+     * @return int the id of the last added exercise
+     */
+    public function getLastIdExercise($actualuserId) {
+        $exe=Exercise::where('id_user',$actualuserId)->orderBy('id','desc')->take(1)->get('id');
         return $exe[0]->id;
     }
 
