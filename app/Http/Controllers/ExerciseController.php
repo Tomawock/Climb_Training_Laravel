@@ -20,7 +20,7 @@ class ExerciseController extends Controller
         
         //disabilita la cancellazione
         $bloked=array();    
-        foreach ($exerciseListAdmins as $es){
+        foreach ($exerciseListUser as $es){
             if ($dl->isIdExerciseBlocked($es->id)){
                 $bloked[]=$es->id;
             }

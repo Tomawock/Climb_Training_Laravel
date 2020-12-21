@@ -16,18 +16,9 @@ class TrainingProgramController extends Controller {
         $userId = Auth::user()->id;
         $trainingprogramAdmins = $dl->listTrainingProgramAdmins();
         $trainingprogramUser = $dl->listTrainingProgramUserById($userId);
-        
-        //todo
-        $bloked=array();
-        foreach ($trainingprogramAdmins as $tp){
-            if ($dl->isIdTrainingprogramBlocked($tp->id)){
-                $bloked[]=$tp->id;
-            }
-        }
 
         return view('trainingprogram.list')->with('trainingprogram', $trainingprogramAdmins)
-                ->with('usertrainingprogram', $trainingprogramUser)
-                ->with('bloked',$bloked);
+                ->with('usertrainingprogram', $trainingprogramUser);
     }
 
     public function create() {

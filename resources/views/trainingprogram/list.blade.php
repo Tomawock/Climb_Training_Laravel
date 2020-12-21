@@ -60,11 +60,6 @@
                             <td>
                                 <a class="btn btn-primary btn-block" href="{{ route('trainingprogram.edit', ['trainingprogram' => $tp->id]) }}"><span class="glyphicon glyphicon-pencil"></span> @lang('label.edit')</a>
                             </td>
-                            @if(in_array($tp->id,$bloked))
-                            <td>
-                                <a class="btn btn-danger btn-block" href="{{ route('trainingprogram.destroy.confirm', ['id' => $tp->id]) }}"disabled><span class="glyphicon glyphicon-trash"></span> @lang('label.delete')</a>
-                            </td>
-                            @else
                             <td>
                                 <a class="btn btn-danger btn-block" href="{{ route('trainingprogram.destroy.confirm', ['id' => $tp->id]) }}"><span class="glyphicon glyphicon-trash"></span> @lang('label.delete')</a>
                             </td>

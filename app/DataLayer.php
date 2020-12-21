@@ -460,9 +460,9 @@ class DataLayer {
     }
     
     public function isIdExerciseBlocked($idEx){
-        $temp = DB::select("SELECT * FROM `user_trainingprogram_execution` WHERE `id_exercise` = :id", ['id' => $idEx   ]);
+        
         $temp2 = DB::select("SELECT * FROM `trainingprogram_to_exercise` WHERE `id_exercise` = :id", ['id' => $idEx   ]);
-        if (count($temp)>0 || count($temp2)>0){
+        if (count($temp2)>0){
             return true;
         }else {
             return false;
