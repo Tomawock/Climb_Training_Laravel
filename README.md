@@ -1,18 +1,6 @@
 ## Become a Better Climber
 Project created for easy to use Training Programs for climbing
 
-## Miglioramenti da effettuare
-Il pulsante Download no fa quello che dovrevve fare controllare console di havascript per info su come fixarlo<br>
-
-Risolvere bug relativo alla selezione di elemnti d piu pagine causato dal tool in JS<br>
-
-Inserire controlli sulle ore e sui min max<br>
-
-Aumentare il dettaglio delle statistiche utente<br>
-
-Inserire esercizi di default tratti da Libri<br>
-
-Inserire tools di default tratti da Libri<br>
 ### SET up from GIT
 
 ```bash
