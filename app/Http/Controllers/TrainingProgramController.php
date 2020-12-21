@@ -33,35 +33,27 @@ class TrainingProgramController extends Controller {
                 ->with('userId', $userId)->with('bloked',$bloked);
     }
 
-    public function create() {//DONE
-//        session_start();
-//
-//        if (!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
-
+    public function create() {
         $dl = new DataLayer();
-
-        $allExercises = $dl->listExercises();
+        // When we create a new TP we want only the user copied or created exercise
+        $actualuserId= Auth::user()->id;
+        $allExercises = $dl->listExercisesUserById($actualuserId);
 
         return view('trainingprogram.edit')->with('allExercises', $allExercises);
     }
 
-    public function store(Request $request) {//DONE     
-//        session_start();
-//
-//        if (!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
-
+    public function store(Request $request) {
+        
         $this->validate($request, TrainingProgram::$rules);
         
         $dl = new DataLayer();
+        $actualuserId= Auth::user()->id;
+        $allExercises = $dl->listExercisesUserById($actualuserId);
         $dl->createTrainingProgram($request->input('trainingProgramTitle'), $request->input('trainingProgramDescription'), $request->input('trainingProgramTimeMin'), $request->input('trainingProgramTimeMax'));
         $idTp = $dl->getLastIdTrainingprogram();
         $tp = $dl->findCompleteTrainingProgramById($idTp);
         
-        foreach ($dl->listExercises() as $ex) {
+        foreach ($allExercises as $ex) {
             //presente nell selezione della pagina e non preente sul db allora lo aggiungo
             if ($request->input('exercise' . $ex->id)) {
                 $dl->createExerciseToTrainingprogram($ex->id, $idTp);
@@ -83,34 +75,26 @@ class TrainingProgramController extends Controller {
         return view('trainingprogram.show')->with('trainingprogram',$trainingprogram);
     }
 
-    public function edit($id) {//DONE     
-//        session_start();
-//
-//        if (!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
+    public function edit($id) {
 
         $dl = new DataLayer();
+                $actualuserId= Auth::user()->id;
+        $allExercises = $dl->listExercisesUserById($actualuserId);
         $trainingprogram = $dl->findCompleteTrainingProgramById($id);
-        $allExercises = $dl->listExercises();
 
         return view('trainingprogram.edit')->with('trainingprogram', $trainingprogram)->with('allExercises', $allExercises);
     }
 
-    public function update(Request $request, $id) {//DONE
-//        session_start();
-//
-//        if (!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
-
+    public function update(Request $request, $id) {
         $this->validate($request, TrainingProgram::$rules);
         
         $dl = new DataLayer();
         $dl->editTrainingProgram($id,$request->input('trainingProgramTitle'), $request->input('trainingProgramDescription'), $request->input('trainingProgramTimeMin'), $request->input('trainingProgramTimeMax'));
         $tp = $dl->findCompleteTrainingProgramById($id);
-        //dd($request->input());
-        foreach ($dl->listExercises() as $ex) {
+        $actualuserId= Auth::user()->id;
+        $allExercises = $dl->listExercisesUserById($actualuserId);
+        
+        foreach ($allExercises as $ex) {
             //presente nell selezione della pagina e non preente sul db allora lo aggiungo
             if ($request->input('exercise' . $ex->id) != null && !$tp->exercises->contains($ex->id) == 1) {
                 $dl->createExerciseToTrainingprogram($ex->id, $id);
