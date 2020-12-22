@@ -27,6 +27,11 @@ class TrainingProgram extends Model
          return $this->belongsToMany('App\Exercise', 'trainingprogram_to_exercise','id_trainingProgram','id_exercise');
     }
     
+    public function exercise(){
+         return $this->hasMany('App\Exercise','id_exercise');
+    }
+    
+    
     public function executedOnUser(){
          return $this->belongsToMany('App\User', 'user_trainingprogram_execution','id_trainingProgram','id_user');
     }

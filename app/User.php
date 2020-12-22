@@ -42,7 +42,7 @@ class User extends Authenticatable
     }
     
     public function trainingprograms(){
-         return $this->hasMany('App\TrainingProgram', 'id_trainingprogram');
+         return $this->hasMany('App\TrainingProgram', 'id_user');
     }
     
 //    public function trainingprograms(){
@@ -52,6 +52,10 @@ class User extends Authenticatable
     
     public function executedtrainingprograms(){
          return $this->belongsToMany('App\TrainingProgram', 'user_trainingprogram_execution','id_user','id_trainingProgram')->withPivot('id_exercise','date', 'reps','sets','note')->orderBy('date','asc');
+    }
+    
+    public function allhistory(){
+         return $this->hasMany('App\History','id_user')->orderBy('date','asc');
     }
     
     public function executedexercises(){

@@ -14,18 +14,11 @@
 @section('corpo')
 <div class="container">
     <div class="row">
-        @foreach($result as $traning)
+        @for($i=0;$i< count($result['title']);$i++) 
         <div class="panel panel-default ">
             <div class="panel-heading text-center panel-relative">
                 <h2 class="panel-title">
-                    <?php
-                    $json = $traning->json;
-                    $date = $traning->date;
-                    $exercises = json_decode($json);
-                    $exercises = $exercises->exercises;
-                    $title = $exercises[0]->title_training;
-                    ?>
-                    <strong>{!! trans('label.mytrainingHsPanelTitle', [ 'title' => $title, 'date' => date("d/m/Y", strtotime($date)) ]) !!}</strong>
+                    <strong>{!! trans('label.mytrainingHsPanelTitle', [ 'title' => $result['title'][$i], 'date' => date("d/m/Y", strtotime($result['date'][$i])) ]) !!}</strong>
                 </h2>
             </div>
             <div class="panel-body">
@@ -42,25 +35,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <tbody>
-                            @foreach($exercises as $exercise)
+                            @for($j=0;$j< count($result['exercises'][$i]['exercise']);$j++)
                             <tr>     
-                                <td><div style="height:auto; overflow:hidden">{{$exercise->exercise_name}}</div></td>
-                                <td><div style="height:auto; overflow:hidden">{{$exercise->reps_min}} - {{$exercise->reps_max}}</div></td>
-                                <td><div style="height:auto; overflow:hidden">{{$exercise->set_min}} - {{$exercise->set_max}}</div></td>
-                                <td><div style="height:auto; overflow:hidden">{{$exercise->reps}}</div></td>
-                                <td><div style="height:auto; overflow:hidden">{{$exercise->sets}}</div></td>
-                                <td><div style="height:auto; overflow:hidden">{{$exercise->note}}</div></td>
+                                <td><div style="height:auto; overflow:hidden">{{$result['exercises'][$i]['exercise'][$j]->name}}</div></td>
+                                <td><div style="height:auto; overflow:hidden">{{$result['exercises'][$i]['exercise'][$j]->reps_min}} - {{$result['exercises'][$i]['exercise'][$j]->repsMax}}</div></td>
+                                <td><div style="height:auto; overflow:hidden">{{$result['exercises'][$i]['exercise'][$j]->set_min}} - {{$result['exercises'][$i]['exercise'][$j]->setMax}}</div></td>
+                                <td><div style="height:auto; overflow:hidden">{{$result['exercises'][$i]['execution'][$j]->reps}}</div></td>
+                                <td><div style="height:auto; overflow:hidden">{{$result['exercises'][$i]['execution'][$j]->sets}}</div></td>
+                                <td><div style="height:auto; overflow:hidden">{{$result['exercises'][$i]['execution'][$j]->note}}</div></td>
                             </tr>
-                            @endforeach
-                        </tbody> 
+                            @endfor
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        @endforeach
+        @endfor
     </div>
 </div>
 @endsection
-

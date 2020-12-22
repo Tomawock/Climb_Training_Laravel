@@ -38,7 +38,7 @@ class MyTrainingController extends Controller {
         return view('mytraining.programlist')->with('user', $user);
     }
 
-    public function historystatistic() {
+    public function historystatistic2() {
 //        session_start();
 //
 //        if (!isset($_SESSION['logged'])) {
@@ -69,6 +69,23 @@ class MyTrainingController extends Controller {
         //nel caso in cui non ho match mi va in null pointer exception, è da gestire 
         return view('mytraining.historystatistic')->with('result', $tosend);
     }
+    
+    
+        public function historystatistic() {
+//        session_start();
+//
+//        if (!isset($_SESSION['logged'])) {
+//            return Redirect::to(route('user.login'));
+//        }
+
+        $dl = new DataLayer();
+        $tosend = array();
+        $user = $dl->getUserbyUsername(Auth::user()->name);
+        $history = $user->allhistory;
+        //nel caso in cui non ho match mi va in null pointer exception, è da gestire 
+        return view('mytraining.historystatistic')->with('result', $history);
+    }
+    
 
     public function executetraining($id) {
 //        session_start();
@@ -79,8 +96,10 @@ class MyTrainingController extends Controller {
 
         $dl = new DataLayer();
         $tp = $dl->findCompleteTrainingProgramById($id);
+        $test = "TEST";
 
-        return view('mytraining.execute')->with('trainingprogram', $tp);
+        return view('mytraining.execute')->with('trainingprogram', $tp)
+                ->with('test', $test);
     }
 
     public function postexecute(Request $request, $id) {
@@ -96,6 +115,7 @@ class MyTrainingController extends Controller {
         $tp = $dl->findCompleteTrainingProgramById($id);
         $exerciseList = $tp->exercises;
         $user = $dl->getUserbyUsername(Auth::user()->name);
+        $esercises = array();
         foreach ($exerciseList as $ex) {
             if ($request->input('executedReps' . $ex->id) != null && $request->input('executedSets' . $ex->id) != null) {
                 if ($request->input('executionDate') == '') {
@@ -108,11 +128,23 @@ class MyTrainingController extends Controller {
                 } else {
                     $note = $request->input('executedNotes' . $ex->id);
                 }
-
-                $dl->createUserTrainingProgramExecution($ex->id, $id, $user->id, $request->input('executedReps' . $ex->id), $request->input('executedSets' . $ex->id), $date, $note);
-            }
+                $e = array(
+                                'exercise_name'   => $ex->name,
+                                'reps'            => $request->input('executedReps' . $ex->id),
+                                'reps_min'        => $ex->repsMin,
+                                'reps_max'        => $ex->repsMax,
+                                'set_min'         => $ex->setMin,
+                                'set_max'         => $ex->setMax,
+                                'sets'            => $request->input('executedSets' . $ex->id),
+                                'note'            => $note,
+                                'title_training'  => $request->input('traning_title')
+                );
+                //$dl->createUserTrainingProgramExecution($ex->id, $id, $user->id, $request->input('executedReps' . $ex->id), $request->input('executedSets' . $ex->id), $date, $note);
+                //$e = json_encode($e);
+                array_push($esercises, $e);
+                }
         }
-
+        $dl->createUserTrainingProgramExecutionJson($esercises,$user->id,$date);
         return view('mytraining.programlist')->with('user', $user);
     }
 

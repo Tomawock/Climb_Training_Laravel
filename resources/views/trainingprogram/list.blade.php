@@ -63,7 +63,7 @@
                             <td>
                                 <a class="btn btn-danger btn-block" href="{{ route('trainingprogram.destroy.confirm', ['id' => $tp->id]) }}"><span class="glyphicon glyphicon-trash"></span> @lang('label.delete')</a>
                             </td>
-                            @endif
+                            
                             <td></td>
                         </tr>
                         @endforeach

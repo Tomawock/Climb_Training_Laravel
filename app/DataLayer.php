@@ -313,8 +313,12 @@ class DataLayer {
      */
     public function listTrainingProgramUserById($userid) {
         $tpList = TrainingProgram::where('id_user',$userid)->get();
-        return $tpList;
+       return $tpList;
     }
+    #public function listTrainingProgramUserById($userid) {
+    #    $tpList = History::where('id_user',$userid)->get();
+    #    return $tpList;
+    #}
     /**
      * @deprecated since version 1.0.2
      * 
@@ -374,6 +378,21 @@ class DataLayer {
         
         $tp->save();
     }
+       
+    #public function createTrainingProgram($title, $description, $timeMin, $timeMax,$actualuserId) {
+    #    $tp = new TrainingProgram();
+    #    
+    #    $myObj[] = array( 
+    #                "title" => $title, 
+    #                "description" => $description, 
+    #                "timeMin" => $timeMin, 
+    #                "timeMax" => $timeMax,);
+    #    $js = json_encode($myObj);
+    #    $tp->json=$js;
+    #    $tp->id_user=$actualuserId;
+    #    
+    #    $tp->save();
+    #}
     /**
      * Create the relation between Training Program and Exercise
      * 
@@ -437,9 +456,24 @@ class DataLayer {
         User::where('id',$userId)->first()->trainingprograms()->sync($toSync);
     }
 
-    public function createUserTrainingProgramExecution($idEx, $idTp, $idUsr, $reps, $sets, $date, $note) {
+    //public function createUserTrainingProgramExecution($idEx, $idTp, $idUsr, $reps, $sets, $date, $note) {
         //per le tabell di legame con dati multipli fai come:: $user->roles()->attach($roleId, ['expires' => $expires]);
-        User::where('id',$idUsr)->first()->executedtrainingprograms()->attach($idTp,['id_exercise' =>$idEx,'reps' =>$reps,'sets'=>$sets,'date'=>$date,'note'=>$note]); 
+    //    User::where('id',$idUsr)->first()->executedtrainingprograms()->attach($idTp,['id_exercise' =>$idEx,'reps' =>$reps,'sets'=>$sets,'date'=>$date,'note'=>$note]);             
+    //}
+    
+        public function createUserTrainingProgramExecutionJson($Ex, $id,$data) {
+        //per le tabell di legame con dati multipli fai come:: $user->roles()->attach($roleId, ['expires' => $expires]);
+        //User::where('id',$idUsr)->first()->executedtrainingprograms()->attach($idTp,['id_exercise' =>$idEx,'reps' =>$reps,'sets'=>$sets,'date'=>$date,'note'=>$note]); 
+        
+        $tp = new History();
+        $js = array(
+            'exercises' => $Ex,
+        );
+        $js = json_encode($js);
+        $tp->date=$data;
+        $tp->json=$js;
+        $tp->id_user=$id;
+        $tp->save();      
     }
 
     public function getUserTrainingProgramExecutionByUserId($idUsr) {

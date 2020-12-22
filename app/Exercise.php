@@ -23,6 +23,10 @@ class Exercise extends Model
         return $this->belongsTo('App\User','id_user');
     }
     
+    public function traningprogram(){
+        return $this->belongsTo('App\TrainingProgram','id_trainingProgram');
+    }
+    
     public function photos(){
          return $this->hasMany('App\Photo', 'id_exercise');
     }

@@ -35,6 +35,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
+                            fdsafdfsafsdafdsafdsa
                             <table class="table table-responsive table-hover text-center">
                                 <thead>
                                     <tr>
@@ -48,7 +49,7 @@
                                         <th class="col-md-1 text-center">@lang('label.exerciseSetsDone')</th>
                                     </tr>
                                 </thead>
-
+{{$trainingprogram}}
                                 <tbody>
 
                                     @foreach ($trainingprogram->exercises as $exercise)
@@ -93,6 +94,7 @@
                 </div>
                 <!-- Buttons confirm-->
                 <input type = "hidden" name = "id" value = "{{$trainingprogram->id}}"/>
+                <input type = "hidden" name = "traning_title" value = "{{$trainingprogram->title}}"/>
                 <label for = "mySubmit" class = "btn btn-primary btn-large btn-block"><span class = "glyphicon glyphicon-floppy-save"></span> @lang('label.save')</label>
                 <input id = "mySubmit" type = "submit" value = \'Save\' class="hidden"/>
                 <!-- Buttons cancel-->

@@ -25,7 +25,7 @@
                             <th class="col-md-1"></th> 
                         </tr>
                     </thead>
-                    <tbody> 
+                    <tbody>               
                         @foreach ($user->trainingprograms as $tp) 
                         <tr>
                             <td>{{$tp->title}}</td>
@@ -37,7 +37,8 @@
                                 <a class="btn btn-success btn-block" href="{{ route('mytraining.executetraining', ['id' => $tp->id]) }}"><span class="glyphicon glyphicon-play"></span> @lang('label.execute')</a>
                             </td>
                         </tr>
-                        @endforeach    
+                        @endforeach
+                    <tbody>
                 </table>
             </div>
         </div>
