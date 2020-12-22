@@ -42,7 +42,6 @@ Route::group(['middleware' => ['auth', 'lang']], function() {
     Route::get('/trainingprogram/{id}/destroy/confirm', ['as' => 'trainingprogram.destroy.confirm', 'uses' => 'TrainingProgramController@confirmDestroy']);
     Route::get('/trainingprogram/{id}/update', ['as' => 'trainingprogram.update', 'uses' => 'TrainingProgramController@update']);
 
-    Route::get('/mytraining/{id}/removemytraining', ['as' => 'mytraining.removemytraining', 'uses' => 'MyTrainingController@removemytraining']);
     Route::get('/mytraining/information', ['as' => 'mytraining.information', 'uses' => 'MyTrainingController@information']);
     Route::get('/mytraining/programlist', ['as' => 'mytraining.programlist', 'uses' => 'MyTrainingController@programlist']);
     Route::get('/mytraining/historystatistic', ['as' => 'mytraining.historystatistic', 'uses' => 'MyTrainingController@historystatistic']);

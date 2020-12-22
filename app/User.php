@@ -45,20 +45,7 @@ class User extends Authenticatable
          return $this->hasMany('App\TrainingProgram', 'id_user');
     }
     
-//    public function trainingprograms(){
-//        // this code and relation will be discharded, every error related to the add function inside TP is to relate to this code
-//         return $this->belongsToMany('App\TrainingProgram', 'user_trainingprogram','user_id','trainingprogram_id');
-//    }
-    
-    public function executedtrainingprograms(){
-         return $this->belongsToMany('App\TrainingProgram', 'user_trainingprogram_execution','id_user','id_trainingProgram')->withPivot('id_exercise','date', 'reps','sets','note')->orderBy('date','asc');
-    }
-    
     public function allhistory(){
          return $this->hasMany('App\History','id_user')->orderBy('date','asc');
-    }
-    
-    public function executedexercises(){
-         return $this->belongsToMany('App\Exercise', 'user_trainingprogram_execution','id_user','id_exercise')->withPivot('id_trainingProgram','date', 'reps','sets','note')->orderBy('date','asc');
     }
 }

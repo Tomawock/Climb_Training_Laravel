@@ -23,10 +23,6 @@ class Exercise extends Model
         return $this->belongsTo('App\User','id_user');
     }
     
-    public function traningprogram(){
-        return $this->belongsTo('App\TrainingProgram','id_trainingProgram');
-    }
-    
     public function photos(){
          return $this->hasMany('App\Photo', 'id_exercise');
     }
@@ -37,14 +33,6 @@ class Exercise extends Model
     
     public function trainingprograms(){
          return $this->belongsToMany('App\TrainingProgram', 'trainingprogram_to_exercise','id_exercise','id_trainingProgram');
-    }
-    
-    public function executedOnUser(){
-         return $this->belongsToMany('App\User', 'user_trainingprogram_execution','id_exercise','id_user');
-    }
-    
-    public function executedOnTrainingprogram(){
-         return $this->belongsToMany('App\TrainingProgram', 'user_trainingprogram_execution','id_exercise','id_trainingProgram');
     }
     
     public function myToolsToString(){  

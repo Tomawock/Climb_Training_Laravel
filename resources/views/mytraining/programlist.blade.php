@@ -21,7 +21,6 @@
                         <tr>
                             <th class="col-md-3">@lang('label.trainingprogramTitle')</th>
                             <th class="col-md-5">@lang('label.editExerciseDescription')</th>
-                            <th class="col-md-1"></th>
                             <th class="col-md-1"></th> 
                         </tr>
                     </thead>
@@ -30,9 +29,6 @@
                         <tr>
                             <td>{{$tp->title}}</td>
                             <td>{{$tp->description}}</td>
-                            <td>
-                                <a class="btn btn-danger btn-block" href="{{ route('mytraining.removemytraining', ['id' => $tp->id]) }}"><span class="glyphicon glyphicon-trash"></span> @lang('label.remove')</a>
-                            </td>
                             <td>
                                 <a class="btn btn-success btn-block" href="{{ route('mytraining.executetraining', ['id' => $tp->id]) }}"><span class="glyphicon glyphicon-play"></span> @lang('label.execute')</a>
                             </td>

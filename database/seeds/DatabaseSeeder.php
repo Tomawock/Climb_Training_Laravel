@@ -57,6 +57,32 @@ class DatabaseSeeder extends Seeder {
         factory(TrainingProgram::class,10)->create(['id_user'=>$dl->getUserID('Admin')]);
         factory(TrainingProgram::class,10)->create(['id_user'=>$dl->getUserID('Mario')]);
         factory(TrainingProgram::class,10)->create(['id_user'=>$dl->getUserID('Lorenzo')]);
+
+        // Fo each training program we attach 1 to 5 exercise, EVERY TP HAS 1 ore more EXERCISE
+        // Get all the exercise attacable to Admin
+        $exercisesAdm = App\Exercise::where('id_user',$dl->getUserID('Admin'))->get();
+        // Populate the pivot table
+        App\TrainingProgram::where('id_user',$dl->getUserID('Admin'))->each(function ($trainingprogram) use ($exercisesAdm) { 
+            $trainingprogram->exercises()->attach(
+                $exercisesAdm->random(rand(1, 5))->pluck('id')->toArray()
+            ); 
+        });
+        // Get all the exercise attacable to Lorenzo
+        $exercisesLor = App\Exercise::where('id_user',$dl->getUserID('Lorenzo'))->get();
+        // Populate the pivot table
+        App\TrainingProgram::where('id_user',$dl->getUserID('Lorenzo'))->each(function ($trainingprogram) use ($exercisesLor) { 
+            $trainingprogram->exercises()->attach(
+                $exercisesLor->random(rand(1, 5))->pluck('id')->toArray()
+            ); 
+        });
+        // Get all the exercise attacable to Mario
+        $exercisesMar = App\Exercise::where('id_user',$dl->getUserID('Mario'))->get();
+        // Populate the pivot table
+        App\TrainingProgram::where('id_user',$dl->getUserID('Mario'))->each(function ($trainingprogram) use ($exercisesMar) { 
+            $trainingprogram->exercises()->attach(
+                $exercisesMar->random(rand(1, 5))->pluck('id')->toArray()
+            ); 
+        });
     }
 
 }

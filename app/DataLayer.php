@@ -378,21 +378,6 @@ class DataLayer {
         
         $tp->save();
     }
-       
-    #public function createTrainingProgram($title, $description, $timeMin, $timeMax,$actualuserId) {
-    #    $tp = new TrainingProgram();
-    #    
-    #    $myObj[] = array( 
-    #                "title" => $title, 
-    #                "description" => $description, 
-    #                "timeMin" => $timeMin, 
-    #                "timeMax" => $timeMax,);
-    #    $js = json_encode($myObj);
-    #    $tp->json=$js;
-    #    $tp->id_user=$actualuserId;
-    #    
-    #    $tp->save();
-    #}
     /**
      * Create the relation between Training Program and Exercise
      * 
@@ -431,37 +416,26 @@ class DataLayer {
         return $tp[0]->id;
     }
     /**
-     * @deprecated since version 1.0.2
+     * Delete the Training Program from the db based on Id
      * 
-     * @param type $tpId
+     * @param int $tpId Id of the training program
      */
-    public function deleteTrainingProgramToAllUser($tpId) {
-        
-        TrainingProgram::find($tpId)->users()->sync([]);
-         
-    }
-    
     public function deleteTrainingProgram($tpId) {
         TrainingProgram::find($tpId)->delete();
-    }
-
-    public function deleteTrainingProgramToUser($userId, $tpId) {
-        
-        $toSync=array();
-        foreach (User::where('id',$userId)->first()->trainingprograms as $tp){
-            if ($tp->id != $tpId){
-                $toSync[]=$tp->id;
-            }
-        }
-        User::where('id',$userId)->first()->trainingprograms()->sync($toSync);
     }
 
     //public function createUserTrainingProgramExecution($idEx, $idTp, $idUsr, $reps, $sets, $date, $note) {
         //per le tabell di legame con dati multipli fai come:: $user->roles()->attach($roleId, ['expires' => $expires]);
     //    User::where('id',$idUsr)->first()->executedtrainingprograms()->attach($idTp,['id_exercise' =>$idEx,'reps' =>$reps,'sets'=>$sets,'date'=>$date,'note'=>$note]);             
     //}
-    
-        public function createUserTrainingProgramExecutionJson($Ex, $id,$data) {
+    /**
+     * ALBI FAI LA DOC
+     * 
+     * @param type $Ex
+     * @param type $id
+     * @param type $data
+     */
+    public function createUserTrainingProgramExecutionJson($Ex, $id,$data) {
         //per le tabell di legame con dati multipli fai come:: $user->roles()->attach($roleId, ['expires' => $expires]);
         //User::where('id',$idUsr)->first()->executedtrainingprograms()->attach($idTp,['id_exercise' =>$idEx,'reps' =>$reps,'sets'=>$sets,'date'=>$date,'note'=>$note]); 
         
@@ -476,36 +450,33 @@ class DataLayer {
         $tp->save();      
     }
 
-    public function getUserTrainingProgramExecutionByUserId($idUsr) {
-        
-        return User::where('id',$idUsr)->first()->executedtrainingprograms;
-    }
+//    public function getUserTrainingProgramExecutionByUserId($idUsr) {
+//        
+//        return User::where('id',$idUsr)->first()->executedtrainingprograms;
+//    }
 
-    public function getUserTrainingProgramExecutionByUserIdDateAndTrainingProgram($idUsr, $date, $trainingProgram) {
-        $result=array();
-        $temp = User::where('id',$idUsr)->first()->executedtrainingprograms;
-        foreach($temp as $t){
-            if($t->pivot->date==$date && $t->id==$trainingProgram){
-                $result['exercise'][]=$this->findCompleteExerciseById($t->pivot->id_exercise);
-                $result['execution'][]=$t->pivot;
-            }
-        }
-        return $result;
-    }
-    
+//    public function getUserTrainingProgramExecutionByUserIdDateAndTrainingProgram($idUsr, $date, $trainingProgram) {
+//        $result=array();
+//        $temp = User::where('id',$idUsr)->first()->executedtrainingprograms;
+//        foreach($temp as $t){
+//            if($t->pivot->date==$date && $t->id==$trainingProgram){
+//                $result['exercise'][]=$this->findCompleteExerciseById($t->pivot->id_exercise);
+//                $result['execution'][]=$t->pivot;
+//            }
+//        }
+//        return $result;
+//    }
+    /**
+     * Get if a exercise is preset inside a many to many relation with TP, 
+     * and if is true he should not be delated
+     * 
+     * @param type $idEx id of exercise to control
+     * @return boolean true: is present ~~ false: is NOT present
+     */
     public function isIdExerciseBlocked($idEx){
         
         $temp2 = DB::select("SELECT * FROM `trainingprogram_to_exercise` WHERE `id_exercise` = :id", ['id' => $idEx   ]);
         if (count($temp2)>0){
-            return true;
-        }else {
-            return false;
-        }
-    }
-    
-    public function isIdTrainingprogramBlocked($idTp){
-        $temp = DB::select("SELECT * FROM `user_trainingprogram_execution` WHERE `id_trainingProgram` = :id", ['id' => $idTp   ]);
-        if (count($temp)>0){
             return true;
         }else {
             return false;
