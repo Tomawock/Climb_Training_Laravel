@@ -4,13 +4,13 @@ return [
     'homePageTitle' => 'Home page',
     
     'homePageNavbar' => 'Home',
-    'myTrainingNavbar' => 'My Training',
+    'myTrainingNavbar' => 'Workout',
     'accountNavbar' => 'Account',
     'personalTrainingNavbar' => 'Personal Training Program',
     'historyStatisticNavbar' => 'History and Statistics',
-    'trainingNavbar' => 'Training',
-    'exerciseListNavbar' => 'Exercise List',
-    'trainingListNavbar' => 'Training Program List',
+    'trainingNavbar' => 'Exercises | Training Programs',
+    'exerciseListNavbar' => 'Exercises',
+    'trainingListNavbar' => 'Training Programs',
     'userAuthNavbar' => 'User authentication',
     
     'welcome' => 'Welcome',
@@ -39,7 +39,7 @@ return [
     'destroyExerciseHeader' => 'Delete exercise ":name" from the list ?',
     'destroyExerciseConfirm' => 'Deleting exercise. Confirm?',
     'destroyExerciseRevertMessage' => 'The exercise <strong>will not be removed</strong> from the data base',
-    'destroyExerciseBackMessage' => 'Back to Exercise list',
+    'destroyExerciseBackMessage' => 'Back to Exercises',
     'destroyExerciseConfirmMessage' => 'The exercise <strong>will be permanently removed</strong> from the data base',
      
     'editExerciseTitle' => 'Edit Exercise',
@@ -99,10 +99,10 @@ return [
     'authWrongcredential'=>'Wrong credentials while accessing this page',
      
     'destroyTpTitle' => 'Delete Training Program',
-    'destroyTpHeader' => 'Delete Training Program ":title" from the list ?',
+    'destroyTpHeader' => 'Delete Training Program ":title" Training Programs ?',
     'destroyTpConfirm' => 'Deleting Training Program. Confirm?',
     'destroyTpRevertMessage' => 'The Training Program <strong>will not be removed</strong> from the data base',
-    'destroyTpBackMessage' => 'Back to Training Program list',
+    'destroyTpBackMessage' => 'Back to Training Programs',
     'destroyTpConfirmMessage' => 'The Training Program <strong>will be permanently removed</strong> from the data base',
     
     'editTpTitle' => 'Edit Training Program',

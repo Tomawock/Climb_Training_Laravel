@@ -4,13 +4,13 @@ return [
     'homePageTitle' => 'Pagina Principale',
     
     'homePageNavbar' => 'Home',
-    'myTrainingNavbar' => 'Allenamento Personale',
+    'myTrainingNavbar' => 'Allenamento',
     'accountNavbar' => 'Account',
     'personalTrainingNavbar' => 'Schede di Allenamento Personale',
     'historyStatisticNavbar' => 'Storia e Statistiche',
-    'trainingNavbar' => 'Allenamento',
-    'exerciseListNavbar' => 'Lista Esercizi',
-    'trainingListNavbar' => 'Lista Schede di Allenamento',
+    'trainingNavbar' => 'Esercizi | Schede di Allenamento',
+    'exerciseListNavbar' => 'Esercizi',
+    'trainingListNavbar' => 'Schede di Allenamento',
     'userAuthNavbar' => 'Autenticazione Utente',
     
     'welcome' => 'Benvenuto',
@@ -36,10 +36,10 @@ return [
     
     
     'destroyExerciseTitle' => 'Elimina Esercizio',
-    'destroyExerciseHeader' => 'Elimina Esercizio ":name" dalla lista ?',
+    'destroyExerciseHeader' => 'Elimina Esercizio ":name" dagli Esercizi ?',
     'destroyExerciseConfirm' => 'Vuoi Confermare l\'eliminazione dell\'Esercizio?',
     'destroyExerciseRevertMessage' => 'L\'Esercizio <strong>non verrà permanentemente cancellato</strong> dal database',
-    'destroyExerciseBackMessage' => 'Indietro all lista degli Esercizi',
+    'destroyExerciseBackMessage' => 'Indietro agli Esercizi',
     'destroyExerciseConfirmMessage' => 'L\'Esercizio <strong>verrà permanentemente cancellato</strong> dal database',
      
     'editExerciseTitle' => 'Modifica Esercizio',
@@ -99,10 +99,10 @@ return [
     'authWrongcredential'=>'Credenziali errate',
      
     'destroyTpTitle' => 'Elimina Scheda di allenamtno Training Program',
-    'destroyTpHeader' => 'Elimina Schede di Allenamento ":title" dalla lista ?',
+    'destroyTpHeader' => 'Elimina Scheda di Allenamento ":title" dalle Schede di Allenamento ?',
     'destroyTpConfirm' => 'Vuoi Confermare l\'eliminazione della Scheda di Allenamtno?',
     'destroyTpRevertMessage' => 'La Scheda di allenamento <strong>non verrà rimossa</strong> dal database',
-    'destroyTpBackMessage' => 'Indietro alla lista delle Schede di Allenamtno',
+    'destroyTpBackMessage' => 'Indietro alle Schede di Allenamento',
     'destroyTpConfirmMessage' => 'La Scheda di allenamento <strong>verrà rimossa</strong> dal database',
     
     'editTpTitle' => 'Modifica Scheda di Allenamtno',
