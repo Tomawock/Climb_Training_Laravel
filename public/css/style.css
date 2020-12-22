@@ -7,6 +7,11 @@ textarea {
 body { 
     padding-top: 70px; /*Fatto per evitare che la static navbar dia problemi con il bredcum*/
 }
+/*disabilita la scritta nella home, e il nome qaundo sei loggato page cosi non cambia di colore quando ci si passa sopra col mouse*/
+.disabled {
+  pointer-events: none;
+  cursor: default;
+}
 
 .bg-home-page {
   /* Classe per lo sfondo della pèagina principale*/

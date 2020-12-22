@@ -38,6 +38,7 @@
                     <span class="icon-bar"></span> 
                 </button>
                 <div class="collapse navbar-collapse" id="myNavbar">
+                    @auth
                     <!-- Left Navbar -->
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('home') }}">@lang('label.homePageNavbar')</a></li>
@@ -57,10 +58,15 @@
                             </ul>
                         </li>
                     </ul>
+                    @else
+                    <a class="navbar-brand disabled">
+                    {{ config('app.name', 'CT') }}
+                    </a>
+                    @endauth
                     <!-- Right Navbar  -->
                     <ul class="nav navbar-nav navbar-right">
                         @auth
-                        <li><a><i>@lang('label.welcome') {{ Auth::user()->name }}</i></a></li>
+                        <li><a class="disabled"><i>@lang('label.welcome') {{ Auth::user()->name }}</i></a></li>
                         <li>
                             <a href="{{ route('logout') }}" 
                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
