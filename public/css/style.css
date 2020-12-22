@@ -1,6 +1,10 @@
 /* 
     Author     : Lorenzo Tomasetti
 */
+* {
+    font-family: Nunito,sans-serif;
+    font-size: 15px;
+}
 textarea {
    resize: none; /* per evitare problmei con la ridimensione della textarea da parte dell'utente */
 }
@@ -12,7 +16,13 @@ body {
   pointer-events: none;
   cursor: default;
 }
-
+/*If not used all the labels are in bold*/
+label {
+    font-weight: 400;
+}
+.btn.btn-link {
+  padding-left: 0
+}
 .bg-home-page {
   /* Classe per lo sfondo della pèagina principale*/
   background-image: url("../img/home.jpg");

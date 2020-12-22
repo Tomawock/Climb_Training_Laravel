@@ -14,7 +14,7 @@ return [
     'userAuthNavbar' => 'Autenticazione Utente',
     
     'welcome' => 'Benvenuto',
-    'login' => 'Accesso',
+    'login' => 'Accedi',
     'register' => 'Registrati',
     'logout' => 'Esci',
     'revert' => 'Indietro',
@@ -116,5 +116,18 @@ return [
     'showTpDownloadPDF'=>'Scarica PDF',
     
     'mytrainingInfoAdmin' => 'Amministratore',
+    
+    'email'=>'E-Mail',
+    'password'=>'Password',
+    'rememberme'=>'Resta connesso',
+    'forgotPassword'=>'Password dimenticata?'
+//    ''=>''
+//    ''=>''
+//    ''=>''
+//    ''=>''
+//    ''=>''
+//    ''=>''
+//    ''=>''
+//    ''=>''
    
 ];
