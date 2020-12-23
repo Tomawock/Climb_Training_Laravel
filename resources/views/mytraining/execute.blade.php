@@ -49,7 +49,6 @@
                                         <th class="col-md-1 text-center">@lang('label.exerciseSetsDone')</th>
                                     </tr>
                                 </thead>
-{{$trainingprogram}}
                                 <tbody>
 
                                     @foreach ($trainingprogram->exercises as $exercise)

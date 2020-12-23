@@ -424,24 +424,20 @@ class DataLayer {
         TrainingProgram::find($tpId)->delete();
     }
 
-    //public function createUserTrainingProgramExecution($idEx, $idTp, $idUsr, $reps, $sets, $date, $note) {
-        //per le tabell di legame con dati multipli fai come:: $user->roles()->attach($roleId, ['expires' => $expires]);
-    //    User::where('id',$idUsr)->first()->executedtrainingprograms()->attach($idTp,['id_exercise' =>$idEx,'reps' =>$reps,'sets'=>$sets,'date'=>$date,'note'=>$note]);             
-    //}
+
     /**
-     * ALBI FAI LA DOC
+     * Insert a record of History
      * 
-     * @param type $Ex
-     * @param type $id
-     * @param type $data
+     * @param type $Ex a preformatted exercises inside the traning in json form
+     * @param type $id the user id
+     * @param type $data the data of execution
      */
-    public function createUserTrainingProgramExecutionJson($Ex, $id,$data) {
-        //per le tabell di legame con dati multipli fai come:: $user->roles()->attach($roleId, ['expires' => $expires]);
-        //User::where('id',$idUsr)->first()->executedtrainingprograms()->attach($idTp,['id_exercise' =>$idEx,'reps' =>$reps,'sets'=>$sets,'date'=>$date,'note'=>$note]); 
+    public function createUserTrainingProgramExecutionJson($Ex, $id,$data,$title) {
         
-        $tp = new History();
+        $tp = new History(); 
         $js = array(
             'exercises' => $Ex,
+            'traning_title'=> $title,
         );
         $js = json_encode($js);
         $tp->date=$data;
@@ -450,22 +446,6 @@ class DataLayer {
         $tp->save();      
     }
 
-//    public function getUserTrainingProgramExecutionByUserId($idUsr) {
-//        
-//        return User::where('id',$idUsr)->first()->executedtrainingprograms;
-//    }
-
-//    public function getUserTrainingProgramExecutionByUserIdDateAndTrainingProgram($idUsr, $date, $trainingProgram) {
-//        $result=array();
-//        $temp = User::where('id',$idUsr)->first()->executedtrainingprograms;
-//        foreach($temp as $t){
-//            if($t->pivot->date==$date && $t->id==$trainingProgram){
-//                $result['exercise'][]=$this->findCompleteExerciseById($t->pivot->id_exercise);
-//                $result['execution'][]=$t->pivot;
-//            }
-//        }
-//        return $result;
-//    }
     /**
      * Get if a exercise is preset inside a many to many relation with TP, 
      * and if is true he should not be delated

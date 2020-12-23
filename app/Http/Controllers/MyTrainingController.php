@@ -18,9 +18,9 @@ class MyTrainingController extends Controller {
         $dl = new DataLayer();
 
         $user = $dl->getUserbyUsername(Auth::user()->name);
-        $admins = $dl->getAllAdmins();
+        $exercises = $dl->listExercisesUserById($user->id);
 
-        return view('mytraining.information')->with('user', $user)->with('admins',$admins);
+        return view('mytraining.information')->with('user', $user)->with('exercises', $exercises);
     }
 
     public function programlist() {
@@ -103,15 +103,7 @@ class MyTrainingController extends Controller {
     }
 
     public function postexecute(Request $request, $id) {
-
-//        session_start();
-//
-//        if (!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
-
         $dl = new DataLayer();
-
         $tp = $dl->findCompleteTrainingProgramById($id);
         $exerciseList = $tp->exercises;
         $user = $dl->getUserbyUsername(Auth::user()->name);
@@ -136,15 +128,12 @@ class MyTrainingController extends Controller {
                                 'set_min'         => $ex->setMin,
                                 'set_max'         => $ex->setMax,
                                 'sets'            => $request->input('executedSets' . $ex->id),
-                                'note'            => $note,
-                                'title_training'  => $request->input('traning_title')
+                                'note'            => $note
                 );
-                //$dl->createUserTrainingProgramExecution($ex->id, $id, $user->id, $request->input('executedReps' . $ex->id), $request->input('executedSets' . $ex->id), $date, $note);
-                //$e = json_encode($e);
                 array_push($esercises, $e);
                 }
         }
-        $dl->createUserTrainingProgramExecutionJson($esercises,$user->id,$date);
+        $dl->createUserTrainingProgramExecutionJson($esercises, $user->id,$date, $request->input('traning_title'));
         return view('mytraining.programlist')->with('user', $user);
     }
 }
