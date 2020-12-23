@@ -22,8 +22,8 @@
                     $json = $traning->json;
                     $date = $traning->date;
                     $exercises = json_decode($json);
+                    $title = $exercises->traning_title;
                     $exercises = $exercises->exercises;
-                    $title = $exercises[0]->title_training;
                     ?>
                     <strong>{!! trans('label.mytrainingHsPanelTitle', [ 'title' => $title, 'date' => date("d/m/Y", strtotime($date)) ]) !!}</strong>
                 </h2>
