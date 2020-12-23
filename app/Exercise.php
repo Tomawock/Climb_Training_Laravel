@@ -20,7 +20,7 @@ class Exercise extends Model
     ];
     
     public function user(){
-        return $this->hasOne('App\User','id_user');
+        return $this->belongsTo('App\User','id_user');
     }
     
     public function photos(){

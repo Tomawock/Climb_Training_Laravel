@@ -24,8 +24,9 @@
                 <table class="table table-hover" id='searchandorder'>
                     <thead>
                         <tr>
+                            <th class="col-md-1">@lang('label.owner')</th>
                             <th class="col-md-3">@lang('label.trainingprogramTitle')</th>
-                            <th class="col-md-5">@lang('label.editTpDescription')</th>
+                            <th class="col-md-4">@lang('label.editTpDescription')</th>
                             <th class="col-md-1"></th>
                             <th class="col-md-1"></th>
                             <th class="col-md-1"></th>
@@ -37,6 +38,7 @@
                         <!-- Allenamenti degli Admin-->
                         @foreach($trainingprogram as $tp)
                         <tr>
+                            <td>{{ $tp->user->name}}</td>
                             <td>{{ $tp->title}}</td>
                             <td>{{ $tp->description}}</td>
                             <td>
@@ -52,6 +54,7 @@
                         <!-- Allenamenti dell'utente ovvero quelli cancellabili-->
                         @foreach($usertrainingprogram as $tp)
                         <tr>
+                            <td>{{ $tp->user->name}}</td>
                             <td>{{ $tp->title}}</td>
                             <td>{{ $tp->description}}</td>
                             <td>

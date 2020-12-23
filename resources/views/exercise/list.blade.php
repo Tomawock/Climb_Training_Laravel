@@ -24,8 +24,9 @@
                 <table class="table table-hover" id='searchandorder'>
                     <thead>
                         <tr>
+                            <th class="col-md-1">@lang('label.owner')</th>
                             <th class="col-md-3">@lang('label.editExerciseName')</</th>
-                            <th class="col-md-6">@lang('label.editExerciseDescription')</</th>
+                            <th class="col-md-5">@lang('label.editExerciseDescription')</</th>
                             <th class="col-md-1"></th>
                             <th class="col-md-1"></th>
                             <th class="col-md-1"></th>
@@ -35,6 +36,7 @@
                         <!-- Esercizi degli admin-->
                         @foreach($exerciseList as $exercise)
                         <tr>
+                            <td>{{ $exercise->user->name}}</td>
                             <td>{{ $exercise->name }}</td>
                             <td>{{ $exercise->description }}</td>
                             <td>
@@ -50,6 +52,7 @@
                         <!-- Esercizi dell'utente ovvero quelli cancellabili-->
                         @foreach($userExercise as $exercise)
                         <tr>
+                            <td>{{ $exercise->user->name}}</td>
                             <td>{{ $exercise->name }}</td>
                             <td>{{ $exercise->description }}</td>
                             <td>

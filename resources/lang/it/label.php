@@ -121,7 +121,15 @@ return [
     'verifyEmailAlertSuccess'=>'A fresh verification link has been sent to your email address.',
     'verifyEmailControlVerification'=>'Before proceeding, please check your email for a verification link.',
     'verifyEmailNotRecived'=>'If you did not receive the email',
-    'verifyEmailRequestAnotherBtn'=>'click here to request another'
+    'verifyEmailRequestAnotherBtn'=>'click here to request another',
+    
+    'resetPassword'=>'Resetta la Password',
+ 
+    'emailResetLink'=>'Invia il Link di Reset della Password',
+    
+    'confirmPasswordSuggestion'=>'Conferma la password prima di proseguire.',
+    
+    'owner'=>'Propietario'
 //    ''=>''
 //    ''=>''
 //    ''=>''

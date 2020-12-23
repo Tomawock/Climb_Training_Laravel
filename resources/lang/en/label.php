@@ -127,8 +127,9 @@ return [
  
     'emailResetLink'=>'Send Password Reset Link',
     
-    'confirmPasswordSuggestion'=>'Please confirm your password before continuing.'
-//    ''=>''
+    'confirmPasswordSuggestion'=>'Please confirm your password before continuing.',
+    
+    'owner'=>'Owner'
 //    ''=>''
 //    ''=>''
     
