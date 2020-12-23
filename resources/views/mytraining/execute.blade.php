@@ -35,7 +35,6 @@
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
-                            fdsafdfsafsdafdsafdsa
                             <table class="table table-responsive table-hover text-center">
                                 <thead>
                                     <tr>
