@@ -90,13 +90,6 @@ return [
     'historyStatisticErrorTitle'=>'No Training Program Executed',
     
     'trainingprogramTitle'=>'Title',
-    
-    'authPassword'=>'Password',
-    'authPasswordConfirm'=>'Confirm Password',
-    'authRemeberMe'=>'Remember Me',
-    'authErrortitle'=>'Authentication Error',
-    'authBackToHome'=>'Back to home',
-    'authWrongcredential'=>'Wrong credentials while accessing this page',
      
     'destroyTpTitle' => 'Delete Training Program',
     'destroyTpHeader' => 'Delete Training Program ":title" Training Programs ?',
@@ -117,13 +110,24 @@ return [
     
     'mytrainingInfoAdmin' => 'Admin',
     
-    'email'=>'E-Mail',
+    'email'=>'E-Mail Address',
     'password'=>'Password',
+    'confirmPassword'=>'Confirm Password',
     'rememberme'=>'Remember Me',
-    'forgotPassword'=>'Forgot Your Password?'
-//    ''=>''
-//    ''=>''
-//    ''=>''
+    'forgotPassword'=>'Forgot Your Password?',
+    'name'=>'Name',
+    
+    'verifyEmail'=>'Verify Your Email Address',
+    'verifyEmailAlertSuccess'=>'A fresh verification link has been sent to your email address.',
+    'verifyEmailControlVerification'=>'Before proceeding, please check your email for a verification link.',
+    'verifyEmailNotRecived'=>'If you did not receive the email',
+    'verifyEmailRequestAnotherBtn'=>'click here to request another',
+    
+    'resetPassword'=>'Reset Password',
+ 
+    'emailResetLink'=>'Send Password Reset Link',
+    
+    'confirmPasswordSuggestion'=>'Please confirm your password before continuing.'
 //    ''=>''
 //    ''=>''
 //    ''=>''

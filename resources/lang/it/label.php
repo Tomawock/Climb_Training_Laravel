@@ -90,13 +90,6 @@ return [
     'historyStatisticErrorTitle'=>'Nessua Scheda di Allenamento é stata eseguita',
     
     'trainingprogramTitle'=>'Titolo',
-    
-    'authPassword'=>'Password',
-    'authPasswordConfirm'=>'Conferma Password',
-    'authRemeberMe'=>'Ricordami',
-    'authErrortitle'=>'Errore di Autenticazione',
-    'authBackToHome'=>'Torna alla home',
-    'authWrongcredential'=>'Credenziali errate',
      
     'destroyTpTitle' => 'Elimina Scheda di allenamtno Training Program',
     'destroyTpHeader' => 'Elimina Scheda di Allenamento ":title" dalle Schede di Allenamento ?',
@@ -117,10 +110,18 @@ return [
     
     'mytrainingInfoAdmin' => 'Amministratore',
     
-    'email'=>'E-Mail',
+    'email'=>'Indirizzo E-Mail',
     'password'=>'Password',
+    'confirmPassword'=>'Conferma Password',
     'rememberme'=>'Resta connesso',
-    'forgotPassword'=>'Password dimenticata?'
+    'forgotPassword'=>'Password dimenticata?',
+    'name'=>'Nome',
+    
+    'verifyEmail'=>'Verify Your Email Address',
+    'verifyEmailAlertSuccess'=>'A fresh verification link has been sent to your email address.',
+    'verifyEmailControlVerification'=>'Before proceeding, please check your email for a verification link.',
+    'verifyEmailNotRecived'=>'If you did not receive the email',
+    'verifyEmailRequestAnotherBtn'=>'click here to request another'
 //    ''=>''
 //    ''=>''
 //    ''=>''
