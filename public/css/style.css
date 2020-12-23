@@ -3,7 +3,9 @@
 */
 * {
     font-family: Nunito,sans-serif;
-    font-size: 15px;
+}
+:is(h1, h2, h3, h4, h5, h6) {
+  font-family: Nunito,sans-serif;
 }
 textarea {
    resize: none; /* per evitare problmei con la ridimensione della textarea da parte dell'utente */
