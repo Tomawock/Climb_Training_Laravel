@@ -116,5 +116,17 @@ return [
     'showTpDownloadPDF'=>'Download PDF',
     
     'mytrainingInfoAdmin' => 'Admin',
+    
+    'email'=>'E-Mail',
+    'password'=>'Password',
+    'rememberme'=>'Remember Me',
+    'forgotPassword'=>'Forgot Your Password?'
+//    ''=>''
+//    ''=>''
+//    ''=>''
+//    ''=>''
+//    ''=>''
+//    ''=>''
+    
    
 ];

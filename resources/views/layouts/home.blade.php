@@ -7,6 +7,9 @@
         <!-- Fogli di stile -->
         <link rel="stylesheet" href="{{ url('/') }}/css/bootstrap.css">
         <link rel="stylesheet" href="{{ url('/') }}/css/@yield('stile')">
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
         <!-- jQuery e plugin JavaScript -->
         <script src="http://code.jquery.com/jquery.js"></script>
@@ -37,6 +40,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span> 
                 </button>
+                @guest
+                <div class="navbar-header">
+                    <a class="navbar-brand disabled">
+                        {{ config('app.name', 'CT') }}
+                    </a>
+                 </div>
+                @endguest
                 <div class="collapse navbar-collapse" id="myNavbar">
                     @auth
                     <!-- Left Navbar -->
@@ -58,10 +68,6 @@
                             </ul>
                         </li>
                     </ul>
-                    @else
-                    <a class="navbar-brand disabled">
-                    {{ config('app.name', 'CT') }}
-                    </a>
                     @endauth
                     <!-- Right Navbar  -->
                     <ul class="nav navbar-nav navbar-right">

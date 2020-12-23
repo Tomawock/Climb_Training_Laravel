@@ -9,7 +9,10 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
-
+    
+    protected $attributes = [
+        'is_admin' => FALSE,
+    ];
     /**
      * The attributes that are mass assignable.
      *
