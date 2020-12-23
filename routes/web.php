@@ -21,10 +21,6 @@ Route::group(['middleware' => ['lang']], function () {
     Route::get('/', ['as' => 'home', 'uses' => 'FrontController@getHome']);
     Route::get('/lang/{lang}', ['as' => 'setLang',
         'uses' => 'LangController@changeLanguage']);
-//    Route::get('/user/login', ['as' => 'user.login', 'uses' => 'AuthController@authentication']);
-//    Route::post('/user/login', ['as' => 'user.login', 'uses' => 'AuthController@login']);
-//    Route::get('/user/logout', ['as' => 'user.logout', 'uses' => 'AuthController@logout']);
-//    Route::post('/user/register', ['as' => 'user.register', 'uses' => 'AuthController@registration']);
 });
 
 Route::group(['middleware' => ['auth', 'lang']], function() {
@@ -47,4 +43,6 @@ Route::group(['middleware' => ['auth', 'lang']], function() {
     Route::get('/mytraining/historystatistic', ['as' => 'mytraining.historystatistic', 'uses' => 'MyTrainingController@historystatistic']);
     Route::get('/mytraining/{id}/executetraining', ['as' => 'mytraining.executetraining', 'uses' => 'MyTrainingController@executetraining']);
     Route::post('/mytraining/{id}/executetraining', ['as' => 'mytraining.postexecute', 'uses' => 'MyTrainingController@postexecute']);
+    // non si puo usare lo shortcut as => dentro ajax quindi non lo metto neanche nelle route
+    Route::get('/ajaxdatatablelanguage','AjaxController@loadDatatableLanguage' );
 });

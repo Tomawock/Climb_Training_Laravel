@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <title>@yield('titolo_home')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <!--metadata for ajax token-->
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
         <!-- Fogli di stile -->
         <link rel="stylesheet" href="{{ url('/') }}/css/bootstrap.css">
         <link rel="stylesheet" href="{{ url('/') }}/css/@yield('stile')">
@@ -15,21 +17,13 @@
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="{{ url('/') }}/js/bootstrap.min.js"></script>
         <script src="{{ url('/') }}/js/myScript.js"></script>
+        <!--  DONT WORK IS FOR DOWNLOAD PDF      
         <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
         <script src="https://unpkg.com/jspdf-autotable@3.5.6/dist/jspdf.plugin.autotable.js"></script>
+        -->
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-        <script type="text/javascript" class="init">
-            var options = {
-                "info": false,
-                "lengthChange": false,
-                "pageLength": 10
-            };
-            var mytable;
-            $(document).ready(function () {
-                mytable=$('#searchandorder').DataTable(options);
-            });
-        </script>
+        
     </head>
     
     <body class="bg-home-page">

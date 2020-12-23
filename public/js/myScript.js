@@ -50,3 +50,37 @@ function download() {
 
     doc.save('Training_'+title+'.pdf');
 }
+
+
+$(document).ready(function () {
+    //syncronus request
+//    $.ajax({
+//        url: "/ajax-lang",
+//        type:"GET",
+//        data:{
+//          
+//        },
+//        success:function(response){     
+//          if(response) {
+//           console.log(response.success);
+//          }
+//        },
+//       });
+    //load the json file from sever that contains the language for Datatable
+    var datatableLang = $.parseJSON($.ajax({
+        url:  '/ajaxdatatablelanguage',
+        type:"GET",
+        dataType: "json", 
+        async: false
+    }).responseText);
+    //define Datatable option before creating it 
+    var options = {
+        info: false,
+        lengthChange: false,
+        pageLength: 10,
+        language: datatableLang
+    };
+
+    var mytable;
+    mytable = $('#searchandorder').DataTable(options);
+});
