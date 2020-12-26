@@ -14,15 +14,37 @@
 @section('corpo')
 <div class="container">
     <div class="row">
-        <div class="col-md-offset-10 col-md-2">
-            <a class="btn btn-success btn-block" href="{{ route('exercise.create') }}"><span class="glyphicon glyphicon-new-window"></span> @lang('label.editExerciseTitleCreate')</a>
-        </div>
-    </div>
-    <div class="row">
         <div class="col-md-12">
             <div class="table-responsive"><!-- da metter prima del tag table o ppoteri avere errori-->
                 <table class="table table-hover" id='searchandorder'>
                     <thead>
+                        <tr>
+                            <th class="col-md-1">
+                                <select id="filter-owner">
+                                    <option value="" selected>@lang('label.allOwners')</option>
+                                    @foreach($uniqueUsers as $user)
+                                        @if($user==Auth::user())
+                                            <option value="{{$user->name}}">@lang('label.youOwner')</option>
+                                        @else
+                                            <option value="{{$user->name}}">{{$user->name}}</option>
+                                        @endif
+                                    @endforeach       
+                                </select>
+                            </th>
+                            <th class="col-md-3">
+                                <input id="filter-title" class="form-control" type="text" placeholder="@lang('label.searchByTitle')" value=""/>
+                            </th>
+                            <th class="col-md-5">
+                                <input id="filter-description" class="form-control" type="text" placeholder="@lang('label.searchByDescription')" value="" />
+                            </th>
+                            <th class="col-md-1"></th>
+                            <th class="col-md-1"></th>
+                            <th class="col-md-1">
+                               <a class="btn btn-success btn-block" href="{{ route('exercise.create') }}">
+                                   <span class="glyphicon glyphicon-new-window"></span>@lang('label.editExerciseTitleCreate')
+                               </a>
+                            </th>   
+                        </tr>
                         <tr>
                             <th class="col-md-1">@lang('label.owner')</th>
                             <th class="col-md-3">@lang('label.editExerciseName')</</th>

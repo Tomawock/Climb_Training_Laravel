@@ -131,7 +131,8 @@ return [
     
     'owner'=>'Owner',
     
-    'selectOwner'=>'Select an Owner',
+    'allOwners'=>'All',
+    'youOwner'=>'Mine',
     'searchByTitle'=>'Search by Title',
     'searchByDescription'=>'Search by Description',
 //    ''=>''

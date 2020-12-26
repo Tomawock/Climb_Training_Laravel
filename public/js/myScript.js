@@ -76,6 +76,7 @@ $(document).ready(function () {
     //define Datatable option before creating it 
     var options = {
         dom:'rtpi',
+        ordering: false,
         info: false,
         lengthChange: false,
         pageLength: 10,
@@ -86,6 +87,7 @@ $(document).ready(function () {
     mytable = $('#searchandorder').DataTable(options);
     
     $('#filter-owner').change(function(){
+        
         mytable.columns( 0 )
                 .search( $(this).children("option:selected").val() )
                 .draw();

@@ -18,12 +18,13 @@ class TrainingProgramController extends Controller {
         $trainingprogramUser = $dl->listTrainingProgramUserById($userId);
         
         $uniqueUsers=array();
+        $uniqueUsers[]=Auth::user();
         foreach( $trainingprogramAdmins as $tp){
             if(!in_array($tp->user, $uniqueUsers)){
                 $uniqueUsers[]=$tp->user;
             }
         }
-        $uniqueUsers[]=Auth::user();
+        
 
         return view('trainingprogram.list')->with('trainingprogram', $trainingprogramAdmins)
                 ->with('usertrainingprogram', $trainingprogramUser)->with('uniqueUsers',$uniqueUsers);

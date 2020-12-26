@@ -132,7 +132,8 @@ return [
     'owner'=>'Propietario',
     
     
-    'selectOwner'=>'Seleziona un Propietario',
+    'allOwners'=>'Tutti',
+    'youOwner'=>'Mie',
     'searchByTitle'=>'Ricerca per Titolo',
     'searchByDescription'=>'Ricerca per Descrizione',
 //    ''=>''
