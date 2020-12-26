@@ -257,7 +257,7 @@
                     <!-- Buttons cancel-->
                     <div class="form-group">
                         <div class="col-md-10 col-md-offset-2">
-                            <a href="{{ route('exercise.index') }}" class="btn btn-danger btn-large btn-block"><span class="glyphicon glyphicon-log-out"></span> @lang('label.cancel')</a>                         
+                            <a href="{{ route('exercise.index') }}" class="btn btn-danger btn-large btn-block"><span class="glyphicon glyphicon-log-out"></span> @lang('label.revert')</a>                         
                         </div>
                     </div>  
     </div>

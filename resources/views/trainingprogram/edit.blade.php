@@ -148,7 +148,7 @@
                     <input id="mySubmit" type="submit" value=\'Create\' class="hidden"/>
                     @endif   
                     <br>
-                    <a href="{{ route('trainingprogram.index') }}" class="btn btn-danger btn-large btn-block"><span class="glyphicon glyphicon-log-out"></span> @lang('label.cancel')</a>                         
+                    <a href="{{ route('trainingprogram.index') }}" class="btn btn-danger btn-large btn-block"><span class="glyphicon glyphicon-log-out"></span> @lang('label.revert')</a>                         
                 </form>
         </div>   
     </div>

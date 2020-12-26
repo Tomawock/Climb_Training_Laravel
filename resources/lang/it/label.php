@@ -93,7 +93,7 @@ return [
      
     'destroyTpTitle' => 'Elimina Scheda di allenamtno Training Program',
     'destroyTpHeader' => 'Elimina Scheda di Allenamento ":title" dalle Schede di Allenamento ?',
-    'destroyTpConfirm' => 'Vuoi Confermare l\'eliminazione della Scheda di Allenamtno?',
+    'destroyTpConfirm' => 'Vuoi Confermare l\'eliminazione della Scheda di Allenamento?',
     'destroyTpRevertMessage' => 'La Scheda di allenamento <strong>non verrà rimossa</strong> dal database',
     'destroyTpBackMessage' => 'Indietro alle Schede di Allenamento',
     'destroyTpConfirmMessage' => 'La Scheda di allenamento <strong>verrà rimossa</strong> dal database',
@@ -102,7 +102,7 @@ return [
     'editTpCreate' => 'Nuova Scheda',
     'editTpTitlePH' => 'Titolo della Scheda',
     'editTpDescription' => 'Descrizione',
-    'editTpDescriptionPH' => 'Descrizione completa della Scheda di Allenamtno',
+    'editTpDescriptionPH' => 'Descrizione completa della Scheda di Allenamento',
     'editTpTime' => 'Tempo',
     
     'showTpTitle'=>'Scheda di Allenamento',
@@ -117,11 +117,11 @@ return [
     'forgotPassword'=>'Password dimenticata?',
     'name'=>'Nome',
     
-    'verifyEmail'=>'Verify Your Email Address',
-    'verifyEmailAlertSuccess'=>'A fresh verification link has been sent to your email address.',
-    'verifyEmailControlVerification'=>'Before proceeding, please check your email for a verification link.',
-    'verifyEmailNotRecived'=>'If you did not receive the email',
-    'verifyEmailRequestAnotherBtn'=>'click here to request another',
+    'verifyEmail'=>'Verifica il tuo indirizzo E-Mail',
+    'verifyEmailAlertSuccess'=>'Un nuovo link di verifica è stato inviato al tuo indirizzo email.',
+    'verifyEmailControlVerification'=>'Prima di procedere, controlla la tua email per un link di verifica.',
+    'verifyEmailNotRecived'=>'Se non hai ricevuto l\'email',
+    'verifyEmailRequestAnotherBtn'=>'clicca qui per richiederne un altro',
     
     'resetPassword'=>'Resetta la Password',
  
@@ -133,7 +133,7 @@ return [
     
     
     'allOwners'=>'Tutti',
-    'youOwner'=>'Mie',
+    'youOwner'=>'Miei',
     'searchByTitle'=>'Ricerca per Titolo',
     'searchByDescription'=>'Ricerca per Descrizione',
 //    ''=>''
