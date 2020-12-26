@@ -28,6 +28,8 @@ Initialize DB in local and create instances inside with faker
 
 ### SET up per Altervista 
 
+Per fare un update delle per una nuova relese copia prima i file ``/.htaccess`` ``/public/.htaccess``.<br>
+
 Per il db Modificare il file .env e caricarlo tramite FTP<br>
 
 Usare InnoDB come engine e settare la dimensione delle stringhe ad unmassimo di 191 per retrocompatibilita mysql5.6<br>
