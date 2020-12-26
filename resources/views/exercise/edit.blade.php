@@ -76,7 +76,7 @@
                         </div>
                     </div>               
                     <!-- Photo Insertion-->
-                    <div class="form-group @error('exercisePhotoDescription') has-error @enderror">  
+                    <div class="form-group @error('exercisePhotoDescription','exercisePhoto') has-error @enderror" enctype="multipart/form-data" >  
                         <label for="exercisePhoto" class="col-md-2">@lang('label.editExerciseAddPhoto')</label>
                         <div class="col-md-5">
                             <input class="form-control" type="text" id="exercisePhotoDescription" name="exercisePhotoDescription" placeholder="@lang('label.editExerciseAddPhotoPH')">
@@ -85,7 +85,10 @@
                         @enderror
                         </div>
                         <div class="col-md-5">
-                            <input class="form-control-file" type="file" id="exercisePhoto" name="exercisePhoto">
+                            <input class="form-control-file" type="file" accept="image/*" id="exercisePhoto" name="exercisePhoto">
+                            @error('exercisePhoto')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         
                     </div>

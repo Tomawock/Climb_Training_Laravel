@@ -12,7 +12,8 @@ class Photo extends Model
     //
     
     public static $rules =[
-        'exercisePhotoDescription'=>'required|regex:/[a-zA-Z0-9\s]+/'        
+        'exercisePhotoDescription'=>'required|regex:/[a-zA-Z0-9\s]+/',
+        'exercisePhoto'=>'image'        
     ];
     
     public function exercise(){
