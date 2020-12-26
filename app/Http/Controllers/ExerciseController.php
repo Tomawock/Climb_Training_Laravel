@@ -26,17 +26,9 @@ class ExerciseController extends Controller
             }
         }
         
-        $uniqueUsers=array();
-        $uniqueUsers[]=Auth::user();
-        foreach( $exerciseListAdmins as $exe){
-            if(!in_array($exe->user, $uniqueUsers)){
-                $uniqueUsers[]=$exe->user;
-            }
-        }
-        
         return view('exercise.list')->with('exerciseList',$exerciseListAdmins)
                 ->with('bloked',$bloked)->with('userExercise',$exerciseListUser)
-                ->with('uniqueUsers',$uniqueUsers);
+                ->with('user',Auth::user());
     }
     
     public function create() {        

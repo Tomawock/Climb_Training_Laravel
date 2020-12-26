@@ -22,13 +22,7 @@
                             <th class="col-md-1">
                                 <select id="filter-owner">
                                     <option value="" selected>@lang('label.allOwners')</option>
-                                    @foreach($uniqueUsers as $user)
-                                        @if($user==Auth::user())
-                                            <option value="{{$user->name}}">@lang('label.youOwner')</option>
-                                        @else
-                                            <option value="{{$user->name}}">{{$user->name}}</option>
-                                        @endif
-                                    @endforeach       
+                                    <option value="{{$user->name}}">@lang('label.youOwner')</option>
                                 </select>
                             </th>
                             <th class="col-md-3">

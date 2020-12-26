@@ -17,17 +17,9 @@ class TrainingProgramController extends Controller {
         $trainingprogramAdmins = $dl->listTrainingProgramAdmins();
         $trainingprogramUser = $dl->listTrainingProgramUserById($userId);
         
-        $uniqueUsers=array();
-        $uniqueUsers[]=Auth::user();
-        foreach( $trainingprogramAdmins as $tp){
-            if(!in_array($tp->user, $uniqueUsers)){
-                $uniqueUsers[]=$tp->user;
-            }
-        }
-        
 
         return view('trainingprogram.list')->with('trainingprogram', $trainingprogramAdmins)
-                ->with('usertrainingprogram', $trainingprogramUser)->with('uniqueUsers',$uniqueUsers);
+                ->with('usertrainingprogram', $trainingprogramUser)->with('user',Auth::user());
     }
 
     public function create() {
