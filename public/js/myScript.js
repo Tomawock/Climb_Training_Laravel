@@ -75,6 +75,7 @@ $(document).ready(function () {
     }).responseText);
     //define Datatable option before creating it 
     var options = {
+        dom:'rtpi',
         info: false,
         lengthChange: false,
         pageLength: 10,
@@ -83,4 +84,23 @@ $(document).ready(function () {
 
     var mytable;
     mytable = $('#searchandorder').DataTable(options);
+    
+    $('#filter-owner').change(function(){
+        mytable.columns( 0 )
+                .search( $(this).children("option:selected").val() )
+                .draw();
+    });
+    
+    $('#filter-title').keyup(function(){
+        mytable.columns( 1 )
+                .search( $(this).val() )
+                .draw();
+    });
+    
+    $('#filter-description').keyup(function(){
+        mytable.columns( 2 )
+                .search( $(this).val() )
+                .draw();
+    });
+    
 });

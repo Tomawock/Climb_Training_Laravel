@@ -129,7 +129,12 @@ return [
     
     'confirmPasswordSuggestion'=>'Conferma la password prima di proseguire.',
     
-    'owner'=>'Propietario'
+    'owner'=>'Propietario',
+    
+    
+    'selectOwner'=>'Seleziona un Propietario',
+    'searchByTitle'=>'Ricerca per Titolo',
+    'searchByDescription'=>'Ricerca per Descrizione',
 //    ''=>''
 //    ''=>''
 //    ''=>''

@@ -129,8 +129,11 @@ return [
     
     'confirmPasswordSuggestion'=>'Please confirm your password before continuing.',
     
-    'owner'=>'Owner'
-//    ''=>''
+    'owner'=>'Owner',
+    
+    'selectOwner'=>'Select an Owner',
+    'searchByTitle'=>'Search by Title',
+    'searchByDescription'=>'Search by Description',
 //    ''=>''
     
    

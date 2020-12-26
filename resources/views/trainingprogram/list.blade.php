@@ -14,15 +14,34 @@
 @section('corpo')
 <div class="container">
     <div class="row">
-        <div class="col-md-offset-10 col-md-2">
-            <a class="btn btn-success btn-block" href="{{ route('trainingprogram.create') }}"><span class="glyphicon glyphicon-new-window"></span> @lang('label.editTpCreate')</a>
-        </div>
-    </div>
-    <div class="row">
         <div class="col-md-12">
             <div class="table-responsive">
                 <table class="table table-hover" id='searchandorder'>
                     <thead>
+                        <tr>
+                            <th class="col-md-1">
+                                <select id="filter-owner">
+                                    <option value="" selected>@lang('label.selectOwner')</option>
+                                    @foreach($uniqueUsers as $user)
+                                    <option value="{{$user->name}}">{{$user->name}}</option>
+                                    @endforeach
+                                </select>  
+                            </th>
+                            <th class="col-md-3">
+                                <input  id="filter-title" class="form-control" type="text" placeholder="@lang('label.searchByTitle')" />
+                            </th>
+                            <th class="col-md-4">
+                                <input id="filter-description" class="form-control" type="text" placeholder="@lang('label.searchByDescription')" />
+                            </th>
+                            <th class="col-md-1"></th>
+                            <th class="col-md-1"></th>
+                            <th class="col-md-1"></th>
+                            <th class="col-md-1">
+                               <a class="btn btn-success btn-block" href="{{ route('trainingprogram.create') }}">
+                                    <span class="glyphicon glyphicon-new-window"></span> @lang('label.editTpCreate')
+                                </a>
+                            </th>   
+                        </tr>
                         <tr>
                             <th class="col-md-1">@lang('label.owner')</th>
                             <th class="col-md-3">@lang('label.trainingprogramTitle')</th>
