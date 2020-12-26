@@ -136,13 +136,16 @@ return [
     'youOwner'=>'Miei',
     'searchByTitle'=>'Ricerca per Titolo',
     'searchByDescription'=>'Ricerca per Descrizione',
-//    ''=>''
-//    ''=>''
-//    ''=>''
-//    ''=>''
-//    ''=>''
-//    ''=>''
-//    ''=>''
-//    ''=>''
-   
+    'indexDescription'=>'Become a Better Climber è un portale dedicato agli appassionati dell’arrampicata,
+                        il cui scopo è consentire ad un utente di creare in modo autonomo
+                        le proprie schede di allenamento per diventare uno scalatore più forte
+                        ed esperto.<br> <br>
+                        In quest’ottica il sito consente, previa registrazione, la creazione
+                        dei vari esercizi che descriveranno il nostro allenamento e successivamente di
+                        aggiungerli alle varie schede in modo tale da lasciare all’utente finale la massima personalizzazione, 
+                        ma al contempo rendere la creazione dell’allenamento semplice ed immediata.<br> <br>
+                        Il sito consente inoltre la possibilità di "eseguire" le varie schede di allenamento per 
+                        avere a disposizione uno storico che consenta una facile analisi a posteriori dell’andamento 
+                        dei vari esercizi svolti ed attività svolte.'
+//    ''=>''   
 ];

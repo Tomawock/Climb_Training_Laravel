@@ -135,7 +135,20 @@ return [
     'youOwner'=>'Mine',
     'searchByTitle'=>'Search by Title',
     'searchByDescription'=>'Search by Description',
-//    ''=>''
     
-   
+    'indexDescription'=>'Become a Better Climber is a portal dedicated to climbing enthusiasts,
+                        whose purpose is to allow a user to create independently
+                        your own training plans to become a stronger and expert climber.
+                        <br> <br>
+                        With this in mind, the site allows, after registration, the creation
+                        of the various exercises that will describe your training and subsequently
+                        add them to the various Training Programs in such a way as to leave the maximum customization 
+                        to the end user, but at the same time making the creation of the training simple and immediate.
+                        <br> <br>
+                        The site also allows the ability to "run" the various training schedules for
+                        have a history available that allows easy a posteriori analysis of the trend
+                        of the various exercises carried out and activities carried out.
+
+'
+//    ''=>''
 ];
