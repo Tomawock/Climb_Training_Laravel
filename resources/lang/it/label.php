@@ -141,7 +141,11 @@ return [
     'feedbackExerciseCorrectlyEdited'=>'L\'Esercizio :name è stato correttamente Modificato.',
     'feedbackExerciseCorrectlyDestroyed'=>'L\'Esercizio :name è stato correttamente Eliminato.',
     'feedbackExerciseCorrectlyCopied'=>'L\'Esercizio :name è stato correttamente Copiato.',
-    'feedbackTrainingProgramCorrectlyCreated'=>'La Scheda di Allenamento :title è stata correttamente Creata',
+    'feedbackTrainingProgramCorrectlyCreated'=>'La Scheda di Allenamento :title è stata Creata correttamente.',
+    'feedbackTrainingProgramCorrectlyEdited'=>'La Scheda di Allenamento :title è stata Modificata correttamente.',
+    'feedbackTrainingProgramCorrectlyDestroyed'=>'La Scheda di Allenamento :title è stata Eliminata correttamente.',
+    'feedbackTrainingProgramCorrectlyCopied'=>'La Scheda di Allenamento :title è stata Copiata correttamente.',
+    'feedbackTrainingProgramCorrectlyExecuted'=>'La Scheda di Allenamento :title è stata Eseguita correttamente.',
     
     'indexDescription'=>'Become a Better Climber è un portale dedicato agli appassionati dell’arrampicata,
                         il cui scopo è consentire ad un utente di creare in modo autonomo

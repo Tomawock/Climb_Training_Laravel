@@ -5,16 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\DataLayer;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class MyTrainingController extends Controller {
 
     public function information() {
-//        session_start();
-//
-//        if (!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
-
         $dl = new DataLayer();
 
         $user = $dl->getUserbyUsername(Auth::user()->name);
@@ -24,60 +19,15 @@ class MyTrainingController extends Controller {
     }
 
     public function programlist() {
-//        session_start();
-//
-//        if (!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
-
         $dl = new DataLayer();
 
         $user = $dl->getUserbyUsername(Auth::user()->name);
 
 
         return view('mytraining.programlist')->with('user', $user);
-    }
-
-//    public function historystatistic2() {
-////        session_start();
-////
-////        if (!isset($_SESSION['logged'])) {
-////            return Redirect::to(route('user.login'));
-////        }
-//
-//        $dl = new DataLayer();
-//        $tosend = array();
-//        $userId = $dl->getUserID(Auth::user()->name);
-//        $tpexecution = $dl->getUserTrainingProgramExecutionByUserId($userId);
-//
-//        $date = null;
-//        $tpid = null;
-//        foreach ($tpexecution as $ex) {
-//            if ($ex->pivot->date != $date || $ex->id != $tpid) {
-//                $date = $ex->pivot->date;
-//                $tpid = $ex->id;
-//                $tosend['title'][] = $ex->title;
-//                $tosend['date'][] = $ex->pivot->date;
-//                $tosend['exercises'][] = $dl->getUserTrainingProgramExecutionByUserIdDateAndTrainingProgram($userId, $date, $tpid);
-//            }
-//        }
-//        //dd($tosend==null);
-//        if ($tosend == null) {
-//            return view('mytraining.historystatisticerror');    
-//            
-//        }
-//        //nel caso in cui non ho match mi va in null pointer exception, è da gestire 
-//        return view('mytraining.historystatistic')->with('result', $tosend);
-//    }
+    }    
     
-    
-        public function historystatistic() {
-//        session_start();
-//
-//        if (!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
-
+    public function historystatistic() {
         $dl = new DataLayer();
         $tosend = array();
         $user = $dl->getUserbyUsername(Auth::user()->name);
@@ -85,15 +35,8 @@ class MyTrainingController extends Controller {
         //nel caso in cui non ho match mi va in null pointer exception, è da gestire 
         return view('mytraining.historystatistic')->with('result', $history);
     }
-    
 
     public function executetraining($id) {
-//        session_start();
-//
-//        if (!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
-
         $dl = new DataLayer();
         $tp = $dl->findCompleteTrainingProgramById($id);
         $test = "TEST";
@@ -134,6 +77,9 @@ class MyTrainingController extends Controller {
                 }
         }
         $dl->createUserTrainingProgramExecutionJson($esercises, $user->id,$date, $request->input('traning_title'));
+        //feedback
+        Session::flash('success',trans('label.feedbackTrainingProgramCorrectlyExecuted',
+                [ 'title'=> $tp->title]));
         return view('mytraining.programlist')->with('user', $user);
     }
 }

@@ -21,16 +21,16 @@
                     <thead>
                         <tr>
                             <th class="col-md-1">
-                                <select id="filter-owner">
+                                <select id="filter-owner" data-column="0">
                                     <option value="" selected>@lang('label.allOwners')</option>
                                     <option value="{{$user->name}}">@lang('label.youOwner')</option>
                                 </select>
                             </th>
                             <th class="col-md-3">
-                                <input id="filter-title" class="form-control" type="text" placeholder="@lang('label.searchByTitle')" value=""/>
+                                <input id="filter-title" class="form-control" type="text" placeholder="@lang('label.searchByTitle')" value="" data-column="1"/>
                             </th>
                             <th class="col-md-5">
-                                <input id="filter-description" class="form-control" type="text" placeholder="@lang('label.searchByDescription')" value="" />
+                                <input id="filter-description" class="form-control" type="text" placeholder="@lang('label.searchByDescription')" value="" data-column="2"/>
                             </th>
                             <th class="col-md-1"></th>
                             <th class="col-md-1"></th>

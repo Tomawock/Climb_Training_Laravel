@@ -140,7 +140,11 @@ return [
     'feedbackExerciseCorrectlyEdited'=>'The Exercise :name has been correctly Edited.',
     'feedbackExerciseCorrectlyDestroyed'=>'The Exercise :name has been correctly Destroyed.',
     'feedbackExerciseCorrectlyCopied'=>'The Exercise :name has been correctly Copied.',
-    'feedbackTrainingProgramCorrectlyCreated'=>'The Training Program :title has been correctly Created',
+    'feedbackTrainingProgramCorrectlyCreated'=>'The Training Prgram :title has been correctly Created',
+    'feedbackTrainingProgramCorrectlyEdited'=>'The Training Prgram :title has been correctly Edited.',
+    'feedbackTrainingProgramCorrectlyDestroyed'=>'The Training Prgram :title has been correctly Destroyed.',
+    'feedbackTrainingProgramCorrectlyCopied'=>'The Training Prgram :title has been correctly Copied.',
+    'feedbackTrainingProgramCorrectlyExecuted'=>'The Training Prgram :title has been correctly Executed.',
     
     'indexDescription'=>'Become a Better Climber is a portal dedicated to climbing enthusiasts,
                         whose purpose is to allow a user to create independently

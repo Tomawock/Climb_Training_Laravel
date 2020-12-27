@@ -7,6 +7,7 @@ use App\DataLayer;
 use App\TrainingProgram;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class TrainingProgramController extends Controller {
 
@@ -55,15 +56,14 @@ class TrainingProgramController extends Controller {
             }
         }
         
+        //manage feedback after correctly creating
+        Session::flash('success',trans('label.feedbackTrainingProgramCorrectlyCreated',
+                [ 'title'=>$request->input('trainingProgramTitle')]));
+        
         return Redirect::to(route('trainingprogram.index'));
     }
 
-    public function show($id) {//TODO
-//        session_start();
-//        if(!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
-        
+    public function show($id) {        
         $dl = new DataLayer();
         $trainingprogram = $dl->findCompleteTrainingProgramById($id);
         
@@ -106,17 +106,16 @@ class TrainingProgramController extends Controller {
                 $dl->deleteExerciseToTrainingprogram($ex->id, $id);
             }
         }
+             
+        //manage feedback after correctly creating
+        Session::flash('success',trans('label.feedbackTrainingProgramCorrectlyEdited',
+                [ 'title'=>$request->input('trainingProgramTitle')]));
         
         return Redirect::to(route('trainingprogram.index'));
     
     }
 
-    public function destroy($id) {//DONE
-//        session_start();
-//    
-//        if(!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
+    public function destroy($id) {
         $dl = new DataLayer();
          
         $tp = $dl->findCompleteTrainingProgramById($id);
@@ -125,52 +124,21 @@ class TrainingProgramController extends Controller {
         }
         //delet all shouldn't be usefull since all Tp are only connected to one user
         //$dl->deleteTrainingProgramToAllUser($id);
-        $dl->deleteTrainingProgram($id);   
+        $title=$tp->title;
+        $dl->deleteTrainingProgram($id);
+        //manage feedback after correctly creating 
+        Session::flash('success',trans('label.feedbackTrainingProgramCorrectlyDestroyed',
+                [ 'title'=>$title]));
 
         return Redirect::to(route('trainingprogram.index'));
     }
 
-    public function confirmDestroy($id) {//DONE
-//        session_start();
-//    
-//        if(!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
-        
+    public function confirmDestroy($id) {        
         $dl = new DataLayer();
         
         $tp=$dl->findCompleteTrainingProgramById($id);
         
         return view('trainingprogram.destroy')->with('trainingprogram', $tp); 
-    }
-    /**
-     * @deprecated since version 1.0.2
-     * @param type $id
-     * @return type
-     */
-    public function addmytraining($id) {//deprecated
-//        session_start();
-//
-//        if (!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
-
-        $dl = new DataLayer();
-
-        $trainingprogram = $dl->listTrainingProgram();
-        $userId = $dl->getUserID(Auth::user()->name);
-
-        $dl->addTrainingprogramToUser($id, $userId);
-        
-         $bloked=array();
-        foreach ($trainingprogram as $tp){
-            if ($dl->isIdTrainingprogramBlocked($tp->id)){
-                $bloked[]=$tp->id;
-            }
-        }
-
-        return view('trainingprogram.list')->with('trainingprogram', $trainingprogram)->with('userId', $userId)->with('bloked',$bloked);
-        
     }
     /**
      * Allows to copy one TrainingProgram to a user
@@ -183,6 +151,8 @@ class TrainingProgramController extends Controller {
         $dl = new DataLayer();
         $actualuserId= Auth::user()->id;
         $dl->copyTrainingProgramToUser($id, $actualuserId);
+        Session::flash('success',trans('label.feedbackTrainingProgramCorrectlyCopied',
+                [ 'title'=> TrainingProgram::find($dl->getLastIdTrainingprogram($actualuserId))->title]));
         return Redirect::to(route('trainingprogram.index'));
     }
 

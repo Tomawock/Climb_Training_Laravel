@@ -94,19 +94,19 @@ $(document).ready(function () {
     
     $('#filter-owner').change(function(){
         
-        mytable.columns( 0 )
+        mytable.columns( $(this).data('column') )
                 .search( $(this).children("option:selected").val() )
                 .draw();
     });
     
     $('#filter-title').keyup(function(){
-        mytable.columns( 1 )
+        mytable.columns( $(this).data('column') )
                 .search( $(this).val() )
                 .draw();
     });
     
     $('#filter-description').keyup(function(){
-        mytable.columns( 2 )
+        mytable.columns( $(this).data('column') )
                 .search( $(this).val() )
                 .draw();
     });
