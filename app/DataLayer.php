@@ -60,6 +60,17 @@ class DataLayer {
         $exerciseList = Exercise::where('id_user',$user)->get();
         return $exerciseList;
     }
+    
+    
+    /**
+     * Get all the users
+     * 
+     * @return array
+     */
+    public function getAllUsers(){
+        $users = User::orderBy('id','desc')->get();       
+        return $users;   
+    }
     /**
      * Find the exercise based on his Id
      * 

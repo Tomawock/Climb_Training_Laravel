@@ -116,6 +116,11 @@ return [
     'rememberme'=>'Remember Me',
     'forgotPassword'=>'Forgot Your Password?',
     'name'=>'Name',
+    'administrator' => 'Administrator',
+    'administratorPage' => 'Administrator Page',
+    'deleteUser' => 'Delete User',
+    'userList'=>'User List',
+    
     
     'verifyEmail'=>'Verify Your Email Address',
     'verifyEmailAlertSuccess'=>'A fresh verification link has been sent to your email address.',

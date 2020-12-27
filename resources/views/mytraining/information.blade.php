@@ -1,8 +1,11 @@
 @extends('layouts.master')
 
 @section('titolo')
+<?php if(($user->is_admin)==1){?>
+@lang('label.accountNavbar') @lang('label.administrator')
+<?php }else{?>
 @lang('label.accountNavbar')
-<?php if(($user->is_admin)==1){echo ' Administrator';};?>
+<?php } ?>
 @endsection
 
 @section('stile', 'style.css')
@@ -24,11 +27,9 @@
                             ?>">
                 <!-- Default panel contents -->
                 <div class="panel-heading text-center panel-relative" color="red"><h2 class="panel-title"><strong>@lang('label.mytrainingInfoDetails')
-                        <?php 
-                            if(($user->is_admin)==1){
-                                echo 'Administrator';
-                            }
-                        ?>
+                        <?php if(($user->is_admin)==1){?>
+                            @lang('label.administrator')
+                        <?php } ?>
                         </strong>
                     </h2>
                 </div>
@@ -46,11 +47,11 @@
                             if(($user->is_admin)==0){
                         ?>
                         <div class="row">
-                            <label class="col-md-6">@lang('label.mytrainingInfoAdmin')number exercise</label>
-                            <label class="col-md-6">{{count($exercises)}}</label>
+                            <label class="col-md-6">@lang('label.number_exercise')</label>
+                            <label class="col-md-6">{{count($user->exercises)}}</label>
                         </div>
                         <div class="row">
-                            <label class="col-md-6">@lang('label.mytrainingInfoAdmin')number traning programs</label>
+                            <label class="col-md-6">@lang('label.traningPrograms')</label>
                             <label class="col-md-6">{{count($user->trainingprograms)}}</label>
                         </div>
                         <?php 
@@ -64,7 +65,7 @@
             ?>
             <div class="row" style="margin-bottom: 20px;">
                     <div class="col-md-offset-10 col-md-2">
-                        <a class="btn btn-success btn-block" href="{{ route('exercise.create') }}"><span class="glyphicon glyphicon-new-window"></span> @lang('label.editExerciseTitleCreate')</a>
+                        <a class="btn btn-primary btn-block" href="{{ route('administrator.userslist') }}"><span class="glyphicon glyphicon-new-window"></span> @lang('label.userList')</a>
                     </div>
             </div>
             <?php 

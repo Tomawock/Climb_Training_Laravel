@@ -12,6 +12,13 @@ return [
     'exerciseListNavbar' => 'Esercizi',
     'trainingListNavbar' => 'Schede di Allenamento',
     'userAuthNavbar' => 'Autenticazione Utente',
+    'deleteUser' => 'Elimina Utente',
+    'administrator' => 'Amministratore',
+    
+    'administratorPage' => 'Pagina Amministratore',
+    'number_exercise'=>'Numero Esercizi',
+    'traningPrograms'=>'Schede Di Allenamento ',
+    'userList'=>'Lista Utenti',
     
     'welcome' => 'Benvenuto',
     'login' => 'Accedi',

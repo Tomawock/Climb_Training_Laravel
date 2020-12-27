@@ -45,4 +45,9 @@ Route::group(['middleware' => ['auth', 'lang']], function() {
     Route::post('/mytraining/{id}/executetraining', ['as' => 'mytraining.postexecute', 'uses' => 'MyTrainingController@postexecute']);
     // non si puo usare lo shortcut as => dentro ajax quindi non lo metto neanche nelle route
     Route::get('/ajaxdatatablelanguage','AjaxController@loadDatatableLanguage' );
+
+    Route::resource('administrator', 'AdministratorController');
+    Route::get('/admin/users', ['as' => 'administrator.userslist', 'uses' => 'AdministratorController@users']);
+    
+    
 });
