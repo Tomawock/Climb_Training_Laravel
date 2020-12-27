@@ -12,6 +12,9 @@ return [
     'exerciseListNavbar' => 'Exercises',
     'trainingListNavbar' => 'Training Programs',
     'userAuthNavbar' => 'User authentication',
+    'removeEserciseAdmin' => 'Exercises Admin List',
+    'addEserciseAdmin' => 'Add Admin Exercises',
+    
     
     'welcome' => 'Welcome',
     'login' => 'Login',
@@ -42,6 +45,9 @@ return [
     'destroyExerciseBackMessage' => 'Back to Exercises',
     'destroyExerciseConfirmMessage' => 'The exercise <strong>will be permanently removed</strong> from the data base',
      
+    'destroyExerciseTitleAdmin' => 'Delete Administrator Exercise',
+    
+    
     'editExerciseTitle' => 'Edit Exercise',
     'editExerciseTitleCreate' => 'New Exercise',
     'editExerciseTitleAdmin'=> 'New Admin Exercise',
@@ -118,6 +124,7 @@ return [
     'forgotPassword'=>'Forgot Your Password?',
     'name'=>'Name',
     'administrator' => 'Administrator',
+    'administrExerc' => 'Administrator Exercises',
     'administratorPage' => 'Administrator Page',
     'deleteUser' => 'Delete User',
     'userList'=>'User List',

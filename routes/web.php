@@ -49,6 +49,9 @@ Route::group(['middleware' => ['auth', 'lang']], function() {
     Route::resource('administrator', 'AdministratorController');
     Route::get('/admin/users', ['as' => 'administrator.userslist', 'uses' => 'AdministratorController@users']);
     Route::get('/admin/exercise', ['as' => 'administrator.newexercise', 'uses' => 'AdministratorController@newexercise']);
-    
+    Route::get('/admin/list/exercises', ['as' => 'administrator.delexercise', 'uses' => 'AdministratorController@delexercise']);
+    Route::get('/admin/list/exercise/{id}/destroy/confirm', ['as' => 'administrator.destroy.confirm', 'uses' => 'AdministratorController@confirmDestroy']);
+    Route::get('/admin/list/trainingprogram/{id}/destroy', ['as' => 'administrator.destroy', 'uses' => 'AdministratorController@destroy']);
+
     
 });

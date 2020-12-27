@@ -14,6 +14,9 @@ return [
     'userAuthNavbar' => 'Autenticazione Utente',
     'deleteUser' => 'Elimina Utente',
     'administrator' => 'Amministratore',
+    'removeEserciseAdmin' => 'Lista Esercizi Admministratore',
+    'addEserciseAdmin' => 'Aggiungi Esercizio Admministratore',
+    'administrExerc' => 'Esercizi Amministratore',
     
     'administratorPage' => 'Pagina Amministratore',
     'number_exercise'=>'Numero Esercizi',
@@ -105,6 +108,10 @@ return [
     'destroyTpRevertMessage' => 'La Scheda di allenamento <strong>non verrà rimossa</strong> dal database',
     'destroyTpBackMessage' => 'Indietro alle Schede di Allenamento',
     'destroyTpConfirmMessage' => 'La Scheda di allenamento <strong>verrà rimossa</strong> dal database',
+    
+    'destroyExerciseTitleAdmin' => 'Elimina Esercizio Amministratore',
+    
+    
     
     'editTpTitle' => 'Modifica Scheda di Allenamtno',
     'editTpCreate' => 'Nuova Scheda',

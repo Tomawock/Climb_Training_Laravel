@@ -64,11 +64,14 @@
                if(($user->is_admin)==1){
             ?>
             <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <a class="btn btn-primary btn-block" href="{{ route('administrator.userslist') }}"><span class="glyphicon glyphicon-new-window"></span> @lang('label.userList')</a>
                     </div>
-                    <div class="col-md-6">
-                        <a class="btn btn-success btn-block" href="{{ route('administrator.newexercise') }}"><span class="glyphicon glyphicon-new-window"></span> @lang('label.editExerciseTitleCreate')</a>
+                    <div class="col-md-4">
+                        <a class="btn btn-warning btn-block" href="{{ route('administrator.delexercise') }}"><span class="glyphicon glyphicon-new-window"></span> @lang('label.removeEserciseAdmin')</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="btn btn-success btn-block" href="{{ route('administrator.newexercise') }}"><span class="glyphicon glyphicon-new-window"></span> @lang('label.addEserciseAdmin')</a>
                     </div>
             </div>
             <?php 

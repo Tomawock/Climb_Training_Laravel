@@ -8,7 +8,8 @@
 
 @section('breadcrumb')
 <li><a href="{{ route('home') }}">@lang('label.homePageNavbar')</a></li>
-<li><a href="{{ route('administrator.userslist') }}">@lang('label.administrator')</a></li>
+<li><a href="{{ route('mytraining.information') }}">@lang('label.accountNavbar')</a></li>
+<li><a class="active">@lang('label.administratorPage')</a></li>
 @endsection
 
 @section('corpo')
