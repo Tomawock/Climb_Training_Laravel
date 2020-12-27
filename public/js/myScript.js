@@ -51,6 +51,12 @@ function download() {
     doc.save('Training_'+title+'.pdf');
 }
 
+function feedbackPositive(status,msg) {
+    toastr.options.closeButton = true;
+    if (status){
+        toastr.success(msg,'', {timeOut: 4000});
+    } 
+}
 
 $(document).ready(function () {
     //syncronus request

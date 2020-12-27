@@ -13,6 +13,7 @@
 
 @section('corpo')
 <div class="container">
+    <script>feedbackPositive("{{Session::has('success')}}", "{{Session::get('success')}}");</script>
     <div class="row">
         <div class="col-md-12">
             <div class="table-responsive"><!-- da metter prima del tag table o ppoteri avere errori-->
@@ -34,9 +35,9 @@
                             <th class="col-md-1"></th>
                             <th class="col-md-1"></th>
                             <th class="col-md-1">
-                               <a class="btn btn-success btn-block" href="{{ route('exercise.create') }}">
-                                   <span class="glyphicon glyphicon-new-window"></span>@lang('label.editExerciseTitleCreate')
-                               </a>
+                                <a class="btn btn-success btn-block" href="{{ route('exercise.create') }}">
+                                    <span class="glyphicon glyphicon-new-window"></span>@lang('label.editExerciseTitleCreate')
+                                </a>
                             </th>   
                         </tr>
                         <tr>
@@ -61,7 +62,7 @@
                             <td>
                                 <a class="btn btn-success btn-block" href="{{ route('exercise.copy', ['id' => $exercise->id]) }}"><span class="glyphicon glyphicon-plus"></span> @lang('label.copy')</a>
                             </td>
-                             <!-- Gestire i bottoni in un modo piu bello, quelli dell'admin ne dovrebbero avere solo2 invece quelli dell'utente ne devono avere 3-->
+                            <!-- Gestire i bottoni in un modo piu bello, quelli dell'admin ne dovrebbero avere solo2 invece quelli dell'utente ne devono avere 3-->
                             <td></td>
                         </tr>
                         @endforeach
@@ -75,8 +76,8 @@
                                 <a class="btn btn-info btn-block" href="{{ route('exercise.show', ['exercise' => $exercise->id]) }}"><span class="glyphicon glyphicon-eye-open"></span> @lang('label.show')</a>
                             </td>
                             <!-- Cancellare e sostituire con copia e modifica su soli gli esercizi dell'utente--> 
-                           @if(in_array($exercise->id,$bloked))
-                           <td>
+                            @if(in_array($exercise->id,$bloked))
+                            <td>
                                 <a class="btn btn-primary btn-block" href="#" disabled><span class="glyphicon glyphicon-pencil"></span> @lang('label.edit')</a>
                             </td>
                             <td>
@@ -99,3 +100,4 @@
     </div>
 </div>
 @endsection
+

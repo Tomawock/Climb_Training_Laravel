@@ -8,6 +8,7 @@ use App\Exercise;
 use App\Photo;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class ExerciseController extends Controller
 {
@@ -71,6 +72,9 @@ class ExerciseController extends Controller
             $fileurl = $request->file('exercisePhoto')->storeAs('exercisePhotos',$request->file('exercisePhoto')->getClientOriginalName() );
             $dl->createPhoto($fileurl,$request->input('exercisePhotoDescription'),$id);
         }
+        //manage feedback after correctly creating
+        Session::flash('success',trans('label.feedbackExerciseCorrectlyCreated',
+                [ 'name'=>Exercise::find($dl->getLastIdExercise($actualuserId))->name]));
         
         return Redirect::to(route('exercise.index'));
     }
@@ -90,13 +94,7 @@ class ExerciseController extends Controller
         return view('exercise.show')->with('exercise', $exercise)->with('toolsString',$toolsString);
     }
     
-    public function edit($id) {//DONE     
-//        session_start();
-//    
-//        if(!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
-        
+    public function edit($id) {        
         $dl = new DataLayer();
         
         $exercise = $dl->findCompleteExerciseById($id);
@@ -151,21 +149,19 @@ class ExerciseController extends Controller
             $dl->createPhoto($fileurl,$request->input('exercisePhotoDescription'),$id);
         }
         
+        //manage feedback 
+        Session::flash('success',trans('label.feedbackExerciseCorrectlyEdited',
+                 [ 'name'=>Exercise::find($id)->name]));
+        
         return Redirect::to(route('exercise.index'));
     }
     
     public function update(Request $request, $id) {//DONE
         //non sarebbe visitabile ma per evitare problemi con le routes, faccio solo un reinderizzamento
-        return Redirect::to(route('exercise.index'));
-        
+        return Redirect::to(route('exercise.index'));      
     }
     
-    public function destroy ($id) {//DONE
-//        session_start();
-//    
-//        if(!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
+    public function destroy ($id) {
         $dl = new DataLayer();
         //prmi elimino le foto legate all'esercizio e le righe dell atabella di legame con tools
         
@@ -176,17 +172,17 @@ class ExerciseController extends Controller
         }
         
         $dl->deleteExerciseToPhotoRecursive($id);
+        $name=Exercise::find($id)->name;
         $dl->deleteExercise($id);
+        
+        //manage feedback 
+        Session::flash('success',trans('label.feedbackExerciseCorrectlyDestroyed',
+                [ 'name'=>$name]));
        
         return Redirect::to(route('exercise.index'));
     }
     
-    public function confirmDestroy($id) {//DONE
-//        session_start();
-//    
-//        if(!isset($_SESSION['logged'])) {
-//            return Redirect::to(route('user.login'));
-//        }
+    public function confirmDestroy($id) {
         
         $dl = new DataLayer();
         
@@ -205,6 +201,11 @@ class ExerciseController extends Controller
         $dl = new DataLayer();
         $actualuserId= Auth::user()->id;
         $dl->copyExerciseToUser($id, $actualuserId);
+        
+        //manage feedback 
+        Session::flash('success',trans('label.feedbackExerciseCorrectlyCopied',
+                [ 'name'=>Exercise::find($dl->getLastIdExercise($actualuserId))->name]));
+        
         return Redirect::to(route('exercise.index'));
     }
 }

@@ -136,6 +136,12 @@ return [
     'searchByTitle'=>'Search by Title',
     'searchByDescription'=>'Search by Description',
     
+    'feedbackExerciseCorrectlyCreated'=>'The Exercise :name has been correctly Created.',
+    'feedbackExerciseCorrectlyEdited'=>'The Exercise :name has been correctly Edited.',
+    'feedbackExerciseCorrectlyDestroyed'=>'The Exercise :name has been correctly Destroyed.',
+    'feedbackExerciseCorrectlyCopied'=>'The Exercise :name has been correctly Copied.',
+    'feedbackTrainingProgramCorrectlyCreated'=>'The Training Program :title has been correctly Created',
+    
     'indexDescription'=>'Become a Better Climber is a portal dedicated to climbing enthusiasts,
                         whose purpose is to allow a user to create independently
                         your own training plans to become a stronger and expert climber.
@@ -147,8 +153,6 @@ return [
                         <br> <br>
                         The site also allows the ability to "run" the various training schedules for
                         have a history available that allows easy a posteriori analysis of the trend
-                        of the various exercises carried out and activities carried out.
-
-'
+                        of the various exercises carried out and activities carried out.'
 //    ''=>''
 ];
