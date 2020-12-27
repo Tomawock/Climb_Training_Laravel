@@ -46,8 +46,8 @@ class DataLayer {
     * @return list of all Exercises
     */
     public function listExercisesAdmins() {
-        $admins= $this->getAllAdmins(); 
-        $exerciseList = Exercise::whereIn('id_user',$admins)->get();
+        $admins = NULL;
+        $exerciseList = Exercise::where('id_user',$admins)->get();
         return $exerciseList;
     }
     /**
@@ -162,6 +162,46 @@ class DataLayer {
         
         $exercise->save();
     }
+    
+        /**
+     * Create a new exercise passing all the attributes
+     * 
+     * @param type $name
+     * @param type $description
+     * @param type $importantNotes
+     * @param type $repsMin
+     * @param type $repsMax
+     * @param type $setMin
+     * @param type $setMax
+     * @param type $restMin
+     * @param type $restMax
+     * @param type $overweightMin
+     * @param type $overweightMax
+     * @param type $overweightUnit
+     * @param type $actualuserId
+     */
+    public function createExerciseAdmin($name, $description, $importantNotes, $repsMin, $repsMax, $setMin, $setMax, $restMin, $restMax, $overweightMin, $overweightMax, $overweightUnit) {
+        
+        $exercise=new Exercise;
+        
+        $exercise->name = $name;
+        $exercise->description = $description;
+        $exercise->importantNotes = $importantNotes;
+        $exercise->repsMin = $repsMin;
+        $exercise->repsMax = $repsMax;
+        $exercise->setMin = $setMin;
+        $exercise->setMax = $setMax;
+        $exercise->restMin = $restMin;
+        $exercise->restMax = $restMax;
+        $exercise->overweightMin = $overweightMin;
+        $exercise->overweightMax = $overweightMax;
+        $exercise->overweightUnit = $overweightUnit;
+        $exercise->id_user= NULL;
+        
+        $exercise->save();
+    }
+    
+    
     /**
      * Copy an exercise to a specific user
      * 

@@ -44,6 +44,7 @@ return [
      
     'editExerciseTitle' => 'Edit Exercise',
     'editExerciseTitleCreate' => 'New Exercise',
+    'editExerciseTitleAdmin'=> 'New Admin Exercise',
     'editExerciseName' => 'Name',
     'editExerciseDescription' => 'Description',
     'editExerciseImportantNotes' => 'Important Notes',

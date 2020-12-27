@@ -53,7 +53,11 @@
                         <!-- Esercizi degli admin-->
                         @foreach($exerciseList as $exercise)
                         <tr>
+                            @if (is_null ( $exercise->id_user ))
+                            <td>Administrator</td>
+                            @else
                             <td>{{ $exercise->user->name}}</td>
+                            @endif
                             <td>{{ $exercise->name }}</td>
                             <td>{{ $exercise->description }}</td>
                             <td>

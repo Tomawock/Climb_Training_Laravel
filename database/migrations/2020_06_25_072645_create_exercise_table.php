@@ -26,10 +26,9 @@ class CreateExerciseTable extends Migration
             $table->time('restMax');
             $table->integer('overweightMin');
             $table->integer('overweightMax');
-            $table->string('overweightUnit');
+            $table->string('overweightUnit'); 
             
-            $table->integer('id_user')->unsigned();
-            $table->foreign('id_user')->references('id')->on('users');
+            $table->integer('id_user')->unsigned()->nullable();
         });
     }
 

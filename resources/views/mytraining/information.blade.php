@@ -48,7 +48,7 @@
                         ?>
                         <div class="row">
                             <label class="col-md-6">@lang('label.number_exercise')</label>
-                            <label class="col-md-6">{{count($user->exercises)}}</label>
+                            <label class="col-md-6">{{count($exercises)}}</label>
                         </div>
                         <div class="row">
                             <label class="col-md-6">@lang('label.traningPrograms')</label>
@@ -64,8 +64,11 @@
                if(($user->is_admin)==1){
             ?>
             <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-md-offset-10 col-md-2">
+                    <div class="col-md-6">
                         <a class="btn btn-primary btn-block" href="{{ route('administrator.userslist') }}"><span class="glyphicon glyphicon-new-window"></span> @lang('label.userList')</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a class="btn btn-success btn-block" href="{{ route('administrator.newexercise') }}"><span class="glyphicon glyphicon-new-window"></span> @lang('label.editExerciseTitleCreate')</a>
                     </div>
             </div>
             <?php 

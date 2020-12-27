@@ -50,6 +50,7 @@ return [
     'destroyExerciseConfirmMessage' => 'L\'Esercizio <strong>verrà permanentemente cancellato</strong> dal database',
      
     'editExerciseTitle' => 'Modifica Esercizio',
+    'editExerciseTitleAdmin' => 'Nuovo Eservizio Admin',
     'editExerciseTitleCreate' => 'Nuovo Esercizio',
     'editExerciseName' => 'Nome',
     'editExerciseDescription' => 'Descrizione',

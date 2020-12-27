@@ -1,19 +1,15 @@
 @extends('layouts.master')
 
 @section('titolo')
-@lang('label.editExerciseTitleAdmin') 
+@lang('label.editExerciseTitleAdmin')
 @endsection
 
 @section('stile', 'style.css')
 
 @section('breadcrumb')
 <li><a href="{{ route('home') }}">@lang('label.homePageNavbar')</a></li>
-<li><a href="{{ route('exercise.index') }}">@lang('label.exerciseListNavbar')</a></li>
-@if(isset($exercise->id))
-<li><a class="active">@lang('label.editExerciseTitle')</a></li>
-@else
-<li><a class="active">@lang('label.editExerciseTitleCreate')</a></li>
-@endif
+<li><a href="{{ route('mytraining.information') }}">@lang('label.accountNavbar')</a></li>
+<li><a class="active">@lang('label.editExerciseTitleAdmin')</a></li>
 @endsection
 
 @section('corpo')
@@ -23,7 +19,7 @@
             @if(isset($exercise->id))
             <form class="form-horizontal" enctype="multipart/form-data" name="exercise" method="post" action="{{ route('exercise.postupdate', ['id' => $exercise->id]) }}">
                 @else
-                <form class="form-horizontal" enctype="multipart/form-data" name="exercise" method="post" action="{{ route('exercise.store') }}">
+                <form class="form-horizontal" enctype="multipart/form-data" name="exercise" method="post" action="{{ route('administrator.store') }}">
                     @endif
                     {{csrf_field()}}
                     <!-- Name of the Exercise-->

@@ -48,6 +48,7 @@ Route::group(['middleware' => ['auth', 'lang']], function() {
 
     Route::resource('administrator', 'AdministratorController');
     Route::get('/admin/users', ['as' => 'administrator.userslist', 'uses' => 'AdministratorController@users']);
+    Route::get('/admin/exercise', ['as' => 'administrator.newexercise', 'uses' => 'AdministratorController@newexercise']);
     
     
 });
