@@ -44,6 +44,7 @@ return [
     'selected'=>'Sleleziona',
     'add'=>'Aggiungi',
     
+     'history' => 'Storico',
     
     'destroyExerciseTitle' => 'Elimina Esercizio',
     'destroyExerciseHeader' => 'Elimina Esercizio ":name" dagli Esercizi ?',
@@ -51,6 +52,16 @@ return [
     'destroyExerciseRevertMessage' => 'L\'Esercizio <strong>non verrà permanentemente cancellato</strong> dal database',
     'destroyExerciseBackMessage' => 'Indietro agli Esercizi',
     'destroyExerciseConfirmMessage' => 'L\'Esercizio <strong>verrà permanentemente cancellato</strong> dal database',
+    
+    
+        
+    'destroyHistoryTitle' => 'Elimina Storico',
+    'destroyHistoryHeader' => 'Elimina Storico ":name" ?',
+    'destroyHistoryConfirm' => 'Vuoi Confermare l\'eliminazione dello Storico?',
+    'destroyHistoryRevertMessage' => 'Lo Storico <strong>non verrà permanentemente cancellato</strong> dal database',
+    'destroyHistoryBackMessage' => 'Indietro agli Storici',
+    'destroyHistoryConfirmMessage' => 'Lo Storico <strong>verrà permanentemente cancellato</strong> dal database',
+    
      
     'editExerciseTitle' => 'Modifica Esercizio',
     'editExerciseTitleAdmin' => 'Nuovo Eservizio Admin',

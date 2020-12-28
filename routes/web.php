@@ -43,7 +43,11 @@ Route::group(['middleware' => ['auth', 'lang']], function() {
     Route::get('/mytraining/historystatistic', ['as' => 'mytraining.historystatistic', 'uses' => 'MyTrainingController@historystatistic']);
     Route::get('/mytraining/{id}/executetraining', ['as' => 'mytraining.executetraining', 'uses' => 'MyTrainingController@executetraining']);
     Route::post('/mytraining/{id}/executetraining', ['as' => 'mytraining.postexecute', 'uses' => 'MyTrainingController@postexecute']);
-    // non si puo usare lo shortcut as => dentro ajax quindi non lo metto neanche nelle route
+    Route::get('/mytraining/historystatistic/{id}/destroy', ['as' => 'mytraining.destroy', 'uses' => 'MyTrainingController@destroy']);
+    Route::get('/mytraining/historystatistic/{id}/destroyconfirm', ['as' => 'mytraining.destroyconfirm', 'uses' => 'MyTrainingController@destroyconfirm']);
+
+
+// non si puo usare lo shortcut as => dentro ajax quindi non lo metto neanche nelle route
     Route::get('/ajaxdatatablelanguage','AjaxController@loadDatatableLanguage' );
 
     Route::resource('administrator', 'AdministratorController');

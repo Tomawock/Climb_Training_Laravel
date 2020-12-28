@@ -4,6 +4,7 @@ return [
     'homePageTitle' => 'Home page',
     
     'homePageNavbar' => 'Home',
+    'history' => 'History',
     'myTrainingNavbar' => 'Workout',
     'accountNavbar' => 'Account',
     'personalTrainingNavbar' => 'Personal Training Program',
@@ -105,6 +106,19 @@ return [
     'destroyTpBackMessage' => 'Back to Training Programs',
     'destroyTpConfirmMessage' => 'The Training Program <strong>will be permanently removed</strong> from the data base',
     
+    'destroyHistoryTitle' => 'Delete History',
+    'destroyHistoryHeader' => 'Delete History ":name" ?',
+    'destroyHistoryConfirm' => 'Deleting History. Confirm?',
+    'destroyHistoryRevertMessage' => 'The History <strong>will not be removed</strong> from the data base',
+    'destroyHistoryBackMessage' => 'Back to all History',
+    'destroyHistoryConfirmMessage' => 'The History <strong>will be permanently removed</strong> from the data base',
+    
+    
+    
+    'number_exercise'=>'Number Exercises',
+    'traningPrograms'=>'Number Traning Programs',
+    
+    
     'editTpTitle' => 'Edit Training Program',
     'editTpCreate' => 'New Training Program',
     'editTpTitlePH' => 'Training Program Title',
@@ -148,6 +162,7 @@ return [
     'youOwner'=>'Mine',
     'searchByTitle'=>'Search by Title',
     'searchByDescription'=>'Search by Description',
+
     
     'feedbackExerciseCorrectlyCreated'=>'The Exercise :name has been correctly Created.',
     'feedbackExerciseCorrectlyEdited'=>'The Exercise :name has been correctly Edited.',

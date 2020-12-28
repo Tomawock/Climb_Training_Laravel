@@ -42,7 +42,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <tbody>
                             @foreach($exercises as $exercise)
                             <tr>     
                                 <td><div style="height:auto; overflow:hidden">{{$exercise->exercise_name}}</div></td>
@@ -53,7 +52,18 @@
                                 <td><div style="height:auto; overflow:hidden">{{$exercise->note}}</div></td>
                             </tr>
                             @endforeach
-                        </tbody> 
+                            <tr>     
+                                <td><div></div></td>
+                                <td><div></div></td>
+                                <td><div></div></td>
+                                <td><div></div></td>
+                                <td><div></div></td>
+                                <td>
+                                    <div>
+                                        <a class="btn btn-danger btn-block" href="{{ route('mytraining.destroy', ['id' => ($traning->id)]) }}"><span class='glyphicon glyphicon-trash'> @lang('label.delete')</a>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

@@ -25,7 +25,6 @@ class DataLayer {
     public function getUserbyUsername($username) {
         $user = User::where('name', $username)->first();
         return $user;
-        
     }
     /**
      * Get all the id of users defined as Admin
@@ -248,6 +247,21 @@ class DataLayer {
         $exe=Exercise::where('id_user',$actualuserId)->orderBy('id','desc')->take(1)->get('id');
         return $exe[0]->id;
     }
+    
+    
+    /**
+     * Delete history based on his Id
+     * 
+     * @param int $id of the history
+     */
+    public function deleteHistory($id) {
+        History::find($id)->delete();
+    }
+    
+    public function findHistoryById($id) {
+        return History::where('id',$id)->get();
+    }
+    
     
     public function createExerciseToToll($idExercise, $idTool) {
         

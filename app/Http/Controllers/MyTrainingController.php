@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\DataLayer;
+use App\History;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -45,6 +46,13 @@ class MyTrainingController extends Controller {
                 ->with('test', $test);
     }
 
+    public function destroy($id) {
+        $dl = new DataLayer();
+        $hs = History::find($id);
+        return view('mytraining.distorytraning')->with('history', $hs); 
+    }
+    
+    
     public function postexecute(Request $request, $id) {
         $dl = new DataLayer();
         $tp = $dl->findCompleteTrainingProgramById($id);
@@ -82,4 +90,16 @@ class MyTrainingController extends Controller {
                 [ 'title'=> $tp->title]));
         return view('mytraining.programlist')->with('user', $user);
     }
+    
+    
+    public function destroyconfirm($id) {
+        $dl = new DataLayer();
+        $dl -> deleteHistory($id);
+        $user = $dl->getUserbyUsername(Auth::user()->name);
+        $history = $user->allhistory;
+        //nel caso in cui non ho match mi va in null pointer exception, è da gestire 
+        return view('mytraining.historystatistic')->with('result', $history);
+    }
+    
+    
 }

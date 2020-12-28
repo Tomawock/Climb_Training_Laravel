@@ -54,7 +54,7 @@
                         @foreach($exerciseList as $exercise)
                         <tr>
                             @if (is_null ( $exercise->id_user ))
-                            <td>Administrator</td>
+                            <td>@lang('label.administrator')</td>
                             @else
                             <td>{{ $exercise->user->name}}</td>
                             @endif
