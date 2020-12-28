@@ -41,6 +41,7 @@ class ExerciseController extends Controller
     }
     
     public function store(Request $request) {
+        dd($request);
         //validation ceck
         if ($request->hasFile('exercisePhoto')) {    
             $this->validate($request, array_merge(Photo::$rules,Exercise::$rules));

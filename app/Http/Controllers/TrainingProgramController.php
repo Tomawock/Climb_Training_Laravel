@@ -33,8 +33,7 @@ class TrainingProgramController extends Controller {
         return view('trainingprogram.edit')->with('allExercises', $allExercises);
     }
 
-    public function store(Request $request) {
-        
+    public function store(Request $request) {        
         $this->validate($request, TrainingProgram::$rules);
         
         $dl = new DataLayer();
@@ -82,6 +81,7 @@ class TrainingProgramController extends Controller {
     }
 
     public function update(Request $request, $id) {
+        
         $this->validate($request, TrainingProgram::$rules);
         
         $dl = new DataLayer();

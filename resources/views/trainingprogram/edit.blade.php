@@ -21,13 +21,14 @@
 @endsection
 
 @section('corpo')
+
 <div class="container">
     <div class="row">
         <div class='col-md-12'>
             @if(isset($trainingprogram->id))
-            <form class="form-horizontal" enctype="multipart/form-data" name="trainingprogram" method="get" action="{{ route('trainingprogram.update', ['id' => $trainingprogram->id]) }}">
+            <form class="form-horizontal" enctype="multipart/form-data" name="trainingprogram" method="get" onsubmit="return checkboxOnsubmit(this)" action="{{ route('trainingprogram.update', ['id' => $trainingprogram->id]) }}">
                 @else
-                <form class="form-horizontal" enctype="multipart/form-data" name="trainingprogram" method="post" action="{{ route('trainingprogram.store') }}">
+                <form class="form-horizontal" enctype="multipart/form-data" name="trainingprogram" method="post" onsubmit="return checkboxOnsubmit(this)" action="{{ route('trainingprogram.store') }}">
                     @endif
                     {{csrf_field()}} 
                     <!-- Title of the Training Program-->
@@ -91,7 +92,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table table-hover text-center" id='searchandorder'>
+                                <table class="table table-hover text-center" id='searchandordercheck'>
                                     <thead>
                                         <tr>
                                             <th class="col-md-2 text-center">@lang('label.editExerciseName')</th>
@@ -114,10 +115,11 @@
                                             <td><div style="height:auto; overflow:hidden">{{$exercise->overweightMin}} - {{$exercise->overweightMax}} {{$exercise->overweightUnit}}</div></td>     
                                             <td><div style="height:auto; overflow:hidden">{{$exercise->myToolsToString()}}</div></td>
                                             @if ($trainingprogram->exercises->contains($exercise->id) == 1) 
-                                            <td><div style="height:auto; overflow:hidden"><input type="checkbox" name="exercise{{$exercise->id}}" checked></div></td>
+                                            <td>{{'exercise'.$exercise->id.'checked'}}</td>
                                             @else
-                                            <td><div style="height:auto; overflow:hidden"><input type="checkbox" name="exercise{{$exercise->id}}"></div></td>
+                                            <td>{{'exercise'.$exercise->id}}</td>
                                             @endif
+                                            
                                         </tr>
                                         @endforeach
                                         @else
@@ -129,7 +131,7 @@
                                             <td><div style="height:auto; overflow:hidden">{{$exercise->restMin}} - {{ $exercise->restMax}} </div></td>
                                             <td><div style="height:auto; overflow:hidden">{{$exercise->overweightMin}} - {{$exercise->overweightMax}} {{$exercise->overweightUnit}}</div></td>     
                                             <td><div style="height:auto; overflow:hidden">{{$exercise->myToolsToString()}}</div></td>
-                                            <td><div style="height:auto; overflow:hidden"><input type="checkbox" name="exercise{{$exercise->id}}"></div></td>  
+                                            <td>{{'exercise'.$exercise->id}}</td>
                                         </tr>
                                         @endforeach
                                         @endif    

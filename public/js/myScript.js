@@ -59,20 +59,31 @@ function feedbackPositive(status,msg) {
     } 
 }
 
+function checkboxOnsubmit(form){
+    //consente il mantenimento e l'invio delle info delle checbox
+    //anche se le checkbox son preenti su pagine diverse
+    var rows_selected = $('#searchandordercheck').DataTable().column(6).checkboxes.selected();
+    // Iterate over all selected checkboxes
+    $.each(rows_selected, function (index, rowId) {
+
+        var res; 
+        if(!(rowId.indexOf("checked") === -1)){   
+            res = rowId.substring(0,rowId.length - 7); 
+        }else{
+            res=rowId;
+        }
+//        console.log(res)
+        $(form).append(
+                $('<input>')
+                .attr('type', 'hidden')
+                .attr('name', res)
+                .val(res)
+                );
+    });
+    return true;
+}
+
 $(document).ready(function () {
-    //syncronus request
-//    $.ajax({
-//        url: "/ajax-lang",
-//        type:"GET",
-//        data:{
-//          
-//        },
-//        success:function(response){     
-//          if(response) {
-//           console.log(response.success);
-//          }
-//        },
-//       });
     //load the json file from sever that contains the language for Datatable
     var datatableLang = $.parseJSON($.ajax({
         url:  '/ajaxdatatablelanguage',
@@ -87,11 +98,52 @@ $(document).ready(function () {
         info: false,
         lengthChange: false,
         pageLength: 10,
-        language: datatableLang
+        language: datatableLang,
+        stateSave: true
     };
+    var optionscheck={
+       dom:'rtpi',
+        ordering: false,
+        info: false,
+        lengthChange: false,
+        pageLength: 10,
+        language: datatableLang,
+      columnDefs: [
+         {
+            targets: 6,
+            checkboxes: {
+               selectRow: true,
+               selectAll: false
+            }
+         }
+      ],
+      select: {
+         style: 'multi'
+      } 
+   }
+    
 
     var mytable;
+    
     mytable = $('#searchandorder').DataTable(options);
+    //creo una tabella con caratteristiche speciali per usare le checkbox con essa in modo semplice
+    var table = $('#searchandordercheck').DataTable(optionscheck);
+   
+   //appena il documento è caricato,nel capso in cui abbiamo una tabella con checkbox
+   //si settano se presenti le eventuali spunte sulle chebox già presenti
+   $(table.rows()).each( function () {
+        //per ogni riga prendi la cella e tira fuori il nome cosi poi dopo se è cheked lo imposti 
+        //come cheked anhe nella checbox effettiva
+        $(this).each(function(){
+            if(table.cell($(this),6).data().indexOf("checked") === -1){   
+                //console.log("NOT MATCH")
+            }
+            else{
+                table.cell($(this),6).checkboxes.select(true);
+            }
+        });
+            
+    });
     
     $('#filter-owner').change(function(){
         
