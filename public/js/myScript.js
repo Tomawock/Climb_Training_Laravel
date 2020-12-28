@@ -1,4 +1,5 @@
 function download() {
+    const { jsPDF } = window.jspdf;
     
     var doc = new jsPDF('l', 'pt', 'a4');
 
@@ -48,7 +49,7 @@ function download() {
         startY: yPos
     });
 
-    doc.save('Training_'+title+'.pdf');
+    doc.save('Become_A_Better_Climber_'+title+'.pdf');
 }
 
 function feedbackPositive(status,msg) {
