@@ -184,6 +184,9 @@ return [
     'feedbackTrainingProgramCorrectlyCopied'=>'The Training Prgram :title has been correctly Copied.',
     'feedbackTrainingProgramCorrectlyExecuted'=>'The Training Prgram :title has been correctly Executed.',
     
+    'mandatorySymbol'=>'*',
+    'mandatoryText'=>'(*) All the marked areas are Mandatory.',
+    
     'indexDescription'=>'Become a Better Climber is a portal dedicated to climbing enthusiasts,
                         whose purpose is to allow a user to create independently
                         your own training plans to become a stronger and expert climber.

@@ -187,6 +187,9 @@ return [
     'feedbackTrainingProgramCorrectlyCopied'=>'La Scheda di Allenamento :title è stata Copiata correttamente.',
     'feedbackTrainingProgramCorrectlyExecuted'=>'La Scheda di Allenamento :title è stata Eseguita correttamente.',
     
+    'mandatorySymbol'=>'*',
+    'mandatoryText'=>'(*) Tutti i campi evidenziati sono Obbligatori.',
+    
     'indexDescription'=>'Become a Better Climber è un portale dedicato agli appassionati dell’arrampicata,
                         il cui scopo è consentire ad un utente di creare in modo autonomo
                         le proprie schede di allenamento per diventare uno scalatore più forte

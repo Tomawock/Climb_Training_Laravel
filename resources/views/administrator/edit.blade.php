@@ -22,9 +22,14 @@
                 <form class="form-horizontal" enctype="multipart/form-data" name="exercise" method="post" action="{{ route('administrator.store') }}">
                     @endif
                     {{csrf_field()}}
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <strong>@lang('label.mandatoryText')</strong>
+                        </div>
+                    </div>
                     <!-- Name of the Exercise-->
                     <div class="form-group @error('exerciseName') has-error @enderror">
-                        <label for="exerciseName" class="col-md-2">@lang('label.editExerciseName')</label>
+                        <label for="exerciseName" class="col-md-2">@lang('label.editExerciseName') <strong>@lang('label.mandatorySymbol')</strong></label>
                         <div class="col-md-10">
                             @if(isset($exercise->id))
                             <input class="form-control" type="text" id="exerciseName" name="exerciseName" placeholder="@lang('label.editExerciseNamePH')" value="{{ $exercise->name }}">
@@ -39,7 +44,7 @@
                     </div>
                     <!-- Description-->
                     <div class="form-group @error('exerciseDescription') has-error @enderror">
-                        <label for="exerciseDescription" class="col-md-2">@lang('label.editExerciseDescription')</label>
+                        <label for="exerciseDescription" class="col-md-2">@lang('label.editExerciseDescription') <strong>@lang('label.mandatorySymbol')</label>
                         <div class="col-md-10">
                             @if(isset($exercise->id))
                             <textarea class="form-control" rows="4" id="exerciseDescription" name="exerciseDescription" placeholder="@lang('label.editExerciseDescriptionPH')" >{{ $exercise->description }}</textarea>
@@ -54,7 +59,7 @@
                     </div>
                     <!-- Important Notes -->
                     <div class="form-group @error('exerciseImportantNotes') has-error @enderror">
-                        <label for="exerciseImportantNotes" class="col-md-2">@lang('label.editExerciseImportantNotes')</label>
+                        <label for="exerciseImportantNotes" class="col-md-2">@lang('label.editExerciseImportantNotes') <strong>@lang('label.mandatorySymbol')</label>
                         <div class="col-md-10">
                             @if(isset($exercise->id))
                             <textarea class="form-control" rows="2" id="exerciseImportantNotes" name="exerciseImportantNotes" placeholder="@lang('label.editExerciseImportantNotesPH')">{{ $exercise->importantNotes }}</textarea>

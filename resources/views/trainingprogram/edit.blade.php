@@ -31,9 +31,14 @@
                 <form class="form-horizontal" enctype="multipart/form-data" name="trainingprogram" method="post" onsubmit="return checkboxOnsubmit(this)" action="{{ route('trainingprogram.store') }}">
                     @endif
                     {{csrf_field()}} 
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <strong>@lang('label.mandatoryText')</strong>
+                        </div>
+                    </div>
                     <!-- Title of the Training Program-->
                     <div class="form-group @error('trainingProgramTitle') has-error @enderror">
-                        <label for="trainingProgramTitle" class="col-md-2">@lang('label.trainingprogramTitle')</label>
+                        <label for="trainingProgramTitle" class="col-md-2">@lang('label.trainingprogramTitle') <strong>@lang('label.mandatorySymbol')</strong></label>
                         <div class="col-md-10">
                             @if(isset($trainingprogram->id))
                             <input class="form-control" type="text" id="trainingProgramTitle" name="trainingProgramTitle" placeholder="@lang('label.trainingprogramTitle')" value="{{  $trainingprogram->title }}">
@@ -48,7 +53,7 @@
                     </div>
                     <!-- Description-->
                     <div class="form-group @error('trainingProgramDescription') has-error @enderror">
-                        <label for="trainingProgramDescription" class="col-md-2">@lang('label.editTpDescription')</label>
+                        <label for="trainingProgramDescription" class="col-md-2">@lang('label.editTpDescription') <strong>@lang('label.mandatorySymbol')</strong></label>
                         <div class="col-md-10">
                             @if(isset($trainingprogram->id))
                             <textarea class="form-control" rows="4" id="trainingProgramDescription" name="trainingProgramDescription">{{ $trainingprogram->description }}</textarea>
