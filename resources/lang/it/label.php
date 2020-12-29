@@ -190,6 +190,8 @@ return [
     'mandatorySymbol'=>'*',
     'mandatoryText'=>'(*) Tutti i campi evidenziati sono Obbligatori.',
     
+    
+    'funtionalities'=>'Cosa puoi fare ?',
     'indexDescription'=>'Become a Better Climber è un portale dedicato agli appassionati dell’arrampicata,
                         il cui scopo è consentire ad un utente di creare in modo autonomo
                         le proprie schede di allenamento per diventare uno scalatore più forte
@@ -200,6 +202,38 @@ return [
                         ma al contempo rendere la creazione dell’allenamento semplice ed immediata.<br> <br>
                         Il sito consente inoltre la possibilità di "eseguire" le varie schede di allenamento per 
                         avere a disposizione uno storico che consenta una facile analisi a posteriori dell’andamento 
-                        dei vari esercizi svolti ed attività svolte.'
+                        dei vari esercizi svolti ed attività svolte.',
+    'exercise'=>'Gestisci i tuoi Esercizi',
+    'exerciseFunctionality1'=>'Crea i tuoi Esercizi',
+    'exerciseFunctionality2'=>'Analizza in modo dettagliato i tuoi Esercizi',
+    'exerciseFunctionality3'=>'Modifica i tuoi Esercizi',
+    'exerciseFunctionality4'=>'Cancella i tuoi Esercizi',
+    'exerciseFunctionality5'=>'Copia gli Esercizi pubblici ed utilizzali nelle tue Schede di Allenamento',
+    'trainingProgram'=>'Gestisci le tue Schede di Allenamento',
+    'trainingProgramFunctionality1'=>'Crea le tue Schede di Allenamento',
+    'trainingProgramFunctionality2'=>'Analizza in modo dettagliato le tue Schede di Allenamento',
+    'trainingProgramFunctionality3'=>'Modifica le tue Schede di Allenamento',
+    'trainingProgramFunctionality4'=>'Cancella le tue Schede di Allenamento',
+    'trainingProgramFunctionality5'=>'Scarica in formato PDF le tue Schede di Allenamento',
+    'trainingProgramFunctionality6'=>'Copia le Schede di Allenamento pubbliche ed utilizzale nei tuoi Allenamenti',
+    'historyInfo'=>'Gestisci lo Storico ed Esecuzione del tuo Allenamento',
+    'historyInfoFunctionality1'=>'Esegui le tue Schede di Allenamento,  
+                                aggiungendo ad ogni Eserizio svolto il numero effetivo di Ripetizioni, Set ed eventuali commenti riguardanti 
+                                la sua esecuzione',
+    'historyInfoFunctionality2'=>'Visualiza lo Storico di tutti i tuoi allenamenti',
+    'historyInfoFunctionality3'=>'Gestisci la modifica dello Storico',
+    'adminsSuggestion'=>'Pensi di poter aiutare gli altri ?',
+    'adminsSuggestionExplained'=>'Hai delle competenze nell\'allenameto, sei un esperto del settore o 
+                                ritieni di avere delle conoscenze approfondite dell\'arrampicata ?<br><br>
+                                Diventa anche tu Amminisratore Tecnico del sito. Avrai la possibilità di 
+                                condividere le tue conoscenze con tutti gli altri utenti del sito ed aiutarli nel 
+                                loro percorso di Allenamento.',
+    'adminsFunctionalityName'=>'Amministratore',
+    'adminsFunctionality1'=>'Crea Exercizi che tutti gli utenti possono visionare ed utilizzare',
+    'adminsFunctionality2'=>'Crea Schede di Allenamento che tutti gli utenti possono visionare ed utilizzare',
+    'adminsFunctionality3'=>'Gestisci la promozione di altri utenti come Amminstratori',
+    'adminsFunctionality4'=>'Gestisci tutti gli utenti presenti sul sito',
+    'adminsFunctionality5'=>'Gestisci gli attrezzi tecnici utilizzabili negli esercizi',
+    
 //    ''=>''   
 ];

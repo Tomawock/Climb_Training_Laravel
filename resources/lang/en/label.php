@@ -187,6 +187,7 @@ return [
     'mandatorySymbol'=>'*',
     'mandatoryText'=>'(*) All the marked areas are Mandatory.',
     
+    'funtionalities'=>'What can you do ?',
     'indexDescription'=>'Become a Better Climber is a portal dedicated to climbing enthusiasts,
                         whose purpose is to allow a user to create independently
                         your own training plans to become a stronger and expert climber.
@@ -198,6 +199,36 @@ return [
                         <br> <br>
                         The site also allows the ability to "run" the various training schedules for
                         have a history available that allows easy a posteriori analysis of the trend
-                        of the various exercises carried out and activities carried out.'
+                        of the various exercises carried out and activities carried out.',
+    'exercise'=>'Manage your Exercises',
+    'exerciseFunctionality1'=>'Create your Exercises',
+    'exerciseFunctionality2'=>'Analyze your Exercises in detail',
+    'exerciseFunctionality3'=>'Edit your Exercises',
+    'exerciseFunctionality4'=>'Delete your Exercises',
+    'exerciseFunctionality5'=>'Copy the public Exercises and use them in your Training Program',
+    'trainingProgram'=>'Manage your Training Program',
+    'trainingProgramFunctionality1'=>'Create your Training Program',
+    'trainingProgramFunctionality2'=>'Analyze your Training Program in detail',
+    'trainingProgramFunctionality3'=>'Edit your Training Program',
+    'trainingProgramFunctionality4'=>'Delete your Training Program',
+    'trainingProgramFunctionality5'=>'Download your Training Program in PDF',
+    'trainingProgramFunctionality6'=>'Copy the public Training Programs and use them in your Workouts',
+    'historyInfo'=>'Manage the History and Execution of your Workout',
+    'historyInfoFunctionality1'=>'Execute your Training Programs,
+                                adding to each Exercise performed the actual number of Repetitions, Sets and any related comments',
+    'historyInfoFunctionality2'=>'View the History of all your workouts',
+    'historyInfoFunctionality3'=>'Manage the editing of the History',
+    'adminsSuggestion'=>'Do you think you can help others?',
+    'adminsSuggestionExplained'=>'Do you have training skills, are you an industry expert or
+                                do you think you have in-depth knowledge of climbing? <br> <br>
+                                Become the Technical Administrator of the site. You will have the opportunity to
+                                share your knowledge with all the other users of the site and help them in
+                                their training path.',
+    'adminsFunctionalityName'=>'Administrator',
+    'adminsFunctionality1'=>'Create Exercises that all users can view and use',
+    'adminsFunctionality2'=>'Create Training Programs that all users can view and use',
+    'adminsFunctionality3'=>'Manage the promotion of other users as Administrators',
+    'adminsFunctionality4'=>'Manage all users on the site',
+    'adminsFunctionality5'=>'Manage the technical tools that can be used in the exercises',
 //    ''=>''
 ];
