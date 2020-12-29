@@ -41,13 +41,13 @@ class ExerciseController extends Controller
     }
     
     public function store(Request $request) {
-        dd($request);
+        
         //validation ceck
         if ($request->hasFile('exercisePhoto')) {    
-            $this->validate($request, array_merge(Photo::$rules,Exercise::$rules));
+            $this->validate($request, array_merge(Photo::$rules,Exercise::rules($request)));
         
         }else {
-            $this->validate($request, Exercise::$rules);
+            $this->validate($request, Exercise::rules($request));
         }
         
         $dl = new DataLayer();
@@ -108,10 +108,10 @@ class ExerciseController extends Controller
     public function postupdate(Request $request, $id){
         
         if ($request->hasFile('exercisePhoto')) {    
-            $this->validate($request, array_merge(Photo::$rules,Exercise::$rules));
+            $this->validate($request, array_merge(Photo::$rules,Exercise::rules($request)));
         
         }else {
-            $this->validate($request, Exercise::$rules);
+            $this->validate($request, Exercise::rules($request));
         }
         
         $dl = new DataLayer();

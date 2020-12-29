@@ -34,7 +34,7 @@ class TrainingProgramController extends Controller {
     }
 
     public function store(Request $request) {        
-        $this->validate($request, TrainingProgram::$rules);
+        $this->validate($request, TrainingProgram::rules($request));
         
         $dl = new DataLayer();
         $actualuserId= Auth::user()->id;

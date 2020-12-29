@@ -128,10 +128,12 @@
                                 <option >{{ $i }}</option>
                                 @endif
                                 @endfor
-
                             </select>
                         </div>
                     </div>
+                    @error('exerciseRepsMax')
+                    <div class="col-md-offset-2 alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <!-- Sets-->
                     <div class="form-group">
                         <label for="exerciseSet" class="col-md-2">@lang('label.exerciseSets')</label>
@@ -160,7 +162,10 @@
                                 @endfor
                             </select>
                         </div>
-                    </div>   
+                    </div>
+                    @error('exerciseSetMax')
+                    <div class="col-md-offset-2 alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <!-- Overweight-->
                     <div class="form-group">
                         <label for="exerciseOverweight" class="col-md-2">@lang('label.exerciseOverweight')</label>
@@ -200,8 +205,12 @@
                                 @endif
                                 @endforeach
                             </select>
-                        </div> 
+                        </div>
+                        <div class="col-md-4"></div>                       
                     </div>
+                    @error('exerciseOverweightMax')
+                        <div class="col-md-offset-2 alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <!-- Rest-->
                     <div class="form-group">
                         <label for="exerciseRest" class="col-md-2">@lang('label.exerciseRest')</label>
@@ -221,8 +230,11 @@
                             @else
                             <input type="time" id="exerciseRestMax" name="exerciseRestMax" class="form-control" min="00:00:00" max="24:59:59" step="1" value="00:00:00" required>
                             @endif
-                        </div>  
+                        </div> 
                     </div>
+                    @error('exerciseRestMax')
+                            <div class="col-md-offset-2 alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <!-- Tecnical Tools-->
                     <div class="form-group">
                         <label for="exerciseTecnicalTools" class="col-md-2">@lang('label.exerciseTools')</label>
@@ -259,7 +271,7 @@
                             <a href="{{ route('exercise.index') }}" class="btn btn-danger btn-large btn-block"><span class="glyphicon glyphicon-log-out"></span> @lang('label.revert')</a>                         
                         </div>
                     </div>  
+        </div>
     </div>
-</div>
 </div>
 @endsection

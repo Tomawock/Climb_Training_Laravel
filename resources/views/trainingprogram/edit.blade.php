@@ -79,8 +79,11 @@
                             @else
                             <input type="time" id="trainingProgramTimeMax" name="trainingProgramTimeMax" class="form-control" min="00:00:00" max="24:59:59" step="1" value="00:00:00" required>
                             @endif
-                        </div>
-                    </div>                       
+                        </div> 
+                    </div>
+                    @error('trainingProgramTimeMax')
+                        <div class="col-md-offset-2 alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <!-- lista di tutti gli esercizi disponibili con ceckbox associate-->
                     <!--tabella con ricerca-->
                     <div class="panel panel-default ">
