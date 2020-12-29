@@ -44,7 +44,7 @@
                                 @if ($usr->is_admin)
                                 <a class="btn btn-warning btn-block disabled" href="{{ route('exercise.copy', ['id' => 1]) }}"> @lang('label.administrator')</a>
                                 @else
-                                <a class="btn btn-danger btn-block" href="{{ route('exercise.copy', ['id' => 1]) }}"> @lang('label.deleteUser')</a>
+                                <a class="btn btn-danger btn-block" href="{{ route('administrator.deluser', ['id' => $usr->id]) }}"> @lang('label.deleteUser')</a>
                                 @endif
                             </td>
                         </tr>

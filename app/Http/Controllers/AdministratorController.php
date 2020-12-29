@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\DataLayer;
 use App\Exercise;
 use App\Photo;
+use App\User;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -17,7 +18,7 @@ class AdministratorController extends Controller {
         $user = $dl->getUserbyUsername(Auth::user()->name);
         $users_list = $dl->getAllUsers();
         if ($user->is_admin) {
-            return view('administrator.users')->with('user', $user)->with('users_list', $users_list);
+            return view('administrator.users')->with('users_list', $users_list);
         } else {
             return redirect()->route('home');
         }
@@ -81,37 +82,55 @@ class AdministratorController extends Controller {
             return redirect()->route('home');
         }
     }
-    
+
     public function confirmDestroy($id) {
-        
+
         $dl = new DataLayer();
-        
-        $exercise=$dl->findCompleteExerciseById($id);
-        
-        return view('administrator.destroy')->with('exercise', $exercise); 
+
+        $exercise = $dl->findCompleteExerciseById($id);
+
+        return view('administrator.destroy')->with('exercise', $exercise);
     }
-    
-    
-        public function destroy ($id) {
+
+    public function destroy($id) {
         $dl = new DataLayer();
         //prmi elimino le foto legate all'esercizio e le righe dell atabella di legame con tools
-        
+
         $tools = Exercise::find($id)->tools;
         //set up dependecies of exercise
-        foreach ( $tools as $actualTool) {   
-            $dl->deleteExerciseToToll($id, $actualTool->id);  
+        foreach ($tools as $actualTool) {
+            $dl->deleteExerciseToToll($id, $actualTool->id);
         }
-        
+
         $dl->deleteExerciseToPhotoRecursive($id);
-        $name=Exercise::find($id)->name;
+        $name = Exercise::find($id)->name;
         $dl->deleteExercise($id);
-        
+
         //manage feedback 
-        Session::flash('success',trans('label.feedbackExerciseCorrectlyDestroyed',
-                [ 'name'=>$name]));
-       
+        Session::flash('success', trans('label.feedbackExerciseCorrectlyDestroyed',
+                        ['name' => $name]));
+
         return Redirect::to(route('administrator.delexercise'));
     }
-    
+
+    public function delluser($id) {
+        $dl = new DataLayer();
+        $user = $dl->getUserbyId($id);
+        return view('administrator.deleteuser')->with('user', $user);
+    }
+
+    public function delluserconfirm($id) {
+        $dl = new DataLayer();
+        $user = $dl->getUserbyId($id);
+        $name = $user->name;
+        $dl->deleteAllHistoryUser($id);
+        $dl->deleteAllTPUser($id);
+        $dl->deleteAllExercisesUser($id);
+        $dl->deleteUser($id);
+        Session::flash('success', trans('label.feedbackUserCorrectlyDestroyed',
+                        ['name' => $name]));
+
+        return Redirect::to(route('administrator.userslist'));
+    }
 
 }

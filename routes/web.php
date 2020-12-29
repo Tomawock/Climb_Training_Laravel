@@ -39,6 +39,8 @@ Route::group(['middleware' => ['auth', 'lang']], function() {
     Route::get('/trainingprogram/{id}/update', ['as' => 'trainingprogram.update', 'uses' => 'TrainingProgramController@update']);
 
     Route::get('/mytraining/information', ['as' => 'mytraining.information', 'uses' => 'MyTrainingController@information']);
+    Route::get('/mytraining/information/detele/', ['as' => 'mytraining.deletemyself', 'uses' => 'MyTrainingController@deletemyself']);
+    Route::get('/mytraining/information/detele/confirm', ['as' => 'mytraining.deletemyselfconfirm', 'uses' => 'MyTrainingController@deletemyselfconfirm']);
     Route::get('/mytraining/programlist', ['as' => 'mytraining.programlist', 'uses' => 'MyTrainingController@programlist']);
     Route::get('/mytraining/historystatistic', ['as' => 'mytraining.historystatistic', 'uses' => 'MyTrainingController@historystatistic']);
     Route::get('/mytraining/{id}/executetraining', ['as' => 'mytraining.executetraining', 'uses' => 'MyTrainingController@executetraining']);
@@ -56,6 +58,8 @@ Route::group(['middleware' => ['auth', 'lang']], function() {
     Route::get('/admin/list/exercises', ['as' => 'administrator.delexercise', 'uses' => 'AdministratorController@delexercise']);
     Route::get('/admin/list/exercise/{id}/destroy/confirm', ['as' => 'administrator.destroy.confirm', 'uses' => 'AdministratorController@confirmDestroy']);
     Route::get('/admin/list/trainingprogram/{id}/destroy', ['as' => 'administrator.destroy', 'uses' => 'AdministratorController@destroy']);
+    Route::get('/admin/users/{id}', ['as' => 'administrator.deluser', 'uses' => 'AdministratorController@delluser']);
+    Route::get('/admin/users/{id}/delete', ['as' => 'administrator.deluserconfirm', 'uses' => 'AdministratorController@delluserconfirm']);
 
     
 });
