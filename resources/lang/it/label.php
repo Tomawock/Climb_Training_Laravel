@@ -17,6 +17,8 @@ return [
     'removeEserciseAdmin' => 'Lista Esercizi Admministratore',
     'addEserciseAdmin' => 'Aggiungi Esercizio Admministratore',
     'administrExerc' => 'Esercizi Amministratore',
+    'deleteaccount'=>'Elimina Account',
+    'backtohome' =>'Torna alla Homepage',
     
     'administratorPage' => 'Pagina Amministratore',
     'number_exercise'=>'Numero Esercizi',
@@ -54,13 +56,20 @@ return [
     'destroyExerciseConfirmMessage' => 'L\'Esercizio <strong>verrà permanentemente cancellato</strong> dal database',
     
     
-        
+    'feedbackUserCorrectlyDestroyed' => 'L\'Utente è stato eliminato correttamente.',
     'destroyHistoryTitle' => 'Elimina Storico',
     'destroyHistoryHeader' => 'Elimina Storico ":name" ?',
     'destroyHistoryConfirm' => 'Vuoi Confermare l\'eliminazione dello Storico?',
     'destroyHistoryRevertMessage' => 'Lo Storico <strong>non verrà permanentemente cancellato</strong> dal database',
     'destroyHistoryBackMessage' => 'Indietro agli Storici',
     'destroyHistoryConfirmMessage' => 'Lo Storico <strong>verrà permanentemente cancellato</strong> dal database',
+    
+    'destroyUserTitle' => 'Elimina Utente',
+    'destroyUserHeader' => 'Elimina Utente ":name" ?',
+    'destroyUserConfirm' => 'Vuoi Confermare l\'eliminazione del\'Utente?',
+    'destroyUserRevertMessage' => 'L\'Utente <strong>non verrà permanentemente cancellato</strong> dal database',
+    'destroyUserBackMessage' => 'Indietro alla lista degli Utenti',
+    'destroyUserConfirmMessage' => 'L\'Utente <strong>verrà permanentemente cancellato</strong> dal database',
     
      
     'editExerciseTitle' => 'Modifica Esercizio',
@@ -120,6 +129,9 @@ return [
     'destroyTpBackMessage' => 'Indietro alle Schede di Allenamento',
     'destroyTpConfirmMessage' => 'La Scheda di allenamento <strong>verrà rimossa</strong> dal database',
     
+    
+    
+    
     'destroyExerciseTitleAdmin' => 'Elimina Esercizio Amministratore',
     
     
@@ -156,6 +168,8 @@ return [
     'confirmPasswordSuggestion'=>'Conferma la password prima di proseguire.',
     
     'owner'=>'Propietario',
+    
+    'deleteUser'=>'Elimina Utente',
     
     
     'allOwners'=>'Tutti',

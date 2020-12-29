@@ -26,6 +26,15 @@ class DataLayer {
         $user = User::where('name', $username)->first();
         return $user;
     }
+    
+    
+    public function getUserbyId($id) {
+        $user = User::where('id', $id)->first();
+        return $user;
+    }
+    
+    
+    
     /**
      * Get all the id of users defined as Admin
      * 
@@ -526,6 +535,27 @@ class DataLayer {
         }else {
             return false;
         }
+    }
+    
+    public function deleteAllHistoryUser($id) {
+        History::where('id_user',$id)->delete();
+    }
+    
+    
+    public function deleteAllTPUser($id) {
+        $tps = TrainingProgram::where('id_user',$id)->get();
+        foreach($tps as $tp){
+            TrainingprogramToExercise::where('id_trainingProgram',$tp->id)->delete();
+        }
+        TrainingProgram::where('id_user',$id)->delete();
+    }
+    
+    public function deleteAllExercisesUser($id) {
+        Exercise::where('id_user',$id)->delete();
+    }
+    
+    public function deleteUser($id) {
+        User::where('id',$id)->delete();
     }
 }
 ?>

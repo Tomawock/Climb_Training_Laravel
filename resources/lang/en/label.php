@@ -15,7 +15,8 @@ return [
     'userAuthNavbar' => 'User authentication',
     'removeEserciseAdmin' => 'Exercises Admin List',
     'addEserciseAdmin' => 'Add Admin Exercises',
-    
+    'deleteaccount'=>'Delete Account',
+    'backtohome' =>'Back to Homepage',
     
     'welcome' => 'Welcome',
     'login' => 'Login',
@@ -113,6 +114,15 @@ return [
     'destroyHistoryBackMessage' => 'Back to all History',
     'destroyHistoryConfirmMessage' => 'The History <strong>will be permanently removed</strong> from the data base',
     
+    'destroyUserTitle' => 'Delete User',
+    'destroyUserHeader' => 'Delete User ":name" ?',
+    'destroyUserConfirm' => 'Deleting User. Confirm?',
+    'destroyUserRevertMessage' => 'The User <strong>will not be removed</strong> from the data base',
+    'destroyUserBackMessage' => 'Back to all Users list',
+    'destroyUserConfirmMessage' => 'The User <strong>will be permanently removed</strong> from the data base',
+    
+    
+    'deleteUser'=>'Delete User',
     
     
     'number_exercise'=>'Number Exercises',
@@ -163,7 +173,7 @@ return [
     'searchByTitle'=>'Search by Title',
     'searchByDescription'=>'Search by Description',
 
-    
+    'feedbackUserCorrectlyDestroyed' => 'The User has been correctly Created.',
     'feedbackExerciseCorrectlyCreated'=>'The Exercise :name has been correctly Created.',
     'feedbackExerciseCorrectlyEdited'=>'The Exercise :name has been correctly Edited.',
     'feedbackExerciseCorrectlyDestroyed'=>'The Exercise :name has been correctly Destroyed.',
