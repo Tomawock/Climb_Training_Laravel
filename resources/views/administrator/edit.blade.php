@@ -19,7 +19,7 @@
             @if(isset($exercise->id))
             <form class="form-horizontal" enctype="multipart/form-data" name="exercise" method="post" action="{{ route('exercise.postupdate', ['id' => $exercise->id]) }}">
                 @else
-                <form class="form-horizontal" enctype="multipart/form-data" name="exercise" method="post" action="{{ route('exercise.store') }}">
+                <form class="form-horizontal" enctype="multipart/form-data" name="exercise" method="post" action="{{ route('administrator.store') }}">
                     @endif
                     {{csrf_field()}}
                     <!-- Name of the Exercise-->
