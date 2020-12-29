@@ -60,7 +60,7 @@
                                 <td><div></div></td>
                                 <td>
                                     <div>
-                                        <a class="btn btn-danger btn-block" href="{{ route('mytraining.destroy', ['id' => ($traning->id)]) }}"><span class='glyphicon glyphicon-trash'> @lang('label.delete')</a>
+                                        <a class="btn btn-danger btn-block" href="{{ route('mytraining.destroy', ['id' => ($traning->id)]) }}"><span class='glyphicon glyphicon-trash'></span> @lang('label.delete')</a>
                                     </div>
                                 </td>
                             </tr>
