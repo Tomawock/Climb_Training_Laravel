@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('titolo')
-@lang('label.editExerciseTitleAdmin') 
+@lang('label.editExerciseTitleCreate') 
 @endsection
 
 @section('stile', 'style.css')
