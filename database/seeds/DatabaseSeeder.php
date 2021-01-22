@@ -117,6 +117,11 @@ class DatabaseSeeder extends Seeder {
         $dl->createExercise("Esercizio_9", "Descrizione_9", "Note_9", 1, 10, 1, 10, date('H:i:s', (5 * 60)), date('H:i:s', (5 * 60)), 10, 20, 'Kg', NULL);
         $dl->createExercise("Esercizio_10", "Descrizione_10", "Note_10", 1, 10, 1, 10, date('H:i:s', (5 * 60)), date('H:i:s', (5 * 60)), 10, 20, 'Kg', NULL);
         $dl->createExercise("Trazione", "Descrizione_Trazione", "Note_Trazione", 1, 10, 1, 10, date('H:i:s', (5 * 60)), date('H:i:s', (5 * 60)), 10, 20, 'Kg', NULL);
+        
+        $dl->createTrainingProgram("Scheda_1", 'Descrizione_1', date('H:i:s', (30 * 60)), date('H:i:s', (40 * 60)), $dl->getUserID('Admin'));
+        $dl->createTrainingProgram("Scheda_2", 'Descrizione_1', date('H:i:s', (30 * 60)), date('H:i:s', (40 * 60)), $dl->getUserID('Admin'));
+        $dl->createTrainingProgram("Scheda_3", 'Descrizione_1', date('H:i:s', (30 * 60)), date('H:i:s', (40 * 60)), $dl->getUserID('Admin'));
+        $dl->createTrainingProgram("Scheda_4", 'Descrizione_1', date('H:i:s', (30 * 60)), date('H:i:s', (40 * 60)), $dl->getUserID('Admin'));
     }
 
 }
