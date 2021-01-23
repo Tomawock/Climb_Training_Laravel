@@ -146,7 +146,7 @@ return [
     'confirmPassword'=>'Confirm Password',
     'rememberme'=>'Remember Me',
     'forgotPassword'=>'Forgot Your Password?',
-    'name'=>'Name',
+    'name'=>'Username',
     'administrator' => 'Administrator',
     'administrExerc' => 'Administrator Exercises',
     'administratorPage' => 'Administrator Page',

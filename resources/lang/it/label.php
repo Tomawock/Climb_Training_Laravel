@@ -153,7 +153,7 @@ return [
     'confirmPassword'=>'Conferma Password',
     'rememberme'=>'Resta connesso',
     'forgotPassword'=>'Password dimenticata?',
-    'name'=>'Nome',
+    'name'=>'Username',
     
     'verifyEmail'=>'Verifica il tuo indirizzo E-Mail',
     'verifyEmailAlertSuccess'=>'Un nuovo link di verifica è stato inviato al tuo indirizzo email.',

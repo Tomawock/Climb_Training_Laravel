@@ -38,22 +38,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span> 
                 </button>
-                @guest
                 <div class="navbar-header">
-                    <a class="navbar-brand disabled">
+                    <a class="navbar-brand" href="{{ route('home') }}">
                         {{ config('app.name', 'CT') }}
                     </a>
-                 </div>
-                @endguest
+                </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     @auth
                     <!-- Left Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ route('home') }}">@lang('label.homePageNavbar')</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">@lang('label.myTrainingNavbar')<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ route('mytraining.information') }}">@lang('label.accountNavbar')</a></li>
                                 <li><a href="{{ route('mytraining.programlist') }}">@lang('label.personalTrainingNavbar')</a></li>
                                 <li><a href="{{ route('mytraining.historystatistic') }}">@lang('label.historyStatisticNavbar')</a></li>
                             </ul>
@@ -70,7 +66,12 @@
                     <!-- Right Navbar  -->
                     <ul class="nav navbar-nav navbar-right">
                         @auth
-                        <li><a class="disabled"><i>@lang('label.welcome') {{ Auth::user()->name }}</i></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('mytraining.information') }}">@lang('label.accountNavbar')</a></li>
+                            </ul>
+                        </li>  
                         <li>
                             <a href="{{ route('logout') }}" 
                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

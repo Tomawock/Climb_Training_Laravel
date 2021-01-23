@@ -5,7 +5,7 @@
     <div class="col-md-offset-2 col-md-8 col-md-offset-2">
         <div class="panel panel-default">
 
-            <div class="panel-heading">@lang('label.resetPassword')</div>
+            <div class="panel-heading text-center">@lang('label.resetPassword')</div>
 
             <div class="panel-body">
                 <form method="POST" action="{{ route('password.update') }}">

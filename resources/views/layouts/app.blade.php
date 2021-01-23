@@ -32,7 +32,7 @@
                     <span class="icon-bar"></span> 
                 </button>
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ route('home') }}">
                         {{ config('app.name', 'CT') }}
                     </a>
                  </div>
