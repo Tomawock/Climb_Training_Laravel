@@ -21,8 +21,8 @@
                     <thead>
                         <tr>
                             <th class="col-md-6">@lang('label.mytrainingInfoUsername')</th>
-                            <th class="col-md-3">@lang('label.trainingprogramTitle')</th>
-                            <th class="col-md-3">@lang('label.editTpDescription')</th>
+                            <th class="col-md-3">@lang('label.administrator')</th>
+                            <th class="col-md-3">@lang('label.deleteUser')</th>
                         </tr>
                     </thead>
 
