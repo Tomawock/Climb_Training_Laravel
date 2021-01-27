@@ -81,8 +81,7 @@ class TrainingProgramController extends Controller {
     }
 
     public function update(Request $request, $id) {
-        
-        $this->validate($request, TrainingProgram::$rules);
+        $this->validate($request, TrainingProgram::rules($request));
         
         $dl = new DataLayer();
         $actualuserId= Auth::user()->id;
